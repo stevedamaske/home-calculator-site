@@ -1,5 +1,2 @@
 .wrangler/
 node_modules/
-autodeploy.log
-.autodeploy-run.sh
-.autodeploy.lock/
