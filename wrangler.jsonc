@@ -1,0 +1,16 @@
+{
+  // Static-only site: Cloudflare serves everything in ./public. No Worker script,
+  // so requests are free and unlimited on the Workers Free plan.
+
+  "name": "home-calculator",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "itoowouldlikeahouse.com", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "single-page-application"
+  }
+}

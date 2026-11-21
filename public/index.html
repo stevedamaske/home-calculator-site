@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home Purchase Calculator — FHA · VA · Conventional</title>
+<style>
+  :root{
+    --bg:#f6f5f2; --card:#ffffff; --ink:#1d1f23; --muted:#6b6f76; --line:#e3e1dc;
+    --accent:#1f5f8b; --accent-soft:#e7f0f6; --warn:#a4570a; --warn-soft:#fbf0e3;
+    --bad:#a8322d; --bad-soft:#f9e6e5; --good:#2d7a4b; --good-soft:#e5f3ea;
+    --c1:#1f5f8b; --c2:#7a9cc6; --c3:#c98b3a; --c4:#8c6bb1; --c5:#5c9e7a; --c6:#c4626a;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#16181b; --card:#1f2226; --ink:#e9e7e3; --muted:#9a9ea5; --line:#33373d;
+      --accent:#6fa8d6; --accent-soft:#1e2c38; --warn:#e2a35a; --warn-soft:#33281b;
+      --bad:#e98580; --bad-soft:#3a2222; --good:#7cc79a; --good-soft:#1d3226;
+      --c1:#5b9bd0; --c2:#9db9dc; --c3:#d9a45c; --c4:#a98bcb; --c5:#79b996; --c6:#d98189; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  header{max-width:1180px;margin:0 auto;padding:28px 20px 8px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+  h1{font-size:24px;margin:0 0 4px;letter-spacing:-.01em}
+  header p{margin:0;color:var(--muted)}
+  .wrap{max-width:1180px;margin:0 auto;padding:16px 20px 40px;display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px;align-items:start}
+  @media (max-width:880px){.wrap{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 8px;margin-bottom:16px}
+  .card h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 12px;font-weight:600}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .row > *, .row3 > *{min-width:0}
+  @media (max-width:520px){.row,.row3{grid-template-columns:1fr}}
+  label{display:block;margin-bottom:12px}
+  label > span{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+  .field{display:flex;align-items:center;border:1px solid var(--line);border-radius:8px;background:var(--bg);overflow:hidden}
+  .field:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .field.active{border-color:var(--accent);background:var(--accent-soft)}
+  .field i{font-style:normal;color:var(--muted);padding:0 0 0 10px;font-size:14px;white-space:nowrap}
+  .field i.suf{padding:0 10px 0 0}
+  .field input,.field select{flex:1;min-width:0;width:100%;border:0;background:transparent;color:var(--ink);font:inherit;padding:9px 10px;outline:none}
+  select{appearance:none;-webkit-appearance:none;cursor:pointer}
+  .hint{font-size:12px;color:var(--muted);margin-top:4px}
+  .hint a, footer a{color:var(--accent)}
+  .check{display:flex;gap:8px;align-items:center;font-size:14px;margin:0 0 12px;cursor:pointer}
+  .check input{width:16px;height:16px;accent-color:var(--accent);flex:none}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:12px}
+  .seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;padding:7px 12px;cursor:pointer}
+  .seg button.on{background:var(--accent);color:#fff}
+  .typeseg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+  .typeseg button{border:0;border-right:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;padding:10px 18px;cursor:pointer;text-align:left}
+  .typeseg button:last-child{border-right:0}
+  .typeseg button b{display:block;font-size:15px}
+  .typeseg button small{color:var(--muted);font-size:12px}
+  .typeseg button.on{background:var(--accent);color:#fff}
+  .typeseg button.on small{color:rgba(255,255,255,.8)}
+  .results{position:sticky;top:16px}
+  .hero{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px}
+  .big{font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1}
+  .big small{font-size:15px;font-weight:500;color:var(--muted)}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent);padding:3px 8px;border-radius:20px;margin-left:6px;vertical-align:2px}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:4px 0 16px}
+  @media (max-width:520px){.kpis{grid-template-columns:1fr 1fr}}
+  .kpi{background:var(--bg);border-radius:10px;padding:10px 12px}
+  .kpi b{display:block;font-size:18px}
+  .kpi span{font-size:12px;color:var(--muted)}
+  .bar{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--line);margin:6px 0 10px}
+  .bar div{height:100%;transition:width .2s}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td{padding:6px 0;border-bottom:1px solid var(--line)}
+  td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  tr.total td{font-weight:700;border-bottom:0;padding-top:9px}
+  tr.sub td{color:var(--muted);font-size:13px}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:-1px}
+  .alert{border-radius:8px;padding:9px 12px;font-size:13.5px;margin-bottom:8px}
+  .alert.warn{background:var(--warn-soft);color:var(--warn)}
+  .alert.bad{background:var(--bad-soft);color:var(--bad)}
+  .alert.good{background:var(--good-soft);color:var(--good)}
+  .alert.info{background:var(--accent-soft);color:var(--accent)}
+  .meter{height:8px;background:var(--line);border-radius:4px;margin:4px 0 2px;overflow:hidden}
+  .meter div{height:100%;border-radius:4px}
+  .dti{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:10px}
+  .dti b{font-size:20px}
+  .dti .lbl{font-size:12px;color:var(--muted)}
+  details{margin:4px 0 12px}
+  summary{cursor:pointer;color:var(--accent);font-size:14px;font-weight:600;padding:4px 0}
+  .amort{max-height:340px;overflow:auto;margin-top:8px;border:1px solid var(--line);border-radius:8px}
+  .amort table{font-size:13px}
+  .amort th{position:sticky;top:0;background:var(--card);text-align:right;font-weight:600;color:var(--muted);padding:7px 10px;border-bottom:1px solid var(--line);font-size:12px}
+  .amort td{padding:5px 10px;text-align:right}
+  .amort th:first-child,.amort td:first-child{text-align:left}
+  .amort tr.miend td{border-bottom:2px solid var(--accent)}
+  .cmp{width:100%;border-collapse:collapse;font-size:13.5px}
+  .cmp th,.cmp td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+  .cmp th:first-child,.cmp td:first-child{text-align:left;color:var(--muted);padding-left:0}
+  .cmp th{font-size:13px;cursor:pointer;color:var(--ink)}
+  .cmp th.on,.cmp td.on{background:var(--accent-soft)}
+  .cmp th.on{color:var(--accent)}
+  .cmp tr.hl td{font-weight:700;color:var(--ink)}
+  .cmp tr.hl td:first-child{color:var(--ink)}
+  .cmp tr td.best,.cmp tr.hl td.best{color:var(--good);font-weight:700}
+  .cmp .note{font-size:11px;color:var(--warn);display:block;font-weight:400}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+  .btn{border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:13px;padding:8px 12px;border-radius:8px;cursor:pointer}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  footer{max-width:1180px;margin:0 auto;padding:0 20px 40px;color:var(--muted);font-size:12.5px}
+  footer p{margin:0 0 6px}
+  .status{max-width:1180px;margin:0 auto;padding:4px 20px 0;font-size:13px;color:var(--muted)}
+  .status b{color:var(--ink)}
+  .status .live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--good);margin-right:6px;vertical-align:0}
+  .status .off{background:var(--warn)}
+  .rh{font-size:11.5px;color:var(--muted);margin-top:4px;min-height:15px}
+  .rh a{color:var(--accent);cursor:pointer;text-decoration:underline}
+  .avail{font-size:13.5px;margin:0 0 10px}
+  .prog{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+  .prog.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+  .prog.dim{opacity:.6}
+  .prog .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .prog .nm{font-weight:600;font-size:14px}
+  .prog .ag{font-size:12px;color:var(--muted)}
+  .prog .amt{font-size:13px;margin:4px 0}
+  .prog .nt{font-size:12px;color:var(--muted);margin-top:4px}
+  .chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+  .chip{font-size:11px;padding:2px 7px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--muted)}
+  .chip.t{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+  .chip.w{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+  .chip.b{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+  .chip.g{background:var(--good-soft);color:var(--good);border-color:transparent}
+  .prog .act{display:flex;gap:8px;align-items:center;flex:none}
+  .prog .act a{font-size:12px;color:var(--accent)}
+  .btn.sm{padding:5px 10px;font-size:12px}
+  .using{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;background:var(--accent-soft);color:var(--accent);border-radius:8px;padding:7px 10px;margin-bottom:12px}
+  .using a{cursor:pointer;text-decoration:underline}
+  .proglist{max-height:420px;overflow:auto;margin-bottom:10px}
+  .wrap > div{min-width:0}
+  #itemsWrap{overflow-x:auto}
+  .seg{flex-wrap:wrap}
+  .items{width:100%;border-collapse:collapse;font-size:13px;margin:0 0 8px}
+  .items td,.items th{padding:4px 4px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+  .items th{font-size:11.5px;color:var(--muted);font-weight:600}
+  .items td.amt{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;width:78px}
+  .items input,.items select{font:inherit;font-size:13px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px 6px;width:100%}
+  .items textarea.nm{font:inherit;font-size:13px;line-height:1.3;color:var(--ink);background:transparent;border:1px solid transparent;border-radius:6px;padding:4px 6px 4px 0;width:100%;display:block;resize:none;overflow:hidden;field-sizing:content;min-height:0}
+  .items textarea.nm:focus{border-color:var(--line);background:var(--bg);padding-left:6px;outline:none}
+  .items .val{display:flex;gap:3px;align-items:center;width:96px}
+  .items .val input{width:54px;text-align:right}
+  .items .val select{width:39px;padding:4px 1px}
+  .items select.payer{width:70px}
+  .items td:first-child{min-width:170px}
+  @media (max-width:560px){.items td:first-child{min-width:80px}.items td,.items th{padding:4px 1px}.items .val{width:82px;gap:2px}.items .val input{width:46px;padding:4px 3px}.items .val select{width:34px}.items td.amt{width:60px}.items select.payer{width:60px;padding:4px 2px}.items .x{padding:0 1px}}
+  .items .x{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:15px;padding:0 4px}
+  .items tr.grp td{font-weight:600;font-size:12px;color:var(--muted);padding-top:10px;border-bottom:0}
+  .items .auto{font-size:11.5px;color:var(--muted)}
+  .tag{font-size:10.5px;padding:1px 6px;border-radius:10px;background:var(--warn-soft);color:var(--warn);margin-left:6px;white-space:nowrap}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:520px){.twocol{grid-template-columns:1fr}}
+  .hide{display:none!important}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Home Purchase Calculator</h1>
+    <p>Pick a loan type and enter your numbers. Everything updates as you type.</p>
+  </div>
+  <div class="typeseg" id="loanType">
+    <button data-v="fha" class="on"><b>FHA</b><small>3.5% min down</small></button>
+    <button data-v="va"><b>VA</b><small>0% down</small></button>
+    <button data-v="conv"><b>Conventional</b><small>3–5% min down</small></button>
+  </div>
+</header>
+<div class="status" id="rateStatus"></div>
+
+<div class="wrap">
+  <!-- INPUTS -->
+  <div>
+    <div class="card">
+      <h2>Home &amp; loan</h2>
+      <div class="row">
+        <label><span>Purchase price</span><div class="field"><i>$</i><input id="price" data-money value="350,000"></div></label>
+        <label><span>Appraised value <em style="font-style:normal;opacity:.7">(optional)</em></span><div class="field"><i>$</i><input id="appraisal" data-money placeholder="same as price"></div></label>
+      </div>
+      <div class="row3">
+        <label><span>FHA rate</span><div class="field" id="rf-fha"><input id="rateFha" value="7.08" inputmode="decimal"><i class="suf">%</i></div><div class="rh" id="rh-fha"></div></label>
+        <label><span>VA rate</span><div class="field" id="rf-va"><input id="rateVa" value="7.1" inputmode="decimal"><i class="suf">%</i></div><div class="rh" id="rh-va"></div></label>
+        <label><span>Conventional rate</span><div class="field" id="rf-conv"><input id="rateConv" value="7.51" inputmode="decimal"><i class="suf">%</i></div><div class="rh" id="rh-conv"></div></label>
+      </div>
+      <div class="hint" style="margin:-6px 0 12px">Pre-filled with today's market averages. Type your lender's quote to override; your credit, points and lender will move it.</div>
+      <div class="row">
+        <label><span>Loan term</span><div class="field"><select id="term"><option value="30" selected>30 years</option><option value="25">25 years</option><option value="20">20 years</option><option value="15">15 years</option></select></div></label>
+        <label><span>Credit score</span><div class="field"><select id="credit">
+          <option value="760">760+</option><option value="740">740 – 759</option><option value="720">720 – 739</option>
+          <option value="700" selected>700 – 719</option><option value="680">680 – 699</option><option value="660">660 – 679</option>
+          <option value="640">640 – 659</option><option value="620">620 – 639</option><option value="580">580 – 619</option><option value="500">500 – 579</option>
+        </select></div></label>
+      </div>
+      <div class="row">
+        <label class="t-fha"><span>County FHA loan limit <em style="font-style:normal;opacity:.7">(optional)</em></span><div class="field"><i>$</i><input id="fhaLimit" data-money placeholder="look up your county"></div>
+          <div class="hint"><a href="https://entp.hud.gov/idapp/html/hicostlook.cfm" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">HUD loan limit lookup</a></div></label>
+        <label class="t-conv"><span>Conforming loan limit</span><div class="field"><i>$</i><input id="confLimit" data-money value="832,750"></div>
+          <div class="hint">2026 baseline; high-cost counties go higher. <a href="https://www.fhfa.gov/CLL" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">FHFA lookup</a></div></label>
+        <div class="t-va hint" style="padding-top:22px">No VA loan limit if you have full entitlement. If part of your entitlement is tied up in another VA loan, your lender will calculate a cap.</div>
+        <div class="t-fha t-va">
+          <label class="check" style="margin-top:24px"><input type="checkbox" id="financeUf" checked> <span id="financeUfLbl">Roll upfront MIP into the loan</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Your income <em style="font-style:normal;text-transform:none;letter-spacing:0;opacity:.7">(optional — for DTI)</em></h2>
+      <div class="row">
+        <label><span>Gross monthly income</span><div class="field"><i>$</i><input id="income" data-money placeholder="before taxes"></div></label>
+        <label><span>Other monthly debts</span><div class="field"><i>$</i><input id="debts" data-money placeholder="car, cards, student loans"></div></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Rate buydown <em style="font-style:normal;text-transform:none;letter-spacing:0;opacity:.7">(optional)</em></h2>
+      <div class="row3">
+        <label><span>Discount points</span><div class="field"><input id="points" value="0" inputmode="decimal"><i class="suf">points</i></div></label>
+        <label><span>Rate cut per point</span><div class="field"><input id="ptsPer" value="0.25" inputmode="decimal"><i class="suf">%</i></div></label>
+        <label><span>Points paid by</span><div class="field"><select id="ptsPayer"><option value="buyer" selected>Buyer</option><option value="seller">Seller</option></select></div></label>
+      </div>
+      <div class="row">
+        <label><span>Temporary buydown</span><div class="field"><select id="tbType"><option value="none" selected>None</option><option value="1-0">1-0 (1% off year 1)</option><option value="2-1">2-1 (2% off yr 1, 1% off yr 2)</option><option value="3-2-1">3-2-1 (3/2/1% off yrs 1–3)</option></select></div></label>
+        <label><span>Temporary buydown paid by</span><div class="field"><select id="tbPayer"><option value="seller" selected>Seller / builder</option><option value="buyer">Buyer</option></select></div></label>
+      </div>
+      <div class="hint" style="margin:-4px 0 12px">1 point = 1% of the loan. About 0.25% off per point is common, but use your lender's quote. Applies to all three loan types in the comparison. Lenders qualify you at the full rate, not the temporary one.</div>
+    </div>
+
+    <div class="card t-va">
+      <h2>VA details</h2>
+      <div class="row">
+        <label><span>VA loan use</span><div class="field"><select id="vaUse"><option value="first" selected>First time using VA loan</option><option value="subsequent">Used a VA loan before</option></select></div></label>
+        <div><label class="check" style="margin-top:24px"><input type="checkbox" id="vaExempt"> Exempt from funding fee</label></div>
+      </div>
+      <div class="hint" style="margin:-6px 0 12px">Exempt: receiving VA disability compensation, Purple Heart recipients on active duty, and eligible surviving spouses. Your Certificate of Eligibility shows it.</div>
+    </div>
+
+    <div class="card">
+      <h2>Down payment</h2>
+      <div class="row">
+        <label><span>Total down payment</span><div class="field"><i>$</i><input id="downAmt" data-money></div></label>
+        <label><span>As % of price</span><div class="field"><input id="downPct" value="3.5" inputmode="decimal"><i class="suf">%</i></div></label>
+      </div>
+      <div class="hint" style="margin:-4px 0 12px" id="downHint"></div>
+    </div>
+
+    <div class="card">
+      <h2>Down payment assistance</h2>
+      <div class="row">
+        <label><span>State you're buying in</span><div class="field"><select id="dpaState"><option value="">Select a state…</option></select></div></label>
+        <label id="dpaAreaWrap" class="hide"><span>City / county</span><div class="field"><select id="dpaArea"></select></div></label>
+      </div>
+      <div id="dpaAvail"></div>
+      <div class="using hide" id="dpaUsing"></div>
+<div class="row">
+        <label><span>Assistance amount</span><div class="field"><i>$</i><input id="dpaAmt" data-money value="0"></div></label>
+        <label><span>Type</span><div class="field"><select id="dpaType">
+          <option value="grant">Grant (never repaid)</option>
+          <option value="forgivable">Forgivable 2nd loan</option>
+          <option value="deferred">Deferred 2nd (due at sale)</option>
+          <option value="repay">Repayable 2nd (monthly)</option>
+        </select></div></label>
+      </div>
+      <div class="row hide" id="dpaRepayRow">
+        <label><span>2nd loan rate</span><div class="field"><input id="dpaRate" value="7.0" inputmode="decimal"><i class="suf">%</i></div></label>
+        <label><span>2nd loan term</span><div class="field"><input id="dpaTerm" value="10" inputmode="numeric"><i class="suf">years</i></div></label>
+      </div>
+      <div class="row hide" id="dpaForgiveRow">
+        <label><span>Forgiven after</span><div class="field"><input id="dpaForgive" value="5" inputmode="numeric"><i class="suf">years</i></div>
+          <div class="hint">Typically repaid in full (or pro-rated) if you sell or refinance sooner.</div></label>
+      </div>
+      <div class="hint" style="margin:-4px 0 12px">Pick a program above, or type your own amount. Assistance is applied to the down payment first, then closing costs.</div>
+    </div>
+
+    <div class="card">
+      <h2>Closing costs</h2>
+      <div class="seg" id="ccMode"><button data-v="itemize" class="on">Itemize buyer &amp; seller costs</button><button data-v="pct">Estimate by %</button><button data-v="amt">Exact $</button></div>
+      <div id="itemsWrap">
+        <table class="items" id="itemsTbl"></table>
+        <div class="btns" style="margin:0 0 12px"><button class="btn sm" id="addBuyerItem">+ Buyer cost</button><button class="btn sm" id="addSellerItem">+ Seller cost</button><button class="btn sm" id="resetItems">Reset to typical</button></div>
+        <div class="row"><label><span>Seller's mortgage payoff <em style="font-style:normal;opacity:.7">(optional, for seller net)</em></span><div class="field"><i>$</i><input id="payoff" data-money value="0"></div></label><div></div></div>
+      </div>
+      <div class="row">
+        <label id="ccPctWrap" class="hide"><span>Closing costs</span><div class="field"><input id="ccPct" value="3" inputmode="decimal"><i class="suf">% of price</i></div></label>
+        <label id="ccAmtWrap" class="hide"><span>Closing costs</span><div class="field"><i>$</i><input id="ccAmt" data-money value="10,500"></div></label>
+        <label><span>Seller / lender credits</span><div class="field"><i>$</i><input id="credits" data-money value="0"></div></label>
+      </div>
+      <div class="hint" style="margin:-4px 0 12px" id="ccHint"></div>
+    </div>
+
+    <div class="card">
+      <h2>Monthly costs</h2>
+      <div class="seg" id="taxMode"><button data-v="pct" class="on">Tax rate %</button><button data-v="amt">Tax $ / year</button></div>
+      <div class="row3">
+        <label id="taxPctWrap"><span>Property tax rate</span><div class="field"><input id="taxPct" value="1.1" inputmode="decimal"><i class="suf">%/yr</i></div></label>
+        <label id="taxAmtWrap" class="hide"><span>Property tax</span><div class="field"><i>$</i><input id="taxAmt" data-money value="3,850"><i class="suf">/yr</i></div></label>
+        <label><span>Homeowners ins.</span><div class="field"><i>$</i><input id="ins" data-money value="1,800"><i class="suf">/yr</i></div></label>
+        <label><span>HOA</span><div class="field"><i>$</i><input id="hoa" data-money value="0"><i class="suf">/mo</i></div></label>
+      </div>
+      <div class="row t-fha">
+        <label><span>Annual MIP rate</span><div class="field"><select id="mipMode"><option value="auto" selected>Auto (HUD table)</option><option value="manual">Override…</option></select></div></label>
+        <label id="mipManualWrap" class="hide"><span>Custom annual MIP</span><div class="field"><input id="mipManual" value="0.55" inputmode="decimal"><i class="suf">%</i></div></label>
+      </div>
+      <div class="row t-conv">
+        <label><span>PMI rate</span><div class="field"><select id="pmiMode"><option value="auto" selected>Auto (typical estimate)</option><option value="manual">Use my quote…</option></select></div></label>
+        <label id="pmiManualWrap" class="hide"><span>Annual PMI from quote</span><div class="field"><input id="pmiManual" value="0.50" inputmode="decimal"><i class="suf">%</i></div></label>
+      </div>
+      <div class="hint t-va" style="margin:-4px 0 12px">VA loans have no monthly mortgage insurance.</div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results">
+    <div class="card">
+      <div class="hero">
+        <div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:6px">Estimated monthly payment <span class="pill" id="typePill">FHA</span></div>
+          <div class="big" id="outMonthly">$0 <small>/mo</small></div>
+          <div class="hint hide" id="outTemp" style="margin:6px 0 0"></div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:13px;color:var(--muted);margin-bottom:6px">Cash needed at closing</div>
+          <div style="font-size:26px;font-weight:700" id="outCash">$0</div>
+        </div>
+      </div>
+      <div class="bar" id="bar"></div>
+      <table id="breakdown"></table>
+      <div class="kpis" style="margin-top:14px">
+        <div class="kpi"><b id="kLoan">$0</b><span>Total loan</span></div>
+        <div class="kpi"><b id="kLtv">0%</b><span>Loan-to-value</span></div>
+        <div class="kpi"><b id="kMi">0%</b><span id="kMiLbl">Mortgage insurance</span></div>
+      </div>
+      <div id="alerts"></div>
+    </div>
+
+    <div class="card">
+      <h2>Compare loan types</h2>
+      <div class="seg" id="cmpMode"><button data-v="mine" class="on">At my down payment</button><button data-v="min">At each program's minimum</button></div>
+      <table class="cmp" id="cmp"></table>
+      <div class="hint" style="margin:8px 0 12px" id="cmpNote">Same home, assistance and costs — each program's own rate, fees and insurance. Green marks the lowest. Click a column to switch.</div>
+    </div>
+
+    <div class="card">
+      <h2>Cash to close</h2>
+      <table id="cashTable"></table>
+      <div style="height:10px"></div>
+    </div>
+
+    <div class="card">
+      <h2>Buyer &amp; seller costs</h2>
+      <div id="partyBody"></div>
+    </div>
+
+    <div class="card">
+      <h2>Debt-to-income</h2>
+      <div id="dtiBody"></div>
+    </div>
+
+    <div class="card">
+      <h2>Over the life of the loan</h2>
+      <table id="lifeTable"></table>
+      <details>
+        <summary>Year-by-year schedule</summary>
+        <div class="amort"><table id="amort"></table></div>
+      </details>
+      <div class="btns">
+        <button class="btn primary" id="copyBtn">Copy summary</button>
+        <button class="btn" id="resetBtn">Reset to defaults</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><b>Estimates only — not a loan offer.</b> Confirm every figure with your lender and assistance program.</p>
+  <div id="programInfo"></div>
+</footer>
+
+<div class="toast" id="toast">Copied</div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const STORE = 'home-calc-v3';
+  const FALLBACK = {"asOf": "2026-11-16", "updatedAt": "2026-11-16T21:00:00-05:00", "rates": {"conv30": 7.51, "conv15": 7.04, "fha30": 7.08, "va30": 7.1}, "rateSource": {"name": "Mortgage News Daily rate index", "url": "https://www.mortgagenewsdaily.com/mortgage-rates", "date": "2026-11-16"}, "benchmark": {"name": "Freddie Mac PMMS weekly average", "url": "https://www.freddiemac.com/pmms", "date": "2026-11-12", "conv30": 7.11, "conv15": 6.45}, "program": {"fha": {"ufmip": 0.0175, "highBalanceThreshold": 726200, "mip": {"long": {"std": {"le95": 0.005, "gt95": 0.0055}, "high": {"le95": 0.007, "gt95": 0.0075}}, "short": {"std": {"le90": 0.0015, "gt90": 0.004}, "high": {"le78": 0.0015, "le90": 0.004, "gt90": 0.0065}}}, "mipYearsIfDown10": 11, "source": "HUD Mortgagee Letter 2023-05"}, "va": {"fee": {"first": [0.0215, 0.015, 0.0125], "subsequent": [0.033, 0.015, 0.0125]}, "source": "VA funding fee chart, effective April 7, 2023"}, "conv": {"conformingLimit": 832750, "conformingLimitYear": 2026, "source": "FHFA 2026 conforming loan limits"}}, "notes": ["2027 conforming loan limits are normally announced by FHFA in late November and take effect January 1."], "changes": [{"date": "2026-11-16", "text": "Started live data: market rates from Mortgage News Daily; program rules unchanged."}]};
+  let CFG = FALLBACK, online = false;
+  const DPA_FALLBACK = {"updatedAt":"2026-11-16T22:45:00-05:00","deepState":null,"note":"Georgia programs checked against agency sources Nov 16, 2026. Other states compiled from current state guides the same day and are being re-checked against each agency on a rolling basis \u2014 always confirm amounts and eligibility with the program.","national":[{"id":"chenoa","name":"Chenoa Fund","agency":"CBC Mortgage Agency","url":"https://chenoafund.org","type":"forgivable","amountText":"3.5% of price (FHA)","amount":{"max":null,"pct":3.5,"of":"price"},"forgiveYears":3,"minCredit":600,"loanTypes":["fha","conv"],"incomeNote":"\u2264115% AMI","status":"active","notes":"Forgivable after 36 on-time payments; a repayable version exists for higher incomes.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"nhf","name":"National Homebuyers Fund","agency":"National Homebuyers Fund, Inc.","url":"https://www.nhfloan.org","type":"forgivable","amountText":"Up to 5% of loan","amount":{"max":null,"pct":5,"of":"loan"},"forgiveYears":3,"firstTimeOnly":false,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Grant or 3-year forgivable loan; first-time and repeat buyers.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"states":{"AK":{"name":"Alaska","agency":"Alaska Housing Finance Corporation (AHFC)","agencyUrl":"https://www.ahfc.us","programs":[{"id":"ak-cca","name":"Closing Cost Assistance","agency":"AHFC","url":"https://www.ahfc.us","type":"grant","amountText":"3%\u20134% of loan","amount":{"max":null,"pct":3,"of":"loan"},"minCredit":640,"loanTypes":["fha","va","usda"],"status":"active","notes":"Program status unclear in latest guide \u2014 confirm with AHFC.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ak-ahelp","name":"AHELP (via local providers)","agency":"AHFC","url":"https://www.ahfc.us","type":"deferred","amountText":"Varies by provider","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"AL":{"name":"Alabama","agency":"Alabama Housing Finance Authority (AHFA)","agencyUrl":"https://www.ahfa.com","programs":[{"id":"al-stepup","name":"Step Up DPA","agency":"AHFA","url":"https://www.ahfa.com","type":"repay","amountText":"4% of price, up to $10,000","amount":{"max":10000,"pct":4,"of":"price"},"termYears":10,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income \u2264 ~$172,800; DTI \u226445%","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"al-ais","name":"Affordable Income Subsidy Grant","agency":"AHFA","url":"https://www.ahfa.com","type":"grant","amountText":"1% of loan (\u226450% AMI) or 0.5% (\u226480% AMI)","amount":{"max":null,"pct":1,"of":"loan"},"loanTypes":["conv"],"status":"active","notes":"Closing costs only; HFA Advantage conventional loan.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Birmingham":[{"id":"bhm-lift","name":"NeighborhoodLIFT","agency":"Neighborhood Housing Services of Birmingham","url":"https://www.nhsbham.org","type":"forgivable","amountText":"Up to $7,500 (matches your savings)","amount":{"max":7500,"pct":null,"of":"price"},"forgiveYears":3,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Modest incomes","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Huntsville":[{"id":"hsv-dpa","name":"Down Payment Assistance","agency":"City of Huntsville","url":"https://www.huntsvilleal.gov","type":"forgivable","amountText":"Up to $7,500","amount":{"max":7500,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"0% second, no payments; forgiven after 5 years in the home.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Mobile":[{"id":"mob-dpa","name":"Down Payment Assistance","agency":"City of Mobile","url":"https://www.cityofmobile.org","type":"forgivable","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Older source \u2014 confirm the program is still funded.","reviewed":"2026-11-16","source":"Bankrate (older page)"}]}},"AR":{"name":"Arkansas","agency":"Arkansas Development Finance Authority (ADFA)","agencyUrl":"https://adfa.arkansas.gov","programs":[{"id":"ar-addi","name":"Arkansas Dream Down Payment Initiative","agency":"ADFA","url":"https://adfa.arkansas.gov","type":"forgivable","amountText":"Up to 10% of price, max $10,000","amount":{"max":10000,"pct":10,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Low-income","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ar-dpa","name":"ADFA Down Payment Assistance","agency":"ADFA","url":"https://adfa.arkansas.gov","type":"repay","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"termYears":10,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Moderate income","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"AZ":{"name":"Arizona","agency":"Arizona IDA / Arizona Dept. of Housing","agencyUrl":"https://www.homeplusaz.com","programs":[{"id":"az-homeplus","name":"HOME+PLUS DPA","agency":"Arizona Industrial Development Authority","url":"https://www.homeplusaz.com","type":"forgivable","amountText":"Up to 4% of loan","amount":{"max":null,"pct":4,"of":"loan"},"forgiveYears":3,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income \u2264 ~$136,600","status":"active","notes":"0% deferred second; repaid only if you sell or refinance within 36 months.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"az-p2p","name":"Pathway to Purchase","agency":"Arizona Dept. of Housing","url":"https://housing.az.gov","type":"grant","amountText":"Up to 10% of loan, max $20,000","amount":{"max":20000,"pct":10,"of":"loan"},"minCredit":640,"loanTypes":["fha","va","conv","usda"],"incomeNote":"17 designated cities only; price cap ~$372K","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Maricopa County (incl. Phoenix)":[{"id":"mc-h5-adv","name":"Home in Five Advantage","agency":"Maricopa County IDA","url":"https://homeinfiveaz.com","type":"forgivable","amountText":"5% of price (6% for educators, first responders, veterans)","amount":{"max":null,"pct":5,"of":"price"},"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"0% forgivable second; forgiveness term not stated \u2014 confirm.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"mc-h5-plat","name":"Home in Five Platinum","agency":"Maricopa County IDA","url":"https://homeinfiveaz.com","type":"forgivable","amountText":"Up to 4% of loan","amount":{"max":null,"pct":4,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"phx-dpa","name":"City of Phoenix DPA","agency":"City of Phoenix","url":"https://www.phoenix.gov/housing","type":"deferred","amountText":"Amount not published \u2014 call the city","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Tucson / Pima County":[{"id":"tuc-dpa","name":"City of Tucson DPA","agency":"Pima County","url":"https://www.pima.gov","type":"deferred","amountText":"Up to 20% of price, based on need","amount":{"max":null,"pct":20,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Terms not stated \u2014 shown as deferred. $1,000 of your own funds required.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"tuc-pths","name":"Pima Tucson Homebuyer Solution","agency":"Pima County IDA","url":"https://www.pima.gov","type":"forgivable","amountText":"Amount not published","amount":{"max":null,"pct":null,"of":"price"},"forgiveYears":3,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"CA":{"name":"California","agency":"California Housing Finance Agency (CalHFA)","agencyUrl":"https://www.calhfa.ca.gov","programs":[{"id":"ca-myhome","name":"MyHome Assistance","agency":"CalHFA","url":"https://www.calhfa.ca.gov/homebuyer/programs/myhome.htm","type":"deferred","amountText":"3% of price (3.5% with FHA)","amount":{"max":null,"pct":3.5,"of":"price"},"firstTimeOnly":true,"minCredit":660,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ca-dream","name":"Dream For All Shared Appreciation","agency":"CalHFA","url":"https://www.calhfa.ca.gov","type":"deferred","amountText":"Up to 20% of price (funding rounds)","amount":{"max":null,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"upcoming","notes":"Shared-appreciation loan; opens in limited funding rounds.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"City of Los Angeles":[{"id":"la-lipa","name":"Low Income Purchase Assistance (LIPA)","agency":"LAHD","url":"https://housing.lacity.gov","type":"deferred","amountText":"Up to $140,000","amount":{"max":140000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"Low-income","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"City of San Diego":[{"id":"sd-fthb","name":"First-Time Homebuyer Program","agency":"San Diego Housing Commission","url":"https://www.sdhc.org","type":"deferred","amountText":"Lesser of $10,000 or 4% of price, plus deferred loan up to 22%","amount":{"max":10000,"pct":4,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Santa Clara County / San Jose":[{"id":"scc-empower","name":"Empower Homebuyers SCC","agency":"Housing Trust Silicon Valley","url":"https://housingtrustsv.org","type":"deferred","amountText":"Up to 30% of value","amount":{"max":null,"pct":30,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Shared-appreciation deferred loan; you must have saved 3%.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"CO":{"name":"Colorado","agency":"Colorado Housing and Finance Authority (CHFA)","agencyUrl":"https://www.chfainfo.com","programs":[{"id":"co-grant","name":"CHFA DPA Grant","agency":"CHFA","url":"https://www.chfainfo.com","type":"grant","amountText":"3% of first mortgage, max $25,000","amount":{"max":25000,"pct":3,"of":"loan"},"firstTimeOnly":true,"minCredit":620,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"co-second","name":"CHFA Second Mortgage Loan","agency":"CHFA","url":"https://www.chfainfo.com","type":"deferred","amountText":"4% of first mortgage, max $25,000","amount":{"max":25000,"pct":4,"of":"loan"},"firstTimeOnly":true,"minCredit":620,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Denver":[{"id":"den-metro","name":"metroDPA","agency":"Denver Dept. of Housing Stability","url":"https://www.denvergov.org","type":"forgivable","amountText":"Up to 5% of loan","amount":{"max":null,"pct":5,"of":"loan"},"forgiveYears":3,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Denver metro (Adams, Arapahoe, Denver, Douglas, Jefferson)":[{"id":"den-lift","name":"NeighborhoodLIFT","agency":"CRHDC","url":"https://www.crhdc.org","type":"deferred","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"firstTimeOnly":false,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income limits","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Aurora":[{"id":"aur-hoap","name":"Home Ownership Assistance Program","agency":"City of Aurora","url":"https://www.auroragov.org","type":"deferred","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"0% deferred, not forgivable; you contribute 1%.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Colorado Springs / El Paso County":[{"id":"cos-turnkey","name":"Turnkey Plus","agency":"El Paso County","url":"https://www.elpasoco.com","type":"deferred","amountText":"Up to 5% of loan","amount":{"max":null,"pct":5,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Half forgiven over 5 years; half deferred until payoff.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"CT":{"name":"Connecticut","agency":"Connecticut Housing Finance Authority (CHFA)","agencyUrl":"https://www.chfa.org","programs":[{"id":"ct-dap","name":"Down Payment Assistance Program (DAP)","agency":"CHFA","url":"https://www.chfa.org","type":"repay","amountText":"3%\u20133.5% of price, $3,000\u2013$15,000","amount":{"max":15000,"pct":3.5,"of":"price"},"termYears":30,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Bridgeport":[{"id":"bpt-dpa","name":"Down Payment Program","agency":"City of Bridgeport","url":"https://www.bridgeportct.gov","type":"forgivable","amountText":"Amount set by need","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Forgiven over 5, 10 or 15 years depending on amount.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Stamford":[{"id":"stm-home","name":"Stamford HOME program","agency":"Housing Development Fund","url":"https://hdf-ct.org","type":"deferred","amountText":"Up to $20,000","amount":{"max":20000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226465% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"New Haven":[{"id":"nh-dpa","name":"Down Payment & Closing Cost Assistance","agency":"City of New Haven","url":"https://www.newhavenct.gov","type":"forgivable","amountText":"Up to 6% of price, max $10,000","amount":{"max":10000,"pct":6,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"DC":{"name":"District of Columbia","agency":"DC Housing Finance Agency (DCHFA) / DHCD","agencyUrl":"https://www.dchfa.org","programs":[{"id":"dc-opendoors","name":"DC Open Doors DPAL","agency":"DCHFA","url":"https://www.dchfa.org","type":"deferred","amountText":"Up to 3.5% of loan","amount":{"max":null,"pct":3.5,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"0% deferred; due after 30 years or at sale/refinance.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"dc-hpap","name":"Home Purchase Assistance Program (HPAP)","agency":"DC DHCD","url":"https://dhcd.dc.gov","type":"deferred","amountText":"Large 0% loan sized by income \u2014 confirm with DHCD","amount":{"max":null,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u2264110% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"dc-eahp","name":"Employer-Assisted Housing (DC employees)","agency":"DC DHCD","url":"https://dhcd.dc.gov","type":"deferred","amountText":"Up to $20,000 loan + $5,000 match","amount":{"max":20000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"DC government employees; first responders/educators get a different tier.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"DE":{"name":"Delaware","agency":"Delaware State Housing Authority (DSHA)","agencyUrl":"https://destatehousing.com","programs":[{"id":"de-hsh","name":"Home Sweet Home","agency":"DSHA","url":"https://destatehousing.com","type":"forgivable","amountText":"Up to $12,000","amount":{"max":12000,"pct":null,"of":"price"},"forgiveYears":10,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"de-diamonds","name":"Delaware Diamonds","agency":"DSHA","url":"https://destatehousing.com","type":"forgivable","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"forgiveYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Educators, health care, first responders, state employees, military, veterans.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"de-fshl","name":"First State Home Loan","agency":"DSHA","url":"https://destatehousing.com","type":"deferred","amountText":"3% of loan","amount":{"max":null,"pct":3,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"FL":{"name":"Florida","agency":"Florida Housing Finance Corporation","agencyUrl":"https://www.floridahousing.org","programs":[{"id":"fl-assist","name":"Florida Assist","agency":"Florida Housing","url":"https://www.floridahousing.org","type":"deferred","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"fl-hlp","name":"Florida Homeownership Loan Program","agency":"Florida Housing","url":"https://www.floridahousing.org","type":"repay","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"rate":3,"termYears":15,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"fl-preferred","name":"HFA Preferred PLUS","agency":"Florida Housing","url":"https://www.floridahousing.org","type":"forgivable","amountText":"3%, 4% or 5% of loan","amount":{"max":null,"pct":3,"of":"loan"},"forgiveYears":5,"loanTypes":["conv"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"fl-heroes","name":"Hometown Heroes","agency":"Florida Housing","url":"https://www.floridahousing.org","type":"deferred","amountText":"Up to 5% of loan, max $35,000","amount":{"max":35000,"pct":5,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Teachers, health care, law enforcement, firefighters, veterans; funded in rounds.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Jacksonville":[{"id":"jax-h2h","name":"Headstart to Homeownership (H2H)","agency":"City of Jacksonville","url":"https://www.coj.net","type":"deferred","amountText":"Up to $50,000","amount":{"max":50000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"0% second; terms unclear \u2014 shown as deferred.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Tampa":[{"id":"tpa-dare","name":"Dare to Own the Dream","agency":"City of Tampa","url":"https://www.tampa.gov","type":"deferred","amountText":"Amount not published","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Miami-Dade County":[{"id":"mia-dpa","name":"Down Payment Assistance","agency":"Miami-Dade County","url":"https://www.miamidade.gov","type":"deferred","amountText":"Amount not published","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"North Miami":[{"id":"nmia-home","name":"HOME down payment assistance","agency":"City of North Miami","url":"https://www.northmiamifl.gov","type":"deferred","amountText":"Up to $40,000","amount":{"max":40000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Limited funding.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"GA":{"name":"Georgia","agency":"Georgia Department of Community Affairs (DCA)","agencyUrl":"https://dca.georgia.gov/affordable-housing/home-ownership/georgia-dream","programs":[{"id":"ga-dream","name":"Georgia Dream \u2014 Standard","agency":"Georgia DCA","url":"https://dca.georgia.gov/affordable-housing/home-ownership/georgia-dream","type":"deferred","amountText":"Lesser of 5% of price or $10,000","amount":{"max":10000,"pct":5,"of":"price"},"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income and price limits by county","status":"active","verified":"2026-11-16","notes":"0% second mortgage, no monthly payment; repaid at sale or refinance. Homebuyer education required. Must use a Georgia Dream first mortgage."},{"id":"ga-dream-pen","name":"Georgia Dream \u2014 PEN / CHOICE","agency":"Georgia DCA","url":"https://dca.georgia.gov/affordable-housing/home-ownership/georgia-dream","type":"deferred","amountText":"Up to $12,500","amount":{"max":12500,"pct":null,"of":"price"},"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income and price limits by county","status":"active","verified":"2026-11-16","notes":"For protectors, educators, health-care workers and active military (PEN), or households with a member with a disability (CHOICE). 0% deferred second."},{"id":"ga-peach-plus","name":"Georgia Dream \u2014 Peach Plus","agency":"Georgia DCA","url":"https://dca.georgia.gov/affordable-housing/home-ownership/georgia-dream","type":"deferred","amountText":"Amount set by DCA \u2014 confirm with lender","amount":{"max":null,"pct":null,"of":"price"},"firstTimeOnly":false,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Higher limits: income to ~$237K, price to ~$725K","status":"active","verified":"2026-11-16","notes":"Open to repeat buyers. 0% deferred second."}],"local":{"City of Atlanta":[{"id":"atl-homenow","name":"ATL HomeNOW","agency":"Invest Atlanta","url":"https://www.investatlanta.com/homebuyers","type":"forgivable","amountText":"Up to $20,000","amount":{"max":20000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income limits apply","status":"active","verified":"2026-11-16","notes":"Down payment, closing costs and/or permanent rate buydown. Forgiven after 5 years in the home."},{"id":"atl-beltline","name":"Beltline Mortgage Assistance Program","agency":"Invest Atlanta / Atlanta Beltline, Inc.","url":"https://www.investatlanta.com/impact-insights/invest-atlanta-and-atlanta-beltline-launch-new-mortgage-assistance-program","type":"deferred","amountText":"Up to $20,000; up to $30,000 for legacy residents & public servants","amount":{"max":20000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income limits apply; Beltline neighborhoods only","status":"active","verified":"2026-11-16","notes":"Launched July 2026. Repayment/forgiveness terms: confirm with Invest Atlanta (shown here as deferred to be conservative). 8-hour homebuyer education required."},{"id":"atl-housing","name":"Atlanta Housing Down Payment Assistance","agency":"Atlanta Housing","url":"https://www.atlantahousing.org","type":"deferred","amountText":"Up to $20,000 ($25,000 select professions; up to $60,000 for Housing Choice Voucher holders)","amount":{"max":20000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Low-to-moderate income","status":"active","verified":"2026-11-16","notes":"Terms: confirm with Atlanta Housing (shown as deferred to be conservative)."}],"Fulton County (outside City of Atlanta)":[{"id":"fulton-hop","name":"Fulton County Homeownership Program (HOP)","agency":"Fulton County Community Development","url":"https://fultoncountyga.gov/hop","type":"deferred","amountText":"Up to 7.5% of price, max $22,500","amount":{"max":22500,"pct":7.5,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"At or below 80% AMI (4-person \u2248 $94,250)","status":"active","verified":"2026-11-16","notes":"0% deferred second, no monthly payment. Covers down payment, closing costs and rate buydown."}],"Gwinnett County":[{"id":"gwinnett-homestretch","name":"Homestretch Down Payment Assistance","agency":"Gwinnett County Housing & Community Development","url":"https://www.gwinnettcounty.com/government/departments/planning-development/services/hud-programs/down-payment-assistance","type":"forgivable","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"forgiveYears":5,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income limits (HOME); purchase price cap","status":"active","verified":"2026-11-16","notes":"0% five-year deferred loan, forgiven after the 5-year affordability period. Single-family or townhome."}],"DeKalb County":[{"id":"dekalb-homestart","name":"DeKalb HomeStart","agency":"DeKalb County","url":"https://www.dekalbcountyga.gov","type":"deferred","amountText":"Up to $20,000 (planned)","amount":{"max":20000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Around 100% AMI","status":"upcoming","verified":"2026-11-16","notes":"Funded by the 2026 housing bond; enhanced help for first responders. Not yet taking applications as of last check."},{"id":"we-dekalb","name":"WE DeKalb","agency":"Development Authority of DeKalb County","url":"https://www.ehousingplus.com/homeownership/we-dekalb/program-highlights/","type":"grant","amountText":"3% grant","amount":{"max":null,"pct":3,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"paused","verified":"2026-11-16","notes":"Under review and not accepting new applications."}],"Savannah":[{"id":"sav-dreammaker","name":"DreamMaker Home Purchase Assistance","agency":"City of Savannah","url":"https://www.savannahga.gov","type":"deferred","amountText":"Up to $30,000 (up to $50,000 for city-partnered homes)","amount":{"max":30000,"pct":null,"of":"price"},"termYears":30,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income limits apply; city limits only","status":"active","verified":"2026-11-16","notes":"30-year deferred loan; sources differ on interest (0% vs 2%) \u2014 confirm with the city."}],"Augusta-Richmond County":[{"id":"aug-hap","name":"Homeownership Assistance Program","agency":"Augusta Housing & Community Development","url":"https://www.augustaga.gov","type":"forgivable","amountText":"Up to $5,000","amount":{"max":5000,"pct":null,"of":"price"},"forgiveYears":5,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income limits apply","status":"active","verified":"2026-11-16","notes":"Forgiven after 5 years in the home."}],"Columbus":[{"id":"col-sweethome","name":"Sweet Home Columbus","agency":"City of Columbus Community Reinvestment","url":"https://www.columbusga.gov","type":"deferred","amountText":"Amount set by city policy \u2014 confirm","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"Low-income buyers","status":"active","verified":"2026-11-16","notes":"Policy updated July 2026."}]}},"HI":{"name":"Hawaii","agency":"Hawaii HomeOwnership Center / HHFDC","agencyUrl":"https://www.hihomeownership.org","programs":[{"id":"hi-dcca","name":"Deferred Closing Cost Assistance Loan","agency":"Hawaii HomeOwnership Center","url":"https://www.hihomeownership.org","type":"deferred","amountText":"Up to $15,000 (6:1 match)","amount":{"max":15000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u2264120% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"hi-dpal","name":"Down Payment Assistance Loan","agency":"Hawaii HomeOwnership Center","url":"https://www.hihomeownership.org","type":"repay","amountText":"Second loan up to $125,000 at ~4.5%","amount":{"max":null,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u2264120% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"IA":{"name":"Iowa","agency":"Iowa Finance Authority (IFA)","agencyUrl":"https://www.iowafinance.com","programs":[{"id":"ia-dpa","name":"FirstHome DPA Loan","agency":"IFA","url":"https://www.iowafinance.com","type":"deferred","amountText":"Up to $5,000","amount":{"max":5000,"pct":null,"of":"price"},"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ia-grant","name":"FirstHome DPA Grant","agency":"IFA","url":"https://www.iowafinance.com","type":"grant","amountText":"Up to $2,500","amount":{"max":2500,"pct":null,"of":"price"},"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ia-hfi","name":"Homes for Iowans DPA","agency":"IFA","url":"https://www.iowafinance.com","type":"deferred","amountText":"Up to 5% of price","amount":{"max":null,"pct":5,"of":"price"},"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ia-mil","name":"Military Homeownership Assistance","agency":"IFA","url":"https://www.iowafinance.com","type":"grant","amountText":"$5,000","amount":{"max":5000,"pct":null,"of":"price"},"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Service members and veterans.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Cedar Rapids":[{"id":"cr-fthb","name":"First-Time Home Buyer Program","agency":"City of Cedar Rapids","url":"https://www.cedar-rapids.org","type":"forgivable","amountText":"$1,000\u2013$14,999","amount":{"max":14999,"pct":null,"of":"price"},"forgiveYears":5,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Davenport":[{"id":"dav-grant","name":"First-Time Home Buyer Grant","agency":"City of Davenport","url":"https://www.davenportiowa.com","type":"grant","amountText":"Half your down payment + closing costs, up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"ID":{"name":"Idaho","agency":"Idaho Housing and Finance Association","agencyUrl":"https://www.idahohousing.com","programs":[{"id":"id-second","name":"Idaho Housing Second Mortgage","agency":"IHFA","url":"https://www.idahohousing.com","type":"repay","amountText":"Up to 7% of price","amount":{"max":null,"pct":7,"of":"price"},"rate":2,"termYears":15,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Income \u2264 ~$150,000","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"id-forgive","name":"Idaho Housing Forgivable Loan","agency":"IHFA","url":"https://www.idahohousing.com","type":"forgivable","amountText":"Up to 3% of price","amount":{"max":null,"pct":3,"of":"price"},"forgiveYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Raises the first-mortgage rate slightly.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"IL":{"name":"Illinois","agency":"Illinois Housing Development Authority (IHDA)","agencyUrl":"https://www.ihda.org","programs":[{"id":"il-forgivable","name":"IHDA Access Forgivable","agency":"IHDA","url":"https://www.ihda.org","type":"forgivable","amountText":"4% of price, up to $6,000","amount":{"max":6000,"pct":4,"of":"price"},"forgiveYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"il-deferred","name":"IHDA Access Deferred","agency":"IHDA","url":"https://www.ihda.org","type":"deferred","amountText":"5% of price, up to $7,500","amount":{"max":7500,"pct":5,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"il-repayable","name":"IHDA Access Repayable","agency":"IHDA","url":"https://www.ihda.org","type":"repay","amountText":"10% of price, up to $10,000","amount":{"max":10000,"pct":10,"of":"price"},"termYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Aurora":[{"id":"aur-il","name":"Down Payment Assistance","agency":"City of Aurora","url":"https://www.aurora-il.org","type":"forgivable","amountText":"Up to $3,000 ($5,000 in revitalization areas)","amount":{"max":3000,"pct":null,"of":"price"},"forgiveYears":3,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Joliet":[{"id":"jol-assist","name":"Illinois Assist Homeownership","agency":"City of Joliet listing","url":"https://www.joliet.gov","type":"grant","amountText":"3%\u20137% grant","amount":{"max":null,"pct":3,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Chicago":[{"id":"chi-dpa","name":"City first-time buyer programs","agency":"City of Chicago Dept. of Housing","url":"https://www.chicago.gov/city/en/depts/doh.html","type":"deferred","amountText":"Amounts not published \u2014 request a Home Ownership Kit","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Cook County":[{"id":"cook-adv","name":"Home Advantage","agency":"Cook County","url":"https://www.cookcountydpa.org","type":"deferred","amountText":"Amount not published","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"IN":{"name":"Indiana","agency":"Indiana Housing & Community Development Authority (IHCDA)","agencyUrl":"https://www.in.gov/ihcda/","programs":[{"id":"in-fp","name":"First Place","agency":"IHCDA","url":"https://www.in.gov/ihcda/","type":"forgivable","amountText":"Up to 6% of price","amount":{"max":null,"pct":6,"of":"price"},"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","conv"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"in-nh","name":"Next Home","agency":"IHCDA","url":"https://www.in.gov/ihcda/","type":"forgivable","amountText":"Up to 3.5% of price","amount":{"max":null,"pct":3.5,"of":"price"},"minCredit":640,"loanTypes":["fha","conv"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Indianapolis":[{"id":"indy-inhp","name":"Down Payment & Closing Cost Assistance","agency":"Indianapolis Neighborhood Housing Partnership","url":"https://www.inhp.org","type":"deferred","amountText":"Up to $14,999","amount":{"max":14999,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Evansville":[{"id":"evv-dpa","name":"Homebuyer Program","agency":"City of Evansville","url":"https://www.evansvillegov.org","type":"forgivable","amountText":"Up to $40,000","amount":{"max":40000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Forgiven after 5, 10 or 15 years depending on amount.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"KS":{"name":"Kansas","agency":"Kansas Housing Resources Corporation (KHRC)","agencyUrl":"https://kshousingcorp.org","programs":[{"id":"ks-fthb","name":"First-Time Homebuyer Program","agency":"KHRC","url":"https://kshousingcorp.org","type":"forgivable","amountText":"15%\u201320% of price (silent second)","amount":{"max":null,"pct":15,"of":"price"},"forgiveYears":10,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI; not in Topeka, Lawrence, Wichita, KCK or Johnson County","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ks-hsp","name":"FHLBank Topeka Homeownership Set-Aside","agency":"FHLBank Topeka members","url":"https://www.fhlbtopeka.com","type":"forgivable","amountText":"Up to $7,500","amount":{"max":7500,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Wichita":[{"id":"ict-h80","name":"HOMEownership 80","agency":"City of Wichita","url":"https://www.wichita.gov","type":"forgivable","amountText":"Up to 20% of price + $2,000 closing costs","amount":{"max":null,"pct":20,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Half forgiven after 5 or 10 years depending on amount.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Topeka":[{"id":"top-toto","name":"Topeka Opportunity to Own (TOTO)","agency":"City of Topeka","url":"https://www.topeka.org","type":"deferred","amountText":"Amount not published","amount":{"max":null,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Leavenworth":[{"id":"lvn-hop","name":"Home Ownership Program","agency":"City of Leavenworth","url":"https://www.leavenworthks.org","type":"grant","amountText":"Up to $8,000","amount":{"max":8000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"KY":{"name":"Kentucky","agency":"Kentucky Housing Corporation (KHC)","agencyUrl":"https://www.kyhousing.org","programs":[{"id":"ky-dap","name":"Regular Down Payment Assistance (DAP)","agency":"KHC","url":"https://www.kyhousing.org","type":"repay","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"rate":3.75,"termYears":10,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Price \u2264 ~$510,900","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Louisville Metro":[{"id":"lou-dpa","name":"Down Payment Assistance","agency":"Louisville Metro Government","url":"https://louisvilleky.gov","type":"deferred","amountText":"Amount based on need","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"0% loan; half forgivable over time, rest due at sale or refinance.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Lexington":[{"id":"lex-dpa","name":"Homebuyer subsidies & 0\u20132% loans","agency":"LFUCG partners (REACH, Habitat)","url":"https://www.lexingtonky.gov","type":"grant","amountText":"Amount not published","amount":{"max":null,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"LA":{"name":"Louisiana","agency":"Louisiana Housing Corporation (LHC)","agencyUrl":"https://www.lhc.la.gov","programs":[{"id":"la-mrbhome","name":"MRB Home grant","agency":"LHC","url":"https://www.lhc.la.gov","type":"grant","amountText":"Up to 9% of loan","amount":{"max":null,"pct":9,"of":"loan"},"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI; price \u2264 ~$349,500","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"la-mrbassist","name":"MRB Assisted","agency":"LHC","url":"https://www.lhc.la.gov","type":"forgivable","amountText":"Up to 4% of loan","amount":{"max":null,"pct":4,"of":"loan"},"forgiveYears":3,"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"la-gnma","name":"Market Rate GNMA DPA","agency":"LHC","url":"https://www.lhc.la.gov","type":"deferred","amountText":"Up to 4% of loan","amount":{"max":null,"pct":4,"of":"loan"},"minCredit":640,"loanTypes":["fha","va","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"la-soft","name":"Resilience Soft Second","agency":"LHC","url":"https://www.lhc.la.gov","type":"forgivable","amountText":"Up to $60,000 (20% of price + $5,000)","amount":{"max":60000,"pct":20,"of":"price"},"forgiveYears":10,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI; 51 listed parishes only","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"New Orleans":[{"id":"nola-soft","name":"Direct Homebuyer Soft Second","agency":"City of New Orleans","url":"https://nola.gov","type":"forgivable","amountText":"Up to $35,000 + $5,000 closing costs","amount":{"max":35000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Shreveport":[{"id":"shv-happi","name":"HAPPI","agency":"City of Shreveport","url":"https://www.shreveportla.gov","type":"deferred","amountText":"Up to 20% of price","amount":{"max":null,"pct":20,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% city median","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"MA":{"name":"Massachusetts","agency":"MassHousing","agencyUrl":"https://www.masshousing.com","programs":[{"id":"ma-opt1","name":"MassHousing DPA Option 1","agency":"MassHousing","url":"https://www.masshousing.com","type":"deferred","amountText":"Up to $30,000","amount":{"max":30000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ma-opt2","name":"MassHousing DPA Option 2","agency":"MassHousing","url":"https://www.masshousing.com","type":"repay","amountText":"Up to $25,000","amount":{"max":25000,"pct":null,"of":"price"},"rate":2,"termYears":15,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ma-dreams","name":"MassDREAMS","agency":"MassHousing","url":"https://www.masshousing.com","type":"grant","amountText":"Up to $50,000 (\u2264100% AMI); $35,000 (to 135% AMI)","amount":{"max":35000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"29 designated communities","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Boston":[{"id":"bos-bhc","name":"Boston Home Center DPA","agency":"Boston Home Center","url":"https://www.boston.gov/departments/neighborhood-development/boston-home-center","type":"deferred","amountText":"5% of price, up to $50,000 (\u2264100% AMI) / $35,000","amount":{"max":35000,"pct":5,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Worcester":[{"id":"wor-dpa","name":"Down Payment Assistance","agency":"City of Worcester","url":"https://www.worcesterma.gov","type":"forgivable","amountText":"Up to $5,000","amount":{"max":5000,"pct":null,"of":"price"},"forgiveYears":3,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Springfield":[{"id":"spfd-dpa","name":"Homebuyer Assistance","agency":"City of Springfield","url":"https://www.springfield-ma.gov","type":"forgivable","amountText":"Up to $4,000","amount":{"max":4000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"MD":{"name":"Maryland","agency":"Maryland Mortgage Program (DHCD)","agencyUrl":"https://mmp.maryland.gov","programs":[{"id":"md-6000","name":"1st Time Advantage 6000","agency":"Maryland DHCD","url":"https://mmp.maryland.gov","type":"deferred","amountText":"$6,000","amount":{"max":6000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"md-flex5000","name":"Flex 5000","agency":"Maryland DHCD","url":"https://mmp.maryland.gov","type":"deferred","amountText":"$5,000","amount":{"max":5000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"md-flex3","name":"Flex 3%","agency":"Maryland DHCD","url":"https://mmp.maryland.gov","type":"deferred","amountText":"3% of loan","amount":{"max":null,"pct":3,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Baltimore City":[{"id":"bal-bib","name":"Buying Into Baltimore","agency":"Live Baltimore","url":"https://livebaltimore.com","type":"forgivable","amountText":"$5,000 (lottery)","amount":{"max":5000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"20 winners per year; no income limit.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"bal-baybrook","name":"Baybrook Boost","agency":"Baltimore City","url":"https://livebaltimore.com","type":"deferred","amountText":"$10,000\u2013$20,500 by income","amount":{"max":10000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"Brooklyn & Curtis Bay only","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Montgomery County":[{"id":"mont-rccap","name":"Revolving Closing Cost Assistance","agency":"Montgomery County","url":"https://www.montgomerycountymd.gov","type":"repay","amountText":"5% of price, up to $10,000","amount":{"max":10000,"pct":5,"of":"price"},"rate":5,"termYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"mont-mpp","name":"MPP Option 2","agency":"Montgomery County","url":"https://www.montgomerycountymd.gov","type":"forgivable","amountText":"Up to 3% of price","amount":{"max":null,"pct":3,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Howard County":[{"id":"how-sdlp","name":"Settlement Downpayment Loan Program","agency":"Howard County","url":"https://www.howardcountymd.gov","type":"deferred","amountText":"Amount set by county","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Deferred; interest 2 points below your first mortgage.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"ME":{"name":"Maine","agency":"MaineHousing","agencyUrl":"https://www.mainehousing.org","programs":[{"id":"me-adv","name":"Advantage Down Payment","agency":"MaineHousing","url":"https://www.mainehousing.org","type":"grant","amountText":"Up to $5,000","amount":{"max":5000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"May need repaying if you sell or refinance early.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"me-multi","name":"Multi-Unit Advantage","agency":"MaineHousing","url":"https://www.mainehousing.org","type":"grant","amountText":"$8,000\u2013$14,000","amount":{"max":8000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"1\u20134 unit properties.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"MI":{"name":"Michigan","agency":"Michigan State Housing Development Authority (MSHDA)","agencyUrl":"https://www.michigan.gov/mshda","programs":[{"id":"mi-10k","name":"MI 10K DPA","agency":"MSHDA","url":"https://www.michigan.gov/mshda","type":"deferred","amountText":"$10,000","amount":{"max":10000,"pct":null,"of":"price"},"minCredit":640,"loanTypes":["fha","va","conv","usda"],"incomeNote":"236 eligible ZIP codes only; price cap","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Detroit":[{"id":"det-dpa","name":"Detroit Down Payment Assistance","agency":"City of Detroit","url":"https://detroitmi.gov","type":"deferred","amountText":"Up to $25,000","amount":{"max":25000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Terms not stated \u2014 shown as deferred.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"det-nf","name":"National Faith DPA","agency":"National Faith Homebuyers","url":"https://nationalfaith.org","type":"forgivable","amountText":"$14,999","amount":{"max":14999,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Detroit / Wayne County; existing homes only.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Grand Rapids":[{"id":"gr-haf","name":"Homebuyer Assistance Fund","agency":"City of Grand Rapids","url":"https://www.grandrapidsmi.gov","type":"forgivable","amountText":"Up to $7,500","amount":{"max":7500,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Warren":[{"id":"war-dhap","name":"Direct Homebuyer Assistance","agency":"City of Warren","url":"https://www.cityofwarren.org","type":"deferred","amountText":"Half your down payment + $2,500 closing, max $14,000","amount":{"max":14000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"City-owned properties only.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"MN":{"name":"Minnesota","agency":"Minnesota Housing","agencyUrl":"https://www.mnhousing.gov","programs":[{"id":"mn-mpl","name":"Monthly Payment Loan","agency":"Minnesota Housing","url":"https://www.mnhousing.gov","type":"repay","amountText":"Up to $18,000","amount":{"max":18000,"pct":null,"of":"price"},"termYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"mn-dpl","name":"Deferred Payment Loan","agency":"Minnesota Housing","url":"https://www.mnhousing.gov","type":"deferred","amountText":"Up to $16,500","amount":{"max":16500,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"mn-dplplus","name":"Deferred Payment Loan Plus","agency":"Minnesota Housing","url":"https://www.mnhousing.gov","type":"deferred","amountText":"Up to $18,000","amount":{"max":18000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Minneapolis":[{"id":"mpls-hom","name":"Homeownership Opportunity Minneapolis","agency":"City of Minneapolis","url":"https://www.minneapolismn.gov","type":"deferred","amountText":"$10,000 (61\u201380% AMI) or $20,000 (\u226460% AMI)","amount":{"max":10000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"St. Paul":[{"id":"stp-dpa","name":"Saint Paul HRA Downpayment Assistance","agency":"City of Saint Paul","url":"https://www.stpaul.gov","type":"deferred","amountText":"Up to $40,000","amount":{"max":40000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Rochester":[{"id":"roc-gap","name":"First Homes Gap Loan","agency":"First Homes","url":"https://www.firsthomes.org","type":"deferred","amountText":"Up to $12,000","amount":{"max":12000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"MO":{"name":"Missouri","agency":"Missouri Housing Development Commission (MHDC)","agencyUrl":"https://www.mhdc.com","programs":[{"id":"mo-fp","name":"First Place CashAssistance","agency":"MHDC","url":"https://www.mhdc.com","type":"forgivable","amountText":"Up to 4% of price","amount":{"max":null,"pct":4,"of":"price"},"forgiveYears":10,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"mo-ns","name":"Next Step CashAssistance","agency":"MHDC","url":"https://www.mhdc.com","type":"forgivable","amountText":"4% of loan","amount":{"max":null,"pct":4,"of":"loan"},"forgiveYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Springfield":[{"id":"sgf-dpa","name":"Down Payment Assistance","agency":"City of Springfield","url":"https://www.springfieldmo.gov","type":"deferred","amountText":"Up to $9,000","amount":{"max":9000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI; target areas; price \u2264 $150,000","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Columbia":[{"id":"com-dpa","name":"Homeownership Assistance","agency":"City of Columbia","url":"https://www.como.gov","type":"forgivable","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"forgiveYears":10,"firstTimeOnly":true,"minCredit":600,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"MS":{"name":"Mississippi","agency":"Mississippi Home Corporation (MHC)","agencyUrl":"https://www.mshomecorp.com","programs":[{"id":"ms-smart6","name":"Smart6","agency":"MHC","url":"https://www.mshomecorp.com","type":"deferred","amountText":"$6,000","amount":{"max":6000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ms-easy8","name":"Easy8","agency":"MHC","url":"https://www.mshomecorp.com","type":"deferred","amountText":"$8,000","amount":{"max":8000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ms-trusty10","name":"Trusty10","agency":"MHC","url":"https://www.mshomecorp.com","type":"deferred","amountText":"$10,000","amount":{"max":10000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ms-hat","name":"Housing Assistance for Teachers","agency":"MHC","url":"https://www.mshomecorp.com","type":"grant","amountText":"Up to $6,000","amount":{"max":6000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Certified public school teachers in eligible areas.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"MT":{"name":"Montana","agency":"Montana Housing (MBOH)","agencyUrl":"https://housing.mt.gov","programs":[{"id":"mt-bond","name":"Bond Advantage DPA","agency":"Montana Housing","url":"https://housing.mt.gov","type":"repay","amountText":"Lesser of $15,000 or 5% of price","amount":{"max":15000,"pct":5,"of":"price"},"termYears":15,"minCredit":620,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"mt-plus","name":"MBOH Plus 0% Deferred DPA","agency":"Montana Housing","url":"https://housing.mt.gov","type":"deferred","amountText":"Amount set by program","amount":{"max":null,"pct":null,"of":"price"},"minCredit":620,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"NC":{"name":"North Carolina","agency":"North Carolina Housing Finance Agency (NCHFA)","agencyUrl":"https://www.nchfa.com","programs":[{"id":"nc-adv","name":"NC Home Advantage DPA","agency":"NCHFA","url":"https://www.nchfa.com","type":"forgivable","amountText":"Up to 3% of loan","amount":{"max":null,"pct":3,"of":"loan"},"forgiveYears":15,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"nc-1st","name":"NC 1st Home Advantage Down Payment","agency":"NCHFA","url":"https://www.nchfa.com","type":"forgivable","amountText":"$15,000","amount":{"max":15000,"pct":null,"of":"price"},"forgiveYears":15,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Charlotte":[{"id":"clt-house","name":"House Charlotte","agency":"City of Charlotte","url":"https://www.charlottenc.gov","type":"forgivable","amountText":"Up to $50,000","amount":{"max":50000,"pct":null,"of":"price"},"forgiveYears":30,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Raleigh":[{"id":"ral-hap","name":"Homebuyer Assistance Program","agency":"City of Raleigh","url":"https://raleighnc.gov","type":"deferred","amountText":"Up to $45,000 ($60,000 Enhanced)","amount":{"max":45000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"Price cap ~$385K ($450K Enhanced)","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Greensboro":[{"id":"gso-connect","name":"Housing Connect Homebuyer Assistance","agency":"City of Greensboro","url":"https://www.greensboro-nc.gov","type":"forgivable","amountText":"Up to $15,000 ($20,000 redevelopment areas)","amount":{"max":15000,"pct":null,"of":"price"},"forgiveYears":10,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"ND":{"name":"North Dakota","agency":"North Dakota Housing Finance Agency (NDHFA)","agencyUrl":"https://www.ndhfa.org","programs":[{"id":"nd-start","name":"Start / DCA program","agency":"NDHFA","url":"https://www.ndhfa.org","type":"deferred","amountText":"Up to 3% of loan","amount":{"max":null,"pct":3,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"NE":{"name":"Nebraska","agency":"Nebraska Investment Finance Authority (NIFA)","agencyUrl":"https://www.nifa.org","programs":[{"id":"ne-hba","name":"Homebuyer Assistance (HBA)","agency":"NIFA","url":"https://www.nifa.org","type":"repay","amountText":"Up to 5% of price","amount":{"max":null,"pct":5,"of":"price"},"rate":1,"termYears":10,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"NH":{"name":"New Hampshire","agency":"New Hampshire Housing (NHHFA)","agencyUrl":"https://www.nhhfa.org","programs":[{"id":"nh-dpa","name":"Down Payment & Closing Cost Assistance","agency":"NH Housing","url":"https://www.nhhfa.org","type":"forgivable","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"NJ":{"name":"New Jersey","agency":"NJ Housing and Mortgage Finance Agency (NJHMFA)","agencyUrl":"https://njhousing.gov","programs":[{"id":"nj-dpa","name":"NJHMFA Down Payment Assistance","agency":"NJHMFA","url":"https://njhousing.gov","type":"forgivable","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"forgiveYears":5,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"nj-firstgen","name":"First Generation DPA","agency":"NJHMFA","url":"https://njhousing.gov","type":"forgivable","amountText":"Up to $22,000 ($15,000 + $7,000)","amount":{"max":22000,"pct":null,"of":"price"},"forgiveYears":5,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Camden County":[{"id":"cam-fthb","name":"First Time Homebuyer Program","agency":"Camden County","url":"https://www.camdencounty.com","type":"forgivable","amountText":"$25,000","amount":{"max":25000,"pct":null,"of":"price"},"forgiveYears":10,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Gloucester County":[{"id":"glo-dpa","name":"Homebuyer Down Payment Assistance","agency":"Gloucester County","url":"https://www.gloucestercountynj.gov","type":"deferred","amountText":"Up to $25,000","amount":{"max":25000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Newark / Essex County":[{"id":"ess-dpa","name":"Essex County assistance","agency":"County of Essex","url":"https://essexcountynj.org","type":"deferred","amountText":"Amount not published \u2014 call (973) 655-0200","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"NM":{"name":"New Mexico","agency":"New Mexico Mortgage Finance Authority (MFA)","agencyUrl":"https://housingnm.org","programs":[{"id":"nm-firstdown","name":"FIRSTDown","agency":"MFA","url":"https://housingnm.org","type":"deferred","amountText":"Up to 4% of price","amount":{"max":null,"pct":4,"of":"price"},"firstTimeOnly":true,"minCredit":620,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"nm-fdplus","name":"FirstDown Plus","agency":"MFA","url":"https://housingnm.org","type":"forgivable","amountText":"$15,000","amount":{"max":15000,"pct":null,"of":"price"},"forgiveYears":10,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"nm-homenow","name":"HOMENow","agency":"MFA","url":"https://housingnm.org","type":"forgivable","amountText":"Up to $7,000","amount":{"max":7000,"pct":null,"of":"price"},"forgiveYears":10,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"nm-forward","name":"Home Forward DPA","agency":"MFA","url":"https://housingnm.org","type":"deferred","amountText":"Up to 3% of price","amount":{"max":null,"pct":3,"of":"price"},"firstTimeOnly":false,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Rio Rancho":[{"id":"rr-dpa","name":"City DPA","agency":"City of Rio Rancho","url":"https://rrnm.gov","type":"forgivable","amountText":"Up to $5,000","amount":{"max":5000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"NV":{"name":"Nevada","agency":"Nevada Housing Division","agencyUrl":"https://housing.nv.gov","programs":[{"id":"nv-hip","name":"Home Is Possible (HIP)","agency":"Nevada Housing Division","url":"https://housing.nv.gov","type":"deferred","amountText":"Up to 4% of loan","amount":{"max":null,"pct":4,"of":"loan"},"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"nv-homefirst","name":"Home First","agency":"Nevada Housing Division","url":"https://housing.nv.gov","type":"forgivable","amountText":"$15,000","amount":{"max":15000,"pct":null,"of":"price"},"forgiveYears":3,"firstTimeOnly":true,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"nv-rural","name":"Home Means Nevada Rural DPA","agency":"Nevada Rural Housing","url":"https://nvrural.org","type":"forgivable","amountText":"Up to $25,000","amount":{"max":25000,"pct":null,"of":"price"},"forgiveYears":3,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Rural Nevada only","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"NY":{"name":"New York","agency":"State of New York Mortgage Agency (SONYMA)","agencyUrl":"https://hcr.ny.gov/sonyma","programs":[{"id":"ny-dpal","name":"SONYMA DPAL","agency":"SONYMA","url":"https://hcr.ny.gov/sonyma","type":"forgivable","amountText":"Greater of $15,000 or 3% of price","amount":{"max":15000,"pct":null,"of":"price"},"forgiveYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Calculator uses $15,000 \u2014 raise it if 3% is larger.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ny-dpalplus","name":"SONYMA DPAL Plus (Achieving the Dream)","agency":"SONYMA","url":"https://hcr.ny.gov/sonyma","type":"forgivable","amountText":"Up to $30,000","amount":{"max":30000,"pct":null,"of":"price"},"forgiveYears":10,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226460% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"New York City":[{"id":"nyc-homefirst","name":"HomeFirst Down Payment Assistance","agency":"NYC HPD","url":"https://www.nyc.gov/hpd","type":"forgivable","amountText":"Up to $100,000","amount":{"max":100000,"pct":null,"of":"price"},"forgiveYears":10,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","notes":"Forgiven over 10 years (15 if over $40,000).","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Buffalo":[{"id":"buf-belmont","name":"Down payment & closing cost assistance","agency":"Belmont Housing Resources","url":"https://www.belmonthousingwny.org","type":"deferred","amountText":"Up to $5,000","amount":{"max":5000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Ithaca / Tompkins region":[{"id":"inhs-dpa","name":"INHS Down Payment Assistance","agency":"INHS","url":"https://www.ithacanhs.org","type":"deferred","amountText":"Up to $20,000","amount":{"max":20000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"OH":{"name":"Ohio","agency":"Ohio Housing Finance Agency (OHFA)","agencyUrl":"https://myohiohome.org","programs":[{"id":"oh-choice","name":"Your Choice! Down Payment Assistance","agency":"OHFA","url":"https://myohiohome.org","type":"forgivable","amountText":"2.5% or 5% of price","amount":{"max":null,"pct":5,"of":"price"},"forgiveYears":7,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"oh-grads","name":"Grants for Grads","agency":"OHFA","url":"https://myohiohome.org","type":"forgivable","amountText":"2.5% or 5% of price","amount":{"max":null,"pct":5,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Degree within the last 48 months.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"oh-cfo","name":"Communities First Ohio DPA","agency":"Communities First Ohio","url":"https://communitiesfirstohio.org","type":"grant","amountText":"3%, 4% or 5% of price","amount":{"max":null,"pct":3,"of":"price"},"minCredit":620,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Columbus":[{"id":"cbus-addi","name":"American Dream Down Payment Initiative","agency":"City of Columbus","url":"https://www.columbus.gov","type":"forgivable","amountText":"Up to $7,500","amount":{"max":7500,"pct":null,"of":"price"},"forgiveYears":5,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Cleveland / Cuyahoga County":[{"id":"cuy-dpa","name":"Down Payment Assistance","agency":"Cuyahoga County","url":"https://cuyahogacounty.gov","type":"deferred","amountText":"10% of price, up to $14,900","amount":{"max":14900,"pct":10,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"Home value \u2264 $149,000","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Cincinnati":[{"id":"cin-addi","name":"American Dream Downpayment Initiative","agency":"City of Cincinnati","url":"https://www.cincinnati-oh.gov","type":"forgivable","amountText":"Up to $5,000","amount":{"max":5000,"pct":null,"of":"price"},"forgiveYears":5,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"OK":{"name":"Oklahoma","agency":"Oklahoma Housing Finance Agency (OHFA)","agencyUrl":"https://www.ohfa.org","programs":[{"id":"ok-dpa","name":"OHFA Homebuyer DPA","agency":"OHFA","url":"https://www.ohfa.org","type":"deferred","amountText":"3.5% of loan","amount":{"max":null,"pct":3.5,"of":"loan"},"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ok-rei","name":"REI Home100 DPA","agency":"REI Oklahoma","url":"https://www.reiok.org","type":"forgivable","amountText":"Up to 5% of loan","amount":{"max":null,"pct":5,"of":"loan"},"forgiveYears":7,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Oklahoma City":[{"id":"okc-home","name":"HOME Investment Partnerships DPA","agency":"Community Action Partnership","url":"https://www.okcca.org","type":"forgivable","amountText":"Up to $18,000 (+$5,000 rate buydown)","amount":{"max":18000,"pct":null,"of":"price"},"forgiveYears":7,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Tulsa":[{"id":"tul-dpa","name":"Down payment / closing cost help","agency":"Housing Partners of Tulsa","url":"https://www.tulsahousing.org","type":"deferred","amountText":"Up to $5,000","amount":{"max":5000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"OR":{"name":"Oregon","agency":"Oregon Housing and Community Services (OHCS)","agencyUrl":"https://www.oregon.gov/ohcs","programs":[{"id":"or-flex","name":"Flex Lending DPA","agency":"OHCS","url":"https://www.oregon.gov/ohcs","type":"deferred","amountText":"4% or 5% of loan","amount":{"max":null,"pct":4,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Silent forgivable or repayable second depending on option.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"or-cash","name":"Cash Advantage","agency":"OHCS","url":"https://www.oregon.gov/ohcs","type":"grant","amountText":"Up to 3% of loan (closing costs)","amount":{"max":null,"pct":3,"of":"loan"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Portland":[{"id":"pdx-dpa","name":"Down Payment Assistance Loan","agency":"Portland Housing Bureau","url":"https://www.portland.gov/phb","type":"deferred","amountText":"Up to $80,000 ($100,000 in target areas)","amount":{"max":80000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u2264100% AMI","status":"active","notes":"0% 30-year loan; partly forgiven from year 15.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Salem":[{"id":"sal-home","name":"HOME homebuyer assistance","agency":"City of Salem","url":"https://www.cityofsalem.net","type":"deferred","amountText":"Amount not published","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"PA":{"name":"Pennsylvania","agency":"Pennsylvania Housing Finance Agency (PHFA)","agencyUrl":"https://www.phfa.org","programs":[{"id":"pa-kaal","name":"Keystone Advantage Assistance","agency":"PHFA","url":"https://www.phfa.org","type":"repay","amountText":"Lesser of 4% or $6,000","amount":{"max":6000,"pct":4,"of":"price"},"rate":0,"termYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"pa-kfit","name":"K-FIT","agency":"PHFA","url":"https://www.phfa.org","type":"forgivable","amountText":"Up to 5% of price","amount":{"max":null,"pct":5,"of":"price"},"forgiveYears":10,"minCredit":660,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"pa-homestead","name":"HOMEstead DPA","agency":"PHFA","url":"https://www.phfa.org","type":"forgivable","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"pa-access","name":"Access DPA (disability)","agency":"PHFA","url":"https://www.phfa.org","type":"deferred","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Household member with a disability.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Philadelphia":[{"id":"phl-first","name":"Philly First Home","agency":"City of Philadelphia","url":"https://www.phila.gov","type":"grant","amountText":"Lesser of $10,000 or 6% of price","amount":{"max":10000,"pct":6,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Pittsburgh":[{"id":"pgh-ura","name":"DPA / closing cost grant","agency":"Urban Redevelopment Authority","url":"https://www.ura.org","type":"grant","amountText":"$3,000","amount":{"max":3000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"RI":{"name":"Rhode Island","agency":"RIHousing","agencyUrl":"https://www.rihousing.com","programs":[{"id":"ri-grant","name":"Statewide DPA Grant","agency":"RIHousing","url":"https://www.rihousing.com","type":"grant","amountText":"Up to $17,500","amount":{"max":17500,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ri-10k","name":"10kDPA","agency":"RIHousing","url":"https://www.rihousing.com","type":"deferred","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"minCredit":660,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ri-extra","name":"Extra Assistance","agency":"RIHousing","url":"https://www.rihousing.com","type":"repay","amountText":"Up to 6% of price, max $20,000","amount":{"max":20000,"pct":6,"of":"price"},"termYears":15,"minCredit":620,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ri-firstgen","name":"FirstGenHomeRI","agency":"RIHousing","url":"https://www.rihousing.com","type":"forgivable","amountText":"$25,000","amount":{"max":25000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"First-generation buyers in select cities.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"SC":{"name":"South Carolina","agency":"SC Housing","agencyUrl":"https://www.schousing.com","programs":[{"id":"sc-pha","name":"Palmetto Home Advantage","agency":"SC Housing","url":"https://www.schousing.com","type":"forgivable","amountText":"Up to 4% of loan","amount":{"max":null,"pct":4,"of":"loan"},"forgiveYears":10,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"sc-county","name":"County First","agency":"SC Housing","url":"https://www.schousing.com","type":"forgivable","amountText":"Up to $8,500","amount":{"max":8500,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"Targeted rural counties","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Columbia / Richland County":[{"id":"rich-hap","name":"Homeownership Assistance Program","agency":"Richland County","url":"https://www.richlandcountysc.gov","type":"forgivable","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Greenville County":[{"id":"gvl-cw","name":"CommunityWorks DPA","agency":"CommunityWorks","url":"https://communityworkssc.org","type":"forgivable","amountText":"$5,000 (5 yrs) or $10,000 (8 yrs)","amount":{"max":5000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Spartanburg":[{"id":"spa-hap","name":"Homebuyer Assistance Program","agency":"City of Spartanburg","url":"https://www.cityofspartanburg.org","type":"deferred","amountText":"Up to $20,000","amount":{"max":20000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Charleston":[{"id":"chs-init","name":"Homeownership Initiative","agency":"City of Charleston","url":"https://www.charleston-sc.gov","type":"deferred","amountText":"Amount not published","amount":{"max":null,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"50\u2013120% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"SD":{"name":"South Dakota","agency":"South Dakota Housing (SDHDA)","agencyUrl":"https://www.sdhda.org","programs":[{"id":"sd-frp","name":"Fixed Rate Plus","agency":"SDHDA","url":"https://www.sdhda.org","type":"deferred","amountText":"3% or 5% of price","amount":{"max":null,"pct":3,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"TN":{"name":"Tennessee","agency":"Tennessee Housing Development Agency (THDA)","agencyUrl":"https://thda.org","programs":[{"id":"tn-gc-def","name":"Great Choice \u2014 Deferred","agency":"THDA","url":"https://thda.org","type":"deferred","amountText":"$6,000","amount":{"max":6000,"pct":null,"of":"price"},"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"0%; forgiven after 30 years, due if sold or refinanced sooner.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"tn-gc-amort","name":"Great Choice \u2014 Amortizing","agency":"THDA","url":"https://thda.org","type":"repay","amountText":"Up to 5% of price, max $15,000","amount":{"max":15000,"pct":5,"of":"price"},"termYears":30,"minCredit":640,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Nashville":[{"id":"nas-lift","name":"NeighborhoodLIFT","agency":"Affordable Housing Resources","url":"https://www.ahrhousing.org","type":"deferred","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Memphis":[{"id":"mem-dpa","name":"Down Payment Assistance","agency":"City of Memphis HCD","url":"https://www.memphistn.gov","type":"deferred","amountText":"10% of price, up to $25,000","amount":{"max":25000,"pct":10,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Chattanooga":[{"id":"cha-cne","name":"CNE second loan","agency":"Chattanooga Neighborhood Enterprise","url":"https://cneinc.org","type":"repay","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Rate 0.5 points below your first mortgage.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"TX":{"name":"Texas","agency":"TDHCA / Texas State Affordable Housing Corp. (TSAHC)","agencyUrl":"https://www.tdhca.texas.gov","programs":[{"id":"tx-mfth","name":"My First Texas Home","agency":"TDHCA","url":"https://www.tdhca.texas.gov","type":"deferred","amountText":"Up to 5% of loan","amount":{"max":null,"pct":5,"of":"loan"},"firstTimeOnly":true,"loanTypes":["fha","va","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"tx-mcth","name":"My Choice Texas Home","agency":"TDHCA","url":"https://www.tdhca.texas.gov","type":"deferred","amountText":"Up to 5% of loan","amount":{"max":null,"pct":5,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"tx-hst","name":"Home Sweet Texas grant","agency":"TSAHC","url":"https://www.tsahc.org","type":"grant","amountText":"Up to 5% of loan","amount":{"max":null,"pct":5,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Houston":[{"id":"hou-hap","name":"Homebuyer Assistance Program","agency":"City of Houston HCD","url":"https://houstontx.gov/housing","type":"forgivable","amountText":"Up to $50,000","amount":{"max":50000,"pct":null,"of":"price"},"forgiveYears":5,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"hou-lift","name":"NeighborhoodLIFT","agency":"Avenue CDC","url":"https://avenuecdc.org","type":"deferred","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"San Antonio":[{"id":"sa-hip80","name":"Homeownership Incentive Program (HIP 80)","agency":"City of San Antonio NHSD","url":"https://www.sanantonio.gov","type":"forgivable","amountText":"$1,000\u2013$30,000","amount":{"max":30000,"pct":null,"of":"price"},"forgiveYears":10,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Forgiven over 5 years if \u2264$15,000, 10 years if more.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Dallas":[{"id":"dal-dhap","name":"Dallas Homebuyer Assistance Program","agency":"City of Dallas","url":"https://dallascitynews.net","type":"forgivable","amountText":"Up to $50,000","amount":{"max":50000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Austin":[{"id":"atx-dpa","name":"Down Payment Assistance","agency":"Austin Housing Finance Corp.","url":"https://www.austintexas.gov","type":"forgivable","amountText":"Up to $40,000","amount":{"max":40000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Price < ~$614K","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Corpus Christi":[{"id":"cc-hap","name":"Homebuyer Assistance Program","agency":"City of Corpus Christi","url":"https://www.cctexas.com","type":"forgivable","amountText":"Up to $25,000 + $10,000 closing","amount":{"max":25000,"pct":null,"of":"price"},"forgiveYears":10,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Price \u2264 $238,000","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"UT":{"name":"Utah","agency":"Utah Housing Corporation","agencyUrl":"https://utahhousingcorp.org","programs":[{"id":"ut-dpa","name":"UHC Down Payment Assistance","agency":"Utah Housing","url":"https://utahhousingcorp.org","type":"repay","amountText":"Covers minimum down payment (up to ~6%)","amount":{"max":null,"pct":6,"of":"price"},"termYears":30,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ut-newcon","name":"First-Time Homebuyer New Construction","agency":"Utah Housing","url":"https://utahhousingcorp.org","type":"deferred","amountText":"Up to $20,000","amount":{"max":20000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"New homes under $450,000","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"ut-vets","name":"First-Time Homebuyer Veterans Grant","agency":"Utah Housing","url":"https://utahhousingcorp.org","type":"grant","amountText":"$2,500","amount":{"max":2500,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"West Valley City":[{"id":"wvc-dpa","name":"Forgivable DPA Loan","agency":"West Valley City Housing Authority","url":"https://www.wvc-ut.gov","type":"forgivable","amountText":"Up to $14,999","amount":{"max":14999,"pct":null,"of":"price"},"forgiveYears":5,"minCredit":550,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI; price \u2264 $387,000","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"West Jordan":[{"id":"wj-dpa","name":"Down Payment & Closing Cost Loan","agency":"City of West Jordan","url":"https://www.westjordan.utah.gov","type":"forgivable","amountText":"Up to $7,500","amount":{"max":7500,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Salt Lake City / County":[{"id":"slc-cdcu","name":"CDCU Down Payment Assistance","agency":"Community Development Corp. of Utah","url":"https://cdcutah.org","type":"forgivable","amountText":"Amount not published","amount":{"max":null,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"VA":{"name":"Virginia","agency":"Virginia Housing","agencyUrl":"https://www.virginiahousing.com","programs":[{"id":"va-grant","name":"Down Payment Assistance Grant","agency":"Virginia Housing","url":"https://www.virginiahousing.com","type":"grant","amountText":"Up to 2.5% of price","amount":{"max":null,"pct":2.5,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"va-ccgrant","name":"Closing Cost Assistance Grant","agency":"Virginia Housing","url":"https://www.virginiahousing.com","type":"grant","amountText":"Up to 2% of price","amount":{"max":null,"pct":2,"of":"price"},"loanTypes":["va","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"va-plus","name":"Virginia Housing Plus Second","agency":"Virginia Housing","url":"https://www.virginiahousing.com","type":"deferred","amountText":"3%\u20135% of price","amount":{"max":null,"pct":3,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"va-dhcd","name":"DHCD Down Payment Assistance","agency":"Virginia DHCD","url":"https://www.dhcd.virginia.gov","type":"forgivable","amountText":"Up to $14,999 (more in high-cost areas)","amount":{"max":14999,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Norfolk":[{"id":"nor-nrha","name":"NRHA HOME program","agency":"Norfolk Redevelopment & Housing Authority","url":"https://www.nrha.us","type":"deferred","amountText":"Up to $60,000","amount":{"max":60000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Virginia Beach":[{"id":"vb-dpa","name":"City DPA","agency":"City of Virginia Beach","url":"https://www.vbgov.com","type":"deferred","amountText":"Amount not published \u2014 call 757-385-5750","amount":{"max":null,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"VT":{"name":"Vermont","agency":"Vermont Housing Finance Agency (VHFA)","agencyUrl":"https://www.vhfa.org","programs":[{"id":"vt-assist","name":"ASSIST","agency":"VHFA","url":"https://www.vhfa.org","type":"deferred","amountText":"$10,000\u2013$15,000 by income","amount":{"max":10000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"vt-nwwv","name":"NeighborWorks of Western VT DPA","agency":"NeighborWorks of Western Vermont","url":"https://www.nwwvt.org","type":"repay","amountText":"Up to $50,000 or 20% of price","amount":{"max":50000,"pct":20,"of":"price"},"termYears":15,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Rate 2 points above your mortgage.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"WA":{"name":"Washington","agency":"Washington State Housing Finance Commission (WSHFC)","agencyUrl":"https://www.wshfc.org","programs":[{"id":"wa-adv","name":"Home Advantage DPA","agency":"WSHFC","url":"https://www.wshfc.org","type":"deferred","amountText":"Up to 4% of loan (5% conventional)","amount":{"max":null,"pct":4,"of":"loan"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"wa-needs","name":"Home Advantage Needs Based","agency":"WSHFC","url":"https://www.wshfc.org","type":"deferred","amountText":"Up to $10,000","amount":{"max":10000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"1% interest, payments deferred 30 years.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"wa-opp","name":"Opportunity DPA","agency":"WSHFC","url":"https://www.wshfc.org","type":"deferred","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"1% interest, payments deferred 30 years.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"wa-vets","name":"Veterans DPA","agency":"WSHFC","url":"https://www.wshfc.org","type":"deferred","amountText":"$10,000","amount":{"max":10000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Washington veterans; 3% deferred.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Seattle":[{"id":"sea-oh","name":"Office of Housing DPA","agency":"City of Seattle","url":"https://www.seattle.gov/housing","type":"deferred","amountText":"Up to $90,000 (3+ bedrooms) / $70,000","amount":{"max":70000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"Low-income","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Tacoma":[{"id":"tac-dpa","name":"Down Payment Assistance","agency":"City of Tacoma","url":"https://www.cityoftacoma.org","type":"deferred","amountText":"Up to $60,000","amount":{"max":60000,"pct":null,"of":"price"},"termYears":25,"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"incomeNote":"\u226480% AMI","status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"WI":{"name":"Wisconsin","agency":"WHEDA","agencyUrl":"https://www.wheda.com","programs":[{"id":"wi-easy","name":"Easy Close DPA","agency":"WHEDA","url":"https://www.wheda.com","type":"repay","amountText":"$1,000 up to 6% of price","amount":{"max":null,"pct":6,"of":"price"},"termYears":10,"loanTypes":["fha","conv"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"wi-capital","name":"Capital Access DPA","agency":"WHEDA","url":"https://www.wheda.com","type":"deferred","amountText":"Up to $7,500","amount":{"max":7500,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{"Milwaukee":[{"id":"mke-dpa","name":"Milwaukee Home Down Payment","agency":"City of Milwaukee / Housing Resources","url":"https://city.milwaukee.gov","type":"forgivable","amountText":"$5,000 ($7,000 in CDBG area)","amount":{"max":5000,"pct":null,"of":"price"},"forgiveYears":5,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Madison":[{"id":"msn-adream","name":"Home-Buy the American Dream","agency":"City of Madison","url":"https://www.cityofmadison.com","type":"deferred","amountText":"Up to $20,000","amount":{"max":20000,"pct":null,"of":"price"},"loanTypes":["fha","va","conv","usda"],"status":"active","notes":"Repaid with a share of appreciation at sale.","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"Green Bay":[{"id":"gb-nw","name":"NeighborWorks Green Bay DPA","agency":"NeighborWorks Green Bay","url":"https://nwgreenbay.org","type":"repay","amountText":"$3,000\u2013$8,000","amount":{"max":8000,"pct":null,"of":"price"},"firstTimeOnly":true,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}]}},"WV":{"name":"West Virginia","agency":"West Virginia Housing Development Fund (WVHDF)","agencyUrl":"https://www.wvhdf.com","programs":[{"id":"wv-lowdown","name":"Low Down Home Loan","agency":"WVHDF","url":"https://www.wvhdf.com","type":"repay","amountText":"Up to $8,000","amount":{"max":8000,"pct":null,"of":"price"},"rate":2,"termYears":15,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}},"WY":{"name":"Wyoming","agency":"Wyoming Community Development Authority (WCDA)","agencyUrl":"https://www.wyomingcda.com","programs":[{"id":"wy-stretch","name":"Home$tretch DPA","agency":"WCDA","url":"https://www.wyomingcda.com","type":"deferred","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"minCredit":620,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"},{"id":"wy-amort","name":"Amortizing DPA","agency":"WCDA","url":"https://www.wyomingcda.com","type":"repay","amountText":"Up to $15,000","amount":{"max":15000,"pct":null,"of":"price"},"termYears":10,"minCredit":620,"loanTypes":["fha","va","conv","usda"],"status":"active","reviewed":"2026-11-16","source":"The Mortgage Reports state guide (Nov 2026)"}],"local":{}}}};
+  let DPA = DPA_FALLBACK, dpaSel = null, pendingArea = '';
+  const RATE_ID = { fha:'rateFha', va:'rateVa', conv:'rateConv' };
+  let rateCustom = { fha:false, va:false, conv:false }, confCustom = false;
+  const TYPES = { fha:'FHA', va:'VA', conv:'Conventional' };
+  const DEFAULT_DOWN = { fha:3.5, va:0, conv:5 };
+  let loanType = 'fha';
+
+  // ---------- helpers ----------
+  const num = el => { const v = parseFloat(String(el.value).replace(/[^0-9.\-]/g,'')); return isFinite(v) ? v : 0; };
+  const fmt0 = v => (v<0?'-':'') + '$' + Math.round(Math.abs(v)).toLocaleString('en-US');
+  const fmt2 = v => '$' + v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const pct = (v,d=1) => (v*100).toFixed(d) + '%';
+  const pmt = (principal, annualRate, months) => {
+    if (principal<=0 || months<=0) return 0;
+    const r = annualRate/12;
+    if (r===0) return principal/months;
+    return principal * r / (1 - Math.pow(1+r, -months));
+  };
+  const moneyFormat = el => { if (el.value.trim()==='') return; el.value = Math.round(num(el)).toLocaleString('en-US'); };
+
+  // ---------- program rules ----------
+  function fhaMip(baseLoan, ltv, years){
+    const F = CFG.program.fha, big = baseLoan > F.highBalanceThreshold;
+    if (years > 15){
+      const t = big ? F.mip.long.high : F.mip.long.std;
+      return ltv > 0.95 ? t.gt95 : t.le95;
+    }
+    if (!big){ const t = F.mip.short.std; return ltv > 0.90 ? t.gt90 : t.le90; }
+    const t = F.mip.short.high;
+    if (ltv <= 0.78) return t.le78;
+    return ltv > 0.90 ? t.gt90 : t.le90;
+  }
+  function vaFee(downFrac, use, exempt){
+    if (exempt) return 0;
+    const f = CFG.program.va.fee[use==='subsequent' ? 'subsequent' : 'first'];
+    if (downFrac >= 0.10) return f[2];
+    if (downFrac >= 0.05) return f[1];
+    return f[0];
+  }
+  function marketRate(t, years){
+    const R = CFG.rates, spread = R.conv30 - R.conv15;
+    if (t==='conv') return years<=15 ? R.conv15 : R.conv30;
+    const base = t==='fha' ? R.fha30 : R.va30;
+    return years<=15 ? Math.round((base - spread)*1000)/1000 : base;
+  }
+  function applyMarket(){
+    const yrs = +$('term').value;
+    Object.keys(RATE_ID).forEach(t => { if (!rateCustom[t]) $(RATE_ID[t]).value = marketRate(t, yrs); });
+    if (!confCustom) $('confLimit').value = CFG.program.conv.conformingLimit.toLocaleString('en-US');
+  }
+  const fmtDate = d => { try { return new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); } catch(e){ return d; } };
+  function renderRateInfo(){
+    const yrs = +$('term').value;
+    Object.keys(RATE_ID).forEach(t => {
+      const m = marketRate(t, yrs), est = yrs<=15 && t!=='conv';
+      const el = $('rh-'+t);
+      if (rateCustom[t]) el.innerHTML = `Your quote · market ${m}%${est?' (est.)':''} <a data-t="${t}">use market</a>`;
+      else el.textContent = `Market average${est?' (15-yr est.)':''}`;
+    });
+    document.querySelectorAll('.rh a[data-t]').forEach(a => a.onclick = () => { rateCustom[a.dataset.t] = false; applyMarket(); syncVis(); calc(); });
+    const src = CFG.rateSource, bm = CFG.benchmark;
+    $('rateStatus').innerHTML = (online
+        ? `<span class="live"></span>Live rates as of <b>${fmtDate(CFG.asOf)}</b> — <a href="${src.url}" target="_blank" rel="noopener" style="color:var(--accent)">${src.name}</a>`
+        : `<span class="live off"></span>Offline copy — rates saved <b>${fmtDate(CFG.asOf)}</b>. Open the online version for today's numbers.`)
+      + (bm ? ` · Freddie Mac weekly avg ${bm.conv30}% (${fmtDate(bm.date)})` : '');
+    const P = CFG.program, mipL = P.fha.mip.long.std, vf = P.va.fee;
+    const pc = v => (v*100).toFixed(2).replace(/0$/,'') + '%';
+    $('programInfo').innerHTML = `
+      <p><b>FHA:</b> upfront MIP ${pc(P.fha.ufmip)} of the base loan; 30-yr annual MIP ${pc(mipL.le95)}–${pc(mipL.gt95)} (${P.fha.source}). MIP is figured on the base loan's scheduled balance, so a lender's number may differ by a few dollars. Minimum investment 3.5% (580+ credit) or 10% (500–579) of the lower of price or appraisal.</p>
+      <p><b>VA:</b> funding fee first use ${pc(vf.first[0])} / ${pc(vf.first[1])} / ${pc(vf.first[2])} and subsequent use ${pc(vf.subsequent[0])} / ${pc(vf.subsequent[1])} / ${pc(vf.subsequent[2])} at under 5%, 5%+, and 10%+ down (${P.va.source}). VA sets no minimum credit score, but most lenders want about 620. VA underwriting also checks residual income, which this tool doesn't model.</p>
+      <p><b>Conventional:</b> ${P.conv.conformingLimitYear} conforming limit ${fmt0(P.conv.conformingLimit)} (${P.conv.source}). PMI "auto" is a typical borrower-paid rate by credit score and LTV; use your quote when you have one. PMI is shown ending at 78% of original value; you can usually request removal at 80%. 3% down is generally limited to first-time-buyer programs.</p>
+      <p><b>Rates:</b> market averages for a strong borrower, not a quote. 15-year FHA/VA rates are estimated from the conventional 15/30 spread.${(CFG.notes||[]).map(n=>' '+n).join('')}</p>
+      ${(CFG.changes||[]).length ? `<p><b>Recent data changes:</b> ${CFG.changes.slice(-5).reverse().map(c => `${fmtDate(c.date)} — ${c.text}`).join(' · ')}</p>` : ''}`;
+  }
+  // typical borrower-paid monthly PMI, annual % of loan, by LTV bucket and credit tier
+  const PMI = {
+    tiers:[760,740,720,700,680,660,640,620],
+    97:[0.58,0.70,0.87,0.99,1.21,1.40,1.50,1.86],
+    95:[0.38,0.50,0.62,0.75,0.92,1.10,1.25,1.45],
+    90:[0.28,0.35,0.45,0.53,0.66,0.80,0.90,1.05],
+    85:[0.19,0.24,0.30,0.35,0.44,0.55,0.60,0.70],
+  };
+  function pmiRate(ltv, credit){
+    if (ltv <= 0.80) return 0;
+    const i = Math.max(0, PMI.tiers.findIndex(t => credit >= t));
+    const idx = credit < 620 ? 7 : i;
+    const row = ltv > 0.95 ? PMI[97] : ltv > 0.90 ? PMI[95] : ltv > 0.85 ? PMI[90] : PMI[85];
+    return row[idx]/100;
+  }
+  const DTI = {
+    fha: { front:.31, back:.43, frontMax:.469, backMax:.569, text:'FHA standard 31% / 43%; automated underwriting often approves up to about 46.9% / 56.9% with good credit or reserves.' },
+    va:  { front:null, back:.41, frontMax:null, backMax:.50, text:'VA guideline is 41% total DTI; lenders often go higher when residual income is strong.' },
+    conv:{ front:.28, back:.36, frontMax:null, backMax:.50, text:'Conventional classic guideline is 28% / 36%; Fannie/Freddie automated underwriting allows up to 50% total.' },
+  };
+
+  // ---------- down payment assistance programs ----------
+  const TYPE_LBL = { grant:'Grant', forgivable:'Forgivable', deferred:'Deferred 0%', repay:'Repayable' };
+  const LT_LBL = { fha:'FHA', va:'VA', conv:'Conventional', usda:'USDA' };
+  function allPrograms(){
+    const out = [];
+    Object.entries(DPA.states).forEach(([c,st]) => {
+      st.programs.forEach(p => out.push(p));
+      Object.values(st.local||{}).forEach(list => list.forEach(p => out.push(p)));
+    });
+    (DPA.national||[]).forEach(p => out.push(p));
+    return out;
+  }
+  function findProg(id){ return id ? allPrograms().find(p => p.id===id) || null : null; }
+  function progAmount(p){
+    const price = num($('price')), base = p.amount.of==='loan' ? Math.max(0, price - num($('downAmt'))) : price;
+    let v = p.amount.pct != null ? base * p.amount.pct/100 : null;
+    if (p.amount.max != null) v = v==null ? p.amount.max : Math.min(v, p.amount.max);
+    return v;
+  }
+  function populateStates(){
+    const sel = $('dpaState'), cur = sel.value;
+    sel.innerHTML = '<option value="">Select a state…</option>' + Object.entries(DPA.states).map(([c,st]) => `<option value="${c}">${st.name}</option>`).join('');
+    sel.value = cur;
+  }
+  function populateAreas(){
+    const st = DPA.states[$('dpaState').value];
+    const areas = st ? Object.keys(st.local||{}) : [];
+    $('dpaAreaWrap').classList.toggle('hide', !areas.length);
+    const want = pendingArea || $('dpaArea').value;
+    $('dpaArea').innerHTML = '<option value="">Elsewhere in the state</option>' + areas.map(a => `<option value="${a}">${a}</option>`).join('');
+    $('dpaArea').value = areas.includes(want) ? want : '';
+    pendingArea = '';
+  }
+  function progCard(p){
+    const amt = progAmount(p), credit = +$('credit').value;
+    const chips = [`<span class="chip t">${TYPE_LBL[p.type]||p.type}${p.type==='forgivable'&&p.forgiveYears?` · ${p.forgiveYears} yrs`:''}${p.type==='repay'&&p.termYears?` · ${p.termYears} yrs`:''}</span>`];
+    if (p.firstTimeOnly) chips.push('<span class="chip">First-time buyers</span>');
+    if (p.minCredit) chips.push(`<span class="chip ${credit < p.minCredit ? 'b':''}">${p.minCredit}+ credit</span>`);
+    if (p.incomeNote) chips.push(`<span class="chip">${p.incomeNote}</span>`);
+    const lts = p.loanTypes || ['fha','va','conv','usda'];
+    if (!lts.includes(loanType)) chips.push(`<span class="chip b">Not for ${LT_LBL[loanType]} loans</span>`);
+    else if (lts.length < 4) chips.push(`<span class="chip">${lts.map(t=>LT_LBL[t]).join(' / ')} only</span>`);
+    if (p.status==='paused') chips.push('<span class="chip b">Paused</span>');
+    if (p.status==='upcoming') chips.push('<span class="chip w">Not open yet</span>');
+    chips.push(p.verified ? `<span class="chip g">Checked with agency ${fmtDate(p.verified)}</span>` : p.reviewed ? `<span class="chip" title="${p.source||''}">Updated ${fmtDate(p.reviewed)} · confirm with agency</span>` : '<span class="chip w">Not yet verified — confirm with agency</span>');
+    const usable = p.status!=='paused' && p.status!=='upcoming' && amt != null;
+    const sel = dpaSel && dpaSel.id===p.id;
+    return `<div class="prog ${sel?'sel':''} ${p.status==='paused'?'dim':''}">
+      <div class="top"><div><div class="nm">${p.name}</div><div class="ag">${p.agency}</div></div>
+        <div class="act"><a href="${p.url}" target="_blank" rel="noopener">Details</a>${usable ? `<button class="btn sm ${sel?'':'primary'}" data-use="${p.id}">${sel?'Using':'Use'}</button>` : ''}</div></div>
+      <div class="amt">${p.amountText}${amt!=null && p.amount.pct!=null ? ` — <b>${fmt0(amt)}</b> on this home` : ''}</div>
+      <div class="chips">${chips.join('')}</div>
+      ${p.notes ? `<div class="nt">${p.notes}</div>` : ''}
+    </div>`;
+  }
+  function renderDpa(){
+    const code = $('dpaState').value, st = DPA.states[code];
+    if (!st){ $('dpaAvail').innerHTML = '<div class="hint" style="margin:-4px 0 12px">Pick a state to see the assistance programs available there.</div>'; }
+    else {
+      const area = $('dpaArea').value;
+      const local = area ? (st.local[area]||[]) : [];
+      const groups = [];
+      if (local.length) groups.push([area, local]);
+      groups.push([`Statewide — ${st.agency}`, st.programs]);
+      if ((DPA.national||[]).length) groups.push(['Available nationwide', DPA.national]);
+      const open = [...local, ...st.programs].filter(p => p.status!=='paused' && p.status!=='upcoming');
+      const where = area ? `${area}, ${st.name}` : st.name;
+      const hasLocalOpts = Object.keys(st.local||{}).length && !area;
+      $('dpaAvail').innerHTML = `<div class="avail">${open.length ? `<b>${open.length} program${open.length>1?'s':''}</b> available in ${where}.` : `No open state or local programs listed for ${where}.`}${hasLocalOpts ? ' Pick your city or county for local programs.' : ''}</div>
+        <div class="proglist">${groups.map(([h,list]) => `<div class="hint" style="margin:6px 0 6px;font-weight:600">${h}</div>` + list.map(progCard).join('')).join('')}</div>
+        <div class="hint" style="margin:-2px 0 12px">${DPA.note || ''}</div>`;
+    }
+    $('dpaAvail').querySelectorAll('[data-use]').forEach(b => b.onclick = () => useProgram(b.dataset.use));
+    if (dpaSel){
+      $('dpaUsing').classList.remove('hide');
+      $('dpaUsing').innerHTML = `<span>Using <b>${dpaSel.name}</b>${dpaSel._capped?' — capped at what you need (down payment + closing costs)':dpaSel.amount.pct!=null?' — updates with price':''}</span><a id="dpaClear">Remove</a>`;
+      $('dpaClear').onclick = () => { dpaSel = null; $('dpaAmt').value = '0'; syncVis(); calc(); };
+    } else $('dpaUsing').classList.add('hide');
+  }
+  function applyProgram(){
+    if (!dpaSel) return;
+    let amt = progAmount(dpaSel);
+    if (amt == null) return;
+    const price = num($('price'));
+    const ci = ccInfo();
+    const need = Math.min(price, num($('downAmt'))) + Math.max(0, ci.cc - num($('credits')) - ci.concession);
+    dpaSel._capped = amt > need + 0.5;
+    amt = Math.min(amt, need);
+    $('dpaAmt').value = Math.round(amt).toLocaleString('en-US');
+  }
+  function useProgram(id){
+    const p = findProg(id); if (!p) return;
+    dpaSel = p;
+    $('dpaType').value = p.type;
+    if (p.forgiveYears) $('dpaForgive').value = p.forgiveYears;
+    if (p.type==='repay'){
+      $('dpaRate').value = p.rate != null ? p.rate : num($(RATE_ID[loanType]));
+      $('dpaTerm').value = p.termYears || 10;
+    }
+    applyProgram(); syncVis(); calc();
+  }
+
+  // ---------- itemized buyer & seller costs ----------
+  const TYPICAL_ITEMS = [
+    {id:'orig', name:'Lender origination & underwriting', mode:'pct', basis:'loan', value:1, cust:'buyer'},
+    {id:'appraisal', name:'Appraisal', mode:'amt', value:600, cust:'buyer'},
+    {id:'inspection', name:'Home inspection', mode:'amt', value:500, cust:'buyer'},
+    {id:'lendertitle', name:"Lender's title policy", mode:'pct', basis:'loan', value:0.5, cust:'buyer'},
+    {id:'settle', name:'Closing / settlement fee', mode:'amt', value:800, cust:'buyer'},
+    {id:'recording', name:'Recording fees', mode:'amt', value:150, cust:'buyer'},
+    {id:'prepaidint', name:'Prepaid interest (15 days)', mode:'calc', calc:'interest', cust:'buyer'},
+    {id:'insyr', name:"First year's homeowners insurance", mode:'calc', calc:'insurance', cust:'buyer'},
+    {id:'escrow', name:'Escrow deposit (3 mo. tax + 2 mo. ins.)', mode:'calc', calc:'escrow', cust:'buyer'},
+    {id:'commission', name:'Real estate commissions', mode:'pct', basis:'price', value:5.5, cust:'seller'},
+    {id:'ownertitle', name:"Owner's title policy", mode:'pct', basis:'price', value:0.4, cust:'seller'},
+    {id:'transfer', name:'Transfer tax', mode:'pct', basis:'price', value:0.1, cust:'seller'},
+    {id:'sellersettle', name:'Seller settlement / attorney fee', mode:'amt', value:600, cust:'seller'},
+  ];
+  const freshItems = () => TYPICAL_ITEMS.map(i => Object.assign({payer:i.cust}, i));
+  let ITEMS = freshItems(), itemSeq = 1;
+  function itemAmount(it, ctx){
+    if (it.mode==='calc'){
+      if (it.calc==='interest') return ctx.loan * ctx.rate / 365 * 15;
+      if (it.calc==='insurance') return ctx.insYr;
+      if (it.calc==='escrow') return ctx.taxYr/12*3 + ctx.insYr/12*2;
+      return 0;
+    }
+    if (it.mode==='pct') return (it.basis==='loan' ? ctx.loan : ctx.price) * (+it.value||0) / 100;
+    return +it.value || 0;
+  }
+  function itemCtx(){
+    const price = num($('price'));
+    return { price, loan: Math.max(0, price - Math.min(num($('downAmt')), price)),
+      rate: Math.max(0, num($(RATE_ID[loanType])) - Math.max(0, num($('points')))*Math.max(0, num($('ptsPer'))))/100,
+      taxYr: segState.taxMode==='pct' ? price*num($('taxPct'))/100 : num($('taxAmt')),
+      insYr: num($('ins')) };
+  }
+  // closing costs on the buyer's side, and buyer costs the seller covers (= concessions)
+  function ccInfo(){
+    const price = num($('price'));
+    if (segState.ccMode==='pct') return { cc: price*num($('ccPct'))/100, concession:0 };
+    if (segState.ccMode==='amt') return { cc: num($('ccAmt')), concession:0 };
+    const ctx = itemCtx();
+    let cc = 0, concession = 0, buyerPays = 0, sellerPays = 0, sellerOwn = 0;
+    const rows = ITEMS.map(it => {
+      const a = itemAmount(it, ctx);
+      if (it.cust==='buyer' || it.payer==='buyer') cc += a;          // part of the buyer's closing statement
+      if (it.cust==='buyer' && it.payer==='seller') concession += a; // seller paying the buyer's costs
+      if (it.payer==='buyer') buyerPays += a; else sellerPays += a;
+      if (it.cust==='seller' && it.payer==='seller') sellerOwn += a;
+      return { it, a };
+    });
+    return { cc, concession, buyerPays, sellerPays, sellerOwn, rows, ctx };
+  }
+  const esc = t => String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function renderItems(){
+    const info = ccInfo(); if (!info.rows) return;
+    const row = r => { const it = r.it;
+      const val = it.mode==='calc' ? '<span class="auto">auto</span>'
+        : `<div class="val"><input data-k="value" data-id="${it.id}" value="${esc(it.value)}" inputmode="decimal"><select data-k="mode" data-id="${it.id}"><option value="amt" ${it.mode==='amt'?'selected':''}>$</option><option value="pct" ${it.mode==='pct'?'selected':''}>%</option></select></div>`;
+      const conc = it.cust==='buyer' && it.payer==='seller' ? '<span class="tag">seller-paid</span>' : '';
+      return `<tr><td><textarea class="nm" rows="1" data-k="name" data-id="${it.id}" title="${esc(it.name)}">${esc(it.name)}</textarea>${it.mode==='pct'?`<div class="auto">of ${it.basis==='loan'?'loan':'price'}</div>`:''}</td><td>${val}</td><td class="amt">${fmt0(r.a)}${conc}</td><td><select class="payer" data-k="payer" data-id="${it.id}"><option value="buyer" ${it.payer==='buyer'?'selected':''}>Buyer</option><option value="seller" ${it.payer==='seller'?'selected':''}>Seller</option></select></td><td><button class="x" title="Remove" data-del="${it.id}">×</button></td></tr>`; };
+    const b = info.rows.filter(r => r.it.cust==='buyer'), sl = info.rows.filter(r => r.it.cust==='seller');
+    $('itemsTbl').innerHTML = `<tr><th>Item</th><th>Amount</th><th style="text-align:right">$</th><th>Paid by</th><th></th></tr>`
+      + `<tr class="grp"><td colspan="5">Buyer's side (lender, title, prepaids)</td></tr>` + b.map(row).join('')
+      + `<tr class="grp"><td colspan="5">Seller's side</td></tr>` + sl.map(row).join('');
+    fitNames();
+  }
+  // Item names wrap instead of clipping: size each box to its text.
+  const fitName = t => { if (!t.offsetParent) return; t.style.height = 'auto'; t.style.height = (t.scrollHeight + t.offsetHeight - t.clientHeight) + 'px'; };
+  const fitNames = () => $('itemsTbl').querySelectorAll('textarea.nm').forEach(fitName);
+  if (window.ResizeObserver) new ResizeObserver(() => fitNames()).observe($('itemsTbl'));
+  $('itemsTbl').addEventListener('keydown', e => { if (e.target.matches('textarea.nm') && e.key==='Enter'){ e.preventDefault(); e.target.blur(); } });
+  function updateItemAmounts(CI){
+    const cells = $('itemsTbl').querySelectorAll('td.amt');
+    CI.rows.filter(r => r.it.cust==='buyer').concat(CI.rows.filter(r => r.it.cust==='seller')).forEach((r,i) => {
+      if (cells[i]) cells[i].innerHTML = fmt0(r.a) + (r.it.cust==='buyer' && r.it.payer==='seller' ? '<span class="tag">seller-paid</span>' : '');
+    });
+  }
+  $('itemsTbl').addEventListener('change', e => {
+    const id = e.target.dataset.id, k = e.target.dataset.k; if (!id || !k) return;
+    const it = ITEMS.find(x => x.id===id); if (!it) return;
+    it[k] = k==='value' ? (parseFloat(String(e.target.value).replace(/[^0-9.\-]/g,''))||0) : e.target.value;
+    if (k==='mode' && it.mode==='pct' && !it.basis) it.basis = 'price';
+    if (it.custom && k==='payer') it.cust = it.payer;
+    calc();
+  });
+  $('itemsTbl').addEventListener('input', e => {
+    const id = e.target.dataset.id, k = e.target.dataset.k; if (k!=='value' && k!=='name') return;
+    if (k==='name'){ if (/[\r\n]/.test(e.target.value)) e.target.value = e.target.value.replace(/[\r\n]+/g,' '); fitName(e.target); }
+    const it = ITEMS.find(x => x.id===id); if (!it) return;
+    it[k] = k==='value' ? (parseFloat(String(e.target.value).replace(/[^0-9.\-]/g,''))||0) : e.target.value;
+    if (k==='value'){ calcNoItems(); } else save();
+  });
+  $('itemsTbl').addEventListener('click', e => {
+    const id = e.target.dataset.del; if (!id) return;
+    ITEMS = ITEMS.filter(x => x.id!==id); calc();
+  });
+  const addItem = who => { ITEMS.push({id:'c'+(Date.now()%1e7)+(itemSeq++), name: who==='buyer'?'New buyer cost':'New seller cost', mode:'amt', value:0, cust:who, payer:who, custom:true}); calc(); };
+  $('addBuyerItem').addEventListener('click', () => addItem('buyer'));
+  $('addSellerItem').addEventListener('click', () => addItem('seller'));
+  $('resetItems').addEventListener('click', () => { ITEMS = freshItems(); calc(); });
+
+  // ---------- read shared inputs ----------
+  function readInputs(){
+    const CCI = ccInfo();
+    const price = num($('price'));
+    const appr = $('appraisal').value.trim()==='' ? price : num($('appraisal'));
+    return {
+      price, apprEntered: $('appraisal').value.trim()!=='', value: Math.min(price, appr || price),
+      rates: { fha:num($('rateFha'))/100, va:num($('rateVa'))/100, conv:num($('rateConv'))/100 },
+      years: +$('term').value, credit: +$('credit').value,
+      fhaLimit: num($('fhaLimit')), confLimit: num($('confLimit')),
+      finUf: $('financeUf').checked, vaUse: $('vaUse').value, vaExempt: $('vaExempt').checked,
+      down: Math.min(num($('downAmt')), price),
+      dpa: num($('dpaAmt')), dpaType: $('dpaType').value, dpaRate: num($('dpaRate'))/100,
+      dpaTerm: num($('dpaTerm')), dpaForgive: num($('dpaForgive')),
+      cc: CCI.cc,
+      credits: num($('credits')) + CCI.concession,
+      manualCredits: num($('credits')), concession: CCI.concession,
+      taxYr: segState.taxMode==='pct' ? price*num($('taxPct'))/100 : num($('taxAmt')),
+      insYr: num($('ins')), hoa: num($('hoa')),
+      mipOverride: $('mipMode').value==='manual' ? num($('mipManual'))/100 : null,
+      pmiOverride: $('pmiMode').value==='manual' ? num($('pmiManual'))/100 : null,
+      income: num($('income')), debts: num($('debts')),
+      dpaProg: dpaSel,
+      points: Math.max(0, num($('points'))), ptsPer: Math.max(0, num($('ptsPer'))), ptsPayer: $('ptsPayer').value,
+      tbType: $('tbType').value, tbPayer: $('tbPayer').value,
+    };
+  }
+
+  // ---------- engine ----------
+  function compute(type, S, opts={}){
+    const { price, value, years, credit } = S;
+    const n = years*12;
+    const noteRate = S.rates[type];
+    const rate = Math.max(0, noteRate - S.points*S.ptsPer/100);
+    const gap = Math.max(0, price - value);  // appraisal shortfall, always cash
+
+    // minimum down
+    let minPct = 0, eligible = true, minNote = '';
+    if (type==='fha'){ minPct = credit>=580 ? 0.035 : 0.10; }
+    if (type==='va'){ minPct = 0; }
+    if (type==='conv'){ minPct = 0.03; if (credit < 620) eligible = false; }
+    const minDown = gap + value*minPct;
+    let down = S.down;
+    let bumped = false;
+    if (opts.atMin){ down = minDown; }
+    else if (opts.bumpToMin && down < minDown){ down = minDown; bumped = true; }
+
+    const baseLoan = Math.max(0, price - down);
+    const ltv = value>0 ? baseLoan/value : 0;
+    const downFrac = 1 - ltv;
+
+    // upfront fee
+    let ufRate = 0, ufName = '';
+    if (type==='fha'){ ufRate = CFG.program.fha.ufmip; ufName = `Upfront MIP (${(ufRate*100).toFixed(2).replace(/0$/,'')}%)`; }
+    if (type==='va'){ ufRate = vaFee(downFrac, S.vaUse, S.vaExempt); ufName = `VA funding fee (${(ufRate*100).toFixed(2).replace(/0$/,'')}%)`; }
+    const uf = baseLoan * ufRate;
+    const finUf = type!=='conv' && S.finUf;
+    const totalLoan = baseLoan + (finUf ? uf : 0);
+    const share = totalLoan>0 ? baseLoan/totalLoan : 1;
+
+    // mortgage insurance
+    let miRate = 0, miName = '', miLife = false, miMonthsFixed = 0;
+    if (type==='fha'){
+      miRate = S.mipOverride!=null ? S.mipOverride : fhaMip(baseLoan, ltv, years);
+      miName = 'Mortgage insurance (MIP)';
+      miLife = ltv > 0.90; miMonthsFixed = miLife ? n : Math.min(CFG.program.fha.mipYearsIfDown10*12, n);
+    }
+    if (type==='conv'){
+      miRate = ltv > 0.80 ? (S.pmiOverride!=null ? S.pmiOverride : pmiRate(ltv, credit)) : 0;
+      miName = 'Private mortgage insurance (PMI)';
+    }
+
+    const pi = pmt(totalLoan, rate, n);
+    const r = rate/12;
+    // rate buydowns
+    const pointsCost = totalLoan * S.points / 100;
+    const piNoPts = pmt(totalLoan, noteRate, n);
+    const ptsSave = Math.max(0, piNoPts - pi);
+    const breakeven = ptsSave > 0.005 ? pointsCost / ptsSave : 0;
+    const tbSteps = ({ '1-0':[1], '2-1':[2,1], '3-2-1':[3,2,1] })[S.tbType] || [];
+    const tbPays = tbSteps.map(d => pmt(totalLoan, Math.max(0, rate - d/100), n));
+    const tempCost = tbPays.reduce((t, p2) => t + (pi - p2) * 12, 0);
+    const sellerPts = S.ptsPayer==='seller' ? pointsCost : 0, sellerTb = S.tbPayer==='seller' ? tempCost : 0;
+    const ccAll = S.cc + pointsCost + tempCost;
+    const creditsAll = S.credits + sellerPts + sellerTb;
+    // VA doesn't count seller-paid discount points toward its 4% concession cap
+    const capCredits = type==='va' ? creditsAll - sellerPts : creditsAll;
+
+    // schedule
+    let bal = totalLoan, totInt=0, totMi=0, int5=0, mi5=0, pmiEnd = 0, pmiOn = type==='conv' && miRate>0;
+    const yearsRows = [];
+    let mi1 = 0;
+    for (let y=1; y<=years; y++){
+      let yi=0, yp=0, ym=0; const startBal = bal;
+      const monthMi = [];
+      for (let m=0; m<12; m++){
+        const month = (y-1)*12 + m + 1;
+        const intr = bal*r, prin = Math.min(bal, pi - intr);
+        yi += intr; yp += prin; bal = Math.max(0, bal - prin);
+        if (month <= 60) int5 += intr;
+        let mi = 0;
+        if (type==='conv' && pmiOn){
+          mi = baseLoan*miRate/12;
+          if (bal <= 0.78*value){ pmiOn = false; pmiEnd = month; }
+        }
+        monthMi.push(mi);
+      }
+      if (type==='fha'){
+        const inYear = Math.max(0, Math.min(12, miMonthsFixed - (y-1)*12));
+        const monthly = y===1 ? baseLoan*miRate/12 : ((startBal+bal)/2)*share*miRate/12;
+        for (let m=0; m<12; m++) monthMi[m] = m < inYear ? monthly : 0;
+      }
+      monthMi.forEach((v,m) => { ym += v; if ((y-1)*12+m+1 <= 60) mi5 += v; });
+      if (y===1) mi1 = monthMi[0];
+      totInt += yi; totMi += ym;
+      yearsRows.push({ y, yi, yp, ym, bal });
+    }
+    if (type==='fha' && !miLife) yearsRows.forEach(o => o.miEnd = o.y*12 === miMonthsFixed);
+    if (type==='conv' && pmiEnd) yearsRows.forEach(o => o.miEnd = o.y === Math.ceil(pmiEnd/12));
+
+    // assistance eligibility by loan type
+    let dpaAmt = S.dpa, dpaBlocked = false;
+    if (S.dpaProg && S.dpaProg.loanTypes && !S.dpaProg.loanTypes.includes(type)){ dpaAmt = 0; dpaBlocked = true; }
+    // closing
+    const ccNet = Math.max(0, ccAll - creditsAll);
+    const creditsWasted = Math.max(0, creditsAll - ccAll);
+    const dpaToDown = Math.min(dpaAmt, down);
+    const dpaToCc = Math.min(dpaAmt - dpaToDown, ccNet);
+    const dpaExcess = Math.max(0, dpaAmt - dpaToDown - dpaToCc);
+    const dpaUsed = dpaToDown + dpaToCc;
+    const dpaMonths = Math.round(S.dpaTerm*12);
+    const dpaPay = S.dpaType==='repay' ? pmt(dpaUsed, S.dpaRate, dpaMonths) : 0;
+    const isLien = S.dpaType!=='grant';
+    const cltv = value>0 ? (totalLoan + (isLien?dpaUsed:0))/value : 0;
+
+    const tax = S.taxYr/12, ins = S.insYr/12, hoa = S.hoa;
+    const monthly = pi + mi1 + tax + ins + hoa + dpaPay;
+    const yourDown = down - dpaToDown, yourCc = ccNet - dpaToCc, ufCash = finUf ? 0 : uf;
+    const cash = yourDown + yourCc + ufCash;
+
+    // concessions cap
+    let capPct = 0.06;
+    if (type==='va') capPct = 0.04;
+    if (type==='conv') capPct = ltv > 0.90 ? 0.03 : ltv > 0.75 ? 0.06 : 0.09;
+
+    // alerts
+    const A = [];
+    if (!eligible) A.push(['bad', 'Conventional loans generally require a 620+ credit score.']);
+    if (dpaBlocked) A.push(['bad', `${S.dpaProg.name} can't be used with ${TYPES[type]} loans, so it's left out of this estimate.`]);
+    if (S.dpaProg && !dpaBlocked && S.dpaProg.minCredit && credit < S.dpaProg.minCredit) A.push(['warn', `${S.dpaProg.name} requires a ${S.dpaProg.minCredit}+ credit score.`]);
+    if (S.dpaProg && !dpaBlocked && !S.dpaProg.verified) A.push([S.dpaProg.reviewed ? 'info' : 'warn', `${S.dpaProg.name}: ${S.dpaProg.reviewed ? 'figures from current state guides' : 'amounts not yet verified'} — confirm with ${S.dpaProg.agency} before you count on it.`]);
+    if (type==='fha' && credit < 580 && credit >= 500) A.push(['warn', 'With a 500–579 score FHA requires 10% down, and many lenders set their own floor at 580–620.']);
+    if (type==='va' && credit < 620) A.push(['warn', 'VA has no minimum score, but most lenders want about 620. Some go lower.']);
+    if (S.down + 0.5 < minDown){
+      const need = type==='fha' ? `FHA needs at least ${pct(minPct,1)} down` : type==='conv' ? 'Conventional needs at least 3% down' : 'VA can\'t lend more than the appraised value';
+      A.push(['bad', `${need} — ${fmt0(minDown)}${gap>0?' (including the appraisal gap)':''}.`]);
+    } else if (dpaToDown>0) {
+      A.push(['good', `Assistance covers ${fmt0(dpaToDown)} of your ${fmt0(down)} down payment${yourDown<1?' — all of it':''}.`]);
+    }
+    if (type==='conv' && downFrac >= 0.03 && downFrac < 0.05) A.push(['info', 'Under 5% down on conventional usually means a first-time-buyer program (HomeReady / Home Possible), which may have income limits.']);
+    if (S.apprEntered && gap>0) A.push(['warn', `Appraisal is ${fmt0(gap)} under price. Loans are based on the lower value, so that gap comes out of your pocket (already counted in the down payment).`]);
+    if (dpaExcess>0) A.push(['warn', `${fmt0(dpaExcess)} of the assistance isn't needed — most programs won't give cash back at closing.`]);
+    if (creditsWasted>0) A.push(['warn', `Credits exceed closing costs by ${fmt0(creditsWasted)}; credits can't be taken as cash.`]);
+    if (capCredits > price*capPct){
+      const msg = type==='va' ? `VA caps seller concessions at 4% (${fmt0(price*0.04)}). Seller-paid normal closing costs don't count toward that cap, so this may still work — ask your lender.`
+        : type==='conv' ? `At ${pct(ltv,0)} LTV, conventional caps seller contributions at ${pct(capPct,0)} (${fmt0(price*capPct)}).`
+        : `FHA caps seller concessions at 6% (${fmt0(price*0.06)}).`;
+      A.push([type==='va'?'warn':'bad', msg]);
+    }
+    if (type==='fha' && S.fhaLimit>0 && baseLoan>S.fhaLimit) A.push(['bad', `Base loan ${fmt0(baseLoan)} exceeds your county FHA limit of ${fmt0(S.fhaLimit)}.`]);
+    if (type==='conv' && S.confLimit>0 && baseLoan>S.confLimit) A.push(['warn', `Loan ${fmt0(baseLoan)} is over the ${fmt0(S.confLimit)} conforming limit — that's a jumbo loan, which usually needs 10–20% down and a higher score.`]);
+    if (isLien && dpaUsed>0) A.push(['info', `Combined LTV with the ${S.dpaType==='repay'?'repayable':S.dpaType} second: ${pct(cltv,1)}.` + (S.dpaType==='forgivable' ? ` Forgiven after ${S.dpaForgive} years if you stay.` : S.dpaType==='deferred' ? ` ${fmt0(dpaUsed)} comes due when you sell, refinance or pay off.` : '')]);
+    if (S.points > 0) A.push(['info', `${S.points} point${S.points===1?'':'s'} (${fmt0(pointsCost)}${S.ptsPayer==='seller'?', seller-paid':''}) ${S.points===1?'takes':'take'} the rate from ${(noteRate*100).toFixed(3).replace(/0+$/,'').replace(/\.$/,'')}% to ${(rate*100).toFixed(3).replace(/0+$/,'').replace(/\.$/,'')}% and save ${fmt0(ptsSave)}/mo` + (S.ptsPayer==='seller' ? '.' : ` — break-even in ${Math.ceil(breakeven)} months (about ${(breakeven/12).toFixed(1)} years). Sell or refinance sooner and the points cost more than they save.`)]);
+    if (tbSteps.length) A.push(['info', `${S.tbType} buydown: ${tbPays.map((p2,i) => `year ${i+1} ${fmt0(p2)}`).join(', ')}, then ${fmt0(pi)} principal & interest. It costs ${fmt0(tempCost)} upfront${S.tbPayer==='seller'?' (seller-paid, counts toward the concession cap)':''}. Lenders qualify you at the full rate.`]);
+    if (type==='fha') A.push(['info', miLife ? 'With under 10% down, FHA MIP stays for the life of the loan — refinancing to conventional later is the usual way out.' : `With 10%+ down, FHA MIP drops off after ${CFG.program.fha.mipYearsIfDown10} years.`]);
+    if (type==='va') A.push(['info', S.vaExempt ? 'No funding fee and no monthly mortgage insurance.' : `No monthly mortgage insurance. The one-time funding fee is ${pct(ufRate,2)}${downFrac<0.05?' — putting 5% down would lower it to '+pct(CFG.program.va.fee.first[1],2):downFrac<0.10?' — 10% down would lower it to '+pct(CFG.program.va.fee.first[2],2):''}.`]);
+    if (type==='conv') A.push(['info', miRate===0 ? 'No PMI — you\'re putting 20% or more down.' : `PMI drops off automatically around year ${Math.ceil(pmiEnd/12)} (78% LTV). You can usually ask to remove it at 80%, or sooner with a new appraisal.`]);
+
+    return { type, rate, years, n, price, value, down, bumped, minDown, baseLoan, ltv, uf, ufRate, ufName, finUf, totalLoan,
+      miRate, miName, mi1, miLife, miMonthsFixed, pmiEnd, pi, tax, ins, hoa, dpaPay, monthly,
+      cc:ccAll, baseCc:S.cc, credits:creditsAll, ccNet, noteRate, pointsCost, ptsSave, breakeven, tbSteps, tbPays, tempCost, sellerPts, sellerTb, dpaToDown, dpaToCc, dpaUsed, dpaMonths, cash, yourDown, cltv,
+      totInt, totMi, int5, mi5, yearsRows, alerts:A, eligible, dpaBlocked };
+  }
+
+  // ---------- UI state ----------
+  const segState = { ccMode:'itemize', taxMode:'pct', cmpMode:'mine' };
+  function wireSeg(id){
+    $(id).querySelectorAll('button').forEach(b => b.addEventListener('click', () => { setSeg(id, b.dataset.v); syncVis(); calc(); }));
+  }
+  function setSeg(id, v){
+    segState[id] = v;
+    $(id).querySelectorAll('button').forEach(x => x.classList.toggle('on', x.dataset.v===v));
+  }
+  wireSeg('ccMode'); wireSeg('taxMode'); wireSeg('cmpMode');
+
+  function setType(t, fromUser){
+    if (fromUser && t!==loanType){
+      if (Math.abs(num($('downPct')) - DEFAULT_DOWN[loanType]) < 0.001){
+        $('downPct').value = DEFAULT_DOWN[t]; downDriver = 'pct';
+      }
+    }
+    loanType = t;
+    $('loanType').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v===t));
+    syncVis();
+  }
+  $('loanType').querySelectorAll('button').forEach(b => b.addEventListener('click', () => { setType(b.dataset.v, true); calc(); }));
+
+  function syncVis(){
+    $('ccPctWrap').classList.toggle('hide', segState.ccMode!=='pct');
+    $('itemsWrap').classList.toggle('hide', segState.ccMode!=='itemize');
+    $('ccHint').textContent = segState.ccMode==='itemize' ? 'Typical amounts, prefilled — edit any line, switch who pays, or add your own. Buyer costs the seller agrees to pay count as seller concessions. Excludes the FHA upfront MIP and VA funding fee (handled separately).' : 'Lender fees, title, prepaid taxes & insurance, escrow deposits. Excludes the FHA upfront MIP and VA funding fee (handled separately).';
+    $('ccAmtWrap').classList.toggle('hide', segState.ccMode!=='amt');
+    $('taxPctWrap').classList.toggle('hide', segState.taxMode!=='pct');
+    $('taxAmtWrap').classList.toggle('hide', segState.taxMode!=='amt');
+    ['fha','va','conv'].forEach(t => {
+      document.querySelectorAll('.t-'+t).forEach(el => {
+        const show = [...el.classList].some(c => c==='t-'+loanType);
+        el.classList.toggle('hide', !show);
+      });
+      $('rf-'+t).classList.toggle('active', t===loanType);
+    });
+    $('financeUfLbl').textContent = loanType==='va' ? 'Roll funding fee into the loan' : 'Roll upfront MIP into the loan';
+    $('mipManualWrap').classList.toggle('hide', loanType!=='fha' || $('mipMode').value!=='manual');
+    $('pmiManualWrap').classList.toggle('hide', loanType!=='conv' || $('pmiMode').value!=='manual');
+    $('dpaRepayRow').classList.toggle('hide', $('dpaType').value!=='repay');
+    $('dpaForgiveRow').classList.toggle('hide', $('dpaType').value!=='forgivable');
+    const credit = +$('credit').value;
+    $('downHint').textContent = loanType==='fha'
+      ? (credit>=580 ? 'FHA minimum is 3.5% with a 580+ score.' : 'FHA minimum is 10% with a 500–579 score.') + ' Assistance applied to the down payment counts toward it.'
+      : loanType==='va' ? 'VA requires no down payment. Putting 5% or 10% down lowers the funding fee.'
+      : 'Conventional minimum is 3% (first-time-buyer programs) or 5%. 20% down avoids PMI.';
+  }
+
+  // linked down payment
+  let downDriver = 'pct';
+  $('downAmt').addEventListener('input', () => { downDriver='amt'; });
+  $('downPct').addEventListener('input', () => { downDriver='pct'; });
+  function syncDown(){
+    const price = num($('price'));
+    if (downDriver==='pct') $('downAmt').value = Math.round(price * num($('downPct'))/100).toLocaleString('en-US');
+    else $('downPct').value = price>0 ? (num($('downAmt'))/price*100).toFixed(2).replace(/\.?0+$/,'') : '0';
+  }
+
+  let lastSummary = '';
+
+  // ---------- render ----------
+  function calc(){
+    syncDown();
+    applyProgram();
+    renderRateInfo();
+    renderDpa();
+    const S = readInputs();
+    const R = compute(loanType, S);
+
+    $('typePill').textContent = TYPES[loanType];
+    $('outMonthly').innerHTML = fmt0(R.monthly) + ' <small>/mo</small>';
+    $('outCash').textContent = fmt0(R.cash);
+    $('outTemp').classList.toggle('hide', !R.tbSteps.length);
+    if (R.tbSteps.length) $('outTemp').textContent = `With ${S.tbType} buydown: ` + R.tbPays.map((p2,i) => `year ${i+1} ${fmt0(R.monthly - R.pi + p2)}/mo`).join(' · ');
+    $('kLoan').textContent = fmt0(R.totalLoan);
+    $('kLtv').textContent = pct(R.ltv,1);
+    if (loanType==='fha'){ $('kMi').textContent = (R.miRate*100).toFixed(2)+'%'; $('kMiLbl').textContent = 'Annual MIP · ' + (R.miLife?'life of loan':CFG.program.fha.mipYearsIfDown10+' years'); }
+    if (loanType==='va'){ $('kMi').textContent = (R.ufRate*100).toFixed(2)+'%'; $('kMiLbl').textContent = 'Funding fee · one-time'; }
+    if (loanType==='conv'){ $('kMi').textContent = R.miRate ? (R.miRate*100).toFixed(2)+'%' : 'None'; $('kMiLbl').textContent = R.miRate ? `PMI · ends ~year ${Math.ceil(R.pmiEnd/12)}` : 'PMI · 20%+ down'; }
+
+    const parts = [
+      ['Principal & interest', R.pi, 'var(--c1)'],
+      [R.miName, R.mi1, 'var(--c2)'],
+      ['Property tax', R.tax, 'var(--c3)'],
+      ['Homeowners insurance', R.ins, 'var(--c4)'],
+      ['HOA', R.hoa, 'var(--c5)'],
+      ['DPA 2nd loan payment', R.dpaPay, 'var(--c6)'],
+    ].filter(p => p[1] > 0.004);
+    $('bar').innerHTML = parts.map(p => `<div title="${p[0]}" style="width:${R.monthly>0?p[1]/R.monthly*100:0}%;background:${p[2]}"></div>`).join('');
+    $('breakdown').innerHTML = parts.map(p => `<tr><td><span class="dot" style="background:${p[2]}"></span>${p[0]}</td><td>${fmt2(p[1])}</td></tr>`).join('')
+      + `<tr class="total"><td>Total monthly</td><td>${fmt2(R.monthly)}</td></tr>`;
+    $('alerts').innerHTML = R.alerts.map(a => `<div class="alert ${a[0]}">${a[1]}</div>`).join('');
+
+    // cash to close
+    const rows = [['Down payment', R.down]];
+    if (R.dpaToDown>0) rows.push(['&nbsp;&nbsp;– covered by assistance', -R.dpaToDown, 'sub']);
+    rows.push(['Closing costs', R.baseCc]);
+    if (R.pointsCost>0) rows.push([`Discount points (${S.points})`, R.pointsCost]);
+    if (R.tempCost>0) rows.push([`Temporary buydown funds (${S.tbType})`, R.tempCost]);
+    if (S.concession>0) rows.push(['&nbsp;&nbsp;– buyer costs paid by seller', -Math.min(S.concession,R.cc), 'sub']);
+    if (R.sellerPts + R.sellerTb > 0) rows.push(['&nbsp;&nbsp;– buydown paid by seller', -(R.sellerPts + R.sellerTb), 'sub']);
+    if (S.manualCredits>0) rows.push(['&nbsp;&nbsp;– seller / lender credits', -Math.min(S.manualCredits, Math.max(0, R.cc - S.concession)), 'sub']);
+    if (R.dpaToCc>0) rows.push(['&nbsp;&nbsp;– covered by assistance', -R.dpaToCc, 'sub']);
+    if (R.uf>0) rows.push([R.ufName + (R.finUf?' — rolled into loan':' — paid in cash'), R.finUf?0:R.uf, R.finUf?'sub':'']);
+    $('cashTable').innerHTML = rows.map(r => `<tr class="${r[2]||''}"><td>${r[0]}</td><td>${r[1]<0?'−'+fmt0(-r[1]):fmt0(r[1])}</td></tr>`).join('')
+      + `<tr class="total"><td>Your cash to close</td><td>${fmt0(R.cash)}</td></tr>`;
+
+    // buyer & seller costs
+    const CI = ccInfo();
+    if (segState.ccMode==='itemize'){
+      if (!skipItems) renderItems(); else updateItemAmounts(CI);
+      const bdLines = [[`Discount points (${S.points})`, R.pointsCost, S.ptsPayer], [`Temporary buydown (${S.tbType})`, R.tempCost, S.tbPayer]].filter(x => x[1] > 0.5);
+      const bdBy = who => bdLines.filter(x => x[2]===who);
+      const bdSum = who => bdBy(who).reduce((t,x) => t + x[1], 0);
+      const list = who => CI.rows.filter(r => r.it.payer===who && r.a>0.5).map(r => `<tr><td>${esc(r.it.name)}${r.it.cust!==who?`<span class="tag">${who==='seller'?'concession':'buyer pays'}</span>`:''}</td><td>${fmt0(r.a)}</td></tr>`).join('')
+        + bdBy(who).map(x => `<tr><td>${x[0]}${who==='seller'?'<span class="tag">concession</span>':''}</td><td>${fmt0(x[1])}</td></tr>`).join('');
+      const payoff = num($('payoff'));
+      const net = R.price - CI.sellerPays - bdSum('seller') - payoff;
+      const capNote = S.concession>0 ? `<div class="hint" style="margin:6px 0 0">Seller-paid buyer costs (${fmt0(S.concession)}${S.manualCredits>0?` + ${fmt0(S.manualCredits)} credits`:''}) count toward the ${TYPES[loanType]} concession cap.</div>` : '';
+      $('partyBody').innerHTML = `<div class="twocol">
+        <div><div class="hint" style="font-weight:600;margin-bottom:4px">Buyer pays at closing</div><table>${list('buyer')}<tr class="total"><td>Buyer total</td><td>${fmt0(CI.buyerPays + bdSum('buyer'))}</td></tr></table></div>
+        <div><div class="hint" style="font-weight:600;margin-bottom:4px">Seller pays at closing</div><table>${list('seller')}<tr class="total"><td>Seller total</td><td>${fmt0(CI.sellerPays + bdSum('seller'))}</td></tr></table></div>
+      </div>
+      <table style="margin-top:12px"><tr><td>Sale price</td><td>${fmt0(R.price)}</td></tr><tr class="sub"><td>&nbsp;&nbsp;– seller's closing costs</td><td>−${fmt0(CI.sellerPays + bdSum('seller'))}</td></tr>${payoff>0?`<tr class="sub"><td>&nbsp;&nbsp;– mortgage payoff</td><td>−${fmt0(payoff)}</td></tr>`:''}<tr class="total"><td>Seller's estimated net proceeds</td><td>${fmt0(net)}</td></tr></table>
+      ${S.manualCredits>0?`<div class="hint" style="margin:6px 0 0">Net proceeds don't subtract the ${fmt0(S.manualCredits)} in the separate credits field — reduce it if the seller is paying that too.</div>`:''}${capNote}
+      <div class="hint" style="margin:6px 0 12px">Who pays what is negotiable and varies by state — commissions, title and transfer tax customs differ. Buyer costs do not include the down payment, upfront MIP or VA funding fee.</div>`;
+    } else {
+      $('partyBody').innerHTML = `<div class="hint" style="margin-bottom:12px">Switch Closing costs to <b>Itemize buyer &amp; seller costs</b> to see who pays what and the seller's estimated net proceeds.</div>`;
+    }
+
+    // DTI
+    const g = DTI[loanType];
+    if (S.income>0){
+      const fe = Math.round(R.monthly/S.income*1000)/1000, be = Math.round((R.monthly+S.debts)/S.income*1000)/1000;
+      const meter = (v, std, max) => {
+        const c = v<=std ? 'var(--good)' : v<=max ? 'var(--warn)' : 'var(--bad)';
+        return `<div class="meter"><div style="width:${Math.min(100,v/0.6*100)}%;background:${c}"></div></div>`;
+      };
+      const feMax = g.frontMax || 1;
+      const okStd = be<=g.back && (g.front==null || fe<=g.front);
+      const okMax = be<=g.backMax && (g.front==null || fe<=feMax);
+      const cls = okStd ? 'good' : okMax ? 'warn' : 'bad';
+      const head = okStd ? 'Within the standard guideline.' : okMax ? 'Above the standard guideline, but often approvable.' : 'Above what lenders typically approve — lower the price, raise the down payment, or pay down debts.';
+      $('dtiBody').innerHTML = `<div class="dti">
+          <div><div class="lbl">Housing (front-end)</div><b>${pct(fe,1)}</b>${meter(fe, g.front||g.back, g.frontMax||g.backMax)}<div class="lbl">${g.front?'guideline '+pct(g.front,0):'no separate VA limit'}</div></div>
+          <div><div class="lbl">Total debt (back-end)</div><b>${pct(be,1)}</b>${meter(be,g.back,g.backMax)}<div class="lbl">guideline ${pct(g.back,0)}</div></div>
+        </div><div class="alert ${cls}">${head} ${g.text}</div>`;
+    } else {
+      $('dtiBody').innerHTML = `<div class="hint" style="margin-bottom:12px">Add your gross monthly income to see whether the payment fits ${TYPES[loanType]} guidelines.</div>`;
+    }
+
+    // life + schedule
+    const dpaRepaid = S.dpaType==='repay' ? R.dpaPay*R.dpaMonths : S.dpaType==='deferred' ? R.dpaUsed : 0;
+    const miLabel = loanType==='fha' ? 'Total MIP (upfront + annual)' : loanType==='va' ? 'VA funding fee' : 'Total PMI';
+    const life = [['Total interest', R.totInt], [miLabel, R.totMi + R.uf], ['Total principal repaid', R.totalLoan]];
+    if (dpaRepaid>0) life.push([S.dpaType==='deferred'?'DPA repaid at sale / payoff':'DPA 2nd loan, total repaid', dpaRepaid]);
+    $('lifeTable').innerHTML = life.map(l => `<tr><td>${l[0]}</td><td>${fmt0(l[1])}</td></tr>`).join('')
+      + `<tr class="total"><td>Total cost of borrowing</td><td>${fmt0(R.totInt+R.totMi+R.uf+(S.dpaType==='repay'?dpaRepaid-R.dpaUsed:0))}</td></tr>`;
+    const miHead = loanType==='fha' ? 'MIP' : loanType==='conv' ? 'PMI' : '';
+    $('amort').innerHTML = `<tr><th>Year</th><th>Principal</th><th>Interest</th>${miHead?`<th>${miHead}</th>`:''}<th>Balance</th></tr>` +
+      R.yearsRows.map(o => `<tr class="${o.miEnd?'miend':''}"><td>${o.y}</td><td>${fmt0(o.yp)}</td><td>${fmt0(o.yi)}</td>${miHead?`<td>${fmt0(o.ym)}</td>`:''}<td>${fmt0(o.bal)}</td></tr>`).join('');
+
+    renderCompare(S);
+
+    lastSummary = [
+      `${TYPES[loanType]} purchase estimate`,
+      `Price ${fmt0(R.price)} | Down ${fmt0(R.down)} (${pct(R.price?R.down/R.price:0,2)}) | Assistance ${fmt0(S.dpa)} (${$('dpaType').selectedOptions[0].text})`,
+      `Loan ${fmt0(R.totalLoan)} @ ${(R.rate*100).toFixed(3)}% / ${R.years} yrs` + (R.uf>0 ? ` (includes ${R.ufName}${R.finUf?'':' — paid in cash'})` : ''),
+      ``,
+      `Monthly: ${fmt2(R.monthly)}`,
+      ...parts.map(p => `  ${p[0]}: ${fmt2(p[1])}`),
+      ``,
+      `Cash to close: ${fmt0(R.cash)}`,
+      `LTV ${pct(R.ltv,1)}`,
+      S.income>0 ? `DTI: ${pct(R.monthly/S.income,1)} front / ${pct((R.monthly+S.debts)/S.income,1)} back` : ''
+    ].join('\n').replace(/\n{3,}/g,'\n\n').trim();
+
+    save();
+  }
+
+  let skipItems = false;
+  function calcNoItems(){ skipItems = true; try { calc(); } finally { skipItems = false; } }
+  function renderCompare(S){
+    const res = ['fha','va','conv'].map(t => compute(t, S, segState.cmpMode==='min' ? { atMin:true } : { bumpToMin:true }));
+    const best = (key, lowIsBest=true) => { const vals = res.map(r => r[key]); const b = lowIsBest ? Math.min(...vals) : Math.max(...vals); return vals.map(v => Math.abs(v-b) < 0.5); };
+    const miEnds = r => r.type==='va' ? 'No monthly MI' : r.type==='fha' ? (r.miLife ? 'Life of loan' : `After ${CFG.program.fha.mipYearsIfDown10} yrs`) : (r.miRate ? `~Year ${Math.ceil(r.pmiEnd/12)}` : 'No PMI');
+    res.forEach(r => { r.cost5 = r.int5 + r.mi5 + r.uf; r.totLife = r.totInt + r.totMi + r.uf; });
+    const rows = [
+      ['Rate', r => pct(r.rate,3).replace(/0+%$/,'%').replace(/\.%$/,'%') + (r.rate < r.noteRate - 1e-9 ? `<span class="note" style="color:var(--muted)">from ${pct(r.noteRate,3).replace(/0+%$/,'%').replace(/\.%$/,'%')} with points</span>` : '')],
+      ['Down payment', r => fmt0(r.down) + (r.bumped ? '<span class="note">program min</span>' : '')],
+      ['Upfront fee', r => r.uf>0 ? fmt0(r.uf) : '—'],
+      ['Monthly payment', r => fmt0(r.monthly), 'hl', best('monthly')],
+      ...(res[0].tbSteps.length ? [[`Year-1 payment (${S.tbType} buydown)`, r => fmt0(r.monthly - r.pi + r.tbPays[0])]] : []),
+      ...(res[0].pointsCost + res[0].tempCost > 0 ? [['Points + buydown cost', r => fmt0(r.pointsCost + r.tempCost)]] : []),
+      ['&nbsp;&nbsp;of which mortgage ins.', r => r.mi1>0 ? fmt0(r.mi1) : '—'],
+      ['Mortgage ins. ends', miEnds],
+      ['Cash to close', r => fmt0(r.cash), 'hl', best('cash')],
+      ['Interest + MI + fees, first 5 yrs', r => fmt0(r.cost5), 'hl', best('cost5')],
+      ['Lifetime interest + MI + fees', r => fmt0(r.totInt + r.totMi + r.uf), '', best('totLife')],
+    ];
+    let h = `<tr><th></th>${res.map(r => `<th data-t="${r.type}" class="${r.type===loanType?'on':''}">${TYPES[r.type]}${r.eligible?'':'<span class="note">needs 620+</span>'}${r.dpaBlocked?'<span class="note">no DPA</span>':''}</th>`).join('')}</tr>`;
+    h += rows.map(row => `<tr class="${row[2]||''}"><td>${row[0]}</td>${res.map((r,i) => `<td class="${r.type===loanType?'on':''} ${row[3]&&row[3][i]?'best':''}">${row[1](r)}</td>`).join('')}</tr>`).join('');
+    $('cmp').innerHTML = h;
+    $('cmp').querySelectorAll('th[data-t]').forEach(th => th.addEventListener('click', () => { setType(th.dataset.t, true); calc(); }));
+  }
+
+  // ---------- wiring ----------
+  Object.entries(RATE_ID).forEach(([t,id]) => $(id).addEventListener('input', () => { rateCustom[t] = true; }));
+  $('confLimit').addEventListener('input', () => { confCustom = true; });
+  $('dpaState').addEventListener('change', () => { populateAreas(); });
+  $('dpaAmt').addEventListener('input', () => { dpaSel = null; });
+  $('dpaType').addEventListener('change', () => { if (dpaSel && $('dpaType').value!==dpaSel.type) dpaSel = null; });
+  $('term').addEventListener('change', applyMarket);
+  const inputs = [...document.querySelectorAll('input, select')].filter(el => el.id);
+  const DEFAULTS = {};
+  inputs.forEach(el => {
+    DEFAULTS[el.id] = el.type==='checkbox' ? el.checked : el.value;
+    el.addEventListener(el.tagName==='SELECT'||el.type==='checkbox' ? 'change' : 'input', () => { syncVis(); calc(); });
+    if (el.hasAttribute('data-money')) el.addEventListener('blur', () => moneyFormat(el));
+  });
+
+  $('copyBtn').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(lastSummary); toast('Summary copied'); }
+    catch(e){ toast('Copy blocked by browser'); }
+  });
+  $('resetBtn').addEventListener('click', () => {
+    Object.entries(DEFAULTS).forEach(([id,v]) => { const el=$(id); if(!el) return; if (el.type==='checkbox') el.checked=v; else el.value=v; });
+    setSeg('ccMode','itemize'); setSeg('taxMode','pct'); setSeg('cmpMode','mine'); downDriver='pct'; ITEMS = freshItems(); setType('fha', false);
+    rateCustom = { fha:false, va:false, conv:false }; confCustom = false; applyMarket();
+    dpaSel = null; populateAreas();
+    calc(); toast('Reset');
+  });
+  function toast(t){ const el=$('toast'); el.textContent=t; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),1400); }
+
+  function save(){
+    try {
+      const s = { seg:segState, downDriver, loanType, rateCustom, confCustom, dpaSel: dpaSel && dpaSel.id, items: ITEMS, v:{} };
+      inputs.forEach(el => s.v[el.id] = el.type==='checkbox' ? el.checked : el.value);
+      localStorage.setItem(STORE, JSON.stringify(s));
+    } catch(e){}
+  }
+  function load(){
+    try {
+      const s = JSON.parse(localStorage.getItem(STORE) || 'null'); if (!s) return;
+      Object.entries(s.v||{}).forEach(([id,v]) => { const el=$(id); if(!el) return; if (el.type==='checkbox') el.checked=v; else el.value=v; });
+      if (Array.isArray(s.items) && s.items.length) ITEMS = s.items;
+      if (s.seg){ setSeg('ccMode', s.seg.ccMode||'itemize'); setSeg('taxMode', s.seg.taxMode||'pct'); setSeg('cmpMode', s.seg.cmpMode||'mine'); }
+      if (s.downDriver) downDriver = s.downDriver;
+      if (s.loanType && TYPES[s.loanType]) loanType = s.loanType;
+      if (s.rateCustom) rateCustom = Object.assign(rateCustom, s.rateCustom);
+      if (typeof s.confCustom==='boolean') confCustom = s.confCustom;
+      if (s.v && s.v.dpaArea) pendingArea = s.v.dpaArea;
+      if (s.dpaSel) dpaSel = findProg(s.dpaSel);
+    } catch(e){}
+  }
+
+  populateStates();
+  load();
+  populateAreas();
+  setType(loanType, false);
+  applyMarket();
+  calc();
+  fetch('dpa.json', { cache:'no-store' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(j => { if (!j || !j.states) throw new Error('bad'); DPA = j; const area = $('dpaArea').value; populateStates(); pendingArea = area; populateAreas(); if (dpaSel) dpaSel = findProg(dpaSel.id); calc(); })
+    .catch(() => {});
+  fetch('rates.json', { cache:'no-store' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(j => { if (!j || !j.rates || !j.program) throw new Error('bad data'); CFG = j; online = true; applyMarket(); calc(); })
+    .catch(() => { online = false; renderRateInfo(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+{
+  "asOf": "2026-11-20",
+  "updatedAt": "2026-11-20T16:00:00-05:00",
+  "rates": {
+    "conv30": 7.36,
+    "conv15": 6.91,
+    "fha30": 6.98,
+    "va30": 7.0
+  },
+  "rateSource": {
+    "name": "Mortgage News Daily rate index",
+    "url": "https://www.mortgagenewsdaily.com/mortgage-rates",
+    "date": "2026-11-20"
+  },
+  "benchmark": {
+    "name": "Freddie Mac PMMS weekly average",
+    "url": "https://www.freddiemac.com/pmms",
+    "date": "2026-11-19",
+    "conv30": 7.28,
+    "conv15": 6.66
+  },
+  "program": {
+    "fha": {
+      "ufmip": 0.0175,
+      "highBalanceThreshold": 726200,
+      "mip": {
+        "long": {
+          "std": {
+            "le95": 0.005,
+            "gt95": 0.0055
+          },
+          "high": {
+            "le95": 0.007,
+            "gt95": 0.0075
+          }
+        },
+        "short": {
+          "std": {
+            "le90": 0.0015,
+            "gt90": 0.004
+          },
+          "high": {
+            "le78": 0.0015,
+            "le90": 0.004,
+            "gt90": 0.0065
+          }
+        }
+      },
+      "mipYearsIfDown10": 11,
+      "source": "HUD Mortgagee Letter 2023-05"
+    },
+    "va": {
+      "fee": {
+        "first": [
+          0.0215,
+          0.015,
+          0.0125
+        ],
+        "subsequent": [
+          0.033,
+          0.015,
+          0.0125
+        ]
+      },
+      "source": "VA funding fee chart, effective April 7, 2023"
+    },
+    "conv": {
+      "conformingLimit": 832750,
+      "conformingLimitYear": 2026,
+      "source": "FHFA 2026 conforming loan limits"
+    }
+  },
+  "notes": [
+    "2027 conforming loan limits are normally announced by FHFA in late November and take effect January 1."
+  ],
+  "changes": [
+    {
+      "date": "2026-11-16",
+      "text": "Started live data: market rates from Mortgage News Daily; program rules unchanged."
+    }
+  ]
+}

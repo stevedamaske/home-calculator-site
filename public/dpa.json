@@ -1,0 +1,6852 @@
+{
+ "updatedAt": "2026-11-20T16:00:00-05:00",
+ "deepState": null,
+ "note": "Agency-verified: 6 of 51 states (CA, FL, GA, IL, NY, PA) plus Texas except Corpus Christi; the rest compiled from current state guides (Nov 16, 2026) and being re-checked against each agency on a rolling basis — always confirm amounts, funding and eligibility with the program.",
+ "national": [
+  {
+   "id": "chenoa",
+   "name": "Chenoa Fund",
+   "agency": "CBC Mortgage Agency",
+   "url": "https://chenoafund.org",
+   "type": "forgivable",
+   "amountText": "3.5% of price (FHA)",
+   "amount": {
+    "max": null,
+    "pct": 3.5,
+    "of": "price"
+   },
+   "forgiveYears": 3,
+   "minCredit": 600,
+   "loanTypes": [
+    "fha",
+    "conv"
+   ],
+   "incomeNote": "≤115% AMI",
+   "status": "active",
+   "notes": "Forgivable after 36 on-time payments; a repayable version exists for higher incomes.",
+   "reviewed": "2026-11-16",
+   "source": "The Mortgage Reports state guide (Nov 2026)"
+  },
+  {
+   "id": "nhf",
+   "name": "National Homebuyers Fund",
+   "agency": "National Homebuyers Fund, Inc.",
+   "url": "https://www.nhfloan.org",
+   "type": "forgivable",
+   "amountText": "Up to 5% of loan",
+   "amount": {
+    "max": null,
+    "pct": 5,
+    "of": "loan"
+   },
+   "forgiveYears": 3,
+   "firstTimeOnly": false,
+   "loanTypes": [
+    "fha",
+    "va",
+    "conv",
+    "usda"
+   ],
+   "status": "active",
+   "notes": "Grant or 3-year forgivable loan; first-time and repeat buyers.",
+   "reviewed": "2026-11-16",
+   "source": "The Mortgage Reports state guide (Nov 2026)"
+  }
+ ],
+ "states": {
+  "AK": {
+   "name": "Alaska",
+   "agency": "Alaska Housing Finance Corporation (AHFC)",
+   "agencyUrl": "https://www.ahfc.us",
+   "programs": [
+    {
+     "id": "ak-cca",
+     "name": "Closing Cost Assistance",
+     "agency": "AHFC",
+     "url": "https://www.ahfc.us",
+     "type": "grant",
+     "amountText": "3%–4% of loan",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Program status unclear in latest guide — confirm with AHFC.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ak-ahelp",
+     "name": "AHELP (via local providers)",
+     "agency": "AHFC",
+     "url": "https://www.ahfc.us",
+     "type": "deferred",
+     "amountText": "Varies by provider",
+     "amount": {
+      "max": null,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "AL": {
+   "name": "Alabama",
+   "agency": "Alabama Housing Finance Authority (AHFA)",
+   "agencyUrl": "https://www.ahfa.com",
+   "programs": [
+    {
+     "id": "al-stepup",
+     "name": "Step Up DPA",
+     "agency": "AHFA",
+     "url": "https://www.ahfa.com",
+     "type": "repay",
+     "amountText": "4% of price, up to $10,000",
+     "amount": {
+      "max": 10000,
+      "pct": 4,
+      "of": "price"
+     },
+     "termYears": 10,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Income ≤ ~$172,800; DTI ≤45%",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "al-ais",
+     "name": "Affordable Income Subsidy Grant",
+     "agency": "AHFA",
+     "url": "https://www.ahfa.com",
+     "type": "grant",
+     "amountText": "1% of loan (≤50% AMI) or 0.5% (≤80% AMI)",
+     "amount": {
+      "max": null,
+      "pct": 1,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "conv"
+     ],
+     "status": "active",
+     "notes": "Closing costs only; HFA Advantage conventional loan.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Birmingham": [
+     {
+      "id": "bhm-lift",
+      "name": "NeighborhoodLIFT",
+      "agency": "Neighborhood Housing Services of Birmingham",
+      "url": "https://www.nhsbham.org",
+      "type": "forgivable",
+      "amountText": "Up to $7,500 (matches your savings)",
+      "amount": {
+       "max": 7500,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 3,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Modest incomes",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Huntsville": [
+     {
+      "id": "hsv-dpa",
+      "name": "Down Payment Assistance",
+      "agency": "City of Huntsville",
+      "url": "https://www.huntsvilleal.gov",
+      "type": "forgivable",
+      "amountText": "Up to $7,500",
+      "amount": {
+       "max": 7500,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "0% second, no payments; forgiven after 5 years in the home.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Mobile": [
+     {
+      "id": "mob-dpa",
+      "name": "Down Payment Assistance",
+      "agency": "City of Mobile",
+      "url": "https://www.cityofmobile.org",
+      "type": "forgivable",
+      "amountText": "Up to $15,000",
+      "amount": {
+       "max": 15000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Older source — confirm the program is still funded.",
+      "reviewed": "2026-11-16",
+      "source": "Bankrate (older page)"
+     }
+    ]
+   }
+  },
+  "AR": {
+   "name": "Arkansas",
+   "agency": "Arkansas Development Finance Authority (ADFA)",
+   "agencyUrl": "https://adfa.arkansas.gov",
+   "programs": [
+    {
+     "id": "ar-addi",
+     "name": "Arkansas Dream Down Payment Initiative",
+     "agency": "ADFA",
+     "url": "https://adfa.arkansas.gov",
+     "type": "forgivable",
+     "amountText": "Up to 10% of price, max $10,000",
+     "amount": {
+      "max": 10000,
+      "pct": 10,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Low-income",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ar-dpa",
+     "name": "ADFA Down Payment Assistance",
+     "agency": "ADFA",
+     "url": "https://adfa.arkansas.gov",
+     "type": "repay",
+     "amountText": "Up to $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "termYears": 10,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Moderate income",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "AZ": {
+   "name": "Arizona",
+   "agency": "Arizona IDA / Arizona Dept. of Housing",
+   "agencyUrl": "https://www.homeplusaz.com",
+   "programs": [
+    {
+     "id": "az-homeplus",
+     "name": "HOME+PLUS DPA",
+     "agency": "Arizona Industrial Development Authority",
+     "url": "https://www.homeplusaz.com",
+     "type": "forgivable",
+     "amountText": "Up to 4% of loan",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "forgiveYears": 3,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Income ≤ ~$136,600",
+     "status": "active",
+     "notes": "0% deferred second; repaid only if you sell or refinance within 36 months.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "az-p2p",
+     "name": "Pathway to Purchase",
+     "agency": "Arizona Dept. of Housing",
+     "url": "https://housing.az.gov",
+     "type": "grant",
+     "amountText": "Up to 10% of loan, max $20,000",
+     "amount": {
+      "max": 20000,
+      "pct": 10,
+      "of": "loan"
+     },
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "17 designated cities only; price cap ~$372K",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Maricopa County (incl. Phoenix)": [
+     {
+      "id": "mc-h5-adv",
+      "name": "Home in Five Advantage",
+      "agency": "Maricopa County IDA",
+      "url": "https://homeinfiveaz.com",
+      "type": "forgivable",
+      "amountText": "5% of price (6% for educators, first responders, veterans)",
+      "amount": {
+       "max": null,
+       "pct": 5,
+       "of": "price"
+      },
+      "minCredit": 640,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "0% forgivable second; forgiveness term not stated — confirm.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     },
+     {
+      "id": "mc-h5-plat",
+      "name": "Home in Five Platinum",
+      "agency": "Maricopa County IDA",
+      "url": "https://homeinfiveaz.com",
+      "type": "forgivable",
+      "amountText": "Up to 4% of loan",
+      "amount": {
+       "max": null,
+       "pct": 4,
+       "of": "loan"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     },
+     {
+      "id": "phx-dpa",
+      "name": "City of Phoenix DPA",
+      "agency": "City of Phoenix",
+      "url": "https://www.phoenix.gov/housing",
+      "type": "deferred",
+      "amountText": "Amount not published — call the city",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Tucson / Pima County": [
+     {
+      "id": "tuc-dpa",
+      "name": "City of Tucson DPA",
+      "agency": "Pima County",
+      "url": "https://www.pima.gov",
+      "type": "deferred",
+      "amountText": "Up to 20% of price, based on need",
+      "amount": {
+       "max": null,
+       "pct": 20,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Terms not stated — shown as deferred. $1,000 of your own funds required.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     },
+     {
+      "id": "tuc-pths",
+      "name": "Pima Tucson Homebuyer Solution",
+      "agency": "Pima County IDA",
+      "url": "https://www.pima.gov",
+      "type": "forgivable",
+      "amountText": "Amount not published",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 3,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "CA": {
+   "name": "California",
+   "agency": "California Housing Finance Agency (CalHFA)",
+   "agencyUrl": "https://www.calhfa.ca.gov",
+   "programs": [
+    {
+     "id": "ca-myhome",
+     "name": "MyHome Assistance",
+     "agency": "CalHFA",
+     "url": "https://www.calhfa.ca.gov/homebuyer/programs/myhome.htm",
+     "type": "deferred",
+     "amountText": "Up to 3.5% of price/appraised value with CalHFA FHA; up to 3% with CalHFA Conventional, VA or USDA",
+     "amount": {
+      "max": null,
+      "pct": 3.5,
+      "of": "price"
+     },
+     "forgiveYears": null,
+     "rate": null,
+     "termYears": null,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "CalHFA income limits by county",
+     "status": "active",
+     "notes": "Deferred-payment junior loan; must be paired with a CalHFA first mortgage. 640 min credit per CalHFA government-loan matrix (01/2026; 700 for DTI up to 50%); conventional pairing may require a higher score. Rate varies and is not published.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "ca-zip",
+     "name": "Zero Interest Program (ZIP)",
+     "agency": "CalHFA",
+     "url": "https://www.calhfa.ca.gov/homeownership/materials/files/tool-matrix-gov.pdf",
+     "type": "deferred",
+     "amountText": "2% or 3% of first loan amount, closing costs and prepaids only",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "forgiveYears": null,
+     "rate": 0,
+     "termYears": null,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha"
+     ],
+     "incomeNote": "CalHFA income limits by county",
+     "status": "active",
+     "notes": "Used only with CalPLUS FHA first mortgage, in third-lien position behind MyHome. Repayment terms not stated on matrix; treated conservatively as deferred.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "ca-dream",
+     "name": "Dream For All Shared Appreciation Loan",
+     "agency": "CalHFA",
+     "url": "https://calhfa.ca.gov/dream/",
+     "type": "deferred",
+     "amountText": "Lesser of 20% of price/appraised value or $150,000",
+     "amount": {
+      "max": 150000,
+      "pct": 20,
+      "of": "price"
+     },
+     "forgiveYears": null,
+     "rate": 0,
+     "termYears": null,
+     "firstTimeOnly": true,
+     "minCredit": 680,
+     "loanTypes": [
+      "conv"
+     ],
+     "incomeNote": "Dream For All county income limits (e.g. ~$168k LA County, ~$309k Santa Clara County in 2026)",
+     "status": "paused",
+     "notes": "First-generation homebuyer required. Repay principal plus 20% of appreciation (15% if income at/below 80% AMI) on sale, transfer or payoff of first. Must use Dream For All Conventional first. 2026 application window closed March 16, 2026; vouchers issued by random selection; no future round dates announced.",
+     "verified": "2026-11-20"
+    }
+   ],
+   "local": {
+    "City of Los Angeles": [
+     {
+      "id": "la-lipa",
+      "name": "Low Income Purchase Assistance (LIPA)",
+      "agency": "Los Angeles Housing Department (LAHD)",
+      "url": "https://housing.lacity.gov/housing/helping-low-income-first-time-homebuyers",
+      "type": "deferred",
+      "amountText": "Up to $161,000 for down payment, closing costs and acquisition",
+      "amount": {
+       "max": 161000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": 0,
+      "termYears": 30,
+      "firstTimeOnly": true,
+      "minCredit": 660,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Low-income (~80% AMI; 2025 limit $121,150 for household of 4)",
+      "status": "active",
+      "notes": "0% deferred loan plus shared appreciation, due on sale/transfer/payoff or at 30 years. Funds reserved in limited rounds (last listed round March 4, 2026); call LAHD for current availability. First-time = no ownership in past 3 years. Eligible first-mortgage types not specified by LAHD.",
+      "verified": "2026-11-20"
+     },
+     {
+      "id": "la-mipa",
+      "name": "Moderate Income Purchase Assistance (MIPA)",
+      "agency": "Los Angeles Housing Department (LAHD)",
+      "url": "https://housing.lacity.gov/housing/help-moderate-income-first-home-buyers",
+      "type": "deferred",
+      "amountText": "Up to $115,000 for down payment, closing costs and acquisition",
+      "amount": {
+       "max": 115000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": 0,
+      "termYears": 30,
+      "firstTimeOnly": true,
+      "minCredit": 660,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Moderate income (2026: $133,251-$183,250 for household of 4)",
+      "status": "active",
+      "notes": "0% deferred loan plus shared appreciation, due on sale/transfer/payoff or 30-year balloon. Reserved in rounds (next listed Dec 16, 2026). Eligible first-mortgage types not specified by LAHD.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Los Angeles County": [
+     {
+      "id": "lacounty-hop",
+      "name": "Home Ownership Program (HOP80 / HOP150)",
+      "agency": "Los Angeles County Development Authority (LACDA)",
+      "url": "https://www.lacda.org/home-ownership/home-ownership-program",
+      "type": "deferred",
+      "amountText": "Lesser of $100,000 or 20% of purchase price",
+      "amount": {
+       "max": 100000,
+       "pct": 20,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": 0,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "HOP80 up to 80% AMI (price cap $700k); HOP150 up to 150% AMI (price cap $850k)",
+      "status": "active",
+      "notes": "0% deferred shared-equity loan repaid with share of appreciation on sale/transfer/non-occupancy. Unincorporated LA County and participating cities only (not City of LA). First-come, first-served via participating lenders. Min credit and first-mortgage types not stated by LACDA.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "City of San Diego": [
+     {
+      "id": "sd-fthb",
+      "name": "First-Time Homebuyer Program (Low-Income)",
+      "agency": "San Diego Housing Commission",
+      "url": "https://sdhc.org/housing-opportunities/first-time-homebuyers/",
+      "type": "deferred",
+      "amountText": "Deferred loan up to 17% of price (max $125,000) plus forgivable closing-cost grant of 4% up to $10,000",
+      "amount": {
+       "max": 125000,
+       "pct": 17,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": 3,
+      "termYears": 30,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "At or below 80% AMI; max price $883,025",
+      "status": "active",
+      "notes": "3% simple interest, payments deferred 30 years unless sold/no longer occupied. Requires fixed-rate first and 3% buyer down payment. SDHC intro text says up to 19% but program table says 17% (used here). Previous 22% figure applies to the County of San Diego program, not the City. No published min score ('good credit').",
+      "verified": "2026-11-20"
+     },
+     {
+      "id": "sd-middle-income",
+      "name": "First-Time Homebuyer Program (Middle-Income)",
+      "agency": "San Diego Housing Commission",
+      "url": "https://sdhc.org/housing-opportunities/first-time-homebuyers/",
+      "type": "repay",
+      "amountText": "$40,000 deferred loan plus $10,000 closing-cost grant (total $50,000)",
+      "amount": {
+       "max": 50000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": 4,
+      "termYears": 15,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "80-150% AMI; max price $1,250,000",
+      "status": "active",
+      "notes": "Loan at 4% simple interest deferred years 1-5, then amortizes over 120 months; the $10,000 grant is forgiven after 3 years of owner occupancy. ZIP codes beginning 921 only.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "San Francisco": [
+     {
+      "id": "sf-dalp",
+      "name": "Downpayment Assistance Loan Program (DALP)",
+      "agency": "SF Mayor's Office of Housing and Community Development (MOHCD)",
+      "url": "https://sf.gov/apply-downpayment-loan-buy-market-rate-home",
+      "type": "deferred",
+      "amountText": "Up to $500,000",
+      "amount": {
+       "max": 500000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Up to ~200% AMI ($311,700 for household of 4)",
+      "status": "paused",
+      "notes": "Silent second; repay principal plus share of appreciation on sale. Lottery-based: 2025 application period closed June 2, 2025; no 2026 round announced on sf.gov.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Santa Clara County / San Jose": [
+     {
+      "id": "scc-help",
+      "name": "Homebuyer Empowerment Loan Program (HELP)",
+      "agency": "Housing Trust Silicon Valley",
+      "url": "https://housingtrustsv.org/programs/homebuyer-assistance/",
+      "type": "deferred",
+      "amountText": "Up to 10% of purchase price",
+      "amount": {
+       "max": null,
+       "pct": 10,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Moderate income (above Empower limits)",
+      "status": "paused",
+      "notes": "Agency lists 'All Funds Allocated'. Repayment terms not published on page; treated conservatively as deferred. Replaces Empower Homebuyers SCC, which closed and sunset June 30, 2026.",
+      "verified": "2026-11-20"
+     }
+    ]
+   }
+  },
+  "CO": {
+   "name": "Colorado",
+   "agency": "Colorado Housing and Finance Authority (CHFA)",
+   "agencyUrl": "https://www.chfainfo.com",
+   "programs": [
+    {
+     "id": "co-grant",
+     "name": "CHFA DPA Grant",
+     "agency": "CHFA",
+     "url": "https://www.chfainfo.com",
+     "type": "grant",
+     "amountText": "3% of first mortgage, max $25,000",
+     "amount": {
+      "max": 25000,
+      "pct": 3,
+      "of": "loan"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "co-second",
+     "name": "CHFA Second Mortgage Loan",
+     "agency": "CHFA",
+     "url": "https://www.chfainfo.com",
+     "type": "deferred",
+     "amountText": "4% of first mortgage, max $25,000",
+     "amount": {
+      "max": 25000,
+      "pct": 4,
+      "of": "loan"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Denver": [
+     {
+      "id": "den-metro",
+      "name": "metroDPA",
+      "agency": "Denver Dept. of Housing Stability",
+      "url": "https://www.denvergov.org",
+      "type": "forgivable",
+      "amountText": "Up to 5% of loan",
+      "amount": {
+       "max": null,
+       "pct": 5,
+       "of": "loan"
+      },
+      "forgiveYears": 3,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Denver metro (Adams, Arapahoe, Denver, Douglas, Jefferson)": [
+     {
+      "id": "den-lift",
+      "name": "NeighborhoodLIFT",
+      "agency": "CRHDC",
+      "url": "https://www.crhdc.org",
+      "type": "deferred",
+      "amountText": "Up to $15,000",
+      "amount": {
+       "max": 15000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": false,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Income limits",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Aurora": [
+     {
+      "id": "aur-hoap",
+      "name": "Home Ownership Assistance Program",
+      "agency": "City of Aurora",
+      "url": "https://www.auroragov.org",
+      "type": "deferred",
+      "amountText": "Up to $10,000",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "0% deferred, not forgivable; you contribute 1%.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Colorado Springs / El Paso County": [
+     {
+      "id": "cos-turnkey",
+      "name": "Turnkey Plus",
+      "agency": "El Paso County",
+      "url": "https://www.elpasoco.com",
+      "type": "deferred",
+      "amountText": "Up to 5% of loan",
+      "amount": {
+       "max": null,
+       "pct": 5,
+       "of": "loan"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Half forgiven over 5 years; half deferred until payoff.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "CT": {
+   "name": "Connecticut",
+   "agency": "Connecticut Housing Finance Authority (CHFA)",
+   "agencyUrl": "https://www.chfa.org",
+   "programs": [
+    {
+     "id": "ct-dap",
+     "name": "Down Payment Assistance Program (DAP)",
+     "agency": "CHFA",
+     "url": "https://www.chfa.org",
+     "type": "repay",
+     "amountText": "3%–3.5% of price, $3,000–$15,000",
+     "amount": {
+      "max": 15000,
+      "pct": 3.5,
+      "of": "price"
+     },
+     "termYears": 30,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Bridgeport": [
+     {
+      "id": "bpt-dpa",
+      "name": "Down Payment Program",
+      "agency": "City of Bridgeport",
+      "url": "https://www.bridgeportct.gov",
+      "type": "forgivable",
+      "amountText": "Amount set by need",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Forgiven over 5, 10 or 15 years depending on amount.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Stamford": [
+     {
+      "id": "stm-home",
+      "name": "Stamford HOME program",
+      "agency": "Housing Development Fund",
+      "url": "https://hdf-ct.org",
+      "type": "deferred",
+      "amountText": "Up to $20,000",
+      "amount": {
+       "max": 20000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤65% AMI",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "New Haven": [
+     {
+      "id": "nh-dpa",
+      "name": "Down Payment & Closing Cost Assistance",
+      "agency": "City of New Haven",
+      "url": "https://www.newhavenct.gov",
+      "type": "forgivable",
+      "amountText": "Up to 6% of price, max $10,000",
+      "amount": {
+       "max": 10000,
+       "pct": 6,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "DC": {
+   "name": "District of Columbia",
+   "agency": "DC Housing Finance Agency (DCHFA) / DHCD",
+   "agencyUrl": "https://www.dchfa.org",
+   "programs": [
+    {
+     "id": "dc-opendoors",
+     "name": "DC Open Doors DPAL",
+     "agency": "DCHFA",
+     "url": "https://www.dchfa.org",
+     "type": "deferred",
+     "amountText": "Up to 3.5% of loan",
+     "amount": {
+      "max": null,
+      "pct": 3.5,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "0% deferred; due after 30 years or at sale/refinance.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "dc-hpap",
+     "name": "Home Purchase Assistance Program (HPAP)",
+     "agency": "DC DHCD",
+     "url": "https://dhcd.dc.gov",
+     "type": "deferred",
+     "amountText": "Large 0% loan sized by income — confirm with DHCD",
+     "amount": {
+      "max": null,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤110% AMI",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "dc-eahp",
+     "name": "Employer-Assisted Housing (DC employees)",
+     "agency": "DC DHCD",
+     "url": "https://dhcd.dc.gov",
+     "type": "deferred",
+     "amountText": "Up to $20,000 loan + $5,000 match",
+     "amount": {
+      "max": 20000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "DC government employees; first responders/educators get a different tier.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "DE": {
+   "name": "Delaware",
+   "agency": "Delaware State Housing Authority (DSHA)",
+   "agencyUrl": "https://destatehousing.com",
+   "programs": [
+    {
+     "id": "de-hsh",
+     "name": "Home Sweet Home",
+     "agency": "DSHA",
+     "url": "https://destatehousing.com",
+     "type": "forgivable",
+     "amountText": "Up to $12,000",
+     "amount": {
+      "max": 12000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "de-diamonds",
+     "name": "Delaware Diamonds",
+     "agency": "DSHA",
+     "url": "https://destatehousing.com",
+     "type": "forgivable",
+     "amountText": "Up to $10,000",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Educators, health care, first responders, state employees, military, veterans.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "de-fshl",
+     "name": "First State Home Loan",
+     "agency": "DSHA",
+     "url": "https://destatehousing.com",
+     "type": "deferred",
+     "amountText": "3% of loan",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "FL": {
+   "name": "Florida",
+   "agency": "Florida Housing Finance Corporation",
+   "agencyUrl": "https://www.floridahousing.org",
+   "programs": [
+    {
+     "id": "fl-assist",
+     "name": "Florida Assist (FL Assist)",
+     "agency": "Florida Housing",
+     "url": "https://www.floridahousing.org/programs/homebuyer-overview-page/homebuyer-overview",
+     "type": "deferred",
+     "amountText": "Up to $10,000; 0%, non-amortizing, not forgivable",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "rate": 0,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Due in full on sale, transfer, refinance, satisfaction of first mortgage or non-occupancy. Requires a Florida Housing first mortgage; IRS first-time buyer definition (no ownership in 3 years).",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "fl-hlp",
+     "name": "Florida Homeownership Loan Program (FL HLP) Second Mortgage",
+     "agency": "Florida Housing",
+     "url": "https://www.floridahousing.org/programs/homebuyer-overview-page/homebuyer-overview",
+     "type": "repay",
+     "amountText": "$12,500 at 3%, fully amortizing over 30 years (monthly payment)",
+     "amount": {
+      "max": 12500,
+      "pct": null,
+      "of": "price"
+     },
+     "rate": 3,
+     "termYears": 30,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Payment counts in DTI; balance due on sale/refinance. Requires a Florida Housing first mortgage (agency page does not itemize loan types for HLP).",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "fl-preferred",
+     "name": "3%, 4% and 5% HFA Preferred / HFA Advantage PLUS Second Mortgage",
+     "agency": "Florida Housing",
+     "url": "https://www.floridahousing.org/programs/homebuyer-overview-page/homebuyer-overview",
+     "type": "forgivable",
+     "amountText": "3%, 4% or 5% of total first mortgage loan amount",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "forgiveYears": 5,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "conv"
+     ],
+     "status": "active",
+     "notes": "Forgiven 20% per year over 5 years. Only with conventional HFA Preferred / HFA Advantage (TBA) first mortgages. pct shown is the minimum tier (3%).",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "fl-heroes",
+     "name": "Florida Hometown Heroes Housing Program",
+     "agency": "Florida Housing",
+     "url": "https://www.floridahousing.org/hometown-heroes",
+     "type": "deferred",
+     "amountText": "5% of first mortgage loan amount, min $10,000, max $35,000; 0%, 30-year deferred, not forgivable",
+     "amount": {
+      "max": 35000,
+      "pct": 5,
+      "of": "loan"
+     },
+     "rate": 0,
+     "termYears": 30,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Full-time employees of Florida-based employers in health care, schools, first responders/public safety, courts, child care; active military/reserves/Guard; veterans. 2025-26 funds were fully committed Feb 2026; agency page now shows the HTH 2026 program (limits dated 7-13-26) and no exhaustion notice as of 2026-11-20. Funded in rounds, may close without notice. minCredit is Florida Housing's first-mortgage minimum.",
+     "verified": "2026-11-20"
+    }
+   ],
+   "local": {
+    "Jacksonville": [
+     {
+      "id": "jax-h2h",
+      "name": "Head Start to Homeownership (H2H)",
+      "agency": "City of Jacksonville Housing & Community Development",
+      "url": "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/housing-services",
+      "type": "deferred",
+      "amountText": "Up to $25,000 for down payment and closing costs",
+      "amount": {
+       "max": 25000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "At or below 80% of Duval County AMI",
+      "status": "active",
+      "notes": "City page does not publish rate, term or forgiveness (contact program) - shown conservatively as deferred. Subject to funding limitations; home must pass HQS inspection. Loan types not specified.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Tampa": [
+     {
+      "id": "tpa-dare",
+      "name": "Dare to Own the Dream (DARE)",
+      "agency": "City of Tampa Housing & Community Development",
+      "url": "https://www.tampa.gov/housing-and-community-development/programs/mortgage-assistance",
+      "type": "forgivable",
+      "amountText": "Up to $50,000 (50-80% AMI); $40,000 (80-120% AMI); $30,000 (120-140% AMI)",
+      "amount": {
+       "max": 50000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 20,
+      "rate": 0,
+      "firstTimeOnly": true,
+      "minCredit": 600,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv"
+      ],
+      "incomeNote": "50.01%-140% AMI; households under 50% AMI not eligible",
+      "status": "active",
+      "notes": "0% deferred silent second, forgiven after 20 years of occupancy. Purchase price cap $450,000; max back-end DTI 50%; buyer invests $2,000 ($1,000 own funds). City of Tampa limits only. City release 2026-10-28 says applications open.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Hillsborough County": [
+     {
+      "id": "hills-home-sweet-home",
+      "name": "Home Sweet Home Hillsborough",
+      "agency": "Housing Finance Authority of Hillsborough County",
+      "url": "https://www.myfirstfloridahome.com/hillsborough-county.html",
+      "type": "deferred",
+      "amountText": "Amount not published by HFA/administrator; 0% deferred 30-year second, never forgiven",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "termYears": 30,
+      "firstTimeOnly": true,
+      "minCredit": 640,
+      "loanTypes": [
+       "fha",
+       "va",
+       "usda"
+      ],
+      "incomeNote": "$112,420 (1-2 persons); $126,133 (3+)",
+      "status": "active",
+      "notes": "Countywide incl. Tampa. Repaid on sale/refinance/non-occupancy. First-time rule waived in Targeted Areas. Max price $450,000. Includes MCC. Page published by program administrator eHousingPlus, linked from hillsboroughcountyhfa.org.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Miami-Dade County": [
+     {
+      "id": "mia-dpa",
+      "name": "Homebuyer Down Payment Assistance Program",
+      "agency": "Miami-Dade County Housing & Community Development",
+      "url": "https://www.miamidade.gov/global/housing/downpayment-assistance.page",
+      "type": "deferred",
+      "amountText": "Up to $35,000; 0% deferred, up to 30 years",
+      "amount": {
+       "max": 35000,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "termYears": 30,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "e.g. under $136,500 for household of 4",
+      "status": "active",
+      "notes": "Principal due on sale, transfer, refinance or death; County shares resale profit if sold within 6 years (100% yrs 1-3, 50% yrs 4-6). Fixed-rate first mortgage, CLTV max 105%, buyer contributes 1%. County residency required. Funding status not posted.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "North Miami": [
+     {
+      "id": "nmia-home",
+      "name": "First-Time Homebuyer Assistance (SHIP/HOME)",
+      "agency": "City of North Miami",
+      "url": "https://www.northmiamifl.gov/243/First-Time-Homebuyer",
+      "type": "deferred",
+      "amountText": "Up to $40,000 (SHIP); 0% forgivable deferred loan",
+      "amount": {
+       "max": 40000,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "City calls it a forgivable deferred loan but does not publish the forgiveness schedule (affordability period 7 yrs SHIP / up to 15 yrs HOME) - shown conservatively as deferred. Open until funds are depleted. Max price $460,000 SHIP / $370,000 HOME.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Broward County": [
+     {
+      "id": "brow-hpa",
+      "name": "Homebuyer Purchase Assistance (HPA)",
+      "agency": "Broward County Housing Finance Division",
+      "url": "https://www.broward.org/Housing/pages/homebuyer.aspx",
+      "type": "deferred",
+      "amountText": "Varies by participating city (county flyer cites up to $50,000-$120,000 in some communities); 0% deferred, 15-year term",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "termYears": 15,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "80%-120% AMI depending on community",
+      "status": "active",
+      "notes": "Funds by city; June 2026 county flyer shows NO FUNDS for many communities - first-come, first-qualified. Buyer contributes 3% (not VA). Max price ~$679,324. Forgiveness not stated - shown as deferred.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Orlando": [
+     {
+      "id": "orl-orange-dpa",
+      "name": "Orange County Homebuyer Down Payment Assistance",
+      "agency": "Orange County Housing & Community Development",
+      "url": "https://www.orangecountyfl.net/NeighborsHousing/HomebuyerDownPaymentAssistance.aspx",
+      "type": "deferred",
+      "amountText": "Up to $70,000 (50% AMI), $40,000 (80% AMI), $10,000 (120% AMI)",
+      "amount": {
+       "max": 70000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "paused",
+      "notes": "Closed to new applications (waitlist); anticipated reopening March 1, 2027, subject to state funding. Loan terms not published - shown conservatively as deferred.",
+      "verified": "2026-11-20"
+     },
+     {
+      "id": "orl-city-dpa",
+      "name": "City of Orlando Down Payment Assistance",
+      "agency": "City of Orlando Housing & Community Development",
+      "url": "https://www.orlando.gov/Building-Development/Housing-and-Development-Grants-Incentives-and-Assistance/Housing-Assistance-Programs/Request-Down-Payment-Assistance/About-the-Down-Payment-Assistance-Program",
+      "type": "forgivable",
+      "amountText": "Up to $45,000 per household",
+      "amount": {
+       "max": 45000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 10,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "paused",
+      "notes": "Forgiven after 10 years if owner-occupied. Fixed-rate first mortgage from City-registered lender. City is not accepting new applications.",
+      "verified": "2026-11-20"
+     }
+    ]
+   }
+  },
+  "GA": {
+   "name": "Georgia",
+   "agency": "Georgia Department of Community Affairs (DCA)",
+   "agencyUrl": "https://dca.georgia.gov/affordable-housing/home-ownership/georgia-dream",
+   "programs": [
+    {
+     "id": "ga-dream",
+     "name": "Georgia Dream — Standard",
+     "agency": "Georgia DCA",
+     "url": "https://dca.georgia.gov/affordable-housing/home-ownership/georgia-dream",
+     "type": "deferred",
+     "amountText": "Lesser of 5% of price or $10,000",
+     "amount": {
+      "max": 10000,
+      "pct": 5,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Income and price limits by county",
+     "status": "active",
+     "verified": "2026-11-16",
+     "notes": "0% second mortgage, no monthly payment; repaid at sale or refinance. Homebuyer education required. Must use a Georgia Dream first mortgage."
+    },
+    {
+     "id": "ga-dream-pen",
+     "name": "Georgia Dream — PEN / CHOICE",
+     "agency": "Georgia DCA",
+     "url": "https://dca.georgia.gov/affordable-housing/home-ownership/georgia-dream",
+     "type": "deferred",
+     "amountText": "Up to $12,500",
+     "amount": {
+      "max": 12500,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Income and price limits by county",
+     "status": "active",
+     "verified": "2026-11-16",
+     "notes": "For protectors, educators, health-care workers and active military (PEN), or households with a member with a disability (CHOICE). 0% deferred second."
+    },
+    {
+     "id": "ga-peach-plus",
+     "name": "Georgia Dream — Peach Plus",
+     "agency": "Georgia DCA",
+     "url": "https://dca.georgia.gov/affordable-housing/home-ownership/georgia-dream",
+     "type": "deferred",
+     "amountText": "Amount set by DCA — confirm with lender",
+     "amount": {
+      "max": null,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": false,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Higher limits: income to ~$237K, price to ~$725K",
+     "status": "active",
+     "verified": "2026-11-16",
+     "notes": "Open to repeat buyers. 0% deferred second."
+    }
+   ],
+   "local": {
+    "City of Atlanta": [
+     {
+      "id": "atl-homenow",
+      "name": "ATL HomeNOW",
+      "agency": "Invest Atlanta",
+      "url": "https://investatlanta.com/homebuyers/homebuyer-programs-downpayment-assistance",
+      "type": "forgivable",
+      "amountText": "Up to $20,000",
+      "amount": {
+       "max": 20000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 10,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Up to 120% AMI (4-person $141,360)",
+      "status": "active",
+      "verified": "2026-11-20",
+      "notes": "Down payment, closing costs and/or permanent rate reduction. Forgiven after 10 years as primary residence (Invest Atlanta page). Invest Atlanta also offers ATL Home Renovation Advantage ($10K), Perry Bolton and Vine City programs (area-specific).",
+      "minCredit": 620
+     },
+     {
+      "id": "atl-beltline",
+      "name": "Beltline Mortgage Assistance Program",
+      "agency": "Invest Atlanta / Atlanta Beltline, Inc.",
+      "url": "https://investatlanta.com/homebuyers/homebuyer-programs-downpayment-assistance",
+      "type": "deferred",
+      "amountText": "Up to $20,000; up to $30,000 for legacy residents & public servants",
+      "amount": {
+       "max": 20000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "120% AMI (140% AMI tier available); Beltline TAD subareas 1, 2, 3, 8, 9, 10 only",
+      "status": "active",
+      "verified": "2026-11-20",
+      "notes": "0% soft second mortgage with 15-year affordability period; forgiveness terms not stated, so shown as deferred to be conservative. Up to $30,000 for civil servants and legacy residents. Max loan $400,000. 8-hour homebuyer education required.",
+      "minCredit": 620
+     },
+     {
+      "id": "atl-housing",
+      "name": "Atlanta Housing Down Payment Assistance",
+      "agency": "Atlanta Housing",
+      "url": "https://www.atlantahousing.org/programs/down-payment-assistance/",
+      "type": "forgivable",
+      "amountText": "Up to $20,000; up to $25,000 for public safety, healthcare, education, military/veterans and Housing Choice Voucher participants",
+      "amount": {
+       "max": 20000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv"
+      ],
+      "incomeNote": "At or below 80% AMI (metro Atlanta)",
+      "status": "active",
+      "verified": "2026-11-20",
+      "notes": "0% community second; forgiven after 10 years of owner-occupancy with declining recapture (100% yrs 1-5, then 80/60/40/20%). First-time = no ownership in past 3 years. Fixed-rate conventional, FHA or VA first mortgage. Earlier $60K voucher-holder figure not found on Atlanta Housing site.",
+      "forgiveYears": 10,
+      "minCredit": 620
+     }
+    ],
+    "Fulton County (outside City of Atlanta)": [
+     {
+      "id": "fulton-hop",
+      "name": "Fulton County Homeownership Program (HOP)",
+      "agency": "Fulton County Community Development",
+      "url": "https://fultoncountyga.gov/hop",
+      "type": "forgivable",
+      "amountText": "Up to $22,500 based on need (no % cap stated in 2026 guidelines)",
+      "amount": {
+       "max": 22500,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv"
+      ],
+      "incomeNote": "At or below 80% AMI (4-person $94,250, eff. June 1, 2026); max price $347,000 existing / $367,000-$371,000 new",
+      "status": "active",
+      "verified": "2026-11-20",
+      "notes": "0% deferred second, no monthly payment; forgiven 20% per year over 5-year affordability period (HOP guidelines rev. June 2026). Down payment, closing costs and/or rate buydown. Guidelines list conventional/FHA/VA (USDA mentioned inconsistently). No set minimum credit score. HOME-funded, first come first ready until funds run out.",
+      "forgiveYears": 5,
+      "rate": 0
+     }
+    ],
+    "Gwinnett County": [
+     {
+      "id": "gwinnett-homestretch",
+      "name": "Homestretch Down Payment Assistance",
+      "agency": "Gwinnett County Housing & Community Development",
+      "url": "https://www.gwinnettcounty.com/government/departments/planning-development/services/hud-programs/down-payment-assistance",
+      "type": "forgivable",
+      "amountText": "Up to $10,000",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv"
+      ],
+      "incomeNote": "80% AMI (4-person $91,350); max price $371,000 existing / $425,000 new",
+      "status": "active",
+      "verified": "2026-11-20",
+      "notes": "0% no-payment soft second, forgiven 20% per year over 5-year affordability period. Fixed-rate FHA, VA or conventional only (no 203k). Single-family, townhome or condo. First-time = no ownership in 3 years.",
+      "minCredit": 580,
+      "rate": 0
+     }
+    ],
+    "DeKalb County": [
+     {
+      "id": "dekalb-homestart",
+      "name": "DeKalb HomeStart",
+      "agency": "DeKalb County",
+      "url": "https://dekalbcountyga.gov/news/dekalb-county-board-commissioners-approves-historic-155-million-housing-investment-bond",
+      "type": "deferred",
+      "amountText": "Amount not yet published by DeKalb County (news reports cited ~$20,000)",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Income-qualified (limits not yet published)",
+      "status": "upcoming",
+      "verified": "2026-11-20",
+      "notes": "Announced July 14, 2026 as part of the $155M housing investment bond: down payment, closing cost and rate buydown help, enhanced for first responders/public servants. No application or terms published on county site yet; type shown as deferred to be conservative."
+     },
+     {
+      "id": "we-dekalb",
+      "name": "WE DeKalb",
+      "agency": "Development Authority of DeKalb County",
+      "url": "https://www.ehousingplus.com/homeownership/we-dekalb/program-highlights/",
+      "type": "grant",
+      "amountText": "1%-3% grant of loan amount (program not currently available)",
+      "amount": {
+       "max": null,
+       "pct": 3,
+       "of": "loan"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "paused",
+      "verified": "2026-11-20",
+      "notes": "eHousingPlus program page (Aug 2026): 'as previously offered, is not currently available' and under strategic review. Non-repayable grant when offered."
+     }
+    ],
+    "Savannah": [
+     {
+      "id": "sav-dreammaker",
+      "name": "DreamMaker Home Purchase Assistance",
+      "agency": "City of Savannah",
+      "url": "https://savannahga.gov/3401/DreamMaker-Home-Purchase-Assistance",
+      "type": "deferred",
+      "amountText": "Up to $30,000 (up to $50,000 for city-partnered homes)",
+      "amount": {
+       "max": 30000,
+       "pct": null,
+       "of": "price"
+      },
+      "termYears": 30,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Income limits apply; city limits only",
+      "status": "active",
+      "verified": "2026-11-20",
+      "notes": "2% interest, 30-year deferred-payment loan (city page); up to $50,000 for city-partnered housing. Forgiveness not stated. Year-round while funds remain. Credit and loan-type rules not stated on city page.",
+      "rate": 2
+     }
+    ],
+    "Augusta-Richmond County": [
+     {
+      "id": "aug-hap",
+      "name": "Homeownership Assistance Program",
+      "agency": "Augusta Housing & Community Development",
+      "url": "https://appweb2.augustaga.gov/HCDHousing/files/basic-html/page6.html",
+      "type": "deferred",
+      "amountText": "Up to $10,000 toward down payment and closing costs",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Income limits apply",
+      "status": "active",
+      "verified": "2026-11-20",
+      "notes": "Augusta HCD lists up to $10,000 (previously shown as $5,000); repayment/forgiveness terms not stated, so shown as deferred to be conservative. Subject to available funding; rolling review. City/RCSO employees may get up to $15,000 (Officer Next Door)."
+     }
+    ],
+    "Columbus": [
+     {
+      "id": "col-sweethome",
+      "name": "Sweet Home Columbus",
+      "agency": "City of Columbus Community Reinvestment",
+      "url": "https://www.columbusga.gov/communityreinvestment/HOME-Program/Sweet-Home-Columbus",
+      "type": "deferred",
+      "amountText": "Up to $49,999 based on need",
+      "amount": {
+       "max": 49999,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "At or below 80% AMI (4-person $67,750); max price ~$252,000 (HOME limit)",
+      "status": "active",
+      "verified": "2026-11-20",
+      "notes": "0% deferred loan (city page); 2026 policy (eff. July 1, 2026) describes pro-rated forgiveness over 5 yrs (<$25K) or 10 yrs ($25K+), while the web page says residency up to 15 years, so shown as deferred to be conservative. Fixed-rate 30-year first mortgage only. 8-hour counseling required. First-time = no ownership in 3 years.",
+      "rate": 0,
+      "firstTimeOnly": true
+     }
+    ],
+    "Cobb County": [
+     {
+      "id": "cobb-dpa",
+      "name": "Cobb County My Home DPA",
+      "agency": "Housing Authority of Cobb County (administered by eHousingPlus)",
+      "url": "https://cobbcounty.org/node/10039",
+      "type": "grant",
+      "amountText": "1% or 2% of loan amount grant (+$10,000 for Cobb County employees; $10K-$15K for eligible City of Marietta employees)",
+      "amount": {
+       "max": null,
+       "pct": 2,
+       "of": "loan"
+      },
+      "firstTimeOnly": false,
+      "minCredit": 640,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv"
+      ],
+      "incomeNote": "Income limits apply (approx. $90,800 at 80% AMI / $159,880 higher tier per Aug 2025 guide)",
+      "status": "active",
+      "notes": "Non-repayable grant paired with program 30-year fixed first mortgage; no second lien. No first-time buyer requirement. Min FICO 640 (VA/Freddie HFA Advantage), 660 FHA. Terms from program guide rev. 08-27-25.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Clayton County": [
+     {
+      "id": "clayton-dpa",
+      "name": "Clayton County Down Payment Assistance Program",
+      "agency": "Clayton County Office of Grants Administration (HUD)",
+      "url": "https://hud.claytoncountyga.gov/down-payment-assistance-program/",
+      "type": "forgivable",
+      "amountText": "Up to $7,500; up to $10,000 for veterans/spouses, county employees, law enforcement, first responders, healthcare and education workers",
+      "amount": {
+       "max": 7500,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "rate": 0,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "At or below 80% AMI; max purchase price $270,000",
+      "status": "active",
+      "notes": "Interest-free soft second, fully forgiven after 5 or 10 years of occupancy depending on amount. Lender sets credit minimum. No condos or mobile homes; $1,000 buyer contribution; 8-hour HUD education. Eligible first-mortgage types not listed (all shown). First-time = no ownership in 3 years.",
+      "verified": "2026-11-20"
+     }
+    ]
+   }
+  },
+  "HI": {
+   "name": "Hawaii",
+   "agency": "Hawaii HomeOwnership Center / HHFDC",
+   "agencyUrl": "https://www.hihomeownership.org",
+   "programs": [
+    {
+     "id": "hi-dcca",
+     "name": "Deferred Closing Cost Assistance Loan",
+     "agency": "Hawaii HomeOwnership Center",
+     "url": "https://www.hihomeownership.org",
+     "type": "deferred",
+     "amountText": "Up to $15,000 (6:1 match)",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤120% AMI",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "hi-dpal",
+     "name": "Down Payment Assistance Loan",
+     "agency": "Hawaii HomeOwnership Center",
+     "url": "https://www.hihomeownership.org",
+     "type": "repay",
+     "amountText": "Second loan up to $125,000 at ~4.5%",
+     "amount": {
+      "max": null,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤120% AMI",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "IA": {
+   "name": "Iowa",
+   "agency": "Iowa Finance Authority (IFA)",
+   "agencyUrl": "https://www.iowafinance.com",
+   "programs": [
+    {
+     "id": "ia-dpa",
+     "name": "FirstHome DPA Loan",
+     "agency": "IFA",
+     "url": "https://www.iowafinance.com",
+     "type": "deferred",
+     "amountText": "Up to $5,000",
+     "amount": {
+      "max": 5000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ia-grant",
+     "name": "FirstHome DPA Grant",
+     "agency": "IFA",
+     "url": "https://www.iowafinance.com",
+     "type": "grant",
+     "amountText": "Up to $2,500",
+     "amount": {
+      "max": 2500,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ia-hfi",
+     "name": "Homes for Iowans DPA",
+     "agency": "IFA",
+     "url": "https://www.iowafinance.com",
+     "type": "deferred",
+     "amountText": "Up to 5% of price",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "price"
+     },
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ia-mil",
+     "name": "Military Homeownership Assistance",
+     "agency": "IFA",
+     "url": "https://www.iowafinance.com",
+     "type": "grant",
+     "amountText": "$5,000",
+     "amount": {
+      "max": 5000,
+      "pct": null,
+      "of": "price"
+     },
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Service members and veterans.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Cedar Rapids": [
+     {
+      "id": "cr-fthb",
+      "name": "First-Time Home Buyer Program",
+      "agency": "City of Cedar Rapids",
+      "url": "https://www.cedar-rapids.org",
+      "type": "forgivable",
+      "amountText": "$1,000–$14,999",
+      "amount": {
+       "max": 14999,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Davenport": [
+     {
+      "id": "dav-grant",
+      "name": "First-Time Home Buyer Grant",
+      "agency": "City of Davenport",
+      "url": "https://www.davenportiowa.com",
+      "type": "grant",
+      "amountText": "Half your down payment + closing costs, up to $10,000",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "ID": {
+   "name": "Idaho",
+   "agency": "Idaho Housing and Finance Association",
+   "agencyUrl": "https://www.idahohousing.com",
+   "programs": [
+    {
+     "id": "id-second",
+     "name": "Idaho Housing Second Mortgage",
+     "agency": "IHFA",
+     "url": "https://www.idahohousing.com",
+     "type": "repay",
+     "amountText": "Up to 7% of price",
+     "amount": {
+      "max": null,
+      "pct": 7,
+      "of": "price"
+     },
+     "rate": 2,
+     "termYears": 15,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Income ≤ ~$150,000",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "id-forgive",
+     "name": "Idaho Housing Forgivable Loan",
+     "agency": "IHFA",
+     "url": "https://www.idahohousing.com",
+     "type": "forgivable",
+     "amountText": "Up to 3% of price",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Raises the first-mortgage rate slightly.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "IL": {
+   "name": "Illinois",
+   "agency": "Illinois Housing Development Authority (IHDA)",
+   "agencyUrl": "https://www.ihda.org",
+   "programs": [
+    {
+     "id": "il-forgivable",
+     "name": "IHDA Access Forgivable",
+     "agency": "IHDA",
+     "url": "https://www.ihdamortgage.org/homebuyers",
+     "type": "forgivable",
+     "amountText": "4% of purchase price, up to $6,000",
+     "amount": {
+      "max": 6000,
+      "pct": 4,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "rate": 0,
+     "firstTimeOnly": false,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "IHDA income and purchase price limits apply (see ihdamortgage.org/limits)",
+     "status": "active",
+     "notes": "Forgiven monthly over 10 years. Paired with IHDA 30-yr fixed first mortgage; conventional = Fannie HFA Preferred / Freddie HFA Advantage. Buyer contribution greater of $1,000 or 1%; max DTI 50%; homebuyer counseling required. IHDA notes funding can change at any time.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "il-deferred",
+     "name": "IHDA Access Deferred",
+     "agency": "IHDA",
+     "url": "https://www.ihdamortgage.org/homebuyers",
+     "type": "deferred",
+     "amountText": "5% of purchase price, up to $7,500",
+     "amount": {
+      "max": 7500,
+      "pct": 5,
+      "of": "price"
+     },
+     "rate": 0,
+     "termYears": 30,
+     "firstTimeOnly": false,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "IHDA income and purchase price limits apply (see ihdamortgage.org/limits)",
+     "status": "active",
+     "notes": "Interest-free, deferred for the life of the first mortgage; repaid on sale, refinance or payoff. Buyer contribution greater of $1,000 or 1%; max DTI 50%; counseling required.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "il-repayable",
+     "name": "IHDA Access Repayable",
+     "agency": "IHDA",
+     "url": "https://www.ihdamortgage.org/homebuyers",
+     "type": "repay",
+     "amountText": "10% of purchase price, up to $10,000",
+     "amount": {
+      "max": 10000,
+      "pct": 10,
+      "of": "price"
+     },
+     "rate": 0,
+     "termYears": 10,
+     "firstTimeOnly": false,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "IHDA income and purchase price limits apply (see ihdamortgage.org/limits)",
+     "status": "active",
+     "notes": "Zero-interest second loan repaid in monthly installments over 10 years. Buyer contribution greater of $1,000 or 1%; max DTI 50%; counseling required.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "il-access-home",
+     "name": "IHDA Access Home",
+     "agency": "IHDA",
+     "url": "https://www.ihdamortgage.org/homebuyers",
+     "type": "deferred",
+     "amountText": "6% of purchase price, up to $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": 6,
+      "of": "price"
+     },
+     "rate": 0,
+     "termYears": 30,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "IHDA income and purchase price limits apply (see ihdamortgage.org/limits)",
+     "status": "active",
+     "notes": "Interest-free, deferred for life of the mortgage; repaid on sale, refinance or payoff. First-time buyers only, except eligible veterans (COE/DD214) or purchases in IHDA targeted areas. Buyer contribution greater of $1,000 or 1%; max DTI 50%.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "il-opening-doors",
+     "name": "IHDA Opening Doors",
+     "agency": "IHDA",
+     "url": "https://www.ihdamortgage.org/homebuyers?program=OpeningDoors",
+     "type": "forgivable",
+     "amountText": "$9,000 flat",
+     "amount": {
+      "max": 9000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "firstTimeOnly": false,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "IHDA income and purchase price limits apply (see ihdamortgage.org/limits)",
+     "status": "active",
+     "notes": "Forgiven monthly over 5 years; unforgiven balance repaid if sold/refinanced earlier. First-time and repeat buyers. Listed as 'Now Open' on ihdamortgage.org.",
+     "verified": "2026-11-20"
+    }
+   ],
+   "local": {
+    "Aurora": [
+     {
+      "id": "aur-il",
+      "name": "Choose Aurora Homebuyer Assistance",
+      "agency": "City of Aurora Community Development",
+      "url": "https://www.aurora.il.us/Property-and-Business/Housing/Home-Ownership/Choose-Aurora",
+      "type": "deferred",
+      "amountText": "$20,000 0% deferred loan, plus $5,000 closing-cost grant for households ≤80% AMI (up to $2,000 small-repairs grant may also apply)",
+      "amount": {
+       "max": 25000,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤120% AMI (e.g. $145,800 for household of 4); $5,000 grant only ≤80% AMI",
+      "status": "active",
+      "notes": "Deferred soft second repaid on sale, title change, cash-out refi or end of owner occupancy; no forgiveness stated. Max $25,000 assumes ≤80% AMI ($20,000 for 81–120% AMI); city page cites up to $27,000 incl. repair grant. Amount set by city staff based on need. First-time rule, credit score and loan types not stated by city. Funding availability not stated; HUD counseling required.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Joliet": [
+     {
+      "id": "jol-assist",
+      "name": "Joliet Down Payment Assistance Program",
+      "agency": "City of Joliet Neighborhood Services",
+      "url": "https://www.joliet.gov/government/departments/community-development/neighborhood-services-division/housing-program",
+      "type": "deferred",
+      "amountText": "Minimum $1,000; maximum up to 20% of purchase price (no dollar cap published)",
+      "amount": {
+       "max": null,
+       "pct": 20,
+       "of": "price"
+      },
+      "rate": 0,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Low-income buyers (limit not published)",
+      "status": "paused",
+      "notes": "City page states the program is not currently taking applications. 0% deferred loan described as forgivable, but forgiveness period is not published, so typed conservatively as deferred. Buyer must contribute $2,500. Replaces prior 'Illinois Assist' listing, which is not a City of Joliet program.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Chicago": [
+     {
+      "id": "chi-dpa",
+      "name": "HomeGrown Purchase Assistance Grant",
+      "agency": "City of Chicago Dept. of Housing (administered by NLS and TRP Lending)",
+      "url": "https://www.chicago.gov/homegrown",
+      "type": "forgivable",
+      "amountText": "Up to $70,000 (Zone A) or $50,000 (Zone B), capped at 25% of purchase price",
+      "amount": {
+       "max": 70000,
+       "pct": 25,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Zone A ≤120% AMI; Zone B ≤150% AMI",
+      "status": "active",
+      "notes": "Forgiven 1/60 per month over 5 years of owner occupancy. Buyer cannot own any other home at purchase. Fixed-rate first mortgage required; max back-end DTI 38%; no 3–4 unit buildings. First-come, first-served; waitlist possible if funds run out. Terms confirmed on administrator NHS Chicago/NLS page (updated Jul 2026); chicago.gov page could not be fetched. Min credit not published.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Cook County": [
+     {
+      "id": "cook-adv",
+      "name": "Cook County Down Payment Assistance Program",
+      "agency": "Cook County Bureau of Economic Development",
+      "url": "https://www.cookcountyil.gov/service/down-payment-assistance-program",
+      "type": "forgivable",
+      "amountText": "5% of first loan amount, up to $25,000",
+      "amount": {
+       "max": 25000,
+       "pct": 5,
+       "of": "loan"
+      },
+      "forgiveYears": 5,
+      "firstTimeOnly": false,
+      "minCredit": 620,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤120% AMI ($145,800 for household of 4); no income limit in Disproportionately Impacted Areas / Qualified Census Tracts",
+      "status": "active",
+      "notes": "Phase III ($2M, ~100 buyers) launched Jul 20, 2026 through participating lenders; funds limited and may run out. Forgivable second over 5 years; usable for down payment, closing costs or rate buydown. First-time and repeat buyers per county page (first-timers need HUD counseling). Formerly listed here as 'Home Advantage'.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Kane County": [
+     {
+      "id": "kane-fthb",
+      "name": "Kane County First-Time Homebuyer Loan Program",
+      "agency": "Kane County Office of Community Reinvestment",
+      "url": "https://www.kanecountyil.gov/Pages/ocr/firstTimeHomebuyer.aspx",
+      "type": "deferred",
+      "amountText": "Up to $10,000 (additional $10,000 possible in St. Charles)",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Federal HOME income limits (figures not published on page)",
+      "status": "active",
+      "notes": "0% deferred loan repaid on sale, transfer or end of principal residence. Excludes City of Aurora (see Aurora) and Hampshire, Huntley, Hoffman Estates, Montgomery; includes Elgin. Must live/work in area 1 yr, 1% down, HUD counseling. Funding availability not stated.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Rockford": [
+     {
+      "id": "rockford-hap",
+      "name": "Rockford Homebuyer Assistance Program",
+      "agency": "City of Rockford Neighborhood Development",
+      "url": "https://cdn.rockfordil.gov/456/Home-Buying",
+      "type": "forgivable",
+      "amountText": "Up to $14,999 (2022 program terms)",
+      "amount": {
+       "max": 14999,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Income limits apply (see city brochure)",
+      "status": "paused",
+      "notes": "City page states the program is closed for applications. 5-year forgivable loan (occupancy described as ~6 years); unoccupied detached single-family homes within city limits only.",
+      "verified": "2026-11-20"
+     }
+    ]
+   }
+  },
+  "IN": {
+   "name": "Indiana",
+   "agency": "Indiana Housing & Community Development Authority (IHCDA)",
+   "agencyUrl": "https://www.in.gov/ihcda/",
+   "programs": [
+    {
+     "id": "in-fp",
+     "name": "First Place",
+     "agency": "IHCDA",
+     "url": "https://www.in.gov/ihcda/",
+     "type": "forgivable",
+     "amountText": "Up to 6% of price",
+     "amount": {
+      "max": null,
+      "pct": 6,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "conv"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "in-nh",
+     "name": "Next Home",
+     "agency": "IHCDA",
+     "url": "https://www.in.gov/ihcda/",
+     "type": "forgivable",
+     "amountText": "Up to 3.5% of price",
+     "amount": {
+      "max": null,
+      "pct": 3.5,
+      "of": "price"
+     },
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "conv"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Indianapolis": [
+     {
+      "id": "indy-inhp",
+      "name": "Down Payment & Closing Cost Assistance",
+      "agency": "Indianapolis Neighborhood Housing Partnership",
+      "url": "https://www.inhp.org",
+      "type": "deferred",
+      "amountText": "Up to $14,999",
+      "amount": {
+       "max": 14999,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Evansville": [
+     {
+      "id": "evv-dpa",
+      "name": "Homebuyer Program",
+      "agency": "City of Evansville",
+      "url": "https://www.evansvillegov.org",
+      "type": "forgivable",
+      "amountText": "Up to $40,000",
+      "amount": {
+       "max": 40000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Forgiven after 5, 10 or 15 years depending on amount.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "KS": {
+   "name": "Kansas",
+   "agency": "Kansas Housing Resources Corporation (KHRC)",
+   "agencyUrl": "https://kshousingcorp.org",
+   "programs": [
+    {
+     "id": "ks-fthb",
+     "name": "First-Time Homebuyer Program",
+     "agency": "KHRC",
+     "url": "https://kshousingcorp.org",
+     "type": "forgivable",
+     "amountText": "15%–20% of price (silent second)",
+     "amount": {
+      "max": null,
+      "pct": 15,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤80% AMI; not in Topeka, Lawrence, Wichita, KCK or Johnson County",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ks-hsp",
+     "name": "FHLBank Topeka Homeownership Set-Aside",
+     "agency": "FHLBank Topeka members",
+     "url": "https://www.fhlbtopeka.com",
+     "type": "forgivable",
+     "amountText": "Up to $7,500",
+     "amount": {
+      "max": 7500,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤80% AMI",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Wichita": [
+     {
+      "id": "ict-h80",
+      "name": "HOMEownership 80",
+      "agency": "City of Wichita",
+      "url": "https://www.wichita.gov",
+      "type": "forgivable",
+      "amountText": "Up to 20% of price + $2,000 closing costs",
+      "amount": {
+       "max": null,
+       "pct": 20,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Half forgiven after 5 or 10 years depending on amount.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Topeka": [
+     {
+      "id": "top-toto",
+      "name": "Topeka Opportunity to Own (TOTO)",
+      "agency": "City of Topeka",
+      "url": "https://www.topeka.org",
+      "type": "deferred",
+      "amountText": "Amount not published",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Leavenworth": [
+     {
+      "id": "lvn-hop",
+      "name": "Home Ownership Program",
+      "agency": "City of Leavenworth",
+      "url": "https://www.leavenworthks.org",
+      "type": "grant",
+      "amountText": "Up to $8,000",
+      "amount": {
+       "max": 8000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "KY": {
+   "name": "Kentucky",
+   "agency": "Kentucky Housing Corporation (KHC)",
+   "agencyUrl": "https://www.kyhousing.org",
+   "programs": [
+    {
+     "id": "ky-dap",
+     "name": "Regular Down Payment Assistance (DAP)",
+     "agency": "KHC",
+     "url": "https://www.kyhousing.org",
+     "type": "repay",
+     "amountText": "Up to $10,000",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "rate": 3.75,
+     "termYears": 10,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Price ≤ ~$510,900",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Louisville Metro": [
+     {
+      "id": "lou-dpa",
+      "name": "Down Payment Assistance",
+      "agency": "Louisville Metro Government",
+      "url": "https://louisvilleky.gov",
+      "type": "deferred",
+      "amountText": "Amount based on need",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "0% loan; half forgivable over time, rest due at sale or refinance.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Lexington": [
+     {
+      "id": "lex-dpa",
+      "name": "Homebuyer subsidies & 0–2% loans",
+      "agency": "LFUCG partners (REACH, Habitat)",
+      "url": "https://www.lexingtonky.gov",
+      "type": "grant",
+      "amountText": "Amount not published",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "LA": {
+   "name": "Louisiana",
+   "agency": "Louisiana Housing Corporation (LHC)",
+   "agencyUrl": "https://www.lhc.la.gov",
+   "programs": [
+    {
+     "id": "la-mrbhome",
+     "name": "MRB Home grant",
+     "agency": "LHC",
+     "url": "https://www.lhc.la.gov",
+     "type": "grant",
+     "amountText": "Up to 9% of loan",
+     "amount": {
+      "max": null,
+      "pct": 9,
+      "of": "loan"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤80% AMI; price ≤ ~$349,500",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "la-mrbassist",
+     "name": "MRB Assisted",
+     "agency": "LHC",
+     "url": "https://www.lhc.la.gov",
+     "type": "forgivable",
+     "amountText": "Up to 4% of loan",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "forgiveYears": 3,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "la-gnma",
+     "name": "Market Rate GNMA DPA",
+     "agency": "LHC",
+     "url": "https://www.lhc.la.gov",
+     "type": "deferred",
+     "amountText": "Up to 4% of loan",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "la-soft",
+     "name": "Resilience Soft Second",
+     "agency": "LHC",
+     "url": "https://www.lhc.la.gov",
+     "type": "forgivable",
+     "amountText": "Up to $60,000 (20% of price + $5,000)",
+     "amount": {
+      "max": 60000,
+      "pct": 20,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤80% AMI; 51 listed parishes only",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "New Orleans": [
+     {
+      "id": "nola-soft",
+      "name": "Direct Homebuyer Soft Second",
+      "agency": "City of New Orleans",
+      "url": "https://nola.gov",
+      "type": "forgivable",
+      "amountText": "Up to $35,000 + $5,000 closing costs",
+      "amount": {
+       "max": 35000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Shreveport": [
+     {
+      "id": "shv-happi",
+      "name": "HAPPI",
+      "agency": "City of Shreveport",
+      "url": "https://www.shreveportla.gov",
+      "type": "deferred",
+      "amountText": "Up to 20% of price",
+      "amount": {
+       "max": null,
+       "pct": 20,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% city median",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "MA": {
+   "name": "Massachusetts",
+   "agency": "MassHousing",
+   "agencyUrl": "https://www.masshousing.com",
+   "programs": [
+    {
+     "id": "ma-opt1",
+     "name": "MassHousing DPA Option 1",
+     "agency": "MassHousing",
+     "url": "https://www.masshousing.com",
+     "type": "deferred",
+     "amountText": "Up to $30,000",
+     "amount": {
+      "max": 30000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ma-opt2",
+     "name": "MassHousing DPA Option 2",
+     "agency": "MassHousing",
+     "url": "https://www.masshousing.com",
+     "type": "repay",
+     "amountText": "Up to $25,000",
+     "amount": {
+      "max": 25000,
+      "pct": null,
+      "of": "price"
+     },
+     "rate": 2,
+     "termYears": 15,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ma-dreams",
+     "name": "MassDREAMS",
+     "agency": "MassHousing",
+     "url": "https://www.masshousing.com",
+     "type": "grant",
+     "amountText": "Up to $50,000 (≤100% AMI); $35,000 (to 135% AMI)",
+     "amount": {
+      "max": 35000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "29 designated communities",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Boston": [
+     {
+      "id": "bos-bhc",
+      "name": "Boston Home Center DPA",
+      "agency": "Boston Home Center",
+      "url": "https://www.boston.gov/departments/neighborhood-development/boston-home-center",
+      "type": "deferred",
+      "amountText": "5% of price, up to $50,000 (≤100% AMI) / $35,000",
+      "amount": {
+       "max": 35000,
+       "pct": 5,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Worcester": [
+     {
+      "id": "wor-dpa",
+      "name": "Down Payment Assistance",
+      "agency": "City of Worcester",
+      "url": "https://www.worcesterma.gov",
+      "type": "forgivable",
+      "amountText": "Up to $5,000",
+      "amount": {
+       "max": 5000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 3,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Springfield": [
+     {
+      "id": "spfd-dpa",
+      "name": "Homebuyer Assistance",
+      "agency": "City of Springfield",
+      "url": "https://www.springfield-ma.gov",
+      "type": "forgivable",
+      "amountText": "Up to $4,000",
+      "amount": {
+       "max": 4000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "MD": {
+   "name": "Maryland",
+   "agency": "Maryland Mortgage Program (DHCD)",
+   "agencyUrl": "https://mmp.maryland.gov",
+   "programs": [
+    {
+     "id": "md-6000",
+     "name": "1st Time Advantage 6000",
+     "agency": "Maryland DHCD",
+     "url": "https://mmp.maryland.gov",
+     "type": "deferred",
+     "amountText": "$6,000",
+     "amount": {
+      "max": 6000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "md-flex5000",
+     "name": "Flex 5000",
+     "agency": "Maryland DHCD",
+     "url": "https://mmp.maryland.gov",
+     "type": "deferred",
+     "amountText": "$5,000",
+     "amount": {
+      "max": 5000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "md-flex3",
+     "name": "Flex 3%",
+     "agency": "Maryland DHCD",
+     "url": "https://mmp.maryland.gov",
+     "type": "deferred",
+     "amountText": "3% of loan",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Baltimore City": [
+     {
+      "id": "bal-bib",
+      "name": "Buying Into Baltimore",
+      "agency": "Live Baltimore",
+      "url": "https://livebaltimore.com",
+      "type": "forgivable",
+      "amountText": "$5,000 (lottery)",
+      "amount": {
+       "max": 5000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "20 winners per year; no income limit.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     },
+     {
+      "id": "bal-baybrook",
+      "name": "Baybrook Boost",
+      "agency": "Baltimore City",
+      "url": "https://livebaltimore.com",
+      "type": "deferred",
+      "amountText": "$10,000–$20,500 by income",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Brooklyn & Curtis Bay only",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Montgomery County": [
+     {
+      "id": "mont-rccap",
+      "name": "Revolving Closing Cost Assistance",
+      "agency": "Montgomery County",
+      "url": "https://www.montgomerycountymd.gov",
+      "type": "repay",
+      "amountText": "5% of price, up to $10,000",
+      "amount": {
+       "max": 10000,
+       "pct": 5,
+       "of": "price"
+      },
+      "rate": 5,
+      "termYears": 10,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     },
+     {
+      "id": "mont-mpp",
+      "name": "MPP Option 2",
+      "agency": "Montgomery County",
+      "url": "https://www.montgomerycountymd.gov",
+      "type": "forgivable",
+      "amountText": "Up to 3% of price",
+      "amount": {
+       "max": null,
+       "pct": 3,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Howard County": [
+     {
+      "id": "how-sdlp",
+      "name": "Settlement Downpayment Loan Program",
+      "agency": "Howard County",
+      "url": "https://www.howardcountymd.gov",
+      "type": "deferred",
+      "amountText": "Amount set by county",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Deferred; interest 2 points below your first mortgage.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "ME": {
+   "name": "Maine",
+   "agency": "MaineHousing",
+   "agencyUrl": "https://www.mainehousing.org",
+   "programs": [
+    {
+     "id": "me-adv",
+     "name": "Advantage Down Payment",
+     "agency": "MaineHousing",
+     "url": "https://www.mainehousing.org",
+     "type": "grant",
+     "amountText": "Up to $5,000",
+     "amount": {
+      "max": 5000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "May need repaying if you sell or refinance early.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "me-multi",
+     "name": "Multi-Unit Advantage",
+     "agency": "MaineHousing",
+     "url": "https://www.mainehousing.org",
+     "type": "grant",
+     "amountText": "$8,000–$14,000",
+     "amount": {
+      "max": 8000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "1–4 unit properties.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "MI": {
+   "name": "Michigan",
+   "agency": "Michigan State Housing Development Authority (MSHDA)",
+   "agencyUrl": "https://www.michigan.gov/mshda",
+   "programs": [
+    {
+     "id": "mi-10k",
+     "name": "MI 10K DPA",
+     "agency": "MSHDA",
+     "url": "https://www.michigan.gov/mshda",
+     "type": "deferred",
+     "amountText": "$10,000",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "236 eligible ZIP codes only; price cap",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Detroit": [
+     {
+      "id": "det-dpa",
+      "name": "Detroit Down Payment Assistance",
+      "agency": "City of Detroit",
+      "url": "https://detroitmi.gov",
+      "type": "deferred",
+      "amountText": "Up to $25,000",
+      "amount": {
+       "max": 25000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Terms not stated — shown as deferred.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     },
+     {
+      "id": "det-nf",
+      "name": "National Faith DPA",
+      "agency": "National Faith Homebuyers",
+      "url": "https://nationalfaith.org",
+      "type": "forgivable",
+      "amountText": "$14,999",
+      "amount": {
+       "max": 14999,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Detroit / Wayne County; existing homes only.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Grand Rapids": [
+     {
+      "id": "gr-haf",
+      "name": "Homebuyer Assistance Fund",
+      "agency": "City of Grand Rapids",
+      "url": "https://www.grandrapidsmi.gov",
+      "type": "forgivable",
+      "amountText": "Up to $7,500",
+      "amount": {
+       "max": 7500,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Warren": [
+     {
+      "id": "war-dhap",
+      "name": "Direct Homebuyer Assistance",
+      "agency": "City of Warren",
+      "url": "https://www.cityofwarren.org",
+      "type": "deferred",
+      "amountText": "Half your down payment + $2,500 closing, max $14,000",
+      "amount": {
+       "max": 14000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "City-owned properties only.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "MN": {
+   "name": "Minnesota",
+   "agency": "Minnesota Housing",
+   "agencyUrl": "https://www.mnhousing.gov",
+   "programs": [
+    {
+     "id": "mn-mpl",
+     "name": "Monthly Payment Loan",
+     "agency": "Minnesota Housing",
+     "url": "https://www.mnhousing.gov",
+     "type": "repay",
+     "amountText": "Up to $18,000",
+     "amount": {
+      "max": 18000,
+      "pct": null,
+      "of": "price"
+     },
+     "termYears": 10,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "mn-dpl",
+     "name": "Deferred Payment Loan",
+     "agency": "Minnesota Housing",
+     "url": "https://www.mnhousing.gov",
+     "type": "deferred",
+     "amountText": "Up to $16,500",
+     "amount": {
+      "max": 16500,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "mn-dplplus",
+     "name": "Deferred Payment Loan Plus",
+     "agency": "Minnesota Housing",
+     "url": "https://www.mnhousing.gov",
+     "type": "deferred",
+     "amountText": "Up to $18,000",
+     "amount": {
+      "max": 18000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Minneapolis": [
+     {
+      "id": "mpls-hom",
+      "name": "Homeownership Opportunity Minneapolis",
+      "agency": "City of Minneapolis",
+      "url": "https://www.minneapolismn.gov",
+      "type": "deferred",
+      "amountText": "$10,000 (61–80% AMI) or $20,000 (≤60% AMI)",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "St. Paul": [
+     {
+      "id": "stp-dpa",
+      "name": "Saint Paul HRA Downpayment Assistance",
+      "agency": "City of Saint Paul",
+      "url": "https://www.stpaul.gov",
+      "type": "deferred",
+      "amountText": "Up to $40,000",
+      "amount": {
+       "max": 40000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Rochester": [
+     {
+      "id": "roc-gap",
+      "name": "First Homes Gap Loan",
+      "agency": "First Homes",
+      "url": "https://www.firsthomes.org",
+      "type": "deferred",
+      "amountText": "Up to $12,000",
+      "amount": {
+       "max": 12000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "MO": {
+   "name": "Missouri",
+   "agency": "Missouri Housing Development Commission (MHDC)",
+   "agencyUrl": "https://www.mhdc.com",
+   "programs": [
+    {
+     "id": "mo-fp",
+     "name": "First Place CashAssistance",
+     "agency": "MHDC",
+     "url": "https://www.mhdc.com",
+     "type": "forgivable",
+     "amountText": "Up to 4% of price",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "mo-ns",
+     "name": "Next Step CashAssistance",
+     "agency": "MHDC",
+     "url": "https://www.mhdc.com",
+     "type": "forgivable",
+     "amountText": "4% of loan",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "forgiveYears": 10,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Springfield": [
+     {
+      "id": "sgf-dpa",
+      "name": "Down Payment Assistance",
+      "agency": "City of Springfield",
+      "url": "https://www.springfieldmo.gov",
+      "type": "deferred",
+      "amountText": "Up to $9,000",
+      "amount": {
+       "max": 9000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI; target areas; price ≤ $150,000",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Columbia": [
+     {
+      "id": "com-dpa",
+      "name": "Homeownership Assistance",
+      "agency": "City of Columbia",
+      "url": "https://www.como.gov",
+      "type": "forgivable",
+      "amountText": "Up to $10,000",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 10,
+      "firstTimeOnly": true,
+      "minCredit": 600,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "MS": {
+   "name": "Mississippi",
+   "agency": "Mississippi Home Corporation (MHC)",
+   "agencyUrl": "https://www.mshomecorp.com",
+   "programs": [
+    {
+     "id": "ms-smart6",
+     "name": "Smart6",
+     "agency": "MHC",
+     "url": "https://www.mshomecorp.com",
+     "type": "deferred",
+     "amountText": "$6,000",
+     "amount": {
+      "max": 6000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ms-easy8",
+     "name": "Easy8",
+     "agency": "MHC",
+     "url": "https://www.mshomecorp.com",
+     "type": "deferred",
+     "amountText": "$8,000",
+     "amount": {
+      "max": 8000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ms-trusty10",
+     "name": "Trusty10",
+     "agency": "MHC",
+     "url": "https://www.mshomecorp.com",
+     "type": "deferred",
+     "amountText": "$10,000",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ms-hat",
+     "name": "Housing Assistance for Teachers",
+     "agency": "MHC",
+     "url": "https://www.mshomecorp.com",
+     "type": "grant",
+     "amountText": "Up to $6,000",
+     "amount": {
+      "max": 6000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Certified public school teachers in eligible areas.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "MT": {
+   "name": "Montana",
+   "agency": "Montana Housing (MBOH)",
+   "agencyUrl": "https://housing.mt.gov",
+   "programs": [
+    {
+     "id": "mt-bond",
+     "name": "Bond Advantage DPA",
+     "agency": "Montana Housing",
+     "url": "https://housing.mt.gov",
+     "type": "repay",
+     "amountText": "Lesser of $15,000 or 5% of price",
+     "amount": {
+      "max": 15000,
+      "pct": 5,
+      "of": "price"
+     },
+     "termYears": 15,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "mt-plus",
+     "name": "MBOH Plus 0% Deferred DPA",
+     "agency": "Montana Housing",
+     "url": "https://housing.mt.gov",
+     "type": "deferred",
+     "amountText": "Amount set by program",
+     "amount": {
+      "max": null,
+      "pct": null,
+      "of": "price"
+     },
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "NC": {
+   "name": "North Carolina",
+   "agency": "North Carolina Housing Finance Agency (NCHFA)",
+   "agencyUrl": "https://www.nchfa.com",
+   "programs": [
+    {
+     "id": "nc-adv",
+     "name": "NC Home Advantage DPA",
+     "agency": "NCHFA",
+     "url": "https://www.nchfa.com",
+     "type": "forgivable",
+     "amountText": "Up to 3% of loan",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "forgiveYears": 15,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "nc-1st",
+     "name": "NC 1st Home Advantage Down Payment",
+     "agency": "NCHFA",
+     "url": "https://www.nchfa.com",
+     "type": "forgivable",
+     "amountText": "$15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 15,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Charlotte": [
+     {
+      "id": "clt-house",
+      "name": "House Charlotte",
+      "agency": "City of Charlotte",
+      "url": "https://www.charlottenc.gov",
+      "type": "forgivable",
+      "amountText": "Up to $50,000",
+      "amount": {
+       "max": 50000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 30,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Raleigh": [
+     {
+      "id": "ral-hap",
+      "name": "Homebuyer Assistance Program",
+      "agency": "City of Raleigh",
+      "url": "https://raleighnc.gov",
+      "type": "deferred",
+      "amountText": "Up to $45,000 ($60,000 Enhanced)",
+      "amount": {
+       "max": 45000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Price cap ~$385K ($450K Enhanced)",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Greensboro": [
+     {
+      "id": "gso-connect",
+      "name": "Housing Connect Homebuyer Assistance",
+      "agency": "City of Greensboro",
+      "url": "https://www.greensboro-nc.gov",
+      "type": "forgivable",
+      "amountText": "Up to $15,000 ($20,000 redevelopment areas)",
+      "amount": {
+       "max": 15000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 10,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "ND": {
+   "name": "North Dakota",
+   "agency": "North Dakota Housing Finance Agency (NDHFA)",
+   "agencyUrl": "https://www.ndhfa.org",
+   "programs": [
+    {
+     "id": "nd-start",
+     "name": "Start / DCA program",
+     "agency": "NDHFA",
+     "url": "https://www.ndhfa.org",
+     "type": "deferred",
+     "amountText": "Up to 3% of loan",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "NE": {
+   "name": "Nebraska",
+   "agency": "Nebraska Investment Finance Authority (NIFA)",
+   "agencyUrl": "https://www.nifa.org",
+   "programs": [
+    {
+     "id": "ne-hba",
+     "name": "Homebuyer Assistance (HBA)",
+     "agency": "NIFA",
+     "url": "https://www.nifa.org",
+     "type": "repay",
+     "amountText": "Up to 5% of price",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "price"
+     },
+     "rate": 1,
+     "termYears": 10,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "NH": {
+   "name": "New Hampshire",
+   "agency": "New Hampshire Housing (NHHFA)",
+   "agencyUrl": "https://www.nhhfa.org",
+   "programs": [
+    {
+     "id": "nh-dpa",
+     "name": "Down Payment & Closing Cost Assistance",
+     "agency": "NH Housing",
+     "url": "https://www.nhhfa.org",
+     "type": "forgivable",
+     "amountText": "Up to $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "NJ": {
+   "name": "New Jersey",
+   "agency": "NJ Housing and Mortgage Finance Agency (NJHMFA)",
+   "agencyUrl": "https://njhousing.gov",
+   "programs": [
+    {
+     "id": "nj-dpa",
+     "name": "NJHMFA Down Payment Assistance",
+     "agency": "NJHMFA",
+     "url": "https://njhousing.gov",
+     "type": "forgivable",
+     "amountText": "Up to $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "nj-firstgen",
+     "name": "First Generation DPA",
+     "agency": "NJHMFA",
+     "url": "https://njhousing.gov",
+     "type": "forgivable",
+     "amountText": "Up to $22,000 ($15,000 + $7,000)",
+     "amount": {
+      "max": 22000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Camden County": [
+     {
+      "id": "cam-fthb",
+      "name": "First Time Homebuyer Program",
+      "agency": "Camden County",
+      "url": "https://www.camdencounty.com",
+      "type": "forgivable",
+      "amountText": "$25,000",
+      "amount": {
+       "max": 25000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 10,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Gloucester County": [
+     {
+      "id": "glo-dpa",
+      "name": "Homebuyer Down Payment Assistance",
+      "agency": "Gloucester County",
+      "url": "https://www.gloucestercountynj.gov",
+      "type": "deferred",
+      "amountText": "Up to $25,000",
+      "amount": {
+       "max": 25000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Newark / Essex County": [
+     {
+      "id": "ess-dpa",
+      "name": "Essex County assistance",
+      "agency": "County of Essex",
+      "url": "https://essexcountynj.org",
+      "type": "deferred",
+      "amountText": "Amount not published — call (973) 655-0200",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "NM": {
+   "name": "New Mexico",
+   "agency": "New Mexico Mortgage Finance Authority (MFA)",
+   "agencyUrl": "https://housingnm.org",
+   "programs": [
+    {
+     "id": "nm-firstdown",
+     "name": "FIRSTDown",
+     "agency": "MFA",
+     "url": "https://housingnm.org",
+     "type": "deferred",
+     "amountText": "Up to 4% of price",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "nm-fdplus",
+     "name": "FirstDown Plus",
+     "agency": "MFA",
+     "url": "https://housingnm.org",
+     "type": "forgivable",
+     "amountText": "$15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "nm-homenow",
+     "name": "HOMENow",
+     "agency": "MFA",
+     "url": "https://housingnm.org",
+     "type": "forgivable",
+     "amountText": "Up to $7,000",
+     "amount": {
+      "max": 7000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤80% AMI",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "nm-forward",
+     "name": "Home Forward DPA",
+     "agency": "MFA",
+     "url": "https://housingnm.org",
+     "type": "deferred",
+     "amountText": "Up to 3% of price",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "price"
+     },
+     "firstTimeOnly": false,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Rio Rancho": [
+     {
+      "id": "rr-dpa",
+      "name": "City DPA",
+      "agency": "City of Rio Rancho",
+      "url": "https://rrnm.gov",
+      "type": "forgivable",
+      "amountText": "Up to $5,000",
+      "amount": {
+       "max": 5000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "NV": {
+   "name": "Nevada",
+   "agency": "Nevada Housing Division",
+   "agencyUrl": "https://housing.nv.gov",
+   "programs": [
+    {
+     "id": "nv-hip",
+     "name": "Home Is Possible (HIP)",
+     "agency": "Nevada Housing Division",
+     "url": "https://housing.nv.gov",
+     "type": "deferred",
+     "amountText": "Up to 4% of loan",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "nv-homefirst",
+     "name": "Home First",
+     "agency": "Nevada Housing Division",
+     "url": "https://housing.nv.gov",
+     "type": "forgivable",
+     "amountText": "$15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 3,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "nv-rural",
+     "name": "Home Means Nevada Rural DPA",
+     "agency": "Nevada Rural Housing",
+     "url": "https://nvrural.org",
+     "type": "forgivable",
+     "amountText": "Up to $25,000",
+     "amount": {
+      "max": 25000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 3,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Rural Nevada only",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "NY": {
+   "name": "New York",
+   "agency": "State of New York Mortgage Agency (SONYMA)",
+   "agencyUrl": "https://hcr.ny.gov/sonyma",
+   "programs": [
+    {
+     "id": "ny-dpal",
+     "name": "SONYMA Down Payment Assistance Loan (DPAL)",
+     "agency": "SONYMA",
+     "url": "https://hcr.ny.gov/down-payment-assistance-loan-dpal",
+     "type": "forgivable",
+     "amountText": "Greater of $3,000 or 3% of price, capped at $15,000 (min $1,000; cannot exceed actual down payment/closing costs)",
+     "amount": {
+      "max": 15000,
+      "pct": 3,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "rate": 0,
+     "termYears": 10,
+     "firstTimeOnly": true,
+     "minCredit": null,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "0% second lien, no payments, forgiven after 10 years (pro-rated 1/120 per month if sold/refinanced earlier). Only with a SONYMA first mortgage; first-mortgage rate is 0.40% higher with DPAL (except Graduate to Homeownership, Homes for Veterans, ENERGY STAR). Buyer must contribute 1% (3% co-ops/3-4 family). SONYMA programs require first-time buyers except veterans/Target Areas. Min credit score not published on HCR site; loan insurance types not stated on DPAL page.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "ny-dpalplus",
+     "name": "SONYMA DPAL Plus 2026",
+     "agency": "SONYMA",
+     "url": "https://hcr.ny.gov/down-payment-assistance-loan-dpal",
+     "type": "deferred",
+     "amountText": "Up to $30,000 (down payment, closing costs, single-premium MI)",
+     "amount": {
+      "max": 30000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": null,
+     "firstTimeOnly": true,
+     "minCredit": null,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤60% AMI",
+     "status": "active",
+     "notes": "Launched July 1, 2026; statewide via participating SONYMA lenders, first-come first-served until funds run out. HCR page does not publish forgiveness/repayment terms (refers to a separate term sheet), so typed conservatively as deferred. Must be applied after any other subsidies/grants.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "ny-rsl",
+     "name": "SONYMA Repayable Second Lien (RSL)",
+     "agency": "SONYMA",
+     "url": "https://hcr.ny.gov/repayable-second-lien-rsl-program",
+     "type": "deferred",
+     "amountText": "Up to 5% of net purchase price (min $3,000; cannot exceed actual down payment/closing costs)",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "price"
+     },
+     "rate": 0,
+     "firstTimeOnly": true,
+     "minCredit": null,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "0% interest, no monthly payments; repaid on sale, refinance or payoff of the SONYMA first mortgage. Alternative to DPAL (larger % but never forgiven). First-mortgage rate +0.40% (with same exceptions as DPAL).",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "ny-conventional-fha-plus",
+     "name": "SONYMA Conventional Plus / FHA Plus",
+     "agency": "SONYMA",
+     "url": "https://hcr.ny.gov/conventional-plus-program-fha-plus-program",
+     "type": "deferred",
+     "amountText": "Down payment & closing cost assistance included — amount not published on HCR page",
+     "amount": {
+      "max": null,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": false,
+     "minCredit": null,
+     "loanTypes": [
+      "conv",
+      "fha"
+     ],
+     "incomeNote": "<80% AMI (FNMA HomeReady tool)",
+     "status": "active",
+     "notes": "30-year fixed Conventional or FHA first mortgage bundled with SONYMA DPA; open to first-time and returning buyers. HCR page gives no DPA amount or forgiveness terms, so typed conservatively as deferred with amount unknown.",
+     "verified": "2026-11-20"
+    }
+   ],
+   "local": {
+    "New York City": [
+     {
+      "id": "nyc-homefirst",
+      "name": "HomeFirst Down Payment Assistance",
+      "agency": "NYC HPD",
+      "url": "https://www.nyc.gov/site/hpd/services-and-information/homefirst-down-payment-assistance-program.page",
+      "type": "forgivable",
+      "amountText": "Up to $100,000",
+      "amount": {
+       "max": 100000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 10,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤120% AMI (limits eff. 6/1/26)",
+      "status": "active",
+      "notes": "Forgivable loan with owner-occupancy period of 10 years if ≤$40,000, 15 years if over $40,000 (City-funded loans: 15 years regardless). Buyer must contribute 3% of price; HPD-approved homebuyer education required; 1-4 family, condo or co-op in the five boroughs; price at or below 95% of HUD limits.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Buffalo": [
+     {
+      "id": "buf-belmont",
+      "name": "City of Buffalo Down Payment & Closing Cost Assistance (via Belmont)",
+      "agency": "City of Buffalo / Belmont Housing Resources for WNY",
+      "url": "https://www.belmonthousingwny.org/counseling/first-time-homebuyer-programs/",
+      "type": "deferred",
+      "amountText": "Up to $15,000 for down payment and closing costs",
+      "amount": {
+       "max": 15000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Listed on Belmont's First Time Homebuyer Programs page; apply through a Belmont counselor (716-884-7791). Structure, income limits and funding status not published, so typed conservatively as deferred.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Rochester": [
+     {
+      "id": "roc-hpap",
+      "name": "Home Purchase Assistance Program (HPAP)",
+      "agency": "City of Rochester",
+      "url": "https://cityofrochester.gov/HOMEBUYER",
+      "type": "forgivable",
+      "amountText": "Up to $6,000",
+      "amount": {
+       "max": 6000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv"
+      ],
+      "incomeNote": "<120% AMI",
+      "status": "active",
+      "notes": "City calls it a grant but requires 5 years of owner-occupancy, so modeled as forgivable over 5 years. 1-4 family homes in City of Rochester; buyer contributes $1,500; pre/post-purchase training required. First mortgage (Conventional, FHA, VA or SONYMA) of at least $25,000.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Westchester County": [
+     {
+      "id": "westchester-hoi",
+      "name": "Westchester County Home Ownership Initiative",
+      "agency": "Westchester County Dept. of Planning",
+      "url": "https://homes.westchestercountyny.gov/down-payment-and-closing-cost-assistance",
+      "type": "deferred",
+      "amountText": "$25,000",
+      "amount": {
+       "max": 25000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI",
+      "status": "active",
+      "notes": "All or part repayable if owner moves, sells or violates terms within the required occupancy period (period not legible on county page) — typed conservatively as deferred. House, condo or co-op in Westchester County; Yonkers eligibility not confirmed on the page. Funding status not stated.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Syracuse": [
+     {
+      "id": "syr-hhq-cca",
+      "name": "Home HeadQuarters Closing Cost Assistance",
+      "agency": "Home HeadQuarters",
+      "url": "https://homehq.squarespace.com/homebuyers-1",
+      "type": "repay",
+      "amountText": "Up to $5,000 (closing costs)",
+      "amount": {
+       "max": 5000,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 6,
+      "termYears": 5,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "3% rate if <80% HUD median; up to 6% otherwise",
+      "status": "active",
+      "notes": "Amortizing loan repaid over 5 years at up to 6% simple interest (3% for <80% median income). Available anywhere in NY State except NYC; buyer must put $500 of own funds and complete homebuyer education.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Ithaca / Tompkins region": [
+     {
+      "id": "inhs-dpa",
+      "name": "INHS Down Payment Assistance",
+      "agency": "INHS",
+      "url": "https://www.ithacanhs.org/homeownership",
+      "type": "deferred",
+      "amountText": "Up to $20,000",
+      "amount": {
+       "max": 20000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Moderate income; limits not published",
+      "status": "active",
+      "notes": "For purchases in Cayuga, Chemung, Cortland, Schuyler, Seneca, Tioga or Tompkins counties. Structure not stated (typed conservatively as deferred); availability depends on grant funding.",
+      "verified": "2026-11-20"
+     }
+    ]
+   }
+  },
+  "OH": {
+   "name": "Ohio",
+   "agency": "Ohio Housing Finance Agency (OHFA)",
+   "agencyUrl": "https://myohiohome.org",
+   "programs": [
+    {
+     "id": "oh-choice",
+     "name": "Your Choice! Down Payment Assistance",
+     "agency": "OHFA",
+     "url": "https://myohiohome.org",
+     "type": "forgivable",
+     "amountText": "2.5% or 5% of price",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "price"
+     },
+     "forgiveYears": 7,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "oh-grads",
+     "name": "Grants for Grads",
+     "agency": "OHFA",
+     "url": "https://myohiohome.org",
+     "type": "forgivable",
+     "amountText": "2.5% or 5% of price",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Degree within the last 48 months.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "oh-cfo",
+     "name": "Communities First Ohio DPA",
+     "agency": "Communities First Ohio",
+     "url": "https://communitiesfirstohio.org",
+     "type": "grant",
+     "amountText": "3%, 4% or 5% of price",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "price"
+     },
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Columbus": [
+     {
+      "id": "cbus-addi",
+      "name": "American Dream Down Payment Initiative",
+      "agency": "City of Columbus",
+      "url": "https://www.columbus.gov",
+      "type": "forgivable",
+      "amountText": "Up to $7,500",
+      "amount": {
+       "max": 7500,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Cleveland / Cuyahoga County": [
+     {
+      "id": "cuy-dpa",
+      "name": "Down Payment Assistance",
+      "agency": "Cuyahoga County",
+      "url": "https://cuyahogacounty.gov",
+      "type": "deferred",
+      "amountText": "10% of price, up to $14,900",
+      "amount": {
+       "max": 14900,
+       "pct": 10,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Home value ≤ $149,000",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Cincinnati": [
+     {
+      "id": "cin-addi",
+      "name": "American Dream Downpayment Initiative",
+      "agency": "City of Cincinnati",
+      "url": "https://www.cincinnati-oh.gov",
+      "type": "forgivable",
+      "amountText": "Up to $5,000",
+      "amount": {
+       "max": 5000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "OK": {
+   "name": "Oklahoma",
+   "agency": "Oklahoma Housing Finance Agency (OHFA)",
+   "agencyUrl": "https://www.ohfa.org",
+   "programs": [
+    {
+     "id": "ok-dpa",
+     "name": "OHFA Homebuyer DPA",
+     "agency": "OHFA",
+     "url": "https://www.ohfa.org",
+     "type": "deferred",
+     "amountText": "3.5% of loan",
+     "amount": {
+      "max": null,
+      "pct": 3.5,
+      "of": "loan"
+     },
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ok-rei",
+     "name": "REI Home100 DPA",
+     "agency": "REI Oklahoma",
+     "url": "https://www.reiok.org",
+     "type": "forgivable",
+     "amountText": "Up to 5% of loan",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "forgiveYears": 7,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Oklahoma City": [
+     {
+      "id": "okc-home",
+      "name": "HOME Investment Partnerships DPA",
+      "agency": "Community Action Partnership",
+      "url": "https://www.okcca.org",
+      "type": "forgivable",
+      "amountText": "Up to $18,000 (+$5,000 rate buydown)",
+      "amount": {
+       "max": 18000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 7,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Tulsa": [
+     {
+      "id": "tul-dpa",
+      "name": "Down payment / closing cost help",
+      "agency": "Housing Partners of Tulsa",
+      "url": "https://www.tulsahousing.org",
+      "type": "deferred",
+      "amountText": "Up to $5,000",
+      "amount": {
+       "max": 5000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "OR": {
+   "name": "Oregon",
+   "agency": "Oregon Housing and Community Services (OHCS)",
+   "agencyUrl": "https://www.oregon.gov/ohcs",
+   "programs": [
+    {
+     "id": "or-flex",
+     "name": "Flex Lending DPA",
+     "agency": "OHCS",
+     "url": "https://www.oregon.gov/ohcs",
+     "type": "deferred",
+     "amountText": "4% or 5% of loan",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Silent forgivable or repayable second depending on option.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "or-cash",
+     "name": "Cash Advantage",
+     "agency": "OHCS",
+     "url": "https://www.oregon.gov/ohcs",
+     "type": "grant",
+     "amountText": "Up to 3% of loan (closing costs)",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Portland": [
+     {
+      "id": "pdx-dpa",
+      "name": "Down Payment Assistance Loan",
+      "agency": "Portland Housing Bureau",
+      "url": "https://www.portland.gov/phb",
+      "type": "deferred",
+      "amountText": "Up to $80,000 ($100,000 in target areas)",
+      "amount": {
+       "max": 80000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤100% AMI",
+      "status": "active",
+      "notes": "0% 30-year loan; partly forgiven from year 15.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Salem": [
+     {
+      "id": "sal-home",
+      "name": "HOME homebuyer assistance",
+      "agency": "City of Salem",
+      "url": "https://www.cityofsalem.net",
+      "type": "deferred",
+      "amountText": "Amount not published",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "PA": {
+   "name": "Pennsylvania",
+   "agency": "Pennsylvania Housing Finance Agency (PHFA)",
+   "agencyUrl": "https://www.phfa.org",
+   "programs": [
+    {
+     "id": "pa-kaal",
+     "name": "Keystone Advantage Assistance Loan",
+     "agency": "PHFA",
+     "url": "https://www.phfa.org/programs/assistance.aspx",
+     "type": "repay",
+     "amountText": "Lesser of 4% of price/appraised value or $6,000 ($8,000 for participating Employer Assisted Housing employees)",
+     "amount": {
+      "max": 6000,
+      "pct": 4,
+      "of": "price"
+     },
+     "rate": 0,
+     "termYears": 10,
+     "minCredit": 660,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "PHFA first-mortgage income limits apply; liquid assets max $50,000 after closing",
+     "status": "active",
+     "notes": "0% second mortgage repaid monthly over 10 years. Requires a PHFA first mortgage (Keystone Home, Keystone Government or HFA Preferred). Covers only minimum required down payment/closing costs; minimum $500. Cannot be combined with other PHFA DPA (except Access Modification).",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "pa-kfit",
+     "name": "Keystone Forgivable in Ten Years (K-FIT)",
+     "agency": "PHFA",
+     "url": "https://www.phfa.org/programs/assistance.aspx",
+     "type": "forgivable",
+     "amountText": "5% of the lesser of price or appraised value, no dollar cap",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "minCredit": 660,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "PHFA first-mortgage income limits apply; liquid assets max $50,000 after closing",
+     "status": "active",
+     "notes": "Forgiven 10% per year over 10 years; prorated repayment on sale, transfer or non-owner occupancy. Only with Keystone Home Loan (or Keystone Flex). Covers only minimum required down payment/closing costs.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "pa-kdate",
+     "name": "Keystone Due At Time of Expiration (K-DATE)",
+     "agency": "PHFA",
+     "url": "https://www.phfa.org/programs/assistance/kdate.aspx",
+     "type": "deferred",
+     "amountText": "8% of the lesser of price or appraised value for first mortgages up to $150,000 (subject to availability); 5% for first mortgages over $150,000; no dollar cap",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "price"
+     },
+     "rate": 0,
+     "termYears": 30,
+     "minCredit": 660,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "PHFA first-mortgage income limits apply; liquid assets max $50,000 after closing",
+     "status": "active",
+     "notes": "Launched May 2026. 0% 30-year second mortgage, no monthly payments; due in full on sale, refinance or first-mortgage payoff. pct shows the 5% tier for loans over $150k; 8% tier for smaller loans. Keystone Home Loan / Keystone Flex only.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "pa-homestead",
+     "name": "HOMEstead DPA",
+     "agency": "PHFA",
+     "url": "https://www.phfa.org/programs/homestead.aspx",
+     "type": "forgivable",
+     "amountText": "Up to $10,000 (minimum $1,000)",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "rate": 0,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "County-specific HOMEstead income and purchase price limits; not available in major cities/7 counties with their own HUD allocation",
+     "status": "paused",
+     "notes": "PHFA paused HOMEstead until further notice for reservations on or after Aug 7, 2026 (Q3 2026 program update). Was a 0% second forgiven 20%/yr over 5 years with Keystone Home Loan.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "pa-access",
+     "name": "Access Downpayment & Closing Cost Assistance (disability)",
+     "agency": "PHFA",
+     "url": "https://www.phfa.org/programs/assistance.aspx",
+     "type": "deferred",
+     "amountText": "$1,000 to $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "rate": 0,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Household income at or below 80% of statewide median family income",
+     "status": "active",
+     "notes": "Buyer or household member with a disability; must also use the Access Home Modification Loan. 0% interest, no monthly payment; repaid on sale, transfer or non-owner occupancy. Not combinable with other PHFA DPA.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "pa-phfa-grant",
+     "name": "PHFA Grant",
+     "agency": "PHFA",
+     "url": "https://www.phfa.org/programs/assistance.aspx",
+     "type": "grant",
+     "amountText": "$500",
+     "amount": {
+      "max": 500,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "conv"
+     ],
+     "status": "active",
+     "notes": "Only with HFA Preferred (Lo MI) conventional first mortgage; can be combined with Keystone Advantage Assistance.",
+     "verified": "2026-11-20"
+    }
+   ],
+   "local": {
+    "Philadelphia": [
+     {
+      "id": "phl-first",
+      "name": "Philly First Home",
+      "agency": "City of Philadelphia DHCD / PHDC",
+      "url": "https://phdcphila.org/residents/homebuyers-and-renters/philly-first-home/",
+      "type": "forgivable",
+      "amountText": "Lesser of $10,000 or 6% of price",
+      "amount": {
+       "max": 10000,
+       "pct": 6,
+       "of": "price"
+      },
+      "forgiveYears": 15,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Household income limits apply (e.g. $122,700 for a household of 4)",
+      "status": "active",
+      "notes": "Described as a grant, but must be repaid if the buyer moves or refinances before living in the home 15 years (city page does not describe proration). First-time = no ownership in 3 years. City-funded counseling required before signing agreement of sale. Single-family or duplex; no condos. Offered while funding is available. Loan types not specified by the city.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Pittsburgh": [
+     {
+      "id": "pgh-ura",
+      "name": "Down Payment and Closing Cost Assistance Program",
+      "agency": "Urban Redevelopment Authority of Pittsburgh",
+      "url": "https://www.ura.org/pages/down-payment-and-closing-cost-assistance-program",
+      "type": "deferred",
+      "amountText": "Up to $7,500 (under 80% AMI) or up to $5,000 (80-115% AMI)",
+      "amount": {
+       "max": 7500,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "termYears": 5,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "<=115% AMI ($7,500 tier under 80% AMI)",
+      "status": "active",
+      "notes": "0% deferred loan, not a grant: 5-year term (<80% AMI) or 10-year (80-115% AMI), no payments if residency met; URA does not state forgiveness explicitly, so typed conservatively as deferred. City of Pittsburgh only; HUD-certified homebuyer course; max $20,000 liquid assets after closing; 2% closing fee; apply 21 business days before closing.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Allegheny County (outside Pittsburgh)": [
+     {
+      "id": "allegheny-1st-home",
+      "name": "1st Home Allegheny",
+      "agency": "Allegheny County Economic Development / Residential Finance Authority",
+      "url": "https://www.alleghenycounty.us/Services/Housing/1st-Home-Allegheny-Program",
+      "type": "forgivable",
+      "amountText": "$45,000 (income <=80% AMFI) or $10,000 (80-115% AMFI)",
+      "amount": {
+       "max": 45000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 6,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "<=80% AMFI for $45,000; <=115% AMFI for $10,000",
+      "status": "active",
+      "notes": "Forgivable subordinate loan, 6-year term (county page does not detail forgiveness schedule). Excludes City of Pittsburgh. No home owned in last 3 years; buyer contributes $1,000 or 1% of price; assets under $40,000; 2 months reserves; HUD-certified education. Limited funding ($2.6M); page says accepting applications.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Bethlehem": [
+     {
+      "id": "bethlehem-bhap",
+      "name": "Bethlehem Homebuyer Assistance Program (BHAP)",
+      "agency": "City of Bethlehem / Community Action Lehigh Valley",
+      "url": "https://www.bethlehem-pa.gov/Community-Economic-Development/Community-Development/Housing",
+      "type": "forgivable",
+      "amountText": "Up to 10% of the financing plus closing costs; no dollar cap stated",
+      "amount": {
+       "max": null,
+       "pct": 10,
+       "of": "price"
+      },
+      "rate": 0,
+      "forgiveYears": 10,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "<=80% AMI",
+      "status": "active",
+      "notes": "0% deferred loan forgiven gradually over 10 years; prorated repayment if not occupied 10 years. Buyer contributes $1,275 and completes counseling. City page gives no current open/closed status; confirm with CACLV. Allentown city has no direct homebuyer DPA program (per its Grants Dept).",
+      "verified": "2026-11-20"
+     }
+    ]
+   }
+  },
+  "RI": {
+   "name": "Rhode Island",
+   "agency": "RIHousing",
+   "agencyUrl": "https://www.rihousing.com",
+   "programs": [
+    {
+     "id": "ri-grant",
+     "name": "Statewide DPA Grant",
+     "agency": "RIHousing",
+     "url": "https://www.rihousing.com",
+     "type": "grant",
+     "amountText": "Up to $17,500",
+     "amount": {
+      "max": 17500,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ri-10k",
+     "name": "10kDPA",
+     "agency": "RIHousing",
+     "url": "https://www.rihousing.com",
+     "type": "deferred",
+     "amountText": "Up to $10,000",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "minCredit": 660,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ri-extra",
+     "name": "Extra Assistance",
+     "agency": "RIHousing",
+     "url": "https://www.rihousing.com",
+     "type": "repay",
+     "amountText": "Up to 6% of price, max $20,000",
+     "amount": {
+      "max": 20000,
+      "pct": 6,
+      "of": "price"
+     },
+     "termYears": 15,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ri-firstgen",
+     "name": "FirstGenHomeRI",
+     "agency": "RIHousing",
+     "url": "https://www.rihousing.com",
+     "type": "forgivable",
+     "amountText": "$25,000",
+     "amount": {
+      "max": 25000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "First-generation buyers in select cities.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "SC": {
+   "name": "South Carolina",
+   "agency": "SC Housing",
+   "agencyUrl": "https://www.schousing.com",
+   "programs": [
+    {
+     "id": "sc-pha",
+     "name": "Palmetto Home Advantage",
+     "agency": "SC Housing",
+     "url": "https://www.schousing.com",
+     "type": "forgivable",
+     "amountText": "Up to 4% of loan",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "forgiveYears": 10,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "sc-county",
+     "name": "County First",
+     "agency": "SC Housing",
+     "url": "https://www.schousing.com",
+     "type": "forgivable",
+     "amountText": "Up to $8,500",
+     "amount": {
+      "max": 8500,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Targeted rural counties",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Columbia / Richland County": [
+     {
+      "id": "rich-hap",
+      "name": "Homeownership Assistance Program",
+      "agency": "Richland County",
+      "url": "https://www.richlandcountysc.gov",
+      "type": "forgivable",
+      "amountText": "Up to $10,000",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Greenville County": [
+     {
+      "id": "gvl-cw",
+      "name": "CommunityWorks DPA",
+      "agency": "CommunityWorks",
+      "url": "https://communityworkssc.org",
+      "type": "forgivable",
+      "amountText": "$5,000 (5 yrs) or $10,000 (8 yrs)",
+      "amount": {
+       "max": 5000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Spartanburg": [
+     {
+      "id": "spa-hap",
+      "name": "Homebuyer Assistance Program",
+      "agency": "City of Spartanburg",
+      "url": "https://www.cityofspartanburg.org",
+      "type": "deferred",
+      "amountText": "Up to $20,000",
+      "amount": {
+       "max": 20000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Charleston": [
+     {
+      "id": "chs-init",
+      "name": "Homeownership Initiative",
+      "agency": "City of Charleston",
+      "url": "https://www.charleston-sc.gov",
+      "type": "deferred",
+      "amountText": "Amount not published",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "50–120% AMI",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "SD": {
+   "name": "South Dakota",
+   "agency": "South Dakota Housing (SDHDA)",
+   "agencyUrl": "https://www.sdhda.org",
+   "programs": [
+    {
+     "id": "sd-frp",
+     "name": "Fixed Rate Plus",
+     "agency": "SDHDA",
+     "url": "https://www.sdhda.org",
+     "type": "deferred",
+     "amountText": "3% or 5% of price",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "TN": {
+   "name": "Tennessee",
+   "agency": "Tennessee Housing Development Agency (THDA)",
+   "agencyUrl": "https://thda.org",
+   "programs": [
+    {
+     "id": "tn-gc-def",
+     "name": "Great Choice — Deferred",
+     "agency": "THDA",
+     "url": "https://thda.org",
+     "type": "deferred",
+     "amountText": "$6,000",
+     "amount": {
+      "max": 6000,
+      "pct": null,
+      "of": "price"
+     },
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "0%; forgiven after 30 years, due if sold or refinanced sooner.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "tn-gc-amort",
+     "name": "Great Choice — Amortizing",
+     "agency": "THDA",
+     "url": "https://thda.org",
+     "type": "repay",
+     "amountText": "Up to 5% of price, max $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": 5,
+      "of": "price"
+     },
+     "termYears": 30,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Nashville": [
+     {
+      "id": "nas-lift",
+      "name": "NeighborhoodLIFT",
+      "agency": "Affordable Housing Resources",
+      "url": "https://www.ahrhousing.org",
+      "type": "deferred",
+      "amountText": "Up to $15,000",
+      "amount": {
+       "max": 15000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Memphis": [
+     {
+      "id": "mem-dpa",
+      "name": "Down Payment Assistance",
+      "agency": "City of Memphis HCD",
+      "url": "https://www.memphistn.gov",
+      "type": "deferred",
+      "amountText": "10% of price, up to $25,000",
+      "amount": {
+       "max": 25000,
+       "pct": 10,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Chattanooga": [
+     {
+      "id": "cha-cne",
+      "name": "CNE second loan",
+      "agency": "Chattanooga Neighborhood Enterprise",
+      "url": "https://cneinc.org",
+      "type": "repay",
+      "amountText": "Up to $15,000",
+      "amount": {
+       "max": 15000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Rate 0.5 points below your first mortgage.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "TX": {
+   "name": "Texas",
+   "agency": "TDHCA / Texas State Affordable Housing Corp. (TSAHC)",
+   "agencyUrl": "https://www.tdhca.texas.gov",
+   "programs": [
+    {
+     "id": "tx-mfth",
+     "name": "My First Texas Home",
+     "agency": "TDHCA",
+     "url": "https://welcomehome.tdhca.texas.gov/uploads/My-First-Texas-Home-Program-Matrix-IHFA.pdf",
+     "type": "deferred",
+     "amountText": "2%–5% of the first-mortgage loan amount",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "rate": 0,
+     "termYears": 30,
+     "firstTimeOnly": true,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "usda"
+     ],
+     "incomeNote": "Income and purchase-price limits by county",
+     "status": "active",
+     "notes": "0% second lien, no payments, due on sale/refinance/payoff of first lien. A 3-year forgivable 2nd-lien option also exists. First-time = no ownership in 3 yrs; exceptions in targeted areas and for qualified veterans. Homebuyer education required. Program matrix dated 2/3/2025.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "tx-mcth",
+     "name": "My Choice Texas Home",
+     "agency": "TDHCA",
+     "url": "https://welcomehome.tdhca.texas.gov/my-choice-texas-home",
+     "type": "deferred",
+     "amountText": "2%–5% of the first-mortgage loan amount",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "rate": 0,
+     "termYears": 30,
+     "firstTimeOnly": false,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Income and purchase-price limits by county; separate options ≤80% AMI and >80% AMI",
+     "status": "active",
+     "notes": "0% second lien, no payments, due on sale/refinance/payoff of first lien. A 3-year forgivable 2nd-lien option also exists. Conventional = Fannie HFA Preferred / Freddie HFA Advantage. Homebuyer education required.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "tx-hst",
+     "name": "Home Sweet Texas Home Loan Program",
+     "agency": "TSAHC",
+     "url": "https://www.tsahc.org/homebuyers-renters/home-sweet-texas-home-loan-program",
+     "type": "forgivable",
+     "amountText": "Up to 5% of loan (grant or 3-year forgivable second lien)",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "forgiveYears": 3,
+     "firstTimeOnly": false,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Low/moderate income limits by county (up to ~80% / 150–170% AMI)",
+     "status": "active",
+     "notes": "Offered as either a non-repayable grant or a second lien forgiven after 3 years; modeled conservatively as forgivable. Min credit 620 government / 640 conventional. Specific government loan types not named on the page. Purchase-price limits by county.",
+     "verified": "2026-11-20"
+    },
+    {
+     "id": "tx-hfth",
+     "name": "Homes for Texas Heroes Home Loan Program",
+     "agency": "TSAHC",
+     "url": "https://www.tsahc.org/homebuyers-renters/homes-for-texas-heroes-program",
+     "type": "forgivable",
+     "amountText": "Up to 5% of loan (grant or 3-year forgivable second lien)",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "forgiveYears": 3,
+     "firstTimeOnly": false,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Income limits by county (up to ~80% / 150–170% AMI)",
+     "status": "active",
+     "notes": "For teachers/K-12 staff, police, firefighters, EMS, corrections officers, nursing/allied health faculty and veterans. Grant or 3-yr forgivable option; modeled conservatively as forgivable. Min credit 620 government / 640 conventional.",
+     "verified": "2026-11-20"
+    }
+   ],
+   "local": {
+    "Houston": [
+     {
+      "id": "hou-hap",
+      "name": "Homebuyer Assistance Program (HAP)",
+      "agency": "City of Houston HCD",
+      "url": "https://houstontx.gov/housing/hap.html",
+      "type": "forgivable",
+      "amountText": "Up to $75,000 based on need",
+      "amount": {
+       "max": 75000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 8,
+      "rate": 0,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv"
+      ],
+      "incomeNote": "≤80% AMI (CDBG); up to 120% AMI for TIRZ-funded",
+      "status": "paused",
+      "notes": "Closed to new applications: program funds exhausted (Nov 2026). 0% forgivable junior lien: ≤$50,000 forgiven over 5 yrs, $50,000.01–$75,000 over 8 yrs (Guidelines v8.0, eff. 6/23/2026). No minimum credit score. Home must be in City of Houston.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Harris County": [
+     {
+      "id": "harris-dap",
+      "name": "Harris County Downpayment Assistance Program (DAP)",
+      "agency": "Harris County Housing & Community Development",
+      "url": "https://hcd.harriscountytx.gov/Residents/Homeownership-Programs/Down-Payment-Assistance",
+      "type": "deferred",
+      "amountText": "Up to $40,000 (base award $27,100 plus incentives)",
+      "amount": {
+       "max": 40000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "minCredit": 580,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Income-qualified; price ≤$285,000 existing / $296,000 new; unincorporated Harris County only",
+      "status": "paused",
+      "notes": "At capacity: currently accepting only Hurricane Beryl/Derecho-affected applicants. Silent second mortgage with 5-yr (<$25k) or 10-yr ($25k–$40k) affordability period; forgiveness not stated explicitly, so modeled as deferred. Loan types not listed by the county.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "San Antonio": [
+     {
+      "id": "sa-hip80",
+      "name": "Homeownership Incentive Program (HIP 80)",
+      "agency": "City of San Antonio NHSD",
+      "url": "https://www.sa.gov/Directory/Departments/NHSD/Housing-Support/Homeowner-Support/HIP",
+      "type": "forgivable",
+      "amountText": "$1,000–$30,000",
+      "amount": {
+       "max": 30000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 10,
+      "rate": 0,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv"
+      ],
+      "incomeNote": "≤80% AMI ($80,500 for 4); price ≤$260,000 existing / $284,000 new",
+      "status": "active",
+      "notes": "0% no-payment second lien. Forgiven over 5 years if ≤$15,000, 10 years if more. First lien must be Conventional, FHA or VA. Home within San Antonio city limits.",
+      "verified": "2026-11-20"
+     },
+     {
+      "id": "sa-hip120",
+      "name": "Homeownership Incentive Program (HIP 120)",
+      "agency": "City of San Antonio NHSD",
+      "url": "https://www.sa.gov/Directory/Departments/NHSD/Housing-Support/Homeowner-Support/HIP",
+      "type": "deferred",
+      "amountText": "$1,000–$15,000",
+      "amount": {
+       "max": 15000,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv"
+      ],
+      "incomeNote": "≤120% AMI ($120,700 for 4); price ≤$301,700 existing / $332,800 new",
+      "status": "active",
+      "notes": "0% no-payment second lien: 75% forgiven over 10 years, 25% is perpetual (repaid on sale/refinance), so modeled as deferred. First-time rule and loan types not stated on the HIP page; loan types assumed same as HIP 80.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Dallas": [
+     {
+      "id": "dal-dhap",
+      "name": "Dallas Homebuyer Assistance Program (DHAP)",
+      "agency": "City of Dallas (administered by BCL of Texas)",
+      "url": "https://bcloftexas.org/dhap",
+      "type": "forgivable",
+      "amountText": "Up to $50,000; up to $60,000 in High Opportunity Areas",
+      "amount": {
+       "max": 60000,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI (standard); price ≤$342,000",
+      "status": "active",
+      "notes": "Administered by BCL of Texas since May 1, 2026. 0% forgivable deferred second lien prorated annually over the affordability term (term length not published). Funding first-come, first-served. Anti-Displacement DHAP (50–120% AMI, 10-yr Dallas residents) up to $50,000; Targeted Occupations DHAP funds fully spent. First-time rule, min credit and loan types not stated on agency pages.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Austin": [
+     {
+      "id": "atx-dpa",
+      "name": "Down Payment Assistance",
+      "agency": "City of Austin Housing / Austin Housing Finance Corp.",
+      "url": "https://www.austintexas.gov/homebuyer",
+      "type": "deferred",
+      "amountText": "Up to $40,000 (≤$14,999 standard; $15,000–$40,000 shared-equity)",
+      "amount": {
+       "max": 40000,
+       "pct": null,
+       "of": "price"
+      },
+      "rate": 0,
+      "termYears": 30,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% MFI ($106,800 for 4); price ≤$440,000",
+      "status": "active",
+      "notes": "Standard DPA (≤$14,999) is a 0% loan forgiven after 5 years. Shared-equity DPA ($15k–$40k) is forgiven after 10 years but the City's shared-equity interest remains for 30 years, so modeled as deferred. No program credit minimum (lenders may set one). Loan types not specified by the City. Home in Austin full-purpose city limits.",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Fort Worth": [
+     {
+      "id": "fw-hap",
+      "name": "Homebuyer Assistance Program (HAP)",
+      "agency": "City of Fort Worth Neighborhood Services",
+      "url": "https://fortworthtexas.gov/departments/neighborhoods/services/hap",
+      "type": "forgivable",
+      "amountText": "Up to $25,000 (deferred loan plus closing costs up to 3% of loan)",
+      "amount": {
+       "max": 25000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 10,
+      "firstTimeOnly": true,
+      "minCredit": 620,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI ($88,250 for 4); price ≤$309,000 existing / $329,000 new",
+      "status": "active",
+      "notes": "≤$14,999 forgiven after 5 years; amounts up to $25,000 require 10 years residency. First mortgage must be 30-yr fixed from a city-approved lender; specific loan types not listed. Subject to funding availability (guidelines rev. 4/15/2026).",
+      "verified": "2026-11-20"
+     }
+    ],
+    "Corpus Christi": [
+     {
+      "id": "cc-hap",
+      "name": "Homebuyer Assistance Program",
+      "agency": "City of Corpus Christi",
+      "url": "https://www.corpuschristitx.gov",
+      "type": "forgivable",
+      "amountText": "Up to $25,000 + $10,000 closing (unverified)",
+      "amount": {
+       "max": 25000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 10,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Price ≤ $238,000",
+      "status": "active",
+      "notes": "Not verified 2026-11-20: the former cctexas.com program page now redirects to the new city homepage and no current program page was found. Confirm with City of Corpus Christi before relying on these figures.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "UT": {
+   "name": "Utah",
+   "agency": "Utah Housing Corporation",
+   "agencyUrl": "https://utahhousingcorp.org",
+   "programs": [
+    {
+     "id": "ut-dpa",
+     "name": "UHC Down Payment Assistance",
+     "agency": "Utah Housing",
+     "url": "https://utahhousingcorp.org",
+     "type": "repay",
+     "amountText": "Covers minimum down payment (up to ~6%)",
+     "amount": {
+      "max": null,
+      "pct": 6,
+      "of": "price"
+     },
+     "termYears": 30,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ut-newcon",
+     "name": "First-Time Homebuyer New Construction",
+     "agency": "Utah Housing",
+     "url": "https://utahhousingcorp.org",
+     "type": "deferred",
+     "amountText": "Up to $20,000",
+     "amount": {
+      "max": 20000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "New homes under $450,000",
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ut-vets",
+     "name": "First-Time Homebuyer Veterans Grant",
+     "agency": "Utah Housing",
+     "url": "https://utahhousingcorp.org",
+     "type": "grant",
+     "amountText": "$2,500",
+     "amount": {
+      "max": 2500,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "West Valley City": [
+     {
+      "id": "wvc-dpa",
+      "name": "Forgivable DPA Loan",
+      "agency": "West Valley City Housing Authority",
+      "url": "https://www.wvc-ut.gov",
+      "type": "forgivable",
+      "amountText": "Up to $14,999",
+      "amount": {
+       "max": 14999,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "minCredit": 550,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI; price ≤ $387,000",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "West Jordan": [
+     {
+      "id": "wj-dpa",
+      "name": "Down Payment & Closing Cost Loan",
+      "agency": "City of West Jordan",
+      "url": "https://www.westjordan.utah.gov",
+      "type": "forgivable",
+      "amountText": "Up to $7,500",
+      "amount": {
+       "max": 7500,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Salt Lake City / County": [
+     {
+      "id": "slc-cdcu",
+      "name": "CDCU Down Payment Assistance",
+      "agency": "Community Development Corp. of Utah",
+      "url": "https://cdcutah.org",
+      "type": "forgivable",
+      "amountText": "Amount not published",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "VA": {
+   "name": "Virginia",
+   "agency": "Virginia Housing",
+   "agencyUrl": "https://www.virginiahousing.com",
+   "programs": [
+    {
+     "id": "va-grant",
+     "name": "Down Payment Assistance Grant",
+     "agency": "Virginia Housing",
+     "url": "https://www.virginiahousing.com",
+     "type": "grant",
+     "amountText": "Up to 2.5% of price",
+     "amount": {
+      "max": null,
+      "pct": 2.5,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "va-ccgrant",
+     "name": "Closing Cost Assistance Grant",
+     "agency": "Virginia Housing",
+     "url": "https://www.virginiahousing.com",
+     "type": "grant",
+     "amountText": "Up to 2% of price",
+     "amount": {
+      "max": null,
+      "pct": 2,
+      "of": "price"
+     },
+     "loanTypes": [
+      "va",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "va-plus",
+     "name": "Virginia Housing Plus Second",
+     "agency": "Virginia Housing",
+     "url": "https://www.virginiahousing.com",
+     "type": "deferred",
+     "amountText": "3%–5% of price",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "va-dhcd",
+     "name": "DHCD Down Payment Assistance",
+     "agency": "Virginia DHCD",
+     "url": "https://www.dhcd.virginia.gov",
+     "type": "forgivable",
+     "amountText": "Up to $14,999 (more in high-cost areas)",
+     "amount": {
+      "max": 14999,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Norfolk": [
+     {
+      "id": "nor-nrha",
+      "name": "NRHA HOME program",
+      "agency": "Norfolk Redevelopment & Housing Authority",
+      "url": "https://www.nrha.us",
+      "type": "deferred",
+      "amountText": "Up to $60,000",
+      "amount": {
+       "max": 60000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Virginia Beach": [
+     {
+      "id": "vb-dpa",
+      "name": "City DPA",
+      "agency": "City of Virginia Beach",
+      "url": "https://www.vbgov.com",
+      "type": "deferred",
+      "amountText": "Amount not published — call 757-385-5750",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "VT": {
+   "name": "Vermont",
+   "agency": "Vermont Housing Finance Agency (VHFA)",
+   "agencyUrl": "https://www.vhfa.org",
+   "programs": [
+    {
+     "id": "vt-assist",
+     "name": "ASSIST",
+     "agency": "VHFA",
+     "url": "https://www.vhfa.org",
+     "type": "deferred",
+     "amountText": "$10,000–$15,000 by income",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "vt-nwwv",
+     "name": "NeighborWorks of Western VT DPA",
+     "agency": "NeighborWorks of Western Vermont",
+     "url": "https://www.nwwvt.org",
+     "type": "repay",
+     "amountText": "Up to $50,000 or 20% of price",
+     "amount": {
+      "max": 50000,
+      "pct": 20,
+      "of": "price"
+     },
+     "termYears": 15,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Rate 2 points above your mortgage.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "WA": {
+   "name": "Washington",
+   "agency": "Washington State Housing Finance Commission (WSHFC)",
+   "agencyUrl": "https://www.wshfc.org",
+   "programs": [
+    {
+     "id": "wa-adv",
+     "name": "Home Advantage DPA",
+     "agency": "WSHFC",
+     "url": "https://www.wshfc.org",
+     "type": "deferred",
+     "amountText": "Up to 4% of loan (5% conventional)",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "wa-needs",
+     "name": "Home Advantage Needs Based",
+     "agency": "WSHFC",
+     "url": "https://www.wshfc.org",
+     "type": "deferred",
+     "amountText": "Up to $10,000",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "1% interest, payments deferred 30 years.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "wa-opp",
+     "name": "Opportunity DPA",
+     "agency": "WSHFC",
+     "url": "https://www.wshfc.org",
+     "type": "deferred",
+     "amountText": "Up to $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "1% interest, payments deferred 30 years.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "wa-vets",
+     "name": "Veterans DPA",
+     "agency": "WSHFC",
+     "url": "https://www.wshfc.org",
+     "type": "deferred",
+     "amountText": "$10,000",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "Washington veterans; 3% deferred.",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Seattle": [
+     {
+      "id": "sea-oh",
+      "name": "Office of Housing DPA",
+      "agency": "City of Seattle",
+      "url": "https://www.seattle.gov/housing",
+      "type": "deferred",
+      "amountText": "Up to $90,000 (3+ bedrooms) / $70,000",
+      "amount": {
+       "max": 70000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Low-income",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Tacoma": [
+     {
+      "id": "tac-dpa",
+      "name": "Down Payment Assistance",
+      "agency": "City of Tacoma",
+      "url": "https://www.cityoftacoma.org",
+      "type": "deferred",
+      "amountText": "Up to $60,000",
+      "amount": {
+       "max": 60000,
+       "pct": null,
+       "of": "price"
+      },
+      "termYears": 25,
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI",
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "WI": {
+   "name": "Wisconsin",
+   "agency": "WHEDA",
+   "agencyUrl": "https://www.wheda.com",
+   "programs": [
+    {
+     "id": "wi-easy",
+     "name": "Easy Close DPA",
+     "agency": "WHEDA",
+     "url": "https://www.wheda.com",
+     "type": "repay",
+     "amountText": "$1,000 up to 6% of price",
+     "amount": {
+      "max": null,
+      "pct": 6,
+      "of": "price"
+     },
+     "termYears": 10,
+     "loanTypes": [
+      "fha",
+      "conv"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "wi-capital",
+     "name": "Capital Access DPA",
+     "agency": "WHEDA",
+     "url": "https://www.wheda.com",
+     "type": "deferred",
+     "amountText": "Up to $7,500",
+     "amount": {
+      "max": 7500,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {
+    "Milwaukee": [
+     {
+      "id": "mke-dpa",
+      "name": "Milwaukee Home Down Payment",
+      "agency": "City of Milwaukee / Housing Resources",
+      "url": "https://city.milwaukee.gov",
+      "type": "forgivable",
+      "amountText": "$5,000 ($7,000 in CDBG area)",
+      "amount": {
+       "max": 5000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Madison": [
+     {
+      "id": "msn-adream",
+      "name": "Home-Buy the American Dream",
+      "agency": "City of Madison",
+      "url": "https://www.cityofmadison.com",
+      "type": "deferred",
+      "amountText": "Up to $20,000",
+      "amount": {
+       "max": 20000,
+       "pct": null,
+       "of": "price"
+      },
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "notes": "Repaid with a share of appreciation at sale.",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ],
+    "Green Bay": [
+     {
+      "id": "gb-nw",
+      "name": "NeighborWorks Green Bay DPA",
+      "agency": "NeighborWorks Green Bay",
+      "url": "https://nwgreenbay.org",
+      "type": "repay",
+      "amountText": "$3,000–$8,000",
+      "amount": {
+       "max": 8000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "reviewed": "2026-11-16",
+      "source": "The Mortgage Reports state guide (Nov 2026)"
+     }
+    ]
+   }
+  },
+  "WV": {
+   "name": "West Virginia",
+   "agency": "West Virginia Housing Development Fund (WVHDF)",
+   "agencyUrl": "https://www.wvhdf.com",
+   "programs": [
+    {
+     "id": "wv-lowdown",
+     "name": "Low Down Home Loan",
+     "agency": "WVHDF",
+     "url": "https://www.wvhdf.com",
+     "type": "repay",
+     "amountText": "Up to $8,000",
+     "amount": {
+      "max": 8000,
+      "pct": null,
+      "of": "price"
+     },
+     "rate": 2,
+     "termYears": 15,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  },
+  "WY": {
+   "name": "Wyoming",
+   "agency": "Wyoming Community Development Authority (WCDA)",
+   "agencyUrl": "https://www.wyomingcda.com",
+   "programs": [
+    {
+     "id": "wy-stretch",
+     "name": "Home$tretch DPA",
+     "agency": "WCDA",
+     "url": "https://www.wyomingcda.com",
+     "type": "deferred",
+     "amountText": "Up to $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "wy-amort",
+     "name": "Amortizing DPA",
+     "agency": "WCDA",
+     "url": "https://www.wyomingcda.com",
+     "type": "repay",
+     "amountText": "Up to $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "termYears": 10,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-16",
+     "source": "The Mortgage Reports state guide (Nov 2026)"
+    }
+   ],
+   "local": {}
+  }
+ }
+}
