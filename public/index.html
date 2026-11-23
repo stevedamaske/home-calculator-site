@@ -1250,6 +1250,34 @@
     if (el.hasAttribute('data-money')) el.addEventListener('blur', () => moneyFormat(el));
   });
 
+  // ---------- clear a field when it's entered; put the old value back if nothing was typed ----------
+  // Works for every text/number field, including closing-cost rows added later. The old value shows as a
+  // placeholder while the field is empty. Typing anything (even deleting back to blank) keeps the new value.
+  // Escape puts the original value back.
+  const CLEARABLE = 'input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=hidden])';
+  let clr = null;   // { el, val, ph, edited }
+  document.addEventListener('focusin', e => {
+    const el = e.target; if (!el.matches || !el.matches(CLEARABLE) || el.readOnly || el.disabled) return;
+    if (clr && clr.el === el) return;
+    if (el.value === ''){ clr = null; return; }
+    clr = { el, val: el.value, ph: el.getAttribute('placeholder'), edited: false };
+    el.placeholder = el.value; el.value = '';
+  });
+  document.addEventListener('input', e => { if (clr && e.target === clr.el) clr.edited = true; }, true);
+  document.addEventListener('focusout', e => {
+    if (!clr || e.target !== clr.el) return;
+    const { el, val, ph, edited } = clr; clr = null;
+    if (ph === null) el.removeAttribute('placeholder'); else el.placeholder = ph;
+    if (!edited) el.value = val;     // left without typing: nothing changed, so no recalculation needed
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape' || !clr || e.target !== clr.el) return;
+    const { el, val, edited } = clr;
+    el.value = val; clr.edited = false;
+    if (edited) el.dispatchEvent(new Event('input', { bubbles: true }));
+    el.blur();
+  });
+
   $('copyBtn').addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(lastSummary); toast('Summary copied'); }
     catch(e){ toast('Copy blocked by browser'); }
