@@ -166,6 +166,11 @@
   .pop a{display:inline-block;margin-top:8px;color:var(--accent);font-size:13px}
   .pop .px{position:absolute;top:6px;right:6px;width:26px;height:26px;border:0;background:transparent;color:var(--muted);font-size:18px;cursor:pointer;border-radius:6px}
   .pop .px:hover{background:var(--bg)}
+  .results .empty{display:none;text-align:center;padding:36px 22px}
+  .results .empty b{display:block;font-size:20px;margin-bottom:6px}
+  .results .empty p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+  .results.noprice > .card{display:none}
+  .results.noprice > .card.empty{display:block}
   /* touch devices: help shows as a bottom sheet pinned to the viewport, so rotation can't strand it */
   .pop.sheet{position:fixed;top:auto!important;bottom:0;left:50%!important;transform:translateX(-50%);width:min(560px,100vw);max-height:min(60vh,440px);max-height:min(60dvh,440px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;border-radius:14px 14px 0 0;border-bottom:0;padding:16px 44px calc(16px + env(safe-area-inset-bottom)) 16px;font-size:15px;box-shadow:0 -6px 28px rgba(0,0,0,.22)}
   .pop.sheet b{font-size:16px}
@@ -198,7 +203,7 @@
     <div class="card">
       <h2>Home &amp; loan</h2>
       <div class="row">
-        <label><span>Purchase price</span><div class="field"><i>$</i><input id="price" data-money value="350,000"></div></label>
+        <label><span>Purchase price</span><div class="field"><i>$</i><input id="price" data-money value="0"></div></label>
         <label><span>Appraised value <em style="font-style:normal;opacity:.7">(optional)</em></span><div class="field"><i>$</i><input id="appraisal" data-money placeholder="same as price"></div></label>
       </div>
       <div class="row3">
@@ -333,7 +338,11 @@
   </div>
 
   <!-- RESULTS -->
-  <div class="results">
+  <div class="results" id="results">
+    <div class="card empty" id="emptyState" aria-live="polite">
+      <b>Enter a purchase price to get started</b>
+      <p>Your monthly payment, cash to close, loan comparison and costs will appear here as you type.</p>
+    </div>
     <div class="card">
       <div class="hero">
         <div>
@@ -1085,6 +1094,7 @@
     renderRateInfo();
     renderDpa();
     const S = readInputs();
+    $('results').classList.toggle('noprice', !(S.price > 0));
     const R = compute(loanType, S);
 
     $('typePill').textContent = TYPES[loanType];
