@@ -47,7 +47,23 @@
         }
       },
       "mipYearsIfDown10": 11,
-      "source": "HUD Mortgagee Letter 2023-05"
+      "source": "HUD Mortgagee Letter 2023-05",
+      "limits": {
+        "year": 2026,
+        "floor": [
+          541287,
+          693050,
+          837700,
+          1041125
+        ],
+        "ceiling": [
+          1249125,
+          1599375,
+          1933200,
+          2402625
+        ],
+        "source": "HUD 2026 FHA forward mortgage limits (HUD No. 25-145)"
+      }
     },
     "va": {
       "fee": {
@@ -67,13 +83,33 @@
     "conv": {
       "conformingLimit": 832750,
       "conformingLimitYear": 2026,
-      "source": "FHFA 2026 conforming loan limits"
+      "source": "FHFA 2026 conforming loan limits",
+      "unitLimits": {
+        "year": 2026,
+        "baseline": [
+          832750,
+          1066250,
+          1288800,
+          1601750
+        ],
+        "ceiling": [
+          1249125,
+          1599375,
+          1933200,
+          2402625
+        ],
+        "source": "Fannie Mae / FHFA 2026 loan limits"
+      }
     }
   },
   "notes": [
     "2027 conforming loan limits are normally announced by FHFA in late November and take effect January 1."
   ],
   "changes": [
+    {
+      "date": "2026-11-23",
+      "text": "Added 2026 loan limits for 2–4 unit homes (conforming and FHA)."
+    },
     {
       "date": "2026-11-16",
       "text": "Started live data: market rates from Mortgage News Daily; program rules unchanged."

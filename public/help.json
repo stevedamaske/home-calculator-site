@@ -192,6 +192,14 @@
   "party": {
    "title": "Buyer & seller costs",
    "text": "Who pays which closing costs. Customs vary by state and everything is negotiable; buyer costs the seller pays count toward the seller-concession cap."
+  },
+  "units": {
+   "title": "Property",
+   "text": "How many homes are on the property. You can buy a 2–4 unit home with FHA, VA or a conventional loan if you live in one of the units. Loan limits are higher for more units, conventional loans need at least 5% down, and lenders can count part of the rent toward your income.",
+   "link": {
+    "label": "CFPB: buying a home",
+    "url": "https://www.consumerfinance.gov/owning-a-home/"
+   }
   }
  }
 }
