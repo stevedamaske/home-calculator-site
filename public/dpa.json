@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-11-20T16:00:00-05:00",
+ "updatedAt": "2026-11-23T20:00:00-05:00",
  "deepState": null,
- "note": "Agency-verified: 6 of 51 states (CA, FL, GA, IL, NY, PA) plus Texas except Corpus Christi; the rest compiled from current state guides (Nov 16, 2026) and being re-checked against each agency on a rolling basis — always confirm amounts, funding and eligibility with the program.",
+ "note": "Programs marked “Checked with agency” were confirmed on the agency’s or lender’s own site on that date; the rest come from current state guides and are re-checked against each agency on a rolling weekly basis. Lender grants apply only in the lender’s eligible areas. Always confirm amounts and eligibility with the program.",
  "national": [
   {
    "id": "chenoa",
@@ -51,6 +51,71 @@
    "notes": "Grant or 3-year forgivable loan; first-time and repeat buyers.",
    "reviewed": "2026-11-16",
    "source": "The Mortgage Reports state guide (Nov 2026)"
+  },
+  {
+   "id": "chase-grant",
+   "name": "Chase Homebuyer Grant",
+   "agency": "JPMorgan Chase",
+   "url": "https://www.chase.com/personal/mortgage/education/financing-a-home/chase-homebuyer-grant",
+   "type": "grant",
+   "amountText": "$2,500 or $5,000 (up to $7,500 in some areas)",
+   "amount": {
+    "max": 5000,
+    "pct": null,
+    "of": "price"
+   },
+   "loanTypes": [
+    "fha",
+    "va",
+    "conv"
+   ],
+   "status": "active",
+   "verified": "2026-11-23",
+   "group": "lender",
+   "notes": "Only for homes in eligible (mostly low- and moderate-income) census tracts, with a Chase DreaMaker, standard agency, FHA or VA purchase loan. Goes first to rate buydown and fees; can’t be used for the down payment on FHA. May be reported as income."
+  },
+  {
+   "id": "boa-dpg",
+   "name": "Bank of America Down Payment Grant",
+   "agency": "Bank of America",
+   "url": "https://www.bankofamerica.com/mortgage/affordable-housing-programs/",
+   "type": "grant",
+   "amountText": "Lesser of 3% of price or $10,000",
+   "amount": {
+    "max": 10000,
+    "pct": 3,
+    "of": "price"
+   },
+   "firstTimeOnly": true,
+   "loanTypes": [
+    "conv"
+   ],
+   "status": "active",
+   "verified": "2026-11-23",
+   "group": "lender",
+   "notes": "Select markets only (260+ cities and counties). Used with Bank of America’s 3%-down mortgage; no homeownership in the past 3 years; income and loan limits apply. Never repaid."
+  },
+  {
+   "id": "boa-ahg",
+   "name": "America’s Home Grant®",
+   "agency": "Bank of America",
+   "url": "https://www.bankofamerica.com/mortgage/affordable-housing-programs/",
+   "type": "grant",
+   "amountText": "Up to $7,500 lender credit",
+   "amount": {
+    "max": 7500,
+    "pct": null,
+    "of": "price"
+   },
+   "loanTypes": [
+    "fha",
+    "va",
+    "conv"
+   ],
+   "status": "active",
+   "verified": "2026-11-23",
+   "group": "lender",
+   "notes": "Select markets only. Covers nonrecurring closing costs (title, recording) or a permanent rate buydown — not the down payment. Stacks with the Down Payment Grant for up to $17,500."
   }
  ],
  "states": {
@@ -61,11 +126,11 @@
    "programs": [
     {
      "id": "ak-cca",
-     "name": "Closing Cost Assistance",
+     "name": "Closing Cost Assistance Program (CCAP)",
      "agency": "AHFC",
-     "url": "https://www.ahfc.us",
+     "url": "https://fnbalaska.com/home-loans/find-right-loan/closing-cost-assistance",
      "type": "grant",
-     "amountText": "3%–4% of loan",
+     "amountText": "3%–4% of loan, by credit score",
      "amount": {
       "max": null,
       "pct": 3,
@@ -75,20 +140,20 @@
      "loanTypes": [
       "fha",
       "va",
-      "usda"
+      "usda",
+      "conv"
      ],
      "status": "active",
-     "notes": "Program status unclear in latest guide — confirm with AHFC.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Can go toward down payment, closing costs or principal reduction. The percentage depends on loan type and credit score (3% at 640–659 on FHA). Ask an AHFC-approved lender.",
+     "verified": "2026-11-23"
     },
     {
      "id": "ak-ahelp",
-     "name": "AHELP (via local providers)",
-     "agency": "AHFC",
-     "url": "https://www.ahfc.us",
-     "type": "deferred",
-     "amountText": "Varies by provider",
+     "name": "HOME Opportunity Program (HOP)",
+     "agency": "AHFC via local nonprofits",
+     "url": "https://www.ahfc.us/pros/grants/service-assistance-grants/home-opportunity-program",
+     "type": "grant",
+     "amountText": "Closing-cost help for lower-income buyers — amount set by provider",
      "amount": {
       "max": null,
       "pct": null,
@@ -101,8 +166,8 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Run through Cook Inlet Lending Center, NeighborWorks Alaska, Alaska Community Development Corp., Interior Regional Housing Authority and others."
     }
    ],
    "local": {}
@@ -116,7 +181,7 @@
      "id": "al-stepup",
      "name": "Step Up DPA",
      "agency": "AHFA",
-     "url": "https://www.ahfa.com",
+     "url": "https://www.ahfa.com/programs/homeownership/available-programs/step-up",
      "type": "repay",
      "amountText": "4% of price, up to $10,000",
      "amount": {
@@ -132,16 +197,16 @@
       "conv",
       "usda"
      ],
-     "incomeNote": "Income ≤ ~$172,800; DTI ≤45%",
+     "incomeNote": "Income ≤ $172,800; DTI ≤ 45%",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "10-year second mortgage paired with a 30-year fixed first mortgage from AHFA."
     },
     {
      "id": "al-ais",
      "name": "Affordable Income Subsidy Grant",
      "agency": "AHFA",
-     "url": "https://www.ahfa.com",
+     "url": "https://www.ahfa.com/programs/homeownership/available-programs/affordable-income-subsidy-grant",
      "type": "grant",
      "amountText": "1% of loan (≤50% AMI) or 0.5% (≤80% AMI)",
      "amount": {
@@ -153,9 +218,8 @@
       "conv"
      ],
      "status": "active",
-     "notes": "Closing costs only; HFA Advantage conventional loan.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Closing costs only; HFA Advantage conventional loan only.",
+     "verified": "2026-11-23"
     }
    ],
    "local": {
@@ -248,7 +312,7 @@
      "id": "ar-addi",
      "name": "Arkansas Dream Down Payment Initiative",
      "agency": "ADFA",
-     "url": "https://adfa.arkansas.gov",
+     "url": "https://homeloans.arkansas.gov/dpa",
      "type": "forgivable",
      "amountText": "Up to 10% of price, max $10,000",
      "amount": {
@@ -265,16 +329,16 @@
      ],
      "incomeNote": "Low-income",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Forgivable second mortgage; requires an ADFA first mortgage and homebuyer education."
     },
     {
      "id": "ar-dpa",
      "name": "ADFA Down Payment Assistance",
      "agency": "ADFA",
-     "url": "https://adfa.arkansas.gov",
+     "url": "https://adfa.arkansas.gov/programs/homeloans/down-payment-assistance-program/",
      "type": "repay",
-     "amountText": "Up to $15,000",
+     "amountText": "$1,000–$15,000",
      "amount": {
       "max": 15000,
       "pct": null,
@@ -289,8 +353,8 @@
      ],
      "incomeNote": "Moderate income",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Second mortgage with a 10-year term; requires an ADFA StartSmart or Move-Up first mortgage."
     }
    ],
    "local": {}
@@ -322,33 +386,8 @@
      ],
      "incomeNote": "Income ≤ ~$136,600",
      "status": "active",
-     "notes": "0% deferred second; repaid only if you sell or refinance within 36 months.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
-    },
-    {
-     "id": "az-p2p",
-     "name": "Pathway to Purchase",
-     "agency": "Arizona Dept. of Housing",
-     "url": "https://housing.az.gov",
-     "type": "grant",
-     "amountText": "Up to 10% of loan, max $20,000",
-     "amount": {
-      "max": 20000,
-      "pct": 10,
-      "of": "loan"
-     },
-     "minCredit": 640,
-     "loanTypes": [
-      "fha",
-      "va",
-      "conv",
-      "usda"
-     ],
-     "incomeNote": "17 designated cities only; price cap ~$372K",
-     "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Available year-round in every Arizona county; funding does not run out. 2026 income limits were raised — check the current limit with a Home Plus lender.",
+     "verified": "2026-11-23"
     }
    ],
    "local": {
@@ -775,9 +814,9 @@
      "id": "co-grant",
      "name": "CHFA DPA Grant",
      "agency": "CHFA",
-     "url": "https://www.chfainfo.com",
+     "url": "https://www.chfainfo.com/homeownership/down-payment-assistance",
      "type": "grant",
-     "amountText": "3% of first mortgage, max $25,000",
+     "amountText": "Lesser of 3% of first mortgage or $25,000",
      "amount": {
       "max": 25000,
       "pct": 3,
@@ -792,16 +831,16 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "No repayment. Requires a CHFA first mortgage. First-generation buyers and borrowers with a permanent disability may get up to $25,000 regardless of loan size."
     },
     {
      "id": "co-second",
      "name": "CHFA Second Mortgage Loan",
      "agency": "CHFA",
-     "url": "https://www.chfainfo.com",
+     "url": "https://www.chfainfo.com/homeownership/down-payment-assistance",
      "type": "deferred",
-     "amountText": "4% of first mortgage, max $25,000",
+     "amountText": "Lesser of 4% of first mortgage or $25,000",
      "amount": {
       "max": 25000,
       "pct": 4,
@@ -816,8 +855,8 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Repayment deferred until payoff, sale, refinance, or the home is no longer your primary residence. First mortgage carries a higher rate than with the grant."
     }
    ],
    "local": {
@@ -952,6 +991,30 @@
      "status": "active",
      "reviewed": "2026-11-16",
      "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ct-timetoown",
+     "name": "Time To Own",
+     "agency": "CHFA",
+     "url": "https://www.chfa.org/TimeToOwn",
+     "type": "forgivable",
+     "amountText": "Up to $25,000",
+     "amount": {
+      "max": 25000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 10,
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "0% loan, no monthly payments, 10% forgiven each year. Requires a CHFA first mortgage and 3 years of Connecticut residency. Repeat buyers qualify in targeted areas."
     }
    ],
    "local": {
@@ -1010,9 +1073,9 @@
       "id": "nh-dpa",
       "name": "Down Payment & Closing Cost Assistance",
       "agency": "City of New Haven",
-      "url": "https://www.newhavenct.gov",
+      "url": "https://www.nhhfa.org/homeownership/homeownership-programs/",
       "type": "forgivable",
-      "amountText": "Up to 6% of price, max $10,000",
+      "amountText": "$5,000, $10,000 or $15,000 (you pick)",
       "amount": {
        "max": 10000,
        "pct": 6,
@@ -1026,8 +1089,9 @@
        "usda"
       ],
       "status": "active",
-      "reviewed": "2026-11-16",
-      "source": "The Mortgage Reports state guide (Nov 2026)"
+      "verified": "2026-11-23",
+      "incomeNote": "Income ≤ $176,200 (Home Preferred)",
+      "notes": "Fixed cash assistance added to an NH Housing mortgage, for down payment and closing costs. Forgiveness terms: confirm with NH Housing."
      }
     ]
    }
@@ -1041,9 +1105,9 @@
      "id": "dc-opendoors",
      "name": "DC Open Doors DPAL",
      "agency": "DCHFA",
-     "url": "https://www.dchfa.org",
+     "url": "https://www.dchfa.org/homeownership/dc-open-doors/",
      "type": "deferred",
-     "amountText": "Up to 3.5% of loan",
+     "amountText": "Covers the minimum required down payment",
      "amount": {
       "max": null,
       "pct": 3.5,
@@ -1056,19 +1120,20 @@
       "usda"
      ],
      "status": "active",
-     "notes": "0% deferred; due after 30 years or at sale/refinance.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "0% loan, no monthly payments; due after 30 years or at sale, refinance or move-out. First-time and repeat buyers.",
+     "incomeNote": "Income ≤ $275,400",
+     "minCredit": 640,
+     "verified": "2026-11-23"
     },
     {
      "id": "dc-hpap",
      "name": "Home Purchase Assistance Program (HPAP)",
      "agency": "DC DHCD",
-     "url": "https://dhcd.dc.gov",
+     "url": "https://dhcd.dc.gov/service/home-purchase-assistance-program",
      "type": "deferred",
-     "amountText": "Large 0% loan sized by income — confirm with DHCD",
+     "amountText": "Up to $202,000 gap financing + $4,000 closing costs",
      "amount": {
-      "max": null,
+      "max": 202000,
       "pct": null,
       "of": "price"
      },
@@ -1081,8 +1146,8 @@
      ],
      "incomeNote": "≤110% AMI",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Under 80% AMI: deferred until sale, cash-out refinance or move-out. 80–110% MFI: payments deferred 5 years, then repaid over 40 years."
     },
     {
      "id": "dc-eahp",
@@ -1106,6 +1171,25 @@
      "notes": "DC government employees; first responders/educators get a different tier.",
      "reviewed": "2026-11-16",
      "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "dc-4me",
+     "name": "DC4ME VA loan assistance",
+     "agency": "DCHFA",
+     "url": "https://www.dchfa.org/homeownership/dc4me/",
+     "type": "deferred",
+     "amountText": "3% of loan toward closing costs",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "va"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "For qualified military-connected borrowers with a VA loan. Structure of the 3% not published — confirm with DCHFA."
     }
    ],
    "local": {}
@@ -1116,60 +1200,12 @@
    "agencyUrl": "https://destatehousing.com",
    "programs": [
     {
-     "id": "de-hsh",
-     "name": "Home Sweet Home",
-     "agency": "DSHA",
-     "url": "https://destatehousing.com",
-     "type": "forgivable",
-     "amountText": "Up to $12,000",
-     "amount": {
-      "max": 12000,
-      "pct": null,
-      "of": "price"
-     },
-     "forgiveYears": 10,
-     "firstTimeOnly": true,
-     "loanTypes": [
-      "fha",
-      "va",
-      "conv",
-      "usda"
-     ],
-     "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
-    },
-    {
-     "id": "de-diamonds",
-     "name": "Delaware Diamonds",
-     "agency": "DSHA",
-     "url": "https://destatehousing.com",
-     "type": "forgivable",
-     "amountText": "Up to $10,000",
-     "amount": {
-      "max": 10000,
-      "pct": null,
-      "of": "price"
-     },
-     "forgiveYears": 10,
-     "loanTypes": [
-      "fha",
-      "va",
-      "conv",
-      "usda"
-     ],
-     "status": "active",
-     "notes": "Educators, health care, first responders, state employees, military, veterans.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
-    },
-    {
      "id": "de-fshl",
-     "name": "First State Home Loan",
+     "name": "First State",
      "agency": "DSHA",
-     "url": "https://destatehousing.com",
+     "url": "https://destatehousing.com/homeownership/",
      "type": "deferred",
-     "amountText": "3% of loan",
+     "amountText": "3% of first mortgage",
      "amount": {
       "max": null,
       "pct": 3,
@@ -1182,8 +1218,53 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% second mortgage, no monthly payment; due at refinance, sale, title transfer or move-out. Through DSHA Welcome Home (first-time) or Open Door (repeat buyers)."
+    },
+    {
+     "id": "de-keys4you",
+     "name": "Keys4You",
+     "agency": "DSHA",
+     "url": "https://destatehousing.com/homeownership/",
+     "type": "deferred",
+     "amountText": "4% of first mortgage",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "0% deferred second; Welcome Home (first-time) or Open Door (repeat buyers)."
+    },
+    {
+     "id": "de-take5",
+     "name": "Take5",
+     "agency": "DSHA",
+     "url": "https://destatehousing.com/homeownership/",
+     "type": "deferred",
+     "amountText": "5% of first mortgage",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "0% deferred second; Welcome Home (first-time buyers) only."
     }
    ],
    "local": {}
@@ -2042,7 +2123,7 @@
      "id": "ia-mil",
      "name": "Military Homeownership Assistance",
      "agency": "IFA",
-     "url": "https://www.iowafinance.com",
+     "url": "https://opportunityiowa.gov/housing/homeownership-programs",
      "type": "grant",
      "amountText": "$5,000",
      "amount": {
@@ -2058,9 +2139,8 @@
       "usda"
      ],
      "status": "active",
-     "notes": "Service members and veterans.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Funds remain for fiscal 2027 (about $1.1 million as of Nov 2, 2026). For eligible service members and veterans.",
+     "verified": "2026-11-23"
     }
    ],
    "local": {
@@ -2126,15 +2206,14 @@
      "id": "id-second",
      "name": "Idaho Housing Second Mortgage",
      "agency": "IHFA",
-     "url": "https://www.idahohousing.com",
+     "url": "https://www.idahohousing.com/lenders-realtors/down-payment-closing-cost-assistance/",
      "type": "repay",
-     "amountText": "Up to 7% of price",
+     "amountText": "Up to 7% of price (8% on some products)",
      "amount": {
       "max": null,
       "pct": 7,
       "of": "price"
      },
-     "rate": 2,
      "termYears": 15,
      "firstTimeOnly": true,
      "loanTypes": [
@@ -2143,10 +2222,10 @@
       "conv",
       "usda"
      ],
-     "incomeNote": "Income ≤ ~$150,000",
+     "incomeNote": "Income ≤ $170,000 on some products",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Fixed rate 2% above your first mortgage, repaid over 15 years. You contribute at least $500 (0.5% on some products). Finally Home!® education required."
     },
     {
      "id": "id-forgive",
@@ -2509,9 +2588,9 @@
      "id": "in-nh",
      "name": "Next Home",
      "agency": "IHCDA",
-     "url": "https://www.in.gov/ihcda/",
+     "url": "https://www.in.gov/ihcda/homebuyers/programs",
      "type": "forgivable",
-     "amountText": "Up to 3.5% of price",
+     "amountText": "2.5% or 3.5% of price",
      "amount": {
       "max": null,
       "pct": 3.5,
@@ -2523,8 +2602,8 @@
       "conv"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Paired with a 30-year fixed FHA or conventional loan; capped at appraised value."
     }
    ],
    "local": {
@@ -2805,12 +2884,12 @@
      "id": "la-mrbhome",
      "name": "MRB Home grant",
      "agency": "LHC",
-     "url": "https://www.lhc.la.gov",
+     "url": "https://www.lhc.la.gov/mrb",
      "type": "grant",
-     "amountText": "Up to 9% of loan",
+     "amountText": "5%–9% of loan, by loan amount",
      "amount": {
       "max": null,
-      "pct": 9,
+      "pct": 5,
       "of": "loan"
      },
      "firstTimeOnly": true,
@@ -2821,18 +2900,18 @@
       "conv",
       "usda"
      ],
-     "incomeNote": "≤80% AMI; price ≤ ~$349,500",
+     "incomeNote": "≤80% AMI",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Below-market rate. LHC is moving programs to its HomeStart lineup — confirm this one is still offered."
     },
     {
-     "id": "la-mrbassist",
-     "name": "MRB Assisted",
+     "id": "la-hs-adv",
+     "name": "HomeStart Advantage (Keys for Service)",
      "agency": "LHC",
-     "url": "https://www.lhc.la.gov",
+     "url": "https://www.lhc.la.gov/daily-rates",
      "type": "forgivable",
-     "amountText": "Up to 4% of loan",
+     "amountText": "4% of first mortgage",
      "amount": {
       "max": null,
       "pct": 4,
@@ -2848,16 +2927,16 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "For full-time law enforcement, firefighters, paramedics and certified teachers. Forgivable assistance."
     },
     {
-     "id": "la-gnma",
-     "name": "Market Rate GNMA DPA",
+     "id": "la-hs-assist",
+     "name": "HomeStart Assist",
      "agency": "LHC",
-     "url": "https://www.lhc.la.gov",
-     "type": "deferred",
-     "amountText": "Up to 4% of loan",
+     "url": "https://www.lhc.la.gov/homestartassist",
+     "type": "forgivable",
+     "amountText": "4% of first mortgage",
      "amount": {
       "max": null,
       "pct": 4,
@@ -2870,14 +2949,14 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% forgivable second mortgage with a 30-year fixed first mortgage at about market rate. First-time and repeat buyers."
     },
     {
      "id": "la-soft",
-     "name": "Resilience Soft Second",
+     "name": "HomeStart Plus (disaster-affected areas)",
      "agency": "LHC",
-     "url": "https://www.lhc.la.gov",
+     "url": "https://www.lhc.la.gov/press-releases/lhc-partners-with-ehousing-plus-to-streamline-homeownership-loan-reservations-for-louisiana-lenders",
      "type": "forgivable",
      "amountText": "Up to $60,000 (20% of price + $5,000)",
      "amount": {
@@ -2896,7 +2975,8 @@
      "incomeNote": "≤80% AMI; 51 listed parishes only",
      "status": "active",
      "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "source": "The Mortgage Reports state guide (Nov 2026)",
+     "notes": "Enhanced assistance for homes in designated disaster-affected parishes. Amount from earlier Resilience Soft Second terms — confirm with LHC."
     }
    ],
    "local": {
@@ -2961,7 +3041,7 @@
      "id": "ma-opt1",
      "name": "MassHousing DPA Option 1",
      "agency": "MassHousing",
-     "url": "https://www.masshousing.com",
+     "url": "https://www.masshousing.com/home-ownership/homebuyers/down-payment-assistance",
      "type": "deferred",
      "amountText": "Up to $30,000",
      "amount": {
@@ -2977,14 +3057,14 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% interest, deferred until sale, refinance or first-mortgage payoff. Income-eligible first-time buyers."
     },
     {
      "id": "ma-opt2",
      "name": "MassHousing DPA Option 2",
      "agency": "MassHousing",
-     "url": "https://www.masshousing.com",
+     "url": "https://www.masshousing.com/home-ownership/homebuyers/down-payment-assistance",
      "type": "repay",
      "amountText": "Up to $25,000",
      "amount": {
@@ -3002,8 +3082,8 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "2% fixed, repaid over 15 years. A third option is $25,000 at 3% over 15 years."
     },
     {
      "id": "ma-dreams",
@@ -3116,7 +3196,7 @@
      "id": "md-6000",
      "name": "1st Time Advantage 6000",
      "agency": "Maryland DHCD",
-     "url": "https://mmp.maryland.gov",
+     "url": "https://mmp.maryland.gov/home-loans/maryland-smartbuy-loan",
      "type": "deferred",
      "amountText": "$6,000",
      "amount": {
@@ -3132,8 +3212,8 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% deferred second loan for down payment and closing costs, with an MMP first mortgage."
     },
     {
      "id": "md-flex5000",
@@ -3178,6 +3258,52 @@
      "status": "active",
      "reviewed": "2026-11-16",
      "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "md-ffrt",
+     "name": "First Homes for First Responders and Teachers",
+     "agency": "Maryland Mortgage Program",
+     "url": "https://mmp.maryland.gov/resources-lenders/directives-notifications/directive-2026-10",
+     "type": "deferred",
+     "amountText": "5% of first mortgage",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "group": "profession",
+     "notes": "Launched Sept 2026. First mortgage rate 0.50% below MMP 1st Time Advantage 5%. At least one borrower must work in Maryland as an EMT, firefighter, police officer or teacher."
+    },
+    {
+     "id": "md-hk4e",
+     "name": "House Keys 4 Employees (State of Maryland staff)",
+     "agency": "Maryland Mortgage Program",
+     "url": "https://mmp.maryland.gov/home-loans/down-payment-assistance/maryland-employee-offers",
+     "type": "deferred",
+     "amountText": "Extra $2,500 on top of the $6,000 DPA ($8,500 total)",
+     "amount": {
+      "max": 8500,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "group": "employer",
+     "notes": "Active State of Maryland employees (permanent or contractual). 0% deferred; needs a 1st Time Advantage 6000 or Flex 6000 loan and homebuyer education."
     }
    ],
    "local": {
@@ -3277,6 +3403,29 @@
       "status": "active",
       "reviewed": "2026-11-16",
       "source": "The Mortgage Reports state guide (Nov 2026)"
+     },
+     {
+      "id": "mont-mhp",
+      "name": "Montgomery Homeownership Program",
+      "agency": "Maryland Mortgage Program / Montgomery County",
+      "url": "https://mmp.maryland.gov/home-loans/montgomery-county-specialty-products",
+      "type": "deferred",
+      "amountText": "Up to $50,000 (max 40% of household income)",
+      "amount": {
+       "max": 50000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "verified": "2026-11-23",
+      "notes": "0% deferred second with an MMP first mortgage. Reservations were limited in spring 2026; expected to fully reopen in fiscal 2027."
      }
     ],
     "Howard County": [
@@ -3303,6 +3452,31 @@
       "reviewed": "2026-11-16",
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
+    ],
+    "Prince George's County": [
+     {
+      "id": "pg-p2p",
+      "name": "Pathway to Purchase",
+      "agency": "Prince George's County DHCD",
+      "url": "https://mmp.maryland.gov/home-loans/pathway-purchase-prince-georges-county",
+      "type": "deferred",
+      "amountText": "Up to $50,000",
+      "amount": {
+       "max": 50000,
+       "pct": null,
+       "of": "price"
+      },
+      "firstTimeOnly": true,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "status": "active",
+      "verified": "2026-11-23",
+      "notes": "County down payment and closing cost assistance, combined with a Maryland Mortgage Program first mortgage."
+     }
     ]
    }
   },
@@ -3315,7 +3489,7 @@
      "id": "me-adv",
      "name": "Advantage Down Payment",
      "agency": "MaineHousing",
-     "url": "https://www.mainehousing.org",
+     "url": "https://www.mainehousing.org/programs-services/homebuyer/current-interest-rates",
      "type": "grant",
      "amountText": "Up to $5,000",
      "amount": {
@@ -3330,9 +3504,9 @@
       "usda"
      ],
      "status": "active",
-     "notes": "May need repaying if you sell or refinance early.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Grant, no second mortgage and no repayment. Needs a MaineHousing First Home Loan, a hoMEworks homebuyer class, and a 1% borrower contribution (may be a gift).",
+     "firstTimeOnly": true,
+     "verified": "2026-11-23"
     },
     {
      "id": "me-multi",
@@ -3356,6 +3530,29 @@
      "notes": "1–4 unit properties.",
      "reviewed": "2026-11-16",
      "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "me-salute",
+     "name": "Salute ME / Salute Home Again",
+     "agency": "MaineHousing",
+     "url": "https://www.mainehousing.org/programs-services/homebuyer/saluteme",
+     "type": "grant",
+     "amountText": "$5,000 Advantage grant + 0.50% rate discount",
+     "amount": {
+      "max": 5000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "group": "profession",
+     "notes": "For active duty, veterans and retired military. First-time buyer rule waived for veterans who owned before. 1% borrower contribution required."
     }
    ],
    "local": {}
@@ -3369,7 +3566,7 @@
      "id": "mi-10k",
      "name": "MI 10K DPA",
      "agency": "MSHDA",
-     "url": "https://www.michigan.gov/mshda",
+     "url": "https://www.michigan.gov/mshda/homeownership",
      "type": "deferred",
      "amountText": "$10,000",
      "amount": {
@@ -3386,8 +3583,8 @@
      ],
      "incomeNote": "236 eligible ZIP codes only; price cap",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Available statewide; homebuyer education class required. Paired with an MSHDA first mortgage."
     }
    ],
    "local": {
@@ -3501,7 +3698,7 @@
      "id": "mn-mpl",
      "name": "Monthly Payment Loan",
      "agency": "Minnesota Housing",
-     "url": "https://www.mnhousing.gov",
+     "url": "https://www.mnhousing.gov/home/homeownership/buy-home-refinance",
      "type": "repay",
      "amountText": "Up to $18,000",
      "amount": {
@@ -3517,18 +3714,18 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Same rate as the first mortgage, repaid over 10 years. Works with Start Up (first-time) and Step Up (repeat) loans; no separate income limit."
     },
     {
      "id": "mn-dpl",
      "name": "Deferred Payment Loan",
      "agency": "Minnesota Housing",
-     "url": "https://www.mnhousing.gov",
+     "url": "https://www.mnhousing.gov/home/homeownership/buy-home-refinance",
      "type": "deferred",
-     "amountText": "Up to $16,500",
+     "amountText": "Up to $14,000",
      "amount": {
-      "max": 16500,
+      "max": 14000,
       "pct": null,
       "of": "price"
      },
@@ -3540,14 +3737,15 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "incomeNote": "Income ≤ $94,600 (1–2 people, Twin Cities metro)",
+     "notes": "0% balloon loan due at sale, refinance, move-out or first-mortgage payoff. Start Up (first-time buyers) only."
     },
     {
      "id": "mn-dplplus",
      "name": "Deferred Payment Loan Plus",
      "agency": "Minnesota Housing",
-     "url": "https://www.mnhousing.gov",
+     "url": "https://www.mnhousing.gov/home/homeownership/buy-home-refinance",
      "type": "deferred",
      "amountText": "Up to $18,000",
      "amount": {
@@ -3562,8 +3760,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "firstTimeOnly": true,
+     "verified": "2026-11-23",
+     "notes": "0% deferred; for Start Up borrowers who meet the DPL Plus targeting criteria."
     }
    ],
    "local": {
@@ -3650,13 +3849,13 @@
      "id": "mo-fp",
      "name": "First Place CashAssistance",
      "agency": "MHDC",
-     "url": "https://www.mhdc.com",
+     "url": "https://mhdc.com/media/z5skwx30/first-place-learn-more-63023.pdf",
      "type": "forgivable",
-     "amountText": "Up to 4% of price",
+     "amountText": "4% of total loan",
      "amount": {
       "max": null,
       "pct": 4,
-      "of": "price"
+      "of": "loan"
      },
      "forgiveYears": 10,
      "firstTimeOnly": true,
@@ -3667,14 +3866,14 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% forgivable second; starts reducing by 1/60 a month after year 5, gone at year 10. First-time buyers or qualified veterans; must repay if you sell or refinance within 10 years."
     },
     {
      "id": "mo-ns",
      "name": "Next Step CashAssistance",
      "agency": "MHDC",
-     "url": "https://www.mhdc.com",
+     "url": "https://mhdc.com/media/lc1lwfjr/next-step-flyer-2.pdf",
      "type": "forgivable",
      "amountText": "4% of loan",
      "amount": {
@@ -3690,8 +3889,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "minCredit": 640,
+     "verified": "2026-11-23",
+     "notes": "First-time and repeat buyers above First Place income limits. 0% forgivable second over 10 years; up to 50% DTI."
     }
    ],
    "local": {
@@ -3756,14 +3956,14 @@
    "agencyUrl": "https://www.mshomecorp.com",
    "programs": [
     {
-     "id": "ms-smart6",
-     "name": "Smart6",
+     "id": "ms-smart7",
+     "name": "Smart7",
      "agency": "MHC",
-     "url": "https://www.mshomecorp.com",
+     "url": "https://mshomecorp.com/programs/smart6",
      "type": "deferred",
-     "amountText": "$6,000",
+     "amountText": "$7,000",
      "amount": {
-      "max": 6000,
+      "max": 7000,
       "pct": null,
       "of": "price"
      },
@@ -3774,14 +3974,14 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% second, due at sale, refinance, move-out or first-mortgage payoff. Purchase price ≤ $398,310."
     },
     {
      "id": "ms-easy8",
      "name": "Easy8",
      "agency": "MHC",
-     "url": "https://www.mshomecorp.com",
+     "url": "https://www.mshomecorp.com/easy8/",
      "type": "deferred",
      "amountText": "$8,000",
      "amount": {
@@ -3796,15 +3996,15 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% second, due at sale, refinance, move-out or first-mortgage payoff. Homebuyer education required."
     },
     {
      "id": "ms-trusty10",
      "name": "Trusty10",
      "agency": "MHC",
-     "url": "https://www.mshomecorp.com",
-     "type": "deferred",
+     "url": "https://www.mshomecorp.com/trusty10/",
+     "type": "repay",
      "amountText": "$10,000",
      "amount": {
       "max": 10000,
@@ -3818,8 +4018,11 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "rate": 2,
+     "termYears": 15,
+     "firstTimeOnly": true,
+     "verified": "2026-11-23",
+     "notes": "2% second mortgage repaid over 15 years. First-time rule waived in target areas and for veterans. Mississippi REALTORS® adds $2,000 more (\"Trusty 10 Plus 2\") while funds last."
     },
     {
      "id": "ms-hat",
@@ -3843,6 +4046,30 @@
      "notes": "Certified public school teachers in eligible areas.",
      "reviewed": "2026-11-16",
      "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "ms-home4all",
+     "name": "Home4All",
+     "agency": "Mississippi Home Corporation",
+     "url": "https://www.mshomecorp.com/federal-programs/home/home4all/",
+     "type": "deferred",
+     "amountText": "Up to $25,000",
+     "amount": {
+      "max": 25000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "incomeNote": "≤80% AMI",
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "HOME-funded; homebuyer education through a HUD-approved counselor required. Assistance can’t exceed 50% of the price. Repayment terms: confirm with MHC (shown as deferred)."
     }
    ],
    "local": {}
@@ -3911,7 +4138,7 @@
      "id": "nc-adv",
      "name": "NC Home Advantage DPA",
      "agency": "NCHFA",
-     "url": "https://www.nchfa.com",
+     "url": "https://www.nchfa.com/home-buyers/buy-home/nc-home-advantage-mortgage",
      "type": "forgivable",
      "amountText": "Up to 3% of loan",
      "amount": {
@@ -3927,14 +4154,14 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% deferred second, forgiven 20% a year in years 11–15. First-time and move-up buyers. Repay only if you sell, refinance or transfer before year 15."
     },
     {
      "id": "nc-1st",
      "name": "NC 1st Home Advantage Down Payment",
      "agency": "NCHFA",
-     "url": "https://www.nchfa.com",
+     "url": "https://www.nchfa.com/home-buyers/home-buyer-mortgage-products/nc-1st-home-advantage-down-payment",
      "type": "forgivable",
      "amountText": "$15,000",
      "amount": {
@@ -3951,8 +4178,8 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% deferred second, forgiven 20% a year in years 11–15. First-time buyers, military veterans, or homes in targeted census tracts. Can’t be combined with the 3% option."
     }
    ],
    "local": {
@@ -4106,9 +4333,9 @@
      "id": "nh-dpa",
      "name": "Down Payment & Closing Cost Assistance",
      "agency": "NH Housing",
-     "url": "https://www.nhhfa.org",
+     "url": "https://www.nhhfa.org/homeownership/homeownership-programs/",
      "type": "forgivable",
-     "amountText": "Up to $15,000",
+     "amountText": "$5,000, $10,000 or $15,000 (you pick)",
      "amount": {
       "max": 15000,
       "pct": null,
@@ -4122,8 +4349,32 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "incomeNote": "Income ≤ $176,200 (Home Preferred)",
+     "notes": "Fixed cash assistance added to an NH Housing mortgage, for down payment and closing costs. Forgiveness terms: confirm with NH Housing."
+    },
+    {
+     "id": "nh-1stgen",
+     "name": "1stGenHomeNH",
+     "agency": "New Hampshire Housing",
+     "url": "https://www.nhhfa.org/homeownership/homeownership-programs/",
+     "type": "deferred",
+     "amountText": "Up to $10,000 extra",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "For first-generation buyers, on top of the standard NH Housing assistance. Terms: confirm with NH Housing (shown as deferred)."
     }
    ],
    "local": {}
@@ -4161,7 +4412,7 @@
      "id": "nj-firstgen",
      "name": "First Generation DPA",
      "agency": "NJHMFA",
-     "url": "https://njhousing.gov",
+     "url": "https://njhousing.gov/",
      "type": "forgivable",
      "amountText": "Up to $22,000 ($15,000 + $7,000)",
      "amount": {
@@ -4178,8 +4429,8 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "For first-generation buyers (no parent or spouse has owned a home). Combined with the NJHMFA DPA for up to $22,000 total."
     }
    ],
    "local": {
@@ -4268,8 +4519,8 @@
      "id": "nm-firstdown",
      "name": "FIRSTDown",
      "agency": "MFA",
-     "url": "https://housingnm.org",
-     "type": "deferred",
+     "url": "https://housingnm.org/lenders-realtors/mfa-loan-programs",
+     "type": "repay",
      "amountText": "Up to 4% of price",
      "amount": {
       "max": null,
@@ -4285,14 +4536,14 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Low fixed-rate second mortgage with 10-, 15- or 30-year terms; must be paired with a FirstHome loan. All Housing New Mexico assistance combined is capped at $35,000."
     },
     {
      "id": "nm-fdplus",
      "name": "FirstDown Plus",
      "agency": "MFA",
-     "url": "https://housingnm.org",
+     "url": "https://housingnm.org/uploads/documents/FirstDown_Plus_Program_Sheet_-Non-Amortizing.pdf",
      "type": "forgivable",
      "amountText": "$15,000",
      "amount": {
@@ -4309,16 +4560,16 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% loan, no payments, forgiven in year 11; down payment only (not closing costs). Requires a FirstHome loan; funds first come, first served."
     },
     {
      "id": "nm-homenow",
      "name": "HOMENow",
      "agency": "MFA",
-     "url": "https://housingnm.org",
+     "url": "https://housingnm.org/lenders-realtors/mfa-loan-programs",
      "type": "forgivable",
-     "amountText": "Up to $7,000",
+     "amountText": "$7,000",
      "amount": {
       "max": 7000,
       "pct": null,
@@ -4333,8 +4584,9 @@
      ],
      "incomeNote": "≤80% AMI",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "firstTimeOnly": true,
+     "verified": "2026-11-23",
+     "notes": "0% second with a 10-year affordability period; paired with a FirstHome loan. Funds limited, first come first served."
     },
     {
      "id": "nm-forward",
@@ -4395,11 +4647,11 @@
    "programs": [
     {
      "id": "nv-hip",
-     "name": "Home Is Possible (HIP)",
+     "name": "Home Is Possible for First-Time Homebuyers",
      "agency": "Nevada Housing Division",
-     "url": "https://housing.nv.gov",
+     "url": "https://www.homeispossiblenv.org/todays-rates",
      "type": "deferred",
-     "amountText": "Up to 4% of loan",
+     "amountText": "2% or 4% of loan",
      "amount": {
       "max": null,
       "pct": 4,
@@ -4414,14 +4666,14 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% second mortgage, no payments, 30-year note, not forgiven. Rate is a bit higher with the 4% option. Homebuyer education required."
     },
     {
      "id": "nv-homefirst",
      "name": "Home First",
      "agency": "Nevada Housing Division",
-     "url": "https://housing.nv.gov",
+     "url": "https://d9.homeispossiblenv.org/home-first-program",
      "type": "forgivable",
      "amountText": "$15,000",
      "amount": {
@@ -4439,8 +4691,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "incomeNote": "Price ≤ $570,000",
+     "verified": "2026-11-23",
+     "notes": "Down payment only (not closing costs). Forgiven after 3 years in the home. 6 months Nevada residency and homebuyer education required."
     },
     {
      "id": "nv-rural",
@@ -4465,6 +4718,30 @@
      "status": "active",
      "reviewed": "2026-11-16",
      "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "nv-hip-open",
+     "name": "Home Is Possible",
+     "agency": "Nevada Housing Division",
+     "url": "https://www.homeispossiblenv.org/home-possible",
+     "type": "deferred",
+     "amountText": "Up to 5% of loan",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "minCredit": 640,
+     "incomeNote": "Income ≤ $165,000; price ≤ $832,750",
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "No first-time-buyer requirement. Structure of the assistance: confirm with a HIP lender (shown as deferred)."
     }
    ],
    "local": {}
@@ -4750,14 +5027,14 @@
    "programs": [
     {
      "id": "oh-choice",
-     "name": "Your Choice! Down Payment Assistance",
+     "name": "OHFA Down Payment Assistance",
      "agency": "OHFA",
-     "url": "https://myohiohome.org",
+     "url": "https://ohiohome.org/partners/faqs.aspx",
      "type": "forgivable",
-     "amountText": "2.5% or 5% of price",
+     "amountText": "3% (conventional) or 3.5% (FHA, VA, USDA) of price",
      "amount": {
       "max": null,
-      "pct": 5,
+      "pct": 3.5,
       "of": "price"
      },
      "forgiveYears": 7,
@@ -4769,19 +5046,19 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Formerly \"Your Choice!\". Forgiven after 7 years; repay it all if you sell sooner. FHA needs 650 credit; VA and USDA 640."
     },
     {
      "id": "oh-grads",
      "name": "Grants for Grads",
      "agency": "OHFA",
-     "url": "https://myohiohome.org",
+     "url": "https://ohiohome.org/partners/faqs.aspx",
      "type": "forgivable",
-     "amountText": "2.5% or 5% of price",
+     "amountText": "3% (conventional) or 3.5% (FHA, VA, USDA) of price",
      "amount": {
       "max": null,
-      "pct": 5,
+      "pct": 3.5,
       "of": "price"
      },
      "forgiveYears": 5,
@@ -4792,9 +5069,9 @@
       "usda"
      ],
      "status": "active",
-     "notes": "Degree within the last 48 months.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "For first-time buyers who earned a degree within the last 18 months; also a lower interest rate. Forgiven after 5 years if you stay in Ohio.",
+     "firstTimeOnly": true,
+     "verified": "2026-11-23"
     },
     {
      "id": "oh-cfo",
@@ -4909,9 +5186,9 @@
      "id": "ok-dpa",
      "name": "OHFA Homebuyer DPA",
      "agency": "OHFA",
-     "url": "https://www.ohfa.org",
+     "url": "https://www.ohfa.org/dpa-products/",
      "type": "deferred",
-     "amountText": "3.5% of loan",
+     "amountText": "3.5% of total loan",
      "amount": {
       "max": null,
       "pct": 3.5,
@@ -4925,8 +5202,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "incomeNote": "Income ≤ $150,000; DTI ≤ 45%",
+     "verified": "2026-11-23",
+     "notes": "First-time and repeat buyers, all 77 counties; FHA, HUD-184, USDA, VA or conventional. Secured by a lien. Special rates for school employees, first responders and state employees."
     },
     {
      "id": "ok-rei",
@@ -5014,9 +5292,9 @@
      "id": "or-flex",
      "name": "Flex Lending DPA",
      "agency": "OHCS",
-     "url": "https://www.oregon.gov/ohcs",
+     "url": "https://www.oregon.gov/ohcs/homeownership/homebuyers/pages/flex-lending.aspx",
      "type": "deferred",
-     "amountText": "4% or 5% of loan",
+     "amountText": "4% or 5% of first mortgage",
      "amount": {
       "max": null,
       "pct": 4,
@@ -5029,9 +5307,10 @@
       "usda"
      ],
      "status": "active",
-     "notes": "Silent forgivable or repayable second depending on option.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "FirstHome (first-time) or NextStep (anyone income-eligible). Can cover 100% of cash to close and stack with other DPA. Above 80% AMI it’s a 30-year amortizing second at the first-mortgage rate + 1%.",
+     "minCredit": 620,
+     "incomeNote": "Applicant income ≤ $125,000",
+     "verified": "2026-11-23"
     },
     {
      "id": "or-cash",
@@ -5398,19 +5677,19 @@
       "conv",
       "usda"
      ],
-     "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "status": "paused",
+     "verified": "2026-11-23",
+     "notes": "The ARPA-funded $17,500 grant ($30M) helped about 1,600 buyers and is no longer listed among RIHousing’s current programs. Ask RIHousing whether new funding is coming."
     },
     {
-     "id": "ri-10k",
-     "name": "10kDPA",
+     "id": "ri-15k",
+     "name": "15kDPA",
      "agency": "RIHousing",
-     "url": "https://www.rihousing.com",
+     "url": "https://www.rihousing.com/homebuyers/15k-dpa/",
      "type": "deferred",
-     "amountText": "Up to $10,000",
+     "amountText": "$15,000",
      "amount": {
-      "max": 10000,
+      "max": 15000,
       "pct": null,
       "of": "price"
      },
@@ -5422,16 +5701,17 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "firstTimeOnly": true,
+     "verified": "2026-11-23",
+     "notes": "0% loan, no monthly payments; due when you sell, refinance or move out. Needs a RIHousing first mortgage and homebuyer education."
     },
     {
      "id": "ri-extra",
      "name": "Extra Assistance",
      "agency": "RIHousing",
-     "url": "https://www.rihousing.com",
+     "url": "https://www.rihousing.com/homebuyers/extra-assistance/",
      "type": "repay",
-     "amountText": "Up to 6% of price, max $20,000",
+     "amountText": "Lesser of 6% of price or $20,000",
      "amount": {
       "max": 20000,
       "pct": 6,
@@ -5446,14 +5726,15 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "firstTimeOnly": true,
+     "verified": "2026-11-23",
+     "notes": "Repayable second at the same rate as your RIHousing first mortgage. Homebuyer education required."
     },
     {
      "id": "ri-firstgen",
      "name": "FirstGenHomeRI",
      "agency": "RIHousing",
-     "url": "https://www.rihousing.com",
+     "url": "https://www.rihousing.com/homebuyers/firstgenhomeri/",
      "type": "forgivable",
      "amountText": "$25,000",
      "amount": {
@@ -5469,9 +5750,10 @@
       "usda"
      ],
      "status": "active",
-     "notes": "First-generation buyers in select cities.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Pilot with limited funds. First-generation buyers currently living in Central Falls, East Providence, Pawtucket, Woonsocket, Providence (not 02906) or one Newport tract. Forgiven after 5 years.",
+     "firstTimeOnly": true,
+     "minCredit": 660,
+     "verified": "2026-11-23"
     }
    ],
    "local": {}
@@ -5485,9 +5767,9 @@
      "id": "sc-pha",
      "name": "Palmetto Home Advantage",
      "agency": "SC Housing",
-     "url": "https://www.schousing.com",
+     "url": "https://schousing.com/Home/Palmetto-Home-Advantage",
      "type": "forgivable",
-     "amountText": "Up to 4% of loan",
+     "amountText": "3% or 4% of loan",
      "amount": {
       "max": null,
       "pct": 4,
@@ -5502,8 +5784,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "incomeNote": "Borrower income ≤ $135,750",
+     "verified": "2026-11-23",
+     "notes": "Forgivable, no monthly payment. First-time, move-up and repeat buyers in all 46 counties; no price limit."
     },
     {
      "id": "sc-county",
@@ -5527,6 +5810,30 @@
      "status": "active",
      "reviewed": "2026-11-16",
      "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "sc-heroes",
+     "name": "Palmetto Heroes",
+     "agency": "SC Housing",
+     "url": "https://schousing.com/library/Homeownership/2024%20Palmetto%20Heroes%20Flyer%20-%20Updated%20(03.27.2024).pdf",
+     "type": "forgivable",
+     "amountText": "Up to $12,000",
+     "amount": {
+      "max": 12000,
+      "pct": null,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "reviewed": "2026-11-23",
+     "source": "SC Housing 2024 flyer",
+     "group": "profession",
+     "notes": "For teachers, law enforcement, firefighters, EMS, nurses, correctional officers, veterans, active duty and National Guard. Funded in yearly rounds — check whether this year’s round is open."
     }
    ],
    "local": {
@@ -5673,11 +5980,11 @@
      "id": "tn-gc-def",
      "name": "Great Choice — Deferred",
      "agency": "THDA",
-     "url": "https://thda.org",
-     "type": "deferred",
-     "amountText": "$6,000",
+     "url": "https://thda.org/homebuyers/down-payment-assistance/",
+     "type": "forgivable",
+     "amountText": "$6,000 or $10,000",
      "amount": {
-      "max": 6000,
+      "max": 10000,
       "pct": null,
       "of": "price"
      },
@@ -5689,15 +5996,15 @@
       "usda"
      ],
      "status": "active",
-     "notes": "0%; forgiven after 30 years, due if sold or refinanced sooner.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "0% Great Choice Plus second, forgiven after 10 years; due in full if you sell or refinance sooner. Homebuyer education required.",
+     "forgiveYears": 10,
+     "verified": "2026-11-23"
     },
     {
      "id": "tn-gc-amort",
      "name": "Great Choice — Amortizing",
      "agency": "THDA",
-     "url": "https://thda.org",
+     "url": "https://thda.org/homebuyers/down-payment-assistance/",
      "type": "repay",
      "amountText": "Up to 5% of price, max $15,000",
      "amount": {
@@ -5714,8 +6021,55 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "30-year amortizing second at the same rate as the first mortgage."
+    },
+    {
+     "id": "tn-newcon",
+     "name": "Great Choice — new construction",
+     "agency": "THDA",
+     "url": "https://thda.org/homeownerships/find-a-builder/",
+     "type": "repay",
+     "amountText": "Up to $25,000",
+     "amount": {
+      "max": 25000,
+      "pct": null,
+      "of": "price"
+     },
+     "termYears": 30,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "Higher assistance for newly built homes from participating builders; repaid over 30 years."
+    },
+    {
+     "id": "tn-heroes",
+     "name": "Homeownership for Heroes",
+     "agency": "THDA",
+     "url": "https://thda.org/wp-content/uploads/2025/10/Co-Branded-Homeownership-for-Heroes-Flyer-v2.pdf",
+     "type": "repay",
+     "amountText": "Up to 5% of price or $15,000",
+     "amount": {
+      "max": 15000,
+      "pct": 5,
+      "of": "price"
+     },
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "group": "profession",
+     "notes": "Reduced Great Choice rate for military, veterans and other eligible service members; first-time rule waived statewide for qualified military and veterans."
     }
    ],
    "local": {
@@ -6130,9 +6484,9 @@
      "id": "ut-dpa",
      "name": "UHC Down Payment Assistance",
      "agency": "Utah Housing",
-     "url": "https://utahhousingcorp.org",
+     "url": "https://utahhousingcorp.org/homebuyer/programs/",
      "type": "repay",
-     "amountText": "Covers minimum down payment (up to ~6%)",
+     "amountText": "Covers the minimum down payment (up to ~6%)",
      "amount": {
       "max": null,
       "pct": 6,
@@ -6146,14 +6500,14 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Traditional option: 30-year amortizing second at 1% above the first-mortgage rate. UHC now also offers a deferred-payment DPA. First-time and repeat buyers."
     },
     {
      "id": "ut-newcon",
      "name": "First-Time Homebuyer New Construction",
      "agency": "Utah Housing",
-     "url": "https://utahhousingcorp.org",
+     "url": "https://utahhousingcorp.org/homebuyer/sb240/",
      "type": "deferred",
      "amountText": "Up to $20,000",
      "amount": {
@@ -6168,16 +6522,16 @@
       "conv",
       "usda"
      ],
-     "incomeNote": "New homes under $450,000",
+     "incomeNote": "Price ≤ $450,000; new, never-occupied homes",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% loan from state funds (SB 240). Use for down payment, closing costs or a permanent rate buydown. 12 months Utah residency required; can stack with the UHC DPA second."
     },
     {
      "id": "ut-vets",
      "name": "First-Time Homebuyer Veterans Grant",
      "agency": "Utah Housing",
-     "url": "https://utahhousingcorp.org",
+     "url": "https://utahhousingcorp.org/lenders/grants/",
      "type": "grant",
      "amountText": "$2,500",
      "amount": {
@@ -6193,8 +6547,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "group": "profession",
+     "notes": "State grant for veterans buying in Utah; funds appropriated by the Legislature and limited."
     }
    ],
    "local": {
@@ -6287,9 +6642,9 @@
      "id": "va-grant",
      "name": "Down Payment Assistance Grant",
      "agency": "Virginia Housing",
-     "url": "https://www.virginiahousing.com",
+     "url": "https://www.virginiahousing.com/en/homebuyers/loan-grants",
      "type": "grant",
-     "amountText": "Up to 2.5% of price",
+     "amountText": "2% (conventional) or 2.5% (FHA) of price",
      "amount": {
       "max": null,
       "pct": 2.5,
@@ -6298,19 +6653,17 @@
      "firstTimeOnly": true,
      "loanTypes": [
       "fha",
-      "va",
-      "conv",
-      "usda"
+      "conv"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "A true gift, never repaid. Down payment only. First-time buyers unless in a targeted area. Can’t be combined with the Plus Second or Closing Cost grant."
     },
     {
      "id": "va-ccgrant",
      "name": "Closing Cost Assistance Grant",
      "agency": "Virginia Housing",
-     "url": "https://www.virginiahousing.com",
+     "url": "https://www.virginiahousing.com/en/homebuyers/loan-grants",
      "type": "grant",
      "amountText": "Up to 2% of price",
      "amount": {
@@ -6323,16 +6676,17 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "firstTimeOnly": true,
+     "verified": "2026-11-23",
+     "notes": "Grant, never repaid, for buyers using a VA or USDA (RHS) loan."
     },
     {
      "id": "va-plus",
      "name": "Virginia Housing Plus Second",
      "agency": "Virginia Housing",
-     "url": "https://www.virginiahousing.com",
-     "type": "deferred",
-     "amountText": "3%–5% of price",
+     "url": "https://www.virginiahousing.com/homebuyers/plus-second-mortgage",
+     "type": "repay",
+     "amountText": "Covers the down payment (plus some closing costs)",
      "amount": {
       "max": null,
       "pct": 3,
@@ -6346,8 +6700,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "termYears": 30,
+     "verified": "2026-11-23",
+     "notes": "30-year fixed second mortgage, no prepayment penalty. First-time or repeat buyers, including those over the grant income limits."
     },
     {
      "id": "va-dhcd",
@@ -6435,9 +6790,9 @@
      "id": "vt-assist",
      "name": "ASSIST",
      "agency": "VHFA",
-     "url": "https://www.vhfa.org",
+     "url": "https://vhfa.org/StatePrograms",
      "type": "deferred",
-     "amountText": "$10,000–$15,000 by income",
+     "amountText": "Up to $10,000",
      "amount": {
       "max": 10000,
       "pct": null,
@@ -6450,8 +6805,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "firstTimeOnly": true,
+     "verified": "2026-11-23",
+     "notes": "0% deferred loan, not forgiven — repaid at sale, refinance or payoff. True first-time buyers with under $20,000 in combined liquid assets; only with VHFA MOVE."
     },
     {
      "id": "vt-nwwv",
@@ -6476,6 +6832,28 @@
      "notes": "Rate 2 points above your mortgage.",
      "reviewed": "2026-11-16",
      "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "vt-firstgen",
+     "name": "First Generation Homebuyer Grant",
+     "agency": "VHFA",
+     "url": "https://vhfa.org/first-gen-program",
+     "type": "grant",
+     "amountText": "$15,000",
+     "amount": {
+      "max": 15000,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "No repayment. Parents or guardians must never have owned a home. Under $20,000 in liquid assets. Stacks with ASSIST for $25,000–$30,000 total; first come, first served."
     }
    ],
    "local": {}
@@ -6489,9 +6867,9 @@
      "id": "wa-adv",
      "name": "Home Advantage DPA",
      "agency": "WSHFC",
-     "url": "https://www.wshfc.org",
+     "url": "https://www.wshfc.org/buyers/homeadvantagedpa.htm",
      "type": "deferred",
-     "amountText": "Up to 4% of loan (5% conventional)",
+     "amountText": "3%, 4% or 5% of loan (5% on FHA or conventional)",
      "amount": {
       "max": null,
       "pct": 4,
@@ -6504,8 +6882,8 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% deferred second with a Home Advantage first mortgage; no needs assessment for the 3–5% options."
     },
     {
      "id": "wa-needs",
@@ -6576,6 +6954,30 @@
      "notes": "Washington veterans; 3% deferred.",
      "reviewed": "2026-11-16",
      "source": "The Mortgage Reports state guide (Nov 2026)"
+    },
+    {
+     "id": "wa-covenant",
+     "name": "Covenant Homeownership Program",
+     "agency": "WSHFC",
+     "url": "https://www.wshfc.org/covenant/CovenantFAQs.pdf",
+     "type": "deferred",
+     "amountText": "0% loan covering down payment and closing costs — amount set by program",
+     "amount": {
+      "max": null,
+      "pct": null,
+      "of": "price"
+     },
+     "firstTimeOnly": true,
+     "incomeNote": "≤120% AMI",
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "verified": "2026-11-23",
+     "notes": "For first-time buyers whose family lived in Washington before 1968 and was in a group harmed by housing discrimination (per the state’s Covenant study). Repaid at sale or transfer; may be forgiven after 5 years if income was ≤80% AMI. Oversubscribed at times."
     }
    ],
    "local": {
@@ -6643,7 +7045,7 @@
      "id": "wi-easy",
      "name": "Easy Close DPA",
      "agency": "WHEDA",
-     "url": "https://www.wheda.com",
+     "url": "https://www.wheda.com/homeownership-and-renters/home-buyers/available-programs",
      "type": "repay",
      "amountText": "$1,000 up to 6% of price",
      "amount": {
@@ -6657,14 +7059,14 @@
       "conv"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "Repaid monthly alongside the WHEDA Advantage first mortgage. Not limited to first-time buyers."
     },
     {
      "id": "wi-capital",
      "name": "Capital Access DPA",
      "agency": "WHEDA",
-     "url": "https://www.wheda.com",
+     "url": "https://www.wheda.com/lender-toolkit/",
      "type": "deferred",
      "amountText": "Up to $7,500",
      "amount": {
@@ -6679,8 +7081,8 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "0% deferred, due when the first mortgage is paid off or refinanced. For lower-income buyers in high-housing-need areas. Available again on a limited basis since Jan 15, 2026."
     }
    ],
    "local": {
@@ -6770,11 +7172,11 @@
      "id": "wv-lowdown",
      "name": "Low Down Home Loan",
      "agency": "WVHDF",
-     "url": "https://www.wvhdf.com",
+     "url": "https://www.wvhdf.com/home-buyers/low-down-home-loan",
      "type": "repay",
-     "amountText": "Up to $8,000",
+     "amountText": "Up to $12,000",
      "amount": {
-      "max": 8000,
+      "max": 12000,
       "pct": null,
       "of": "price"
      },
@@ -6787,8 +7189,8 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "verified": "2026-11-23",
+     "notes": "2% fixed, repaid over 15 years. Only with the Fund’s Homeownership (mostly first-time) or Movin’ Up programs; full $12,000 when loan-to-value is 80% or higher."
     }
    ],
    "local": {}
@@ -6802,7 +7204,7 @@
      "id": "wy-stretch",
      "name": "Home$tretch DPA",
      "agency": "WCDA",
-     "url": "https://www.wyomingcda.com",
+     "url": "https://www.wyomingcda.com/wp-content/uploads/2023/02/Potential-FTHB-QAs_.pdf",
      "type": "deferred",
      "amountText": "Up to $15,000",
      "amount": {
@@ -6818,14 +7220,16 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "reviewed": "2026-11-23",
+     "source": "WCDA first-time homebuyer FAQ (2023)",
+     "firstTimeOnly": true,
+     "notes": "0% loan, no monthly payments; due at sale, refinance or after 30 years. Pairs with the WCDA Standard First-Time Homebuyer loan."
     },
     {
      "id": "wy-amort",
      "name": "Amortizing DPA",
      "agency": "WCDA",
-     "url": "https://www.wyomingcda.com",
+     "url": "https://www.wyomingcda.com/wp-content/uploads/2023/02/Potential-FTHB-QAs_.pdf",
      "type": "repay",
      "amountText": "Up to $15,000",
      "amount": {
@@ -6842,8 +7246,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "reviewed": "2026-11-23",
+     "source": "WCDA first-time homebuyer FAQ (2023)",
+     "notes": "Low-rate loan with up to a 120-month term; pairs with WCDA Advantage (no first-time requirement)."
     }
    ],
    "local": {}
