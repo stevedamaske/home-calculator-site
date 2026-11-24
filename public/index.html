@@ -225,7 +225,7 @@
       </div>
       <div class="row">
         <label class="t-fha"><span>County FHA loan limit <em style="font-style:normal;opacity:.7">(optional)</em></span><div class="field"><i>$</i><input id="fhaLimit" data-money placeholder="look up your county"></div>
-          <div class="hint"><a href="https://entp.hud.gov/idapp/html/hicostlook.cfm" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">HUD loan limit lookup</a></div></label>
+          <div class="hint" id="fhaLimitHint">Leave blank unless your loan is large; your lender can confirm your county's limit.</div></label>
         <label class="t-conv"><span>Conforming loan limit</span><div class="field"><i>$</i><input id="confLimit" data-money value="832,750"></div>
           <div class="hint">2026 baseline; high-cost counties go higher. <a href="https://www.fhfa.gov/CLL" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">FHFA lookup</a></div></label>
         <div class="t-va hint" style="padding-top:22px">No VA loan limit if you have full entitlement. If part of your entitlement is tied up in another VA loan, your lender will calculate a cap.</div>
@@ -480,6 +480,9 @@
     const yrs = +$('term').value;
     Object.keys(RATE_ID).forEach(t => { if (!rateCustom[t]) $(RATE_ID[t]).value = marketRate(t, yrs); });
     if (!confCustom) $('confLimit').value = CFG.program.conv.conformingLimit.toLocaleString('en-US');
+    // FHA limits are set by law at 65% (most counties) to 150% (high-cost) of the conforming baseline.
+    const cl = CFG.program.conv.conformingLimit, yr = CFG.program.conv.conformingLimitYear;
+    $('fhaLimitHint').textContent = `${yr}: ${fmt0(Math.floor(cl*0.65))} in most counties, up to ${fmt0(cl*1.5)} in high-cost areas. Leave blank unless your loan is near that; your lender can confirm your county's limit.`;
   }
   const fmtDate = d => { try { return new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); } catch(e){ return d; } };
   function renderRateInfo(){

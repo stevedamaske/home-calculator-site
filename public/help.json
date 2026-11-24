@@ -31,10 +31,10 @@
   },
   "fhaLimit": {
    "title": "County FHA loan limit",
-   "text": "The largest base loan FHA will insure in your county. Look it up and enter it to get a warning if your loan is over.",
+   "text": "The largest base loan FHA will insure in your county. Most counties use the national minimum and high-cost areas go higher. It's optional: enter your county's limit (your lender can tell you) to get a warning if your loan is over.",
    "link": {
-    "label": "HUD loan limit lookup",
-    "url": "https://entp.hud.gov/idapp/html/hicostlook.cfm"
+    "label": "HUD FHA loan limits notice",
+    "url": "https://www.hud.gov/sites/dfiles/hudclips/documents/2025-23hsgml.pdf"
    }
   },
   "confLimit": {
