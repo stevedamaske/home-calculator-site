@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-23T20:21:12-05:00",
+ "updatedAt": "2026-11-23T20:29:23-05:00",
  "deepState": null,
  "note": "Programs marked “Checked with agency” were confirmed on the agency’s or lender’s own site on that date; the rest come from current state guides and are re-checked against each agency on a rolling weekly basis. Lender grants apply only in the lender’s eligible areas. Always confirm amounts and eligibility with the program.",
  "national": [
@@ -144,16 +144,17 @@
       "conv"
      ],
      "status": "active",
-     "notes": "Can go toward down payment, closing costs or principal reduction. The percentage depends on loan type and credit score (3% at 640–659 on FHA). Ask an AHFC-approved lender.",
-     "verified": "2026-11-23"
+     "notes": "Can go toward down payment, closing costs or principal reduction. 3% or 4% of the loan depending on credit (tier details, incl. 640 minimum, not confirmed on an AHFC page). Comes with a 30-year fixed AHFC loan; ask an AHFC-approved lender.",
+     "reviewed": "2026-11-23",
+     "source": "First National Bank Alaska lender page (AHFC-run program, 3% or 4% of loan by credit); no current AHFC program page found"
     },
     {
      "id": "ak-ahelp",
      "name": "HOME Opportunity Program (HOP)",
      "agency": "AHFC via local nonprofits",
      "url": "https://www.ahfc.us/pros/grants/service-assistance-grants/home-opportunity-program",
-     "type": "grant",
-     "amountText": "Closing-cost help for lower-income buyers — amount set by provider",
+     "type": "deferred",
+     "amountText": "Down payment/closing-cost help for low-income buyers — amount set by the provider (not published)",
      "amount": {
       "max": null,
       "pct": null,
@@ -167,10 +168,97 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "Run through Cook Inlet Lending Center, NeighborWorks Alaska, Alaska Community Development Corp., Interior Regional Housing Authority and others."
+     "notes": "AHFC's HOP page lists Alaska Community Development Corp. as provider (Fairbanks, Mat-Su, Kenai, Juneau, Ketchikan, Sitka, Kodiak and other areas — not Anchorage). Buyer terms (grant vs. lien) aren't published, so shown conservatively as deferred. AHFC says no grant funding is available for new allocating agencies; funds subject to availability."
     }
    ],
-   "local": {}
+   "local": {
+    "Anchorage": [
+     {
+      "id": "anc-cilc-homestart",
+      "name": "Home$tart Grant (Cook Inlet Lending Center)",
+      "agency": "Cook Inlet Lending Center (AHFC-listed Anchorage-area DPA provider)",
+      "url": "https://www.cookinletlending.com/nahi-homestart",
+      "type": "deferred",
+      "amountText": "$15,000 per household",
+      "amount": {
+       "max": 15000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Below 80% HUD AMI (Anchorage limits apply)",
+      "status": "active",
+      "notes": "Called a grant, with a 5-year owner-occupancy requirement; repayment/recapture terms aren't spelled out, so shown conservatively as deferred. Homebuyer education required; one grant per household; requires a first-mortgage application in process with CILC. CILC says it is discontinuing brokered mortgage lending — confirm availability (907-793-3058).",
+      "verified": "2026-11-23"
+     },
+     {
+      "id": "anc-cilc-nahi",
+      "name": "NAHI Grant (Cook Inlet Lending Center)",
+      "agency": "Cook Inlet Lending Center",
+      "url": "https://www.cookinletlending.com/nahi-homestart",
+      "type": "deferred",
+      "amountText": "$25,000 per household",
+      "amount": {
+       "max": 25000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": false,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Below 80% NAHASDA AMI",
+      "status": "active",
+      "notes": "For Alaska Native, American Indian or Native Hawaiian buyers (tribal card or corporation letter required). Called a grant with a 5-year owner-occupancy requirement; recapture terms not published, so shown as deferred. Homebuyer education; first-mortgage application with CILC required. Confirm availability given CILC's wind-down of brokered lending.",
+      "verified": "2026-11-23"
+     },
+     {
+      "id": "anc-cilc-dpa",
+      "name": "Down Payment Assistance Loan (Cook Inlet Lending Center)",
+      "agency": "Cook Inlet Lending Center",
+      "url": "https://www.cookinletlending.com/dpaloan",
+      "type": "repay",
+      "amountText": "Up to $75,000, max 20% of price",
+      "amount": {
+       "max": 75000,
+       "pct": 20,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": 30,
+      "firstTimeOnly": true,
+      "minCredit": 620,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Up to 150% AMI",
+      "status": "active",
+      "notes": "Fully repayable fixed-rate 30-year second mortgage (CILC's example uses 5%; actual rate varies). Special Purpose Credit Program: Alaska Native/American Indian/Native Hawaiian borrowers anywhere in Alaska; others only in CDFI Fund-designated Native Communities. No bankruptcy/foreclosure in 6 years; 2 months' reserves; HUD-approved education; pre-approval before signing a contract.",
+      "verified": "2026-11-23"
+     }
+    ]
+   }
   },
   "AL": {
    "name": "Alabama",
@@ -312,12 +400,12 @@
      "id": "ar-addi",
      "name": "Arkansas Dream Down Payment Initiative",
      "agency": "ADFA",
-     "url": "https://homeloans.arkansas.gov/dpa",
+     "url": "https://adfa.arkansas.gov/homeloans",
      "type": "forgivable",
-     "amountText": "Up to 10% of price, max $10,000",
+     "amountText": "Up to $25,000 per ADFA's FY2023 report (earlier data said 10% of price / $10,000) — confirm with ADFA",
      "amount": {
-      "max": 10000,
-      "pct": 10,
+      "max": 25000,
+      "pct": null,
       "of": "price"
      },
      "forgiveYears": 5,
@@ -329,8 +417,9 @@
      ],
      "incomeNote": "Low-income",
      "status": "active",
-     "verified": "2026-11-23",
-     "notes": "Forgivable second mortgage; requires an ADFA first mortgage and homebuyer education."
+     "notes": "5-year forgivable second mortgage for lower-income buyers (by area median income), per ADFA's FY2023 report. ADFA's current home-loan pages no longer list it — confirm availability with ADFA (501-682-5466).",
+     "reviewed": "2026-11-23",
+     "source": "ADFA FY2023 Annual Report of Program Activity (adfa.arkansas.gov, >1 year old); not listed on ADFA's current homeloans pages"
     },
     {
      "id": "ar-dpa",
@@ -357,7 +446,38 @@
      "notes": "Second mortgage with a 10-year term; requires an ADFA StartSmart or Move-Up first mortgage."
     }
    ],
-   "local": {}
+   "local": {
+    "Little Rock": [
+     {
+      "id": "lr-dpa",
+      "name": "City of Little Rock Down Payment Assistance",
+      "agency": "City of Little Rock Community Development",
+      "url": "https://littlerock.gov/government/city-departments/housing-and-neighborhood/community-development/",
+      "type": "forgivable",
+      "amountText": "Up to 6% of price, max $10,000",
+      "amount": {
+       "max": 10000,
+       "pct": 6,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤ 80% AMI (e.g. $74,950 for 4, effective June 1, 2026)",
+      "status": "active",
+      "notes": "Forgiven in equal monthly installments over 60 months. Home must be in Little Rock city limits and owner-occupied for 5 years; no ownership in past 3 years; city-approved counseling; first mortgage from a lender with an Arkansas office, which requests the assistance; repairs completed before approval.",
+      "verified": "2026-11-23"
+     }
+    ]
+   }
   },
   "AZ": {
    "name": "Arizona",
@@ -1229,7 +1349,8 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "0% second mortgage, no monthly payment; due at refinance, sale, title transfer or move-out. Through DSHA Welcome Home (first-time) or Open Door (repeat buyers)."
+     "notes": "0% second mortgage, no monthly payment; due at refinance, sale, title transfer or move-out. Through DSHA Welcome Home (first-time) or Open Door (repeat buyers).",
+     "minCredit": 620
     },
     {
      "id": "de-keys4you",
@@ -1251,7 +1372,8 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "0% deferred second; Welcome Home (first-time) or Open Door (repeat buyers)."
+     "notes": "0% deferred second; Welcome Home (first-time) or Open Door (repeat buyers).",
+     "minCredit": 620
     },
     {
      "id": "de-take5",
@@ -1274,10 +1396,94 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "0% deferred second; Welcome Home (first-time buyers) only."
+     "notes": "0% deferred second; Welcome Home (first-time buyers) only.",
+     "minCredit": 620
+    },
+    {
+     "id": "de-diamond",
+     "name": "Diamond in the Rough",
+     "agency": "DSHA",
+     "url": "https://destatehousing.com/homeownership/",
+     "type": "deferred",
+     "amountText": "5% of first mortgage",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "forgiveYears": null,
+     "rate": 0,
+     "termYears": null,
+     "firstTimeOnly": true,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha"
+     ],
+     "status": "active",
+     "notes": "0% deferred second for homes needing minor repairs; requires the FHA 203(k) Limited program. Welcome Home (first-time buyers) only. Due at refinance, sale, title transfer or move-out.",
+     "verified": "2026-11-23"
     }
    ],
-   "local": {}
+   "local": {
+    "Wilmington / New Castle County": [
+     {
+      "id": "wil-firststart",
+      "name": "First Start Homebuyer Program (City of Wilmington)",
+      "agency": "City of Wilmington Dept. of Real Estate and Housing",
+      "url": "https://www.wilmingtonde.gov/government/city-departments/real-estate-and-housing/first-start-homebuyer-program",
+      "type": "deferred",
+      "amountText": "Up to $15,000 (lesser of $15,000 or 6% of price) for down payment/closing costs; up to $25,000 more for affordability based on income and debt",
+      "amount": {
+       "max": 15000,
+       "pct": 6,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤ 80% AMI for CDBG funds (city funds have allowed up to 100% AMI)",
+      "status": "active",
+      "notes": "City of Wilmington homes. Buyer contributes at least $1,000; fixed-rate mortgage ≤30 years with no points/origination fees. Repayment/forgiveness terms aren't published, so shown conservatively as deferred. City added $350,000 in its FY2024/25 plan amendment; no application window posted — call 311 / (302) 576-2620.",
+      "verified": "2026-11-23"
+     },
+     {
+      "id": "ncc-dps",
+      "name": "Down Payment & Settlement Assistance (DPS)",
+      "agency": "New Castle County Dept. of Community Services",
+      "url": "https://www.newcastlede.gov/1268/Down-Payment-Settlement-Assistance-Progr",
+      "type": "repay",
+      "amountText": "Up to $10,000",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": 15,
+      "firstTimeOnly": null,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Low- and moderate-income households",
+      "status": "active",
+      "notes": "Repayable 15-year loan for down payment/settlement costs: no payments for the first 2 years, monthly payments from year 3. Rate, income limits and whether City of Wilmington addresses qualify aren't on the page — contact the county (302-395-5698).",
+      "verified": "2026-11-23"
+     }
+    ]
+   }
   },
   "FL": {
    "name": "Florida",
@@ -3752,7 +3958,7 @@
       "conv",
       "usda"
      ],
-     "incomeNote": "236 eligible ZIP codes only; price cap",
+     "incomeNote": "Household income and purchase-price limits apply (statewide since May 8, 2023; formerly limited to 236 ZIP codes)",
      "status": "active",
      "verified": "2026-11-23",
      "notes": "Available statewide; homebuyer education class required. Paired with an MSHDA first mortgage."
@@ -3861,13 +4067,12 @@
        "usda"
       ],
       "status": "active",
-      "notes": "HOME-funded forgivable second, deferred: forgiven after 5 yrs (<$15K) or 10 yrs ($15K–$25K); full recapture if sold/not occupied. City-owned properties only — city page (updated Oct 28, 2026) lists 2 homes on Mac Arthur. Requires 30-yr fixed-rate mortgage. Terms from city policy doc dated July 2024; loan types not restricted beyond fixed-rate. Very limited volume (2026–27 plan targets 1 household).",
-      "reviewed": "2026-11-23",
-      "source": "City of Warren HOME Direct Homebuyer Assistance Policies & Procedures (July 2024); current availability confirmed on cityofwarren.org homes-for-sale page",
-      "forgiveYears": 10,
+      "notes": "HOME-funded forgivable deferred-payment second mortgage, fully forgiven after a 5-year affordability period (2026 policy; the 2024 policy's 5/10-yr split by amount no longer appears). City-owned properties only — city page (updated Oct 28, 2026) lists 2 new-construction homes at 22708 and 22728 Mac Arthur. Requires 30-yr fixed-rate, fully amortizing first mortgage within 100 bps of Freddie Mac average; housing DTI ≤30%, total ≤45%. May add subsidy if PITI exceeds 30% of income. Specific loan types not restricted beyond fixed-rate. Very limited volume. Terms from HOME DPA Policies & Procedures (July 2026), linked from the city page.",
+      "forgiveYears": 5,
       "firstTimeOnly": false,
       "minCredit": null,
-      "incomeNote": "≤80% AMI; housing DTI ≤30–31%; must not currently own a home"
+      "incomeNote": "≤80% AMI ($58,700 for 1 to $110,700 for 8, HUD June 2026); must not currently own a home",
+      "verified": "2026-11-23"
      }
     ]
    }
@@ -4477,14 +4682,14 @@
       "name": "Housing Connect Homebuyer Assistance",
       "agency": "City of Greensboro",
       "url": "https://www.greensboro-nc.gov/departments/housing-neighborhood-development/housing-services/homeowners-renters/housing-connect-gso/homebuyer-down-payment-assistance-program",
-      "type": "forgivable",
-      "amountText": "Up to $15,000 ($20,000 redevelopment areas)",
+      "type": "deferred",
+      "amountText": "Up to $15,000 ($20,000 in redevelopment/reinvestment areas) per secondary source; not confirmed on the City's site",
       "amount": {
        "max": 15000,
        "pct": null,
        "of": "price"
       },
-      "forgiveYears": 10,
+      "forgiveYears": null,
       "firstTimeOnly": true,
       "loanTypes": [
        "fha",
@@ -4493,10 +4698,10 @@
        "usda"
       ],
       "status": "active",
-      "reviewed": "2026-11-16",
-      "source": "The Mortgage Reports state guide (Nov 2026)",
+      "reviewed": "2026-11-23",
+      "source": "City of Greensboro program page (eligibility only); amounts from The Mortgage Reports state guide (Nov 2026)",
       "incomeNote": "≤80% AMI standard; 80–120% AMI under Public Service Heroes / #100Homes",
-      "notes": "City page (checked 2026-11-23) confirms program, first-time rule (or no home owned in 3 yrs), Greensboro city limits, and a bonus in 8 redevelopment/reinvestment areas, but does not state amounts or forgiveness terms; amounts below are from the secondary source and could not be confirmed (city news pages unreachable)."
+      "notes": "City page (checked 2026-11-23) confirms the program with Standard (≤80% AMI), Public Service Heroes and #100Homes (80–120% AMI) offerings, first-time rule (or no home owned in 3 yrs), Greensboro city limits, and a bonus in 8 redevelopment/reinvestment areas (Dudley Heights, Eastside Park, Glenwood, Kings Forest, Mill District, Ole Asheboro, Random Woods, Willow Oaks). It does not state amounts or loan terms; amounts are from a secondary source and city news/guideline pages could not be reached. Secondary source describes it as forgivable over 10 years; modeled conservatively as deferred until confirmed."
      }
     ],
     "Durham": [
@@ -4722,21 +4927,20 @@
   "NH": {
    "name": "New Hampshire",
    "agency": "New Hampshire Housing (NHHFA)",
-   "agencyUrl": "https://www.nhhfa.org",
+   "agencyUrl": "https://www.nhhousing.org",
    "programs": [
     {
      "id": "nh-dpa",
      "name": "Down Payment & Closing Cost Assistance",
      "agency": "NH Housing",
-     "url": "https://www.nhhfa.org/homeownership/homeownership-programs/",
-     "type": "forgivable",
-     "amountText": "$5,000, $10,000 or $15,000 (you pick)",
+     "url": "https://www.nhhousing.org/homeownership/build-your-team/mortgage-programs/",
+     "type": "deferred",
+     "amountText": "Up to $15,000 ($5,000, $10,000 or $15,000 options)",
      "amount": {
       "max": 15000,
       "pct": null,
       "of": "price"
      },
-     "forgiveYears": 5,
      "loanTypes": [
       "fha",
       "va",
@@ -4745,14 +4949,16 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "incomeNote": "Income ≤ $176,200 (Home Preferred)",
-     "notes": "Fixed cash assistance added to an NH Housing mortgage, for down payment and closing costs. Forgiveness terms: confirm with NH Housing."
+     "incomeNote": "Limits vary by program (up to $184,500 for Flex Plus / Preferred Plus over 80% AMI)",
+     "notes": "0% second mortgage, no payments, 30-year term; due in full on sale, refinance, bankruptcy, move-out or at 30 years (not forgiven). Requires an NH Housing first mortgage and NH Housing homebuyer education.",
+     "rate": 0,
+     "termYears": 30
     },
     {
      "id": "nh-1stgen",
      "name": "1stGenHomeNH",
      "agency": "New Hampshire Housing",
-     "url": "https://www.nhhfa.org/homeownership/homeownership-programs/",
+     "url": "https://www.nhhousing.org/homeownership/build-your-team/mortgage-programs/",
      "type": "deferred",
      "amountText": "Up to $10,000 extra",
      "amount": {
@@ -4769,7 +4975,7 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "For first-generation buyers, on top of the standard NH Housing assistance. Terms: confirm with NH Housing (shown as deferred)."
+     "notes": "Limited-funding pilot for first-generation buyers (you, your parents/guardians and non-borrowing spouse never owned; foster care, refugee or asylum status also qualifies), on top of standard NH Housing assistance. Requires an NH Housing loan and face-to-face education (AHEAD, HOMEteam or Housing Partnership). Terms not published — shown as deferred; NH Housing may end it anytime."
     }
    ],
    "local": {}
@@ -6336,13 +6542,72 @@
       "usda"
      ],
      "status": "active",
-     "notes": "Pilot with limited funds. First-generation buyers currently living in Central Falls, East Providence, Pawtucket, Woonsocket, Providence (not 02906) or one Newport tract. Forgiven after 5 years.",
+     "notes": "Pilot with limited funds, first come first served; RIHousing Loan Center only. First-generation buyers currently living in Central Falls, East Providence, Pawtucket, Woonsocket, Providence (not 02906) or Newport tract 405; can buy anywhere in RI. 0%, no payments; forgiven after 5 years of owner-occupancy.",
      "firstTimeOnly": true,
      "minCredit": 660,
      "verified": "2026-11-23"
+    },
+    {
+     "id": "ri-realtors",
+     "name": "RI REALTORS® Homebuyer Grant",
+     "agency": "RIHousing",
+     "url": "https://www.rihousing.com/homebuyers/ri-realtors-homebuyer-grant/",
+     "type": "grant",
+     "amountText": "$1,000 ($2,000 for veterans/active military)",
+     "amount": {
+      "max": 2000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": null,
+     "rate": null,
+     "termYears": null,
+     "firstTimeOnly": true,
+     "minCredit": null,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Income under $92,080",
+     "status": "paused",
+     "notes": "All available grant funds have been reserved. Requires a RIHousing first mortgage; stackable with other RIHousing assistance.",
+     "verified": "2026-11-23"
     }
    ],
-   "local": {}
+   "local": {
+    "Providence": [
+     {
+      "id": "pvd-dpa",
+      "name": "Providence Down Payment & Closing Cost Assistance",
+      "agency": "City of Providence Dept. of Housing & Human Services",
+      "url": "https://www.providenceri.gov/mayor-brett-smiley-providence-city-council-advance-8-8-million-federal-housing-and-community-investment-package/",
+      "type": "forgivable",
+      "amountText": "Per-buyer amount not yet announced ($550,000 HOME-funded program)",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "HOME income limits (≤ 80% AMI) expected",
+      "status": "upcoming",
+      "notes": "Approved May 2026 in the city's 2026-27 HUD plan: forgivable purchase loans for first-time buyers. Administrator, per-buyer amount and forgiveness period not yet published — contact Housing & Human Services (401-680-8400). Providence residents may also qualify for RIHousing's FirstGenHomeRI.",
+      "verified": "2026-11-23"
+     }
+    ]
+   }
   },
   "SC": {
    "name": "South Carolina",
@@ -6909,7 +7174,7 @@
      "incomeNote": "Low/moderate income limits by county (up to ~80% / 150–170% AMI)",
      "status": "active",
      "notes": "Offered as either a non-repayable grant or a second lien forgiven after 3 years; modeled conservatively as forgivable. Min credit 620 government / 640 conventional. Specific government loan types not named on the page. Purchase-price limits by county.",
-     "verified": "2026-11-20"
+     "verified": "2026-11-23"
     },
     {
      "id": "tx-hfth",
@@ -6935,7 +7200,7 @@
      "incomeNote": "Income limits by county (up to ~80% / 150–170% AMI)",
      "status": "active",
      "notes": "For teachers/K-12 staff, police, firefighters, EMS, corrections officers, nursing/allied health faculty and veterans. Grant or 3-yr forgivable option; modeled conservatively as forgivable. Min credit 620 government / 640 conventional.",
-     "verified": "2026-11-20"
+     "verified": "2026-11-23"
     }
    ],
    "local": {
@@ -7146,7 +7411,7 @@
       ],
       "incomeNote": "Low-income (HOME, ≤80% AMI); HOME rule caps price at 95% of area median purchase price. Earlier figure of ≤$238,000 not confirmed",
       "status": "paused",
-      "notes": "Paused: no open homebuyer assistance program could be found on the City of Corpus Christi's site (2026-11-23). The old cctexas.com program page redirects to the homepage; the Community Development Programs and Funding Opportunities pages list only the Minor Home Repair Program; 2026 Planning & Economic Development news has no homebuyer assistance items. The PY2025 Annual Action Plan still names a 'Homebuyer Closing Cost and Down Payment Assistance Program' run by Planning & Community Development but gives no amount or terms. The latest program document is a Jan 8, 2025 HOME notice for a Come Dream Come Build (CDCB) homebuyer assistance project: up to $25,000 per family, about 12 families, $300,000 total. Forgiveness period not published, so modeled as deferred instead of forgivable. Loan types not stated. Confirm with the City before relying on this.",
+      "notes": "Paused: no open homebuyer assistance program could be found on the City of Corpus Christi's site (2026-11-23). The old cctexas.com program page redirects to the homepage; the Community Development Programs and Funding Opportunities pages list only the Minor Home Repair Program; 2026 Planning & Economic Development news has no homebuyer assistance items. The PY2025 Annual Action Plan still names a 'Homebuyer Closing Cost and Down Payment Assistance Program' run by Planning & Community Development but gives no amount or terms. The latest program document is a Jan 8, 2025 HOME notice for a Come Dream Come Build (CDCB) homebuyer assistance project: up to $25,000 per family, about 12 families, $300,000 total. Forgiveness period not published, so modeled as deferred instead of forgivable. Loan types not stated. A July 28, 2026 City news release says the approved PY2026 plan uses $3.5M HOME for 'homebuyer support programs' but gives no program terms. Confirm with the City before relying on this.",
       "reviewed": "2026-11-23",
       "source": "City of Corpus Christi HOME Notice of Intent/RROF, Come Dream Come Build Homebuyer Assistance (Jan 8, 2025) and FY2026/PY2025 Annual Action Plan draft",
       "firstTimeOnly": true
@@ -7604,9 +7869,9 @@
      "id": "vt-nwwv",
      "name": "NeighborWorks of Western VT DPA",
      "agency": "NeighborWorks of Western Vermont",
-     "url": "https://www.nwwvt.org",
+     "url": "https://www.nwwvt.org/down-payment-assistance-loan/",
      "type": "repay",
-     "amountText": "Up to $50,000 or 20% of price",
+     "amountText": "Up to $50,000 or 20% of price, whichever is lower",
      "amount": {
       "max": 50000,
       "pct": 20,
@@ -7620,9 +7885,8 @@
       "usda"
      ],
      "status": "active",
-     "notes": "Rate 2 points above your mortgage.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Second mortgage at 2 points above your first-mortgage rate, 15-year term; no PMI, no prepayment penalty. Homes anywhere in Vermont; apply through a NeighborWorks partner lender. Combines with VHFA ASSIST and Freddie Mac Home Possible Advantage. Income limits, first-time rule and first-mortgage types not stated on the page (loan types kept from prior data).",
+     "verified": "2026-11-23"
     },
     {
      "id": "vt-firstgen",
@@ -8026,7 +8290,7 @@
      "id": "wv-lowdown",
      "name": "Low Down Home Loan",
      "agency": "WVHDF",
-     "url": "https://www.wvhdf.com/home-buyers/low-down-home-loan",
+     "url": "https://www.wvhdf.com/programs/single-family-programs-and-resources/low-down-home-loan/",
      "type": "repay",
      "amountText": "Up to $12,000",
      "amount": {
@@ -8047,7 +8311,39 @@
      "notes": "2% fixed, repaid over 15 years. Only with the Fund’s Homeownership (mostly first-time) or Movin’ Up programs; full $12,000 when loan-to-value is 80% or higher."
     }
    ],
-   "local": {}
+   "local": {
+    "Charleston": [
+     {
+      "id": "chs-wv-homeblend",
+      "name": "Home Blend First-Time Homebuyer Program",
+      "agency": "City of Charleston Mayor's Office of Economic & Community Development (MOECD)",
+      "url": "https://charlestonwv.gov/sites/default/files/documents/2022-06/HOME%20Brochure-Flyer%20%202022%20(002)_0.pdf",
+      "type": "deferred",
+      "amountText": "Up to $28,000 ($26,000 down payment + $2,000 closing costs) per the City's 2022 brochure; current amount unconfirmed",
+      "amount": {
+       "max": 28000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Low/moderate income (HOME, ≤80% AMI); 2022 limits $37,200 (1) to $57,350 (5). Home in City of Charleston or Kanawha County",
+      "status": "active",
+      "notes": "HOME-funded assistance from MOECD paired with a participating-lender first mortgage; buyer must contribute at least $500. 2022 brochure calls it a forgivable loan but gives no forgiveness schedule, so modeled conservatively as deferred. No home owned in past 3 years. The FY2026 Action Plan (draft Apr 29, 2026) still funds HOME first-time homebuyer down payment/closing cost help (~$494,000 for 15 households) but gives no per-household amount. No current program page found; loan types not stated. Confirm with MOECD (304-348-8035).",
+      "reviewed": "2026-11-23",
+      "source": "City of Charleston Home Blend brochure (2022) and Draft FY2026 Annual Action Plan (Apr 2026), charlestonwv.gov"
+     }
+    ]
+   }
   },
   "WY": {
    "name": "Wyoming",
