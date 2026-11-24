@@ -931,7 +931,18 @@
     let minPct = 0, eligible = true, minNote = '';
     if (type==='fha'){ minPct = credit>=580 ? 0.035 : 0.10; }
     if (type==='va'){ minPct = 0; }
-    if (type==='conv'){ minPct = S.units>1 ? 0.05 : 0.03; if (credit < 620) eligible = false; }
+    let hb = null;   // high-balance conforming rule, when it sets the minimum
+    if (type==='conv'){
+      minPct = S.units>1 ? 0.05 : 0.03; if (credit < 620) eligible = false;
+      // Loans above the baseline limit (but within a high-cost county's limit) are "high-balance":
+      // Fannie Mae caps them at 95% LTV for 1 unit, 85% for 2 units, 75% for 3–4 units.
+      const base = confBase(S.units), hbMax = [0.95, 0.85, 0.75, 0.75][S.units-1];
+      if (S.confLimit > base && value*(1-minPct) > base){
+        const hbDown = value*(1-hbMax), toBase = value - base;
+        if (hbDown < toBase){ minPct = Math.max(minPct, 1-hbMax); hb = { base, hbMax }; }
+        else { minPct = toBase/value; hb = { base, hbMax, toBase:true }; }
+      }
+    }
     const minDown = gap + value*minPct;
     let down = S.down;
     let bumped = false;
@@ -1046,12 +1057,12 @@
     if (type==='fha' && credit < 580 && credit >= 500) A.push(['warn', 'With a 500–579 score FHA requires 10% down, and many lenders set their own floor at 580–620.']);
     if (type==='va' && credit < 620) A.push(['warn', 'VA has no minimum score, but most lenders want about 620. Some go lower.']);
     if (S.down + 0.5 < minDown){
-      const need = type==='fha' ? `FHA needs at least ${pct(minPct,1)} down` : type==='conv' ? `Conventional needs at least ${pct(minPct,0)} down${S.units>1?` on a ${S.units}-unit home`:''}` : 'VA can\'t lend more than the appraised value';
+      const need = type==='fha' ? `FHA needs at least ${pct(minPct,1)} down` : type==='conv' ? (hb ? (hb.toBase ? `To keep the loan at the ${fmt0(hb.base)} baseline you need at least ${pct(minPct,1)} down (a larger high-balance loan would need ${pct(1-hb.hbMax,0)} down)` : `A high-balance conventional loan (over the ${fmt0(hb.base)} baseline${S.units>1?` for ${S.units} units`:''}) needs at least ${pct(1-hb.hbMax,0)} down`) : `Conventional needs at least ${pct(minPct,1).replace('.0%','%')} down${S.units>1?` on a ${S.units}-unit home`:''}`) : 'VA can\'t lend more than the appraised value';
       A.push(['bad', `${need} — ${fmt0(minDown)}${gap>0?' (including the appraisal gap)':''}.`]);
     } else if (dpaToDown>0) {
       A.push(['good', `Assistance covers ${fmt0(dpaToDown)} of your ${fmt0(down)} down payment${yourDown<1?' — all of it':''}.`]);
     }
-    if (type==='conv' && S.units===1 && downFrac >= 0.03 && downFrac < 0.05) A.push(['info', 'Under 5% down on conventional usually means a first-time-buyer program (HomeReady / Home Possible), which may have income limits.']);
+    if (type==='conv' && S.units===1 && baseLoan <= confBase(1) && downFrac >= 0.03 && downFrac < 0.05) A.push(['info', 'Under 5% down on conventional usually means a first-time-buyer program (HomeReady / Home Possible), which may have income limits.']);
     if (S.apprEntered && gap>0) A.push(['warn', `Appraisal is ${fmt0(gap)} under price. Loans are based on the lower value, so that gap comes out of your pocket (already counted in the down payment).`]);
     if (dpaExcess>0) A.push(['warn', `${fmt0(dpaExcess)} of the assistance isn't needed — most programs won't give cash back at closing.`]);
     if (creditsWasted>0) A.push(['warn', `Credits exceed closing costs by ${fmt0(creditsWasted)}; credits can't be taken as cash.`]);
@@ -1062,6 +1073,7 @@
       A.push([type==='va'?'warn':'bad', msg]);
     }
     if (type==='fha' && S.fhaLimit>0 && baseLoan>S.fhaLimit) A.push(['bad', `Base loan ${fmt0(baseLoan)} exceeds your county FHA limit of ${fmt0(S.fhaLimit)}.`]);
+    if (type==='conv' && S.down + 0.5 >= minDown && baseLoan > confBase(S.units) && !(S.confLimit>0 && baseLoan>S.confLimit)) A.push(['info', `High-balance conforming loan: it's over the ${fmt0(confBase(S.units))} baseline${S.units>1?` for ${S.units} units`:''} but within your county's limit. Maximum LTV is ${pct([0.95,0.85,0.75,0.75][S.units-1],0)}, and pricing is usually a bit higher.`]);
     if (type==='conv' && S.confLimit>0 && baseLoan>S.confLimit) A.push(['warn', `Loan ${fmt0(baseLoan)} is over the ${fmt0(S.confLimit)} conforming limit — that's a jumbo loan, which usually needs 10–20% down and a higher score.`]);
     if (isLien && dpaUsed>0) A.push(['info', `Combined LTV with the ${S.dpaType==='repay'?'repayable':S.dpaType} second: ${pct(cltv,1)}.` + (S.dpaType==='forgivable' ? ` Forgiven after ${S.dpaForgive} years if you stay.` : S.dpaType==='deferred' ? ` ${fmt0(dpaUsed)} comes due when you sell, refinance or pay off.` : '')]);
     if (S.points > 0) A.push(['info', `${S.points} point${S.points===1?'':'s'} (${fmt0(pointsCost)}${S.ptsPayer==='seller'?', seller-paid':''}) ${S.points===1?'takes':'take'} the rate from ${(noteRate*100).toFixed(3).replace(/0+$/,'').replace(/\.$/,'')}% to ${(rate*100).toFixed(3).replace(/0+$/,'').replace(/\.$/,'')}% and save ${fmt0(ptsSave)}/mo` + (S.ptsPayer==='seller' ? '.' : ` — break-even in ${Math.ceil(breakeven)} months (about ${(breakeven/12).toFixed(1)} years). Sell or refinance sooner and the points cost more than they save.`)]);
