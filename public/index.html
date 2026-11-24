@@ -281,6 +281,7 @@
         <label><span>State you're buying in</span><div class="field"><select id="dpaState"><option value="">Select a state…</option></select></div></label>
         <label id="dpaAreaWrap" class="hide"><span>City / county</span><div class="field"><select id="dpaArea"></select></div></label>
       </div>
+      <label class="check" style="margin-top:-2px"><input type="checkbox" id="firstTime" checked> First-time buyer <em style="font-style:normal;color:var(--muted)">(no home owned in the last 3 years)</em></label>
       <div id="dpaAvail"></div>
       <div class="using hide" id="dpaUsing"></div>
 <div class="row">
@@ -564,10 +565,10 @@
   function progFit(p){
     const credit = +$('credit').value, lts = p.loanTypes || ['fha','va','conv','usda'];
     const open = p.status!=='paused' && p.status!=='upcoming';
-    const okType = lts.includes(loanType), okCredit = !p.minCredit || credit >= p.minCredit;
+    const okType = lts.includes(loanType), okCredit = !p.minCredit || credit >= p.minCredit, okFirst = !p.firstTimeOnly || $('firstTime').checked;
     const amt = progAmount(p);
-    return { fits: open && okType && okCredit, open, okType, okCredit,
-      tier: (open?4:0) + (okType?2:0) + (okCredit?1:0),
+    return { fits: open && okType && okCredit && okFirst, open, okType, okCredit, okFirst,
+      tier: (open?8:0) + (okType?4:0) + (okFirst?2:0) + (okCredit?1:0),
       value: (amt||0) * (TYPE_W[p.type]||0.5) };
   }
   function sortByFit(list){
@@ -581,7 +582,7 @@
     const chips = p.id===dpaBestId ? ['<span class="chip g">Best fit for your numbers</span>'] : [];
     chips.push(`<span class="chip t">${TYPE_LBL[p.type]||p.type}${p.type==='forgivable'&&p.forgiveYears?` · ${p.forgiveYears} yrs`:''}${p.type==='repay'&&p.termYears?` · ${p.termYears} yrs`:''}</span>`);
     if (p.group && GROUP_LBL[p.group]) chips.push(`<span class="chip w">${GROUP_LBL[p.group]}</span>`);
-    if (p.firstTimeOnly) chips.push('<span class="chip">First-time buyers</span>');
+    if (p.firstTimeOnly) chips.push($('firstTime').checked ? '<span class="chip">First-time buyers</span>' : '<span class="chip b">First-time buyers only</span>');
     if (p.minCredit) chips.push(`<span class="chip ${credit < p.minCredit ? 'b':''}">${p.minCredit}+ credit</span>`);
     if (p.incomeNote) chips.push(`<span class="chip">${p.incomeNote}</span>`);
     const lts = p.loanTypes || ['fha','va','conv','usda'];
@@ -619,7 +620,7 @@
       const nFit = [...local, ...st.programs].filter(p => progFit(p).fits).length;
       const where = area ? `${area}, ${st.name}` : st.name;
       const hasLocalOpts = Object.keys(st.local||{}).length && !area;
-      $('dpaAvail').innerHTML = `<div class="avail">${open.length ? `<b>${open.length} program${open.length>1?'s':''}</b> available in ${where}.` : `No open state or local programs listed for ${where}.`}${open.length && nFit < open.length ? ` ${nFit ? nFit : 'None'} fit${nFit===1?'s':''} your ${LT_LBL[loanType]} loan and credit score.` : ''}${hasLocalOpts ? ' Pick your city or county for local programs.' : ''}<div class="hint" style="margin-top:2px">Sorted by best fit for your loan type, credit score and price — highest value first.</div></div>
+      $('dpaAvail').innerHTML = `<div class="avail">${open.length ? `<b>${open.length} program${open.length>1?'s':''}</b> available in ${where}.` : `No open state or local programs listed for ${where}.`}${open.length && nFit < open.length ? ` ${nFit ? nFit : 'None'} fit${nFit===1?'s':''} your ${LT_LBL[loanType]} loan, credit score${$('firstTime').checked?'':' and repeat-buyer status'}.` : ''}${hasLocalOpts ? ' Pick your city or county for local programs.' : ''}<div class="hint" style="margin-top:2px">Sorted by best fit for your loan type, credit score, first-time status and price — highest value first.</div></div>
         <div class="proglist">${groups.map(([h,list]) => `<div class="hint" style="margin:6px 0 6px;font-weight:600">${h}</div>` + sortByFit(list).map(progCard).join('')).join('')}</div>
         <div class="hint" style="margin:-2px 0 12px">${DPA.note || ''}</div>`;
     }
