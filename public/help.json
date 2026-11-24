@@ -39,10 +39,10 @@
   },
   "confLimit": {
    "title": "Conforming loan limit",
-   "text": "Conventional loans above this are \"jumbo\" loans, which usually need more down and stronger credit. The {{confYear}} baseline is {{confLimit}}; high-cost counties are higher.",
+   "text": "Conventional loans above this are \"jumbo\" loans, which usually need more down and stronger credit. The {{confYear}} baseline for a one-unit home is {{confLimit}}; high-cost counties (and Alaska and Hawaii) are higher, up to 150% of the baseline. Enter your county's limit if it's higher.",
    "link": {
-    "label": "FHFA loan limits",
-    "url": "https://www.fhfa.gov/CLL"
+    "label": "FHFA conforming loan limits by county",
+    "url": "https://www.fhfa.gov/data/conforming-loan-limit-cll-values"
    }
   },
   "financeUf": {
