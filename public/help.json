@@ -70,8 +70,8 @@
    }
   },
   "income": {
-   "title": "Gross monthly income",
-   "text": "Income before taxes and deductions, for everyone on the loan. Used to estimate your debt-to-income ratio.",
+   "title": "Gross income",
+   "text": "Income before taxes and deductions, for everyone on the loan. Enter it per year or per month with the /yr and /mo switch; DTI always uses the monthly figure.",
    "link": {
     "label": "CFPB: debt-to-income",
     "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/"
