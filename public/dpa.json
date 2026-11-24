@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-23T19:50:45-05:00",
+ "updatedAt": "2026-11-23T20:21:12-05:00",
  "deepState": null,
  "note": "Programs marked “Checked with agency” were confirmed on the agency’s or lender’s own site on that date; the rest come from current state guides and are re-checked against each agency on a rolling weekly basis. Lender grants apply only in the lender’s eligible areas. Always confirm amounts and eligibility with the program.",
  "national": [
@@ -2005,40 +2005,104 @@
     {
      "id": "hi-dcca",
      "name": "Deferred Closing Cost Assistance Loan",
-     "agency": "Hawaii HomeOwnership Center",
-     "url": "https://www.hihomeownership.org",
+     "agency": "Hawaii HomeOwnership Center (HHOC Mortgage)",
+     "url": "https://hhocmortgage.org/loan-products/",
      "type": "deferred",
-     "amountText": "Up to $15,000 (6:1 match)",
+     "amountText": "Up to $10,000 (Honolulu County: up to $5,000); requires $5,000 borrower match",
      "amount": {
-      "max": 15000,
+      "max": 10000,
       "pct": null,
       "of": "price"
      },
+     "forgiveYears": null,
+     "rate": 0,
+     "termYears": 15,
      "firstTimeOnly": true,
+     "minCredit": null,
      "loanTypes": [
       "fha",
       "va",
       "conv",
       "usda"
      ],
-     "incomeNote": "≤120% AMI",
+     "incomeNote": "≤80% AMI",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "0% loan for closing costs incl. rate buydowns; deferred 15 years or until sale, title change, non-occupancy or equity take-out; annual occupancy affidavit. HHOC Mortgage must originate the first mortgage; homebuyer education + coaching required; no ownership in past 3 years. Funds limited, reserved at contract. Eligible first-mortgage types not stated.",
+     "verified": "2026-11-23"
     },
     {
      "id": "hi-dpal",
-     "name": "Down Payment Assistance Loan",
-     "agency": "Hawaii HomeOwnership Center",
-     "url": "https://www.hihomeownership.org",
+     "name": "Down Payment Assistance Loan (DPAL)",
+     "agency": "Hawaii HomeOwnership Center (HHOC Mortgage)",
+     "url": "https://hhocmortgage.org/loan-products/",
      "type": "repay",
-     "amountText": "Second loan up to $125,000 at ~4.5%",
+     "amountText": "Second loan up to $125,000 at 4.5% or the first-mortgage rate, whichever is lower",
+     "amount": {
+      "max": 125000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": null,
+     "rate": 4.5,
+     "termYears": 30,
+     "firstTimeOnly": true,
+     "minCredit": null,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤130% AMI",
+     "status": "active",
+     "notes": "30-year amortizing second; 3% minimum down payment; no mortgage insurance or prepayment penalty. HHOC Mortgage must originate the first mortgage; homebuyer education + coaching required. Eligible first-mortgage types not stated.",
+     "verified": "2026-11-23"
+    },
+    {
+     "id": "hi-hlpr",
+     "name": "Max HLPR (Home Loan Payment Relief) Loan",
+     "agency": "Hawaii HomeOwnership Center (HHOC Mortgage)",
+     "url": "https://hhocmortgage.org/loan-products/",
+     "type": "deferred",
+     "amountText": "Amount not published — contact HHOC Mortgage",
      "amount": {
       "max": null,
       "pct": null,
       "of": "price"
      },
+     "forgiveYears": null,
+     "rate": 0,
+     "termYears": 20,
      "firstTimeOnly": true,
+     "minCredit": null,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": null,
+     "status": "active",
+     "notes": "0% deferred down payment loan with a shared-appreciation equity agreement; principal due after 20 years or earlier on sale, non-occupancy or cash-out refinance/HELOC. HHOC Mortgage must originate the first mortgage.",
+     "verified": "2026-11-23"
+    },
+    {
+     "id": "hi-booster",
+     "name": "Mortgage Booster (pilot)",
+     "agency": "Hawaii HomeOwnership Center (HHOC Mortgage)",
+     "url": "https://hhocmortgage.org/loan-products/",
+     "type": "repay",
+     "amountText": "Up to $50,000 second loan at fixed 3%",
+     "amount": {
+      "max": 50000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": null,
+     "rate": 3,
+     "termYears": 30,
+     "firstTimeOnly": true,
+     "minCredit": null,
      "loanTypes": [
       "fha",
       "va",
@@ -2047,8 +2111,36 @@
      ],
      "incomeNote": "≤120% AMI",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Pilot program; 30-year amortizing second that boosts qualifying amount; 3% minimum down payment. HHOC Mortgage must originate the first mortgage.",
+     "verified": "2026-11-23"
+    },
+    {
+     "id": "hi-hk-second",
+     "name": "Hale Kamaʻāina Mortgage Program – Down Payment Second",
+     "agency": "Hawaii Housing Finance and Development Corporation (HHFDC)",
+     "url": "https://dbedt.hawaii.gov/hhfdc/hk-mortgage-program/",
+     "type": "deferred",
+     "amountText": "Soft second mortgage equal to 4% of the first-mortgage amount",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "forgiveYears": null,
+     "rate": 1,
+     "termYears": null,
+     "firstTimeOnly": true,
+     "minCredit": 660,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "County/targeted-area limits (e.g., Honolulu non-targeted 2025: $152,000 for 1–2 persons, $174,800 for 3+)",
+     "status": "active",
+     "notes": "Optional with HHFDC's below-market 30-year fixed Hale Kamaʻāina first mortgage (revived Hula Mae; launched fall 2025). 1% simple interest, no monthly payments, due at maturity, sale, refinance or transfer. Borrower must contribute 5% of price when using the second. First-time rule (no ownership in 3 years) may be waived for veterans/targeted areas. Apply through participating lenders. Terms from HHFDC presentation dated Mar 9, 2026.",
+     "verified": "2026-11-23"
     }
    ],
    "local": {}
@@ -2216,32 +2308,33 @@
      "id": "id-second",
      "name": "Idaho Housing Second Mortgage",
      "agency": "IHFA",
-     "url": "https://www.idahohousing.com/lenders-realtors/down-payment-closing-cost-assistance/",
+     "url": "https://www.idahohousing.com/homebuyers/down-payment-closing-cost-assistance/",
      "type": "repay",
-     "amountText": "Up to 7% of price (8% on some products)",
+     "amountText": "Up to 8% of the sales price (lesser of price or appraised value)",
      "amount": {
       "max": null,
-      "pct": 7,
+      "pct": 8,
       "of": "price"
      },
      "termYears": 15,
-     "firstTimeOnly": true,
+     "firstTimeOnly": false,
      "loanTypes": [
       "fha",
       "va",
       "conv",
       "usda"
      ],
-     "incomeNote": "Income ≤ $170,000 on some products",
+     "incomeNote": "Household income ≤ $170,000 (some loan programs lower)",
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "Fixed rate 2% above your first mortgage, repaid over 15 years. You contribute at least $500 (0.5% on some products). Finally Home!® education required."
+     "notes": "Second mortgage at a fixed rate 2 points above your first mortgage, repaid in monthly payments over 15 years. Available to all eligible Idaho buyers, not only first-time buyers. You contribute at least $500 of your own funds. Finally Home!® education required.",
+     "rate": null
     },
     {
      "id": "id-forgive",
      "name": "Idaho Housing Forgivable Loan",
      "agency": "IHFA",
-     "url": "https://www.idahohousing.com",
+     "url": "https://www.idahohousing.com/homebuyers/down-payment-closing-cost-assistance/",
      "type": "forgivable",
      "amountText": "Up to 3% of price",
      "amount": {
@@ -2257,12 +2350,44 @@
       "usda"
      ],
      "status": "active",
-     "notes": "Raises the first-mortgage rate slightly.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Raises the first-mortgage rate slightly. Idaho Housing's DPA page mentions a forgivable-loan option but publishes no amount or forgiveness terms; figures here are from a secondary guide—confirm with an Idaho Housing lender.",
+     "reviewed": "2026-11-23",
+     "source": "The Mortgage Reports state guide (Nov 2026); Idaho Housing DPA page mentions a forgivable option without terms"
     }
    ],
-   "local": {}
+   "local": {
+    "Boise": [
+     {
+      "id": "boi-hop",
+      "name": "Homeownership Opportunity Program (HOP)",
+      "agency": "City of Boise Housing & Community Development",
+      "url": "https://www.cityofboise.org/departments/planning-and-development-services/housing-and-community-development/homeownership-opportunity-program/",
+      "type": "deferred",
+      "amountText": "Up to $45,000 ($65,000 for Community Land Trust / deed-restricted homes)",
+      "amount": {
+       "max": 45000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": false,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "Household income 50%–80% AMI; home within Boise city limits",
+      "status": "active",
+      "notes": "Deferred mortgage for down payment, closing costs and/or direct assistance; due at sale or transfer. Shared appreciation: repayment = assistance × (future sale price ÷ purchase price), capped at net proceeds. Apply only by referral through NeighborWorks Boise or LEAP Housing. First mortgage must be 30-year fixed. Loan types not specified (shown as all).",
+      "reviewed": "2026-11-23",
+      "source": "City of Boise HOP Policy (2025 revision); program page confirms program, income range and referral process"
+     }
+    ]
+   }
   },
   "IL": {
    "name": "Illinois",
@@ -3523,7 +3648,7 @@
       "usda"
      ],
      "status": "active",
-     "notes": "Grant, no second mortgage and no repayment. Needs a MaineHousing First Home Loan, a hoMEworks homebuyer class, and a 1% borrower contribution (may be a gift).",
+     "notes": "$5,000 toward cash to close with a MaineHousing First Home Loan (no second mortgage). Requires a hoMEworks homebuyer class before closing and a 1% borrower contribution (class cost counts toward it).",
      "firstTimeOnly": true,
      "verified": "2026-11-23"
     },
@@ -3531,24 +3656,23 @@
      "id": "me-multi",
      "name": "Multi-Unit Advantage",
      "agency": "MaineHousing",
-     "url": "https://www.mainehousing.org",
+     "url": "https://www.mainehousing.org/docs/default-source/homeownership/multi-unit-advantage-summary-102021.pdf?sfvrsn=be438815_10",
      "type": "grant",
-     "amountText": "$8,000–$14,000",
+     "amountText": "$8,000 (2 units), $11,000 (3 units), $14,000 (4 units)",
      "amount": {
-      "max": 8000,
+      "max": 14000,
       "pct": null,
       "of": "price"
      },
      "loanTypes": [
       "fha",
       "va",
-      "conv",
-      "usda"
+      "conv"
      ],
      "status": "active",
-     "notes": "1–4 unit properties.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "For 2–4 unit owner-occupied homes with a First Home, Purchase Plus Improvement or Salute ME loan. No second mortgage, no rate add-on. 1% borrower contribution (may be a gift); homebuyer and landlord education required. Not available with Rural Development.",
+     "firstTimeOnly": true,
+     "verified": "2026-11-23"
     },
     {
      "id": "me-salute",
@@ -3571,7 +3695,35 @@
      "status": "active",
      "verified": "2026-11-23",
      "group": "profession",
-     "notes": "For active duty, veterans and retired military. First-time buyer rule waived for veterans who owned before. 1% borrower contribution required."
+     "notes": "For active duty, honorably discharged and retired military (180 days active duty or war-zone service). Includes the $5,000 Advantage plus 0.50% off the First Home Loan 30-year rate. Salute Home Again waives the first-time rule for returning homebuyers. hoMEworks class required."
+    },
+    {
+     "id": "me-firstgen",
+     "name": "First Generation Program",
+     "agency": "MaineHousing",
+     "url": "https://www.mainehousing.org/programs-services/homebuyer/homebuyerdetail/first-generation-program",
+     "type": "deferred",
+     "amountText": "$10,000 toward cash to close",
+     "amount": {
+      "max": 10000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": null,
+     "rate": null,
+     "termYears": null,
+     "firstTimeOnly": true,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "MaineHousing income & cost limits apply",
+     "status": "active",
+     "notes": "For lifetime first-time buyers who never lived in a home owned by their parents/guardians (or were in foster care). Includes a 1.00% rate discount off the First Home Loan rate. Financial literacy and homebuyer education classes plus 1% borrower contribution required. MaineHousing does not state the assistance structure; shown as deferred conservatively (may be grant-like, like Advantage).",
+     "verified": "2026-11-23"
     }
    ],
    "local": {}
@@ -3990,7 +4142,7 @@
      "id": "ms-smart7",
      "name": "Smart7",
      "agency": "MHC",
-     "url": "https://mshomecorp.com/programs/smart6",
+     "url": "https://www.mshomecorp.com/programs/smart7/",
      "type": "deferred",
      "amountText": "$7,000",
      "amount": {
@@ -4006,13 +4158,16 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "0% second, due at sale, refinance, move-out or first-mortgage payoff. Purchase price ≤ $398,310."
+     "notes": "0% second mortgage, due at sale, refinance, move-out or first-mortgage payoff. No first-time-buyer requirement. Credit per servicer guidelines.",
+     "rate": 0,
+     "firstTimeOnly": false,
+     "incomeNote": "Income ≤ $137,870; price ≤ $413,610"
     },
     {
      "id": "ms-easy8",
      "name": "Easy8",
      "agency": "MHC",
-     "url": "https://www.mshomecorp.com/easy8/",
+     "url": "https://www.mshomecorp.com/programs/easy8/",
      "type": "deferred",
      "amountText": "$8,000",
      "amount": {
@@ -4028,13 +4183,16 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "0% second, due at sale, refinance, move-out or first-mortgage payoff. Homebuyer education required."
+     "notes": "0% second, due at refinance, move-out or first-mortgage payoff. First-time rule (no ownership in 3 years) waived in Target Areas and for veterans. Homebuyer education required.",
+     "rate": 0,
+     "firstTimeOnly": true,
+     "incomeNote": "County income limits apply"
     },
     {
      "id": "ms-trusty10",
      "name": "Trusty10",
      "agency": "MHC",
-     "url": "https://www.mshomecorp.com/trusty10/",
+     "url": "https://www.mshomecorp.com/programs/trusty10/",
      "type": "repay",
      "amountText": "$10,000",
      "amount": {
@@ -4059,9 +4217,9 @@
      "id": "ms-hat",
      "name": "Housing Assistance for Teachers",
      "agency": "MHC",
-     "url": "https://www.mshomecorp.com",
-     "type": "grant",
-     "amountText": "Up to $6,000",
+     "url": "https://www.mshomecorp.com/programs/housing-assistance-for-teachers/",
+     "type": "forgivable",
+     "amountText": "Up to $6,000 (borrower funds needed to close)",
      "amount": {
       "max": 6000,
       "pct": null,
@@ -4074,9 +4232,11 @@
       "usda"
      ],
      "status": "active",
-     "notes": "Certified public school teachers in eligible areas.",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Mississippi Department of Education grant for full-time licensed public school teachers; forgiven after 3 years teaching in a critical teacher-shortage district. Home must be in the county where you teach. 1% own-funds contribution (not gifted) and 1 month reserves. 2026-2027 funding announced Aug 2026; subject to availability.",
+     "forgiveYears": 3,
+     "group": "profession",
+     "incomeNote": "No income limit unless combined with another MHC product",
+     "verified": "2026-11-23"
     },
     {
      "id": "ms-home4all",
@@ -4100,7 +4260,7 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "HOME-funded; homebuyer education through a HUD-approved counselor required. Assistance can’t exceed 50% of the price. Repayment terms: confirm with MHC (shown as deferred)."
+     "notes": "HOME-funded; MHC describes it as a grant (amount based on need) subject to an affordability period whose length isn't stated, so shown as deferred conservatively. No ownership in past 3 years; HUD-approved homebuyer education required. Assistance can’t exceed 50% of the price; county price limits."
     }
    ],
    "local": {}
@@ -4108,57 +4268,95 @@
   "MT": {
    "name": "Montana",
    "agency": "Montana Housing (MBOH)",
-   "agencyUrl": "https://housing.mt.gov",
+   "agencyUrl": "https://commerce.mt.gov/Housing",
    "programs": [
     {
      "id": "mt-bond",
      "name": "Bond Advantage DPA",
-     "agency": "Montana Housing",
-     "url": "https://housing.mt.gov",
+     "agency": "Montana Board of Housing",
+     "url": "https://commerce.mt.gov/Housing/Homeownership/Down-Payment-Assistance",
      "type": "repay",
-     "amountText": "Lesser of $15,000 or 5% of price",
+     "amountText": "Lesser of $15,000 or 5% of price (min $1,500)",
      "amount": {
       "max": 15000,
       "pct": 5,
       "of": "price"
      },
+     "forgiveYears": null,
+     "rate": null,
      "termYears": 15,
+     "firstTimeOnly": true,
      "minCredit": 620,
      "loanTypes": [
       "fha",
       "va",
-      "conv",
       "usda"
      ],
+     "incomeNote": null,
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "15-year amortizing second at the same fixed rate as the MBOH first mortgage. Requires an MBOH Regular Bond 30-year first mortgage (FHA, VA, USDA-RD or HUD-184), which is aimed at first-time buyers; $1,000 minimum borrower cash (may be gifted); homebuyer education required. Due on sale/transfer or refinance.",
+     "verified": "2026-11-23"
     },
     {
      "id": "mt-plus",
      "name": "MBOH Plus 0% Deferred DPA",
-     "agency": "Montana Housing",
-     "url": "https://housing.mt.gov",
+     "agency": "Montana Board of Housing",
+     "url": "https://commerce.mt.gov/Housing/Homeownership/Down-Payment-Assistance",
      "type": "deferred",
-     "amountText": "Amount set by program",
+     "amountText": "Lesser of $15,000 or 5% of price (min $1,500)",
      "amount": {
-      "max": null,
-      "pct": null,
+      "max": 15000,
+      "pct": 5,
       "of": "price"
      },
+     "forgiveYears": null,
+     "rate": 0,
+     "termYears": 30,
+     "firstTimeOnly": true,
      "minCredit": 620,
      "loanTypes": [
       "fha",
       "va",
-      "conv",
       "usda"
      ],
+     "incomeNote": "Household income ≤$80,000 (1–2 persons) / ≤$90,000 (3+)",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "0% deferred 30-year second, no payments; due on sale/transfer, refinance or payoff of the first loan (no forgiveness). Max 45% DTI; $1,000 minimum borrower cash; homebuyer education required. Requires MBOH Regular Bond 30-year fixed first mortgage (FHA, VA, USDA-RD or HUD-184), aimed at first-time buyers.",
+     "verified": "2026-11-23"
     }
    ],
-   "local": {}
+   "local": {
+    "Billings": [
+     {
+      "id": "bil-fthb",
+      "name": "Billings First Time Homebuyer Program",
+      "agency": "City of Billings Community Development",
+      "url": "https://www.billingsmt.gov/3353/First-Time-Homebuyer-Program",
+      "type": "deferred",
+      "amountText": "Up to 20% of purchase price",
+      "amount": {
+       "max": null,
+       "pct": 20,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": 0,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI (HUD limits)",
+      "status": "active",
+      "notes": "0% interest deferred-payment loan; forgiveness not stated. Homebuyer education required. City says funding available as of Sept 10, 2026, first-come first-served.",
+      "verified": "2026-11-23"
+     }
+    ]
+   }
   },
   "NC": {
    "name": "North Carolina",
@@ -4335,29 +4533,63 @@
   "ND": {
    "name": "North Dakota",
    "agency": "North Dakota Housing Finance Agency (NDHFA)",
-   "agencyUrl": "https://www.ndhfa.org",
+   "agencyUrl": "https://www.ndhousing.nd.gov",
    "programs": [
     {
      "id": "nd-start",
-     "name": "Start / DCA program",
+     "name": "Start",
      "agency": "NDHFA",
-     "url": "https://www.ndhfa.org",
-     "type": "deferred",
-     "amountText": "Up to 3% of loan",
+     "url": "https://www.ndhousing.nd.gov/homeownership",
+     "type": "forgivable",
+     "amountText": "3% of the first-mortgage amount",
      "amount": {
       "max": null,
       "pct": 3,
       "of": "loan"
      },
+     "forgiveYears": 8,
+     "rate": null,
+     "termYears": null,
+     "firstTimeOnly": false,
+     "minCredit": null,
      "loanTypes": [
       "fha",
       "va",
       "conv",
       "usda"
      ],
+     "incomeNote": "Low-to-moderate income; higher limits than DCA",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Credit at closing secured by a second lien with no separate payment; lien terminates after 96 monthly mortgage payments (8 years). Pro-rated balance repaid if sold, refinanced or transferred earlier. Paired with FirstHome, HomeAccess or ND Roots (repeat buyers OK via ND Roots); first-mortgage rate is higher than with DCA. 1–2 unit homes; $500 borrower cash; cannot combine with other DPA. Terms per NDHFA program training (May 2026).",
+     "verified": "2026-11-23"
+    },
+    {
+     "id": "nd-dca",
+     "name": "Down Payment and Closing Cost Assistance (DCA)",
+     "agency": "NDHFA",
+     "url": "https://www.ndhousing.nd.gov/dca",
+     "type": "forgivable",
+     "amountText": "3% of the first-mortgage amount",
+     "amount": {
+      "max": null,
+      "pct": 3,
+      "of": "loan"
+     },
+     "forgiveYears": 8,
+     "rate": null,
+     "termYears": null,
+     "firstTimeOnly": false,
+     "minCredit": null,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Lower-income limits by county/household size (e.g., Cass 4-person $92,150, eff. 7/15/2026)",
+     "status": "active",
+     "notes": "Same structure as Start: second lien, no separate payment, satisfied after 96 monthly payments; pro-rated repayment if sold/refinanced earlier. Paired with FirstHome (first-time) or HomeAccess (single parents, veterans, disabled/65+); first-mortgage rate matches FirstHome Standard. Homebuyer education required before closing. 1–2 unit homes; cannot combine with other DPA.",
+     "verified": "2026-11-23"
     }
    ],
    "local": {}
@@ -4371,7 +4603,7 @@
      "id": "ne-hba",
      "name": "Homebuyer Assistance (HBA)",
      "agency": "NIFA",
-     "url": "https://www.nifa.org",
+     "url": "https://www.nifa.org/homebuyers-renters/homebuyer-assistance",
      "type": "repay",
      "amountText": "Up to 5% of price",
      "amount": {
@@ -4379,21 +4611,113 @@
       "pct": 5,
       "of": "price"
      },
+     "forgiveYears": null,
      "rate": 1,
      "termYears": 10,
      "firstTimeOnly": true,
+     "minCredit": null,
      "loanTypes": [
       "fha",
       "va",
       "conv",
       "usda"
      ],
+     "incomeNote": "First Home program limits by county/household size",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Amortizing 1% 10-year second paired with a NIFA First Home first mortgage (higher first-loan rate). First-time = no primary residence in past 3 years; homebuyer education required. Min credit score applies (not published on HBA page).",
+     "verified": "2026-11-23"
+    },
+    {
+     "id": "ne-wha",
+     "name": "Welcome Home Assistance (WHA)",
+     "agency": "NIFA",
+     "url": "https://www.nifa.org/homebuyers-renters/welcome-home",
+     "type": "repay",
+     "amountText": "Up to 5% of price",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "price"
+     },
+     "forgiveYears": null,
+     "rate": 1,
+     "termYears": 10,
+     "firstTimeOnly": false,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Household income ≤$182,800 (eff. 7/13/2026); price ≤$485,500 (1 unit)",
+     "status": "active",
+     "notes": "Amortizing 1% 10-year second paired with a NIFA Welcome Home first mortgage; open to first-time and repeat buyers. 640 min score (max DTI 45%; 50% at 660+). First-time buyers need homebuyer education. 1–2 unit homes.",
+     "verified": "2026-11-23"
     }
    ],
-   "local": {}
+   "local": {
+    "Omaha": [
+     {
+      "id": "oma-100-dpa",
+      "name": "City of Omaha Homebuyer Assistance (Omaha 100)",
+      "agency": "Omaha 100, Inc. for City of Omaha HCD",
+      "url": "https://planninghcd.cityofomaha.org/for-home-buyers",
+      "type": "deferred",
+      "amountText": "Amount not published — contact Omaha 100 (402-342-3773)",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": null,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": null,
+      "status": "active",
+      "notes": "City-funded down payment assistance, low-interest loans and City-backed second mortgages administered by Omaha 100; housing education/counseling required. Terms not published; type set conservatively to deferred.",
+      "verified": "2026-11-23"
+     }
+    ],
+    "Lincoln": [
+     {
+      "id": "lin-nwl-dpa",
+      "name": "Lincoln First Time Home Buyer Program",
+      "agency": "NeighborWorks Lincoln / City of Lincoln Urban Development",
+      "url": "https://www.lincoln.ne.gov/City/Departments/Urban-Development/Housing/Home-Ownership-Programs",
+      "type": "deferred",
+      "amountText": "Varies by price and household income — amount not published",
+      "amount": {
+       "max": null,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": null,
+      "rate": null,
+      "termYears": null,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "≤80% AMI",
+      "status": "active",
+      "notes": "Down payment, closing cost and limited rehab assistance for existing homes inside Lincoln city limits; extra incentives in priority neighborhoods. No ownership in past 3 years (exceptions possible); NeighborWorks Lincoln homebuyer training required. Repayment terms not published; type set conservatively to deferred.",
+      "verified": "2026-11-23"
+     }
+    ]
+   }
   },
   "NH": {
    "name": "New Hampshire",
@@ -4814,7 +5138,7 @@
      "id": "nv-hip",
      "name": "Home Is Possible for First-Time Homebuyers",
      "agency": "Nevada Housing Division",
-     "url": "https://www.homeispossiblenv.org/todays-rates",
+     "url": "https://www.homeispossiblenv.org/home-possible-program",
      "type": "deferred",
      "amountText": "2% or 4% of loan",
      "amount": {
@@ -4832,7 +5156,10 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "0% second mortgage, no payments, 30-year note, not forgiven. Rate is a bit higher with the 4% option. Homebuyer education required."
+     "notes": "0% interest, no-payment, non-forgivable 30-year second mortgage. 2% or 4% option (higher rate with 4%). No ownership in past 3 years. 640 min credit (660 manufactured). Homebuyer education required.",
+     "rate": 0,
+     "termYears": 30,
+     "incomeNote": "County income/price limits; conventional ≤ 80% AMI, price ≤ $570,000"
     },
     {
      "id": "nv-homefirst",
@@ -4856,33 +5183,9 @@
       "usda"
      ],
      "status": "active",
-     "incomeNote": "Price ≤ $570,000",
+     "incomeNote": "Price ≤ $570,000; income ≤ 300% of Federal Poverty Level (FHA/VA/USDA)",
      "verified": "2026-11-23",
-     "notes": "Down payment only (not closing costs). Forgiven after 3 years in the home. 6 months Nevada residency and homebuyer education required."
-    },
-    {
-     "id": "nv-rural",
-     "name": "Home Means Nevada Rural DPA",
-     "agency": "Nevada Rural Housing",
-     "url": "https://nvrural.org",
-     "type": "forgivable",
-     "amountText": "Up to $25,000",
-     "amount": {
-      "max": 25000,
-      "pct": null,
-      "of": "price"
-     },
-     "forgiveYears": 3,
-     "loanTypes": [
-      "fha",
-      "va",
-      "conv",
-      "usda"
-     ],
-     "incomeNote": "Rural Nevada only",
-     "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "Down payment only (not closing costs). Forgiven after 3 years in the home. 640 min credit (680 manufactured). 6 months Nevada residency and homebuyer education required. Funding status not stated on page."
     },
     {
      "id": "nv-hip-open",
@@ -4890,7 +5193,7 @@
      "agency": "Nevada Housing Division",
      "url": "https://www.homeispossiblenv.org/home-possible",
      "type": "deferred",
-     "amountText": "Up to 5% of loan",
+     "amountText": "3% or 5% of loan",
      "amount": {
       "max": null,
       "pct": 5,
@@ -4906,7 +5209,120 @@
      ],
      "status": "active",
      "verified": "2026-11-23",
-     "notes": "No first-time-buyer requirement. Structure of the assistance: confirm with a HIP lender (shown as deferred)."
+     "notes": "No first-time-buyer requirement. 3% option: 0% no-payment 30-year note; 5% option: non-forgivable second mortgage. Higher first-mortgage rate than first-time program. 640 min credit (660 manufactured). Homebuyer education required.",
+     "rate": 0,
+     "termYears": 30
+    },
+    {
+     "id": "nv-hip-teach",
+     "name": "HIP for Teachers",
+     "agency": "Nevada Housing Division",
+     "url": "https://www.homeispossiblenv.org/home-possible-teachers",
+     "type": "forgivable",
+     "amountText": "$7,500",
+     "amount": {
+      "max": 7500,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "rate": 0,
+     "termYears": null,
+     "firstTimeOnly": false,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "conv"
+     ],
+     "incomeNote": "Income ≤ $165,000 (conventional ≤ 80% AMI); price ≤ $832,750",
+     "status": "active",
+     "group": "profession",
+     "notes": "Licensed full-time K–12 public school classroom teachers in Nevada. 0% no-payment note, prorated forgiveness over 5 years. Available through Dec 31, 2026. Page metadata mentions $10,000 but body and rate sheet say $7,500. Rate sheet lists FHA and conventional options.",
+     "verified": "2026-11-23"
+    },
+    {
+     "id": "nv-launchpad",
+     "name": "Launchpad (Nevada Rural Housing)",
+     "agency": "Nevada Rural Housing",
+     "url": "https://nvrural.org/programs/homeownership/program-rates/",
+     "type": "deferred",
+     "amountText": "3% or 5% of loan (first-time version: 2% or 4%)",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "forgiveYears": null,
+     "rate": 0,
+     "termYears": 30,
+     "firstTimeOnly": false,
+     "minCredit": 640,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "Income ≤ $165,000; rural Nevada only (excludes Reno, Las Vegas, Henderson, North Las Vegas and urban Clark/Washoe townships)",
+     "status": "active",
+     "notes": "0% deferred second mortgage, never forgiven; due at sale, refinance, move-out or 30-year maturity. 660 min credit for manufactured homes. A first-time-buyer version offers 2% or 4% with county income/price limits. Check address at HALmap.org.",
+     "verified": "2026-11-23"
+    },
+    {
+     "id": "nv-kickstart",
+     "name": "Kickstart (Nevada Rural Housing)",
+     "agency": "Nevada Rural Housing",
+     "url": "https://nvrural.org/programs/homeownership/down-payment-assistance/",
+     "type": "forgivable",
+     "amountText": "$20,000 plus 2% rate-reduction discount",
+     "amount": {
+      "max": 20000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "rate": 0,
+     "termYears": 5,
+     "firstTimeOnly": false,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤ 80% AMI; Carson City, Douglas, Lyon, Storey and Washoe counties only (excludes Reno city limits)",
+     "status": "active",
+     "notes": "0% forgivable second mortgage, no payments; forgiven in full after 5 years (not prorated), repayable if sold or refinanced earlier. Limited funding.",
+     "verified": "2026-11-23"
+    },
+    {
+     "id": "nv-rural-rocks",
+     "name": "Rural Rocks $20K (Nevada Rural Housing)",
+     "agency": "Nevada Rural Housing",
+     "url": "https://nvrural.org/programs/homeownership/down-payment-assistance/rural-rocks-20k/",
+     "type": "forgivable",
+     "amountText": "$20,000",
+     "amount": {
+      "max": 20000,
+      "pct": null,
+      "of": "price"
+     },
+     "forgiveYears": 30,
+     "rate": 0,
+     "termYears": 30,
+     "firstTimeOnly": false,
+     "minCredit": 620,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "≤ 150% AMI by county; price ≤ $832,750; rural Nevada (excludes Reno, Las Vegas, Henderson, North Las Vegas and urban Clark townships)",
+     "status": "paused",
+     "notes": "0% no-payment second mortgage forgiven at the end of 30 years; due earlier on sale, refinance or move-out. Can fund a 2% rate buydown. 6 months Nevada residency. $4M pool is fully reserved; limited waitlist only.",
+     "verified": "2026-11-23"
     }
    ],
    "local": {}
@@ -6114,29 +6530,63 @@
   "SD": {
    "name": "South Dakota",
    "agency": "South Dakota Housing (SDHDA)",
-   "agencyUrl": "https://www.sdhda.org",
+   "agencyUrl": "https://www.sdhousing.org",
    "programs": [
     {
      "id": "sd-frp",
      "name": "Fixed Rate Plus",
-     "agency": "SDHDA",
-     "url": "https://www.sdhda.org",
+     "agency": "SD Housing",
+     "url": "https://www.sdhousing.org/ready-to-buy/available-programs/downpayment-assistance",
      "type": "deferred",
-     "amountText": "3% or 5% of price",
+     "amountText": "3% or 5% of the first-mortgage amount",
      "amount": {
       "max": null,
-      "pct": 3,
-      "of": "price"
+      "pct": 5,
+      "of": "loan"
      },
+     "forgiveYears": null,
+     "rate": 0,
+     "termYears": null,
+     "firstTimeOnly": false,
+     "minCredit": null,
      "loanTypes": [
       "fha",
       "va",
       "conv",
       "usda"
      ],
+     "incomeNote": "First-Time program: SD Housing income limits, price ≤$410,000; Repeat program: income <$124,080 (1–2) / <$144,760 (3+), price ≤$460,000",
      "status": "active",
-     "reviewed": "2026-11-16",
-     "source": "The Mortgage Reports state guide (Nov 2026)"
+     "notes": "0% second mortgage, no monthly payments, due on sale or refinance; first-mortgage rate slightly higher. Offered with both the First-Time and Repeat Homebuyer programs (repeat program min credit 620).",
+     "verified": "2026-11-23"
+    },
+    {
+     "id": "sd-give5",
+     "name": "Give Me Five",
+     "agency": "SD Housing",
+     "url": "https://www.sdhousing.org/news-blog/give-me-five",
+     "type": "forgivable",
+     "amountText": "5% of the first-mortgage amount",
+     "amount": {
+      "max": null,
+      "pct": 5,
+      "of": "loan"
+     },
+     "forgiveYears": 5,
+     "rate": null,
+     "termYears": null,
+     "firstTimeOnly": true,
+     "minCredit": null,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "incomeNote": "First-Time Homebuyer program income limits; price ≤$410,000",
+     "status": "active",
+     "notes": "New limited-time program launched Nov 2, 2026: second mortgage, no monthly payments, forgiven after 5 years of owner occupancy. No ownership in past 3 years. Apply through participating lenders; eligible first-mortgage types not stated (SD Housing offers FHA, VA, USDA-RD, conventional).",
+     "verified": "2026-11-23"
     }
    ],
    "local": {}
@@ -7608,7 +8058,7 @@
      "id": "wy-stretch",
      "name": "Home$tretch DPA",
      "agency": "WCDA",
-     "url": "https://www.wyomingcda.com/wp-content/uploads/2023/02/Potential-FTHB-QAs_.pdf",
+     "url": "https://www.wyomingcda.com/homebuyers/",
      "type": "deferred",
      "amountText": "Up to $15,000",
      "amount": {
@@ -7624,16 +8074,17 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-23",
-     "source": "WCDA first-time homebuyer FAQ (2023)",
-     "firstTimeOnly": true,
-     "notes": "0% loan, no monthly payments; due at sale, refinance or after 30 years. Pairs with the WCDA Standard First-Time Homebuyer loan."
+     "firstTimeOnly": false,
+     "notes": "0% loan, no monthly payments; due at sale, refinance or 30-year maturity. Covers down payment, closing costs and prepaids. Pairs only with WCDA First-Time Homebuyer, Spruce Up or Edge loans; first-time rule (no ownership in 3 years) applies with First-Time Homebuyer and Spruce Up, not Edge. $1,500 minimum borrower contribution (may be a gift).",
+     "verified": "2026-11-23",
+     "rate": 0,
+     "termYears": 30
     },
     {
      "id": "wy-amort",
      "name": "Amortizing DPA",
      "agency": "WCDA",
-     "url": "https://www.wyomingcda.com/wp-content/uploads/2023/02/Potential-FTHB-QAs_.pdf",
+     "url": "https://www.wyomingcda.com/homebuyers/",
      "type": "repay",
      "amountText": "Up to $15,000",
      "amount": {
@@ -7650,9 +8101,9 @@
       "usda"
      ],
      "status": "active",
-     "reviewed": "2026-11-23",
-     "source": "WCDA first-time homebuyer FAQ (2023)",
-     "notes": "Low-rate loan with up to a 120-month term; pairs with WCDA Advantage (no first-time requirement)."
+     "notes": "Fixed-rate, fully amortizing loan with low monthly payments, max 10-year term. Covers down payment, closing costs and prepaids. Pairs only with WCDA Advantage (no first-time requirement). $1,500 minimum borrower contribution (may be a gift).",
+     "verified": "2026-11-23",
+     "firstTimeOnly": false
     }
    ],
    "local": {}

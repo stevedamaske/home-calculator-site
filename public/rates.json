@@ -1,16 +1,16 @@
 {
-  "asOf": "2026-11-20",
-  "updatedAt": "2026-11-23T19:50:45-05:00",
+  "asOf": "2026-11-23",
+  "updatedAt": "2026-11-23T20:21:12-05:00",
   "rates": {
-    "conv30": 7.33,
+    "conv30": 7.34,
     "conv15": 6.89,
-    "fha30": 6.95,
+    "fha30": 6.96,
     "va30": 6.97
   },
   "rateSource": {
     "name": "Mortgage News Daily rate index",
     "url": "https://www.mortgagenewsdaily.com/mortgage-rates",
-    "date": "2026-11-20"
+    "date": "2026-11-23"
   },
   "benchmark": {
     "name": "Freddie Mac PMMS weekly average",
