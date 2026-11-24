@@ -3,20 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#16181b">
 <title>Home Purchase Calculator — FHA · VA · Conventional</title>
 <style>
-  :root{
-    --bg:#f6f5f2; --card:#ffffff; --ink:#1d1f23; --muted:#6b6f76; --line:#e3e1dc;
-    --accent:#1f5f8b; --accent-soft:#e7f0f6; --warn:#a4570a; --warn-soft:#fbf0e3;
-    --bad:#a8322d; --bad-soft:#f9e6e5; --good:#2d7a4b; --good-soft:#e5f3ea;
-    --c1:#1f5f8b; --c2:#7a9cc6; --c3:#c98b3a; --c4:#8c6bb1; --c5:#5c9e7a; --c6:#c4626a;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#16181b; --card:#1f2226; --ink:#e9e7e3; --muted:#9a9ea5; --line:#33373d;
-      --accent:#6fa8d6; --accent-soft:#1e2c38; --warn:#e2a35a; --warn-soft:#33281b;
-      --bad:#e98580; --bad-soft:#3a2222; --good:#7cc79a; --good-soft:#1d3226;
-      --c1:#5b9bd0; --c2:#9db9dc; --c3:#d9a45c; --c4:#a98bcb; --c5:#79b996; --c6:#d98189; }
-  }
+  /* dark theme only */
+  :root{ color-scheme:dark;
+    --bg:#16181b; --card:#1f2226; --ink:#e9e7e3; --muted:#9a9ea5; --line:#33373d;
+    --accent:#6fa8d6; --accent-soft:#1e2c38; --on-accent:#0f1720; --warn:#e2a35a; --warn-soft:#33281b;
+    --bad:#e98580; --bad-soft:#3a2222; --good:#7cc79a; --good-soft:#1d3226;
+    --c1:#5b9bd0; --c2:#9db9dc; --c3:#d9a45c; --c4:#a98bcb; --c5:#79b996; --c6:#d98189; }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -42,7 +38,7 @@
   .field i.suf{padding:0 10px 0 0}
   .perseg{display:inline-flex;margin:0 6px 0 0;border:1px solid var(--line);border-radius:6px;overflow:hidden;flex:none}
   .perseg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:12px;padding:4px 8px;cursor:pointer}
-  .perseg button.on{background:var(--accent);color:#fff}
+  .perseg button.on{background:var(--accent);color:var(--on-accent)}
   .field input,.field select{flex:1;min-width:0;width:100%;border:0;background:transparent;color:var(--ink);font:inherit;padding:9px 10px;outline:none}
   select{appearance:none;-webkit-appearance:none;cursor:pointer}
   .hint{font-size:12px;color:var(--muted);margin-top:4px}
@@ -51,14 +47,14 @@
   .check input{width:16px;height:16px;accent-color:var(--accent);flex:none}
   .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:12px}
   .seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;padding:7px 12px;cursor:pointer}
-  .seg button.on{background:var(--accent);color:#fff}
+  .seg button.on{background:var(--accent);color:var(--on-accent)}
   .typeseg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
   .typeseg button{border:0;border-right:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;padding:10px 18px;cursor:pointer;text-align:left}
   .typeseg button:last-child{border-right:0}
   .typeseg button b{display:block;font-size:15px}
   .typeseg button small{color:var(--muted);font-size:12px}
-  .typeseg button.on{background:var(--accent);color:#fff}
-  .typeseg button.on small{color:rgba(255,255,255,.8)}
+  .typeseg button.on{background:var(--accent);color:var(--on-accent)}
+  .typeseg button.on small{color:rgba(15,23,32,.75)}
   .results{position:sticky;top:16px}
   .hero{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px}
   .big{font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1}
@@ -108,7 +104,7 @@
   .btns{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
   .btn{border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:13px;padding:8px 12px;border-radius:8px;cursor:pointer}
   .btn:hover{border-color:var(--accent)}
-  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
   footer{max-width:1180px;margin:0 auto;padding:0 20px 40px;color:var(--muted);font-size:12.5px}
   footer p{margin:0 0 6px}
   .status{max-width:1180px;margin:0 auto;padding:4px 20px 0;font-size:13px;color:var(--muted)}
@@ -162,7 +158,7 @@
   @media (max-width:520px){.twocol{grid-template-columns:1fr}}
   .helpi{position:relative;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin:0 5px 0 6px;padding:0;flex:none;border-radius:50%;border:1px solid var(--accent);background:transparent;color:var(--accent);font:italic 600 11px/1 Georgia,'Times New Roman',serif;text-transform:none;letter-spacing:0;cursor:pointer;vertical-align:1px}
   .helpi::after{content:'';position:absolute;inset:-9px}
-  .helpi:hover,.helpi[aria-expanded="true"]{background:var(--accent);color:#fff}
+  .helpi:hover,.helpi[aria-expanded="true"]{background:var(--accent);color:var(--on-accent)}
   .helpi:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .pop{position:absolute;z-index:60;width:min(320px,calc(100vw - 24px));background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.18);padding:12px 34px 12px 14px;font-size:13.5px;line-height:1.45;text-transform:none;letter-spacing:0;font-weight:400}
   .pop b{display:block;margin-bottom:4px;font-size:14px}
@@ -564,7 +560,6 @@
     pendingArea = '';
   }
   // How well a program fits what the user entered: open, right loan type, credit high enough.
-  const TYPE_W = { grant:1, forgivable:0.9, deferred:0.6, repay:0.3 };
   function progFit(p){
     const credit = +$('credit').value, lts = p.loanTypes || ['fha','va','conv','usda'];
     const open = p.status!=='paused' && p.status!=='upcoming';
@@ -572,7 +567,7 @@
     const amt = progAmount(p);
     return { fits: open && okType && okCredit && okFirst, open, okType, okCredit, okFirst,
       tier: (open?8:0) + (okType?4:0) + (okFirst?2:0) + (okCredit?1:0),
-      value: (amt||0) * (TYPE_W[p.type]||0.5) };
+      value: amt||0 };
   }
   function sortByFit(list){
     return list.map((p,i) => ({ p, i, f: progFit(p) }))
@@ -625,7 +620,7 @@
       const nFit = [...local, ...st.programs].filter(p => progFit(p).fits).length;
       const where = area ? `${area}, ${st.name}` : st.name;
       const hasLocalOpts = Object.keys(st.local||{}).length && !area;
-      $('dpaAvail').innerHTML = `<div class="avail">${open.length ? `<b>${open.length} program${open.length>1?'s':''}</b> available in ${where}.` : `No open state or local programs listed for ${where}.`}${open.length && nFit < open.length ? ` ${nFit ? nFit : 'None'} fit${nFit===1?'s':''} your ${LT_LBL[loanType]} loan, credit score${$('firstTime').checked?'':' and repeat-buyer status'}.` : ''}${hasLocalOpts ? ' Pick your city or county for local programs.' : ''}<div class="hint" style="margin-top:2px">Sorted by estimated value on this home for your loan type, credit score and first-time status. Grants and forgivable loans rank above loans you repay; programs that don't fit are greyed out at the bottom.</div></div>
+      $('dpaAvail').innerHTML = `<div class="avail">${open.length ? `<b>${open.length} program${open.length>1?'s':''}</b> available in ${where}.` : `No open state or local programs listed for ${where}.`}${open.length && nFit < open.length ? ` ${nFit ? nFit : 'None'} fit${nFit===1?'s':''} your ${LT_LBL[loanType]} loan, credit score${$('firstTime').checked?'':' and repeat-buyer status'}.` : ''}${hasLocalOpts ? ' Pick your city or county for local programs.' : ''}<div class="hint" style="margin-top:2px">Sorted by the most assistance on this home for your loan type, credit score and first-time status. Programs that don't fit are greyed out at the bottom.</div></div>
         <div class="proglist">${sortByFit(all).map(p => progCard(p, scope.get(p.id))).join('')}</div>
         <div class="hint" style="margin:-2px 0 12px">${DPA.note || ''}</div>`;
     }
