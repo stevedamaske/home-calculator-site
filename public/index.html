@@ -580,10 +580,11 @@
       .map(x => x.p);
   }
   let dpaBestId = null;
-  function progCard(p){
+  function progCard(p, where){
     const amt = progAmount(p), credit = +$('credit').value;
     const chips = p.id===dpaBestId ? ['<span class="chip g">Best fit for your numbers</span>'] : [];
     chips.push(`<span class="chip t">${TYPE_LBL[p.type]||p.type}${p.type==='forgivable'&&p.forgiveYears?` · ${p.forgiveYears} yrs`:''}${p.type==='repay'&&p.termYears?` · ${p.termYears} yrs`:''}</span>`);
+    if (where) chips.push(`<span class="chip">${where}</span>`);
     if (p.group && GROUP_LBL[p.group]) chips.push(`<span class="chip w">${GROUP_LBL[p.group]}</span>`);
     if (p.firstTimeOnly) chips.push($('firstTime').checked ? '<span class="chip">First-time buyers</span>' : '<span class="chip b">First-time buyers only</span>');
     if (p.minCredit) chips.push(`<span class="chip ${credit < p.minCredit ? 'b':''}">${p.minCredit}+ credit</span>`);
@@ -610,12 +611,13 @@
     else {
       const area = $('dpaArea').value;
       const local = area ? (st.local[area]||[]) : [];
-      const groups = [];
-      if (local.length) groups.push([area, local]);
-      groups.push([`Statewide — ${st.agency}`, st.programs]);
-      const nat = DPA.national||[], lenders = nat.filter(p => p.group==='lender'), natOther = nat.filter(p => p.group!=='lender');
-      if (natOther.length) groups.push(['Available nationwide', natOther]);
-      if (lenders.length) groups.push(['Bank & lender grants — only in each lender’s eligible areas', lenders]);
+      const nat = DPA.national||[], natOther = nat.filter(p => p.group!=='lender');
+      // one list, best value for the user's inputs first; a chip says where each program comes from
+      const scope = new Map();
+      local.forEach(p => scope.set(p.id, area));
+      st.programs.forEach(p => scope.set(p.id, `Statewide · ${st.agency}`));
+      natOther.forEach(p => scope.set(p.id, 'Nationwide'));
+      const all = [...local, ...st.programs, ...nat];
       const open = [...local, ...st.programs].filter(p => p.status!=='paused' && p.status!=='upcoming');
       const fitting = [...local, ...st.programs, ...natOther].filter(p => progFit(p).fits);
       const best = fitting.map(p => ({ p, v: progFit(p).value })).sort((a,b) => b.v - a.v)[0];
@@ -623,8 +625,8 @@
       const nFit = [...local, ...st.programs].filter(p => progFit(p).fits).length;
       const where = area ? `${area}, ${st.name}` : st.name;
       const hasLocalOpts = Object.keys(st.local||{}).length && !area;
-      $('dpaAvail').innerHTML = `<div class="avail">${open.length ? `<b>${open.length} program${open.length>1?'s':''}</b> available in ${where}.` : `No open state or local programs listed for ${where}.`}${open.length && nFit < open.length ? ` ${nFit ? nFit : 'None'} fit${nFit===1?'s':''} your ${LT_LBL[loanType]} loan, credit score${$('firstTime').checked?'':' and repeat-buyer status'}.` : ''}${hasLocalOpts ? ' Pick your city or county for local programs.' : ''}<div class="hint" style="margin-top:2px">Sorted by best fit for your loan type, credit score, first-time status and price — highest value first.</div></div>
-        <div class="proglist">${groups.map(([h,list]) => `<div class="hint" style="margin:6px 0 6px;font-weight:600">${h}</div>` + sortByFit(list).map(progCard).join('')).join('')}</div>
+      $('dpaAvail').innerHTML = `<div class="avail">${open.length ? `<b>${open.length} program${open.length>1?'s':''}</b> available in ${where}.` : `No open state or local programs listed for ${where}.`}${open.length && nFit < open.length ? ` ${nFit ? nFit : 'None'} fit${nFit===1?'s':''} your ${LT_LBL[loanType]} loan, credit score${$('firstTime').checked?'':' and repeat-buyer status'}.` : ''}${hasLocalOpts ? ' Pick your city or county for local programs.' : ''}<div class="hint" style="margin-top:2px">Sorted by estimated value on this home for your loan type, credit score and first-time status. Grants and forgivable loans rank above loans you repay; programs that don't fit are greyed out at the bottom.</div></div>
+        <div class="proglist">${sortByFit(all).map(p => progCard(p, scope.get(p.id))).join('')}</div>
         <div class="hint" style="margin:-2px 0 12px">${DPA.note || ''}</div>`;
     }
     $('dpaAvail').querySelectorAll('[data-use]').forEach(b => b.onclick = () => useProgram(b.dataset.use));
