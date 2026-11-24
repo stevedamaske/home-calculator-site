@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-20",
+ "updatedAt": "2026-11-23",
  "items": {
   "price": {
    "title": "Purchase price",
@@ -165,8 +165,8 @@
    "title": "Loan-to-value (LTV)",
    "text": "Your loan divided by the home's value. A lower LTV means less risk for the lender and often better pricing and less mortgage insurance.",
    "link": {
-    "label": "CFPB: mortgage key terms",
-    "url": "https://www.consumerfinance.gov/language/cfpb-in-english/mortgages-key-terms/"
+    "label": "CFPB: loan-to-value ratio",
+    "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-loan-to-value-ratio-and-how-does-it-relate-to-my-costs-en-121/"
    }
   },
   "dti": {
