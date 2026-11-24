@@ -559,9 +559,27 @@
     $('dpaArea').value = areas.includes(want) ? want : '';
     pendingArea = '';
   }
+  // How well a program fits what the user entered: open, right loan type, credit high enough.
+  const TYPE_W = { grant:1, forgivable:0.9, deferred:0.6, repay:0.3 };
+  function progFit(p){
+    const credit = +$('credit').value, lts = p.loanTypes || ['fha','va','conv','usda'];
+    const open = p.status!=='paused' && p.status!=='upcoming';
+    const okType = lts.includes(loanType), okCredit = !p.minCredit || credit >= p.minCredit;
+    const amt = progAmount(p);
+    return { fits: open && okType && okCredit, open, okType, okCredit,
+      tier: (open?4:0) + (okType?2:0) + (okCredit?1:0),
+      value: (amt||0) * (TYPE_W[p.type]||0.5) };
+  }
+  function sortByFit(list){
+    return list.map((p,i) => ({ p, i, f: progFit(p) }))
+      .sort((a,b) => b.f.tier - a.f.tier || b.f.value - a.f.value || a.i - b.i)
+      .map(x => x.p);
+  }
+  let dpaBestId = null;
   function progCard(p){
     const amt = progAmount(p), credit = +$('credit').value;
-    const chips = [`<span class="chip t">${TYPE_LBL[p.type]||p.type}${p.type==='forgivable'&&p.forgiveYears?` · ${p.forgiveYears} yrs`:''}${p.type==='repay'&&p.termYears?` · ${p.termYears} yrs`:''}</span>`];
+    const chips = p.id===dpaBestId ? ['<span class="chip g">Best fit for your numbers</span>'] : [];
+    chips.push(`<span class="chip t">${TYPE_LBL[p.type]||p.type}${p.type==='forgivable'&&p.forgiveYears?` · ${p.forgiveYears} yrs`:''}${p.type==='repay'&&p.termYears?` · ${p.termYears} yrs`:''}</span>`);
     if (p.group && GROUP_LBL[p.group]) chips.push(`<span class="chip w">${GROUP_LBL[p.group]}</span>`);
     if (p.firstTimeOnly) chips.push('<span class="chip">First-time buyers</span>');
     if (p.minCredit) chips.push(`<span class="chip ${credit < p.minCredit ? 'b':''}">${p.minCredit}+ credit</span>`);
@@ -574,7 +592,7 @@
     chips.push(p.verified ? `<span class="chip g">Checked with ${p.group==='lender'?'lender':'agency'} ${fmtDate(p.verified)}</span>` : p.reviewed ? `<span class="chip" title="${p.source||''}">Updated ${fmtDate(p.reviewed)} · confirm with agency</span>` : '<span class="chip w">Not yet verified — confirm with agency</span>');
     const usable = p.status!=='paused' && p.status!=='upcoming' && amt != null;
     const sel = dpaSel && dpaSel.id===p.id;
-    return `<div class="prog ${sel?'sel':''} ${p.status==='paused'?'dim':''}">
+    return `<div class="prog ${sel?'sel':''} ${progFit(p).fits?'':'dim'}">
       <div class="top"><div><div class="nm">${p.name}</div><div class="ag">${p.agency}</div></div>
         <div class="act"><a href="${p.url}" target="_blank" rel="noopener">Details</a>${usable ? `<button class="btn sm ${sel?'':'primary'}" data-use="${p.id}">${sel?'Using':'Use'}</button>` : ''}</div></div>
       <div class="amt">${p.amountText}${amt!=null && p.amount.pct!=null ? ` — <b>${fmt0(amt)}</b> on this home` : ''}</div>
@@ -595,10 +613,14 @@
       if (natOther.length) groups.push(['Available nationwide', natOther]);
       if (lenders.length) groups.push(['Bank & lender grants — only in each lender’s eligible areas', lenders]);
       const open = [...local, ...st.programs].filter(p => p.status!=='paused' && p.status!=='upcoming');
+      const fitting = [...local, ...st.programs, ...natOther].filter(p => progFit(p).fits);
+      const best = fitting.map(p => ({ p, v: progFit(p).value })).sort((a,b) => b.v - a.v)[0];
+      dpaBestId = best && best.v > 0 ? best.p.id : null;
+      const nFit = [...local, ...st.programs].filter(p => progFit(p).fits).length;
       const where = area ? `${area}, ${st.name}` : st.name;
       const hasLocalOpts = Object.keys(st.local||{}).length && !area;
-      $('dpaAvail').innerHTML = `<div class="avail">${open.length ? `<b>${open.length} program${open.length>1?'s':''}</b> available in ${where}.` : `No open state or local programs listed for ${where}.`}${hasLocalOpts ? ' Pick your city or county for local programs.' : ''}</div>
-        <div class="proglist">${groups.map(([h,list]) => `<div class="hint" style="margin:6px 0 6px;font-weight:600">${h}</div>` + list.map(progCard).join('')).join('')}</div>
+      $('dpaAvail').innerHTML = `<div class="avail">${open.length ? `<b>${open.length} program${open.length>1?'s':''}</b> available in ${where}.` : `No open state or local programs listed for ${where}.`}${open.length && nFit < open.length ? ` ${nFit ? nFit : 'None'} fit${nFit===1?'s':''} your ${LT_LBL[loanType]} loan and credit score.` : ''}${hasLocalOpts ? ' Pick your city or county for local programs.' : ''}<div class="hint" style="margin-top:2px">Sorted by best fit for your loan type, credit score and price — highest value first.</div></div>
+        <div class="proglist">${groups.map(([h,list]) => `<div class="hint" style="margin:6px 0 6px;font-weight:600">${h}</div>` + sortByFit(list).map(progCard).join('')).join('')}</div>
         <div class="hint" style="margin:-2px 0 12px">${DPA.note || ''}</div>`;
     }
     $('dpaAvail').querySelectorAll('[data-use]').forEach(b => b.onclick = () => useProgram(b.dataset.use));
