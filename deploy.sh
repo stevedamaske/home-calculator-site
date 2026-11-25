@@ -20,7 +20,7 @@ if [ "${1:-}" = "--login" ] || ! npx --yes wrangler@latest whoami 2>/dev/null | 
   npx --yes wrangler@latest login
 fi
 
-for f in public/index.html public/rates.json public/dpa.json; do
+for f in public/index.html public/app.js public/rates.json public/dpa.json; do
   [ -s "$f" ] || { echo "Missing $f" >&2; exit 1; }
 done
 
@@ -29,6 +29,8 @@ for f in public/rates.json public/dpa.json; do
   node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" \
     || { echo "$f is not valid JSON" >&2; exit 1; }
 done
+
+node --check public/app.js || { echo "public/app.js has a syntax error" >&2; exit 1; }
 
 rates_date=$(node -e "console.log(JSON.parse(require('fs').readFileSync('public/rates.json','utf8')).asOf)")
 echo "Deploying (rates as of $rates_date)..."
