@@ -103,6 +103,7 @@
       <p><b>VA:</b> funding fee first use ${pc(vf.first[0])} / ${pc(vf.first[1])} / ${pc(vf.first[2])} and subsequent use ${pc(vf.subsequent[0])} / ${pc(vf.subsequent[1])} / ${pc(vf.subsequent[2])} at under 5%, 5%+, and 10%+ down (${P.va.source}). VA sets no minimum credit score, but most lenders want about 620. VA underwriting also checks residual income, which this tool doesn't model.</p>
       <p><b>Conventional:</b> ${P.conv.conformingLimitYear} conforming limit ${fmt0(P.conv.conformingLimit)} (${P.conv.source}). PMI "auto" is a typical borrower-paid rate by credit score and LTV; use your quote when you have one. PMI is shown ending at 78% of original value; you can usually request removal at 80%. 3% down is generally limited to first-time-buyer programs.</p>
       <p><b>Rates:</b> market averages for a strong borrower, not a quote. 15-year FHA/VA rates are estimated from the conventional 15/30 spread.${(CFG.notes||[]).map(n=>' '+n).join('')}</p>
+      ${DPA && DPA.note ? `<p><b>Down payment assistance:</b> ${DPA.note}</p>` : ''}
       ${(CFG.changes||[]).length ? `<p><b>Recent data changes:</b> ${CFG.changes.slice(-5).reverse().map(c => `${fmtDate(c.date)} — ${c.text}`).join(' · ')}</p>` : ''}`;
   }
   // typical borrower-paid monthly PMI, annual % of loan, by LTV bucket and credit tier
@@ -1002,7 +1003,7 @@
   fetch('help.json', { cache:'no-store' }).then(r => r.ok ? r.json() : null).then(j => { if (j && j.items) HELP = j; }).catch(() => {});
   fetch('dpa.json', { cache:'no-store' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(j => { if (!j || !j.states) throw new Error('bad'); DPA = j; const area = $('dpaArea').value; populateStates(); pendingArea = area; populateAreas(); if (dpaSel) dpaSel = findProg(dpaSel.id); calc(); })
+    .then(j => { if (!j || !j.states) throw new Error('bad'); DPA = j; const area = $('dpaArea').value; populateStates(); pendingArea = area; populateAreas(); if (dpaSel) dpaSel = findProg(dpaSel.id); renderRateInfo(); calc(); })
     .catch(() => {});
   fetch('rates.json', { cache:'no-store' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
