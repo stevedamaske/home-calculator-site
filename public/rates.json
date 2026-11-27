@@ -1,23 +1,23 @@
 {
-  "asOf": "2026-11-23",
-  "updatedAt": "2026-11-23T22:58:32-05:00",
+  "asOf": "2026-11-25",
+  "updatedAt": "2026-11-27T09:46:20-05:00",
   "rates": {
-    "conv30": 7.34,
-    "conv15": 6.89,
-    "fha30": 6.96,
-    "va30": 6.97
+    "conv30": 7.26,
+    "conv15": 6.82,
+    "fha30": 6.95,
+    "va30": 6.96
   },
   "rateSource": {
     "name": "Mortgage News Daily rate index",
     "url": "https://www.mortgagenewsdaily.com/mortgage-rates",
-    "date": "2026-11-23"
+    "date": "2026-11-25"
   },
   "benchmark": {
     "name": "Freddie Mac PMMS weekly average",
     "url": "https://www.freddiemac.com/pmms",
-    "date": "2026-11-19",
-    "conv30": 7.28,
-    "conv15": 6.66
+    "date": "2026-11-25",
+    "conv30": 7.21,
+    "conv15": 6.54
   },
   "program": {
     "fha": {
@@ -103,7 +103,7 @@
     }
   },
   "notes": [
-    "2027 conforming loan limits are normally announced by FHFA in late November and take effect January 1."
+    "FHFA announced (Nov 24, 2026) the 2027 baseline conforming loan limit of $855,400 for one-unit homes (high-cost ceiling $1,283,100), effective January 1, 2027."
   ],
   "changes": [
     {
