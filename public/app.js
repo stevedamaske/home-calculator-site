@@ -32,6 +32,35 @@
     return principal * r / (1 - Math.pow(1+r, -months));
   };
   const moneyFormat = el => { if (el.value.trim()==='') return; el.value = Math.round(num(el)).toLocaleString('en-US'); };
+  // Add thousands commas while typing (4000 -> 4,000) and keep the cursor next to the same digit.
+  // Deleting a comma deletes the digit beside it instead, so Backspace never looks stuck.
+  function liveMoney(el, e){
+    if (e && e.isComposing) return;
+    let v = el.value;
+    let caret = el.selectionStart == null ? v.length : el.selectionStart;
+    const strip = s => s.replace(/,/g, '');
+    const before = el._before; el._before = null;
+    if (before != null && v !== before && strip(v) === strip(before) && /^delete/.test((e && e.inputType) || '')){
+      if (e.inputType === 'deleteContentBackward' && caret > 0){ v = v.slice(0, caret-1) + v.slice(caret); caret -= 1; }
+      else if (e.inputType === 'deleteContentForward'){ v = v.slice(0, caret) + v.slice(caret+1); }
+    }
+    if (v === ''){ el.value = ''; return; }
+    const keep = s => s.replace(/[^0-9.]/g, '');
+    const kept = keep(v.slice(0, caret)).length;
+    let clean = keep(v);
+    const dot = clean.indexOf('.');
+    if (dot >= 0) clean = clean.slice(0, dot+1) + clean.slice(dot+1).replace(/\./g, '');
+    let int = dot >= 0 ? clean.slice(0, dot) : clean, frac = dot >= 0 ? clean.slice(dot) : '';
+    const trimmed = int.replace(/^0+(?=\d)/, ''), lost = int.length - trimmed.length;
+    int = trimmed;
+    const out = (int || (frac ? '0' : '')).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + frac;
+    if (out === el.value) return;
+    el.value = out;
+    if (document.activeElement !== el) return;
+    let want = Math.max(0, kept - lost), pos = 0;
+    while (pos < out.length && want > 0){ if (/[0-9.]/.test(out[pos])) want--; pos++; }
+    try { el.setSelectionRange(pos, pos); } catch(err){}
+  }
 
   // ---------- program rules ----------
   function fhaMip(baseLoan, ltv, years){
@@ -919,7 +948,12 @@
   inputs.forEach(el => {
     DEFAULTS[el.id] = el.type==='checkbox' ? el.checked : el.value;
     el.addEventListener(el.tagName==='SELECT'||el.type==='checkbox' ? 'change' : 'input', () => { syncVis(); calc(); });
-    if (el.hasAttribute('data-money')) el.addEventListener('blur', () => moneyFormat(el));
+    if (el.hasAttribute('data-money')){
+      if (!el.hasAttribute('inputmode')) el.inputMode = 'numeric';
+      el.addEventListener('beforeinput', () => { el._before = el.value; });
+      el.addEventListener('input', e => liveMoney(el, e));
+      el.addEventListener('blur', () => moneyFormat(el));
+    }
   });
 
   // ---------- clear a field when it's entered; put the old value back if nothing was typed ----------
