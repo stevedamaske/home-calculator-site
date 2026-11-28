@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-11-27T19:00:00-05:00",
+ "updatedAt": "2026-11-28T00:41:36-05:00",
  "deepState": null,
- "note": "Programs marked “Checked with agency” (273 of 341) were confirmed on the agency’s or lender’s own site on that date; the rest come from current state guides and are re-checked against each agency on a rolling weekly basis. Lender grants apply only in the lender’s eligible areas. Always confirm amounts and eligibility with the program. Local lists cover each state’s largest cities and counties and can miss smaller programs; a few city websites (for example Portland, Maine) block automated checks, so also ask your city or county housing office.",
+ "note": "Programs marked “Checked with agency” (290 of 349) were confirmed on the agency’s or lender’s own site on that date; the rest come from current state guides and are re-checked against each agency on a rolling weekly basis. Lender grants apply only in the lender’s eligible areas. Always confirm amounts and eligibility with the program. Local lists cover each state’s largest cities and counties and can miss smaller programs; a few city websites (for example Portland, Maine) block automated checks, so also ask your city or county housing office.",
  "national": [
   {
    "id": "chenoa",
@@ -58,7 +58,7 @@
    "agency": "JPMorgan Chase",
    "url": "https://www.chase.com/personal/mortgage/education/financing-a-home/chase-homebuyer-grant",
    "type": "grant",
-   "amountText": "$2,500 or $5,000 (up to $7,500 in some areas)",
+   "amountText": "$2,500 or $5,000, depending on area",
    "amount": {
     "max": 5000,
     "pct": null,
@@ -70,7 +70,7 @@
     "conv"
    ],
    "status": "active",
-   "verified": "2026-11-23",
+   "verified": "2026-11-28",
    "group": "lender",
    "notes": "Only for homes in eligible (mostly low- and moderate-income) census tracts, with a Chase DreaMaker, standard agency, FHA or VA purchase loan. Goes first to rate buydown and fees; can’t be used for the down payment on FHA. May be reported as income."
   },
@@ -91,7 +91,7 @@
     "conv"
    ],
    "status": "active",
-   "verified": "2026-11-23",
+   "verified": "2026-11-28",
    "group": "lender",
    "notes": "Select markets only (260+ cities and counties). Used with Bank of America’s 3%-down mortgage; no homeownership in the past 3 years; income and loan limits apply. Never repaid."
   },
@@ -113,9 +113,71 @@
     "conv"
    ],
    "status": "active",
-   "verified": "2026-11-23",
+   "verified": "2026-11-28",
    "group": "lender",
-   "notes": "Select markets only. Covers nonrecurring closing costs (title, recording) or a permanent rate buydown — not the down payment. Stacks with the Down Payment Grant for up to $17,500."
+   "notes": "Select markets only. Covers nonrecurring closing costs (title, recording) or a permanent rate buydown — not the down payment. Stacks with the Down Payment Grant for up to $17,500. Bank of America says it is not available with all loan products and doesn’t name which; ask whether your FHA, VA or conventional loan qualifies."
+  },
+  {
+   "id": "wf-access",
+   "name": "Wells Fargo Homebuyer Access℠ grant",
+   "agency": "Wells Fargo",
+   "url": "https://www.wellsfargo.com/mortgage/buying-a-house/affordable-options/",
+   "type": "grant",
+   "amountText": "Starting at $5,000; up to $10,000 in some areas",
+   "amount": {
+    "max": 5000,
+    "pct": null,
+    "of": "price"
+   },
+   "loanTypes": [
+    "conv"
+   ],
+   "status": "active",
+   "verified": "2026-11-28",
+   "group": "lender",
+   "notes": "Down payment only, with a Wells Fargo fixed-rate conventional loan on a primary residence. Your current address or the home must be in an eligible area; location-based income limits apply. Amount counted here at the $5,000 minimum. May be taxable. Can be combined with Wells Fargo’s Dream. Plan. Home.℠ closing cost credit (up to $5,000)."
+  },
+  {
+   "id": "usb-adream",
+   "name": "U.S. Bank American Dream down payment assistance",
+   "agency": "U.S. Bank",
+   "url": "https://www.usbank.com/home-loans/mortgage/affordable-home-loans.html",
+   "type": "grant",
+   "amountText": "Greater of $5,500 or 3% of price, up to $10,000",
+   "amount": {
+    "max": 10000,
+    "pct": 3,
+    "of": "price"
+   },
+   "loanTypes": [
+    "conv"
+   ],
+   "status": "active",
+   "verified": "2026-11-28",
+   "group": "lender",
+   "notes": "Only with U.S. Bank’s American Dream loan (3% down, bank-paid mortgage insurance). Can go toward down payment, closing costs or repairs. Eligibility limits aren’t published; ask a U.S. Bank loan officer. Minimum of $5,500 isn’t reflected in the calculation here."
+  },
+  {
+   "id": "pnc-grant",
+   "name": "PNC homebuyer grants",
+   "agency": "PNC Bank",
+   "url": "https://www.pnc.com/en/personal-banking/borrowing/home-lending/mortgage-loans/low-income-mortgage.html",
+   "type": "grant",
+   "amountText": "Up to $5,000 (PNC Grant); $2,500–$3,000 for income-based grants",
+   "amount": {
+    "max": 5000,
+    "pct": null,
+    "of": "price"
+   },
+   "loanTypes": [
+    "fha",
+    "va",
+    "conv"
+   ],
+   "status": "active",
+   "verified": "2026-11-28",
+   "group": "lender",
+   "notes": "Three grants: Low-Income Grant up to $2,500 (≤50% AMI, first-time buyers); Low to Moderate Income Borrower Grant up to $3,000 (≤80% AMI in an eligible tract); PNC Grant up to $5,000 for homes in targeted low- and moderate-income tracts in PNC’s area. Can go toward points, down payment, closing costs or escrow. PNC doesn’t say which loan types qualify; confirm with PNC."
   }
  ],
  "states": {
@@ -527,8 +589,8 @@
      ],
      "incomeNote": "Income ≤ $155,386 (all counties, eff. 4/6/2026)",
      "status": "active",
-     "notes": "0% deferred soft second, no payments, fully forgiven after 60 months; repaid if sold or refinanced within 5 years. Non-forgivable options also offered. Not limited to first-time buyers. Available year-round statewide; self-funded with no sunset. Homebuyer education required.",
-     "verified": "2026-11-27",
+     "notes": "0% deferred soft second, no payments, fully forgiven after 60 months; repaid if sold or refinanced within 5 years. Non-forgivable options also offered. No formal first-time requirement stated. Available year-round statewide; self-funded with no sunset. Homebuyer education required. Min credit 620 per prior Arizona IDA product matrix (matrix is an image; not re-read 2026-11-28).",
+     "verified": "2026-11-28",
      "firstTimeOnly": false,
      "rate": 0
     },
@@ -557,7 +619,7 @@
      "incomeNote": "≤100% AMI by county (e.g., Pinal $112,400, Yavapai $92,200; eff. 7/1/2026)",
      "status": "paused",
      "notes": "PAUSED: Arizona IDA says 2026 funds are exhausted and the program is retired for the rest of 2026 (as of 10/6/2026); annual funding resumes next year. Non-forgivable 0% deferred second, due on sale or refinance, paired with a below-market 30-year fixed first mortgage. First-time buyers (exceptions for qualified veterans and targeted areas). Not offered in Maricopa or Pima Counties or Chino Valley.",
-     "verified": "2026-11-27"
+     "verified": "2026-11-28"
     }
    ],
    "local": {
@@ -568,10 +630,10 @@
       "agency": "Maricopa County IDA",
       "url": "https://homein5advantage.com",
       "type": "forgivable",
-      "amountText": "3%, 4%, 5% or 6% of loan (FHA/VA); 0–6% conventional, depending on option",
+      "amountText": "3%, 4% or 5% (3-yr forgivable); 3–6% (7-yr forgivable or 10-yr amortizing)",
       "amount": {
        "max": null,
-       "pct": 5,
+       "pct": 6,
        "of": "loan"
       },
       "minCredit": 640,
@@ -581,13 +643,12 @@
        "conv"
       ],
       "status": "active",
-      "notes": "Phoenix & Maricopa County IDAs. 0% forgivable second: 3-year (forgiven monthly over 36 months), 7-year 'Arizona is Home' option (first-time, ≤120% AMI, 6-month AZ residency) or 30-year; a 10-year 6% amortizing option also exists. No USDA. Earlier '6% for educators/first responders' claim not found in program documents — removed. Homepage (Nov 2026) confirms up to 6%, 640 FICO, income ≤ $153,440; azishome page confirms 7-year option (first-time, 6-month AZ residency, income ≤ $131,520). Full term options rest on the Aug 2025 program description (>1 yr old).",
-      "reviewed": "2026-11-27",
-      "source": "Home in Five Advantage official program description (Aug 2025) + homein5advantage.com/azishome",
+      "notes": "Phoenix & Maricopa County IDAs. Options per Home in Five Government matrix V26.2 (09/23/2026): 3-year forgivable second (3/4/5%, forgiven 1/36 per month), 7-year forgivable (3-6%, forgiven 1/84 per month, ≤120% AMI; 'Arizona is Home' option for first-time buyers with 6-month AZ residency), or 10-year amortizing (3-6%). Percentage basis not stated (treated as of loan). Min FICO 640 (660 FHA manual downgrade/manufactured). Not limited to first-time buyers; 8-hour homebuyer education. No USDA. Homepage confirms up to 6%, 640 FICO, income ≤ $153,440.",
       "forgiveYears": 3,
       "rate": 0,
       "firstTimeOnly": false,
-      "incomeNote": "Credit-qualifying income ≤ $153,440 (7-yr option ≤ $131,520)"
+      "incomeNote": "Credit-qualifying income ≤ $153,440 (7-yr option ≤ $131,520)",
+      "verified": "2026-11-28"
      },
      {
       "id": "mc-h5-plat",
@@ -608,10 +669,11 @@
        "usda"
       ],
       "status": "paused",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "minCredit": 640,
       "firstTimeOnly": true,
-      "notes": "Mortgage revenue bond program (2025B bond). PAUSED: administrator (eHousingPlus) page shows the bond as 'Fully originated' — no funds available until a new bond issue. First-time (no ownership in 3 years); conventional/USDA only ≤80% AMI. Forgiveness term not stated."
+      "notes": "Mortgage revenue bond program (2025B bond). PAUSED: administrator (eHousingPlus) page (modified 8/24/2026) shows the program as 'Currently Fully Originated' — no funds until a new bond issue. 4% deferred second, forgiven after 7 years (Home in Five Government matrix V26.2, 09/23/2026). First-time (no ownership in 3 years; veteran and targeted-area exceptions); conventional/USDA only ≤80% AMI.",
+      "forgiveYears": 7
      },
      {
       "id": "phx-dpa",
@@ -633,7 +695,7 @@
       ],
       "incomeNote": "≤80% AMI (4-person $89,900, eff. 6/1/2026)",
       "status": "active",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "forgiveYears": null,
       "rate": 0,
       "firstTimeOnly": true,
@@ -659,10 +721,10 @@
        "conv"
       ],
       "status": "active",
-      "notes": "Deferred, no monthly payments; 2% interest accrues during the affordability period (5 yrs ≤$15k, 10 yrs $15k–$40k, 15 yrs >$40k) and is forgiven, but principal is repaid at sale. $1,000 own funds + 2 months reserves; home warranty required. Price ≤ $304,000 existing / $345,000 new. Apply via partner agencies (ARC, Chicanos Por La Causa, Pima County CLT); counseling before contract. FHA, VA or conventional QM; no ARMs. Per June 2026 fact sheet.",
-      "verified": "2026-11-27",
+      "notes": "Deferred, no monthly payments; 2% interest accrues during the affordability period (5 yrs ≤$15k, 10 yrs $15k–$40k, 15 yrs >$40k) and is forgiven, but principal is repaid at sale. $1,000 own funds + 2 months reserves; home warranty required. Price ≤ $304,000 existing / $345,000 new. Apply via partner agencies (ARC, Chicanos Por La Causa, Pima County CLT); counseling before contract. FHA, VA or conventional QM; no ARMs. Per June 2026 fact sheet (rechecked 2026-11-28).",
+      "verified": "2026-11-28",
       "rate": 2,
-      "incomeNote": "≤80% AMI (4-person $79,850, 2025 HUD limits per June 2026 fact sheet)"
+      "incomeNote": "≤80% AMI (4-person $79,850, 2026 limits per June 2026 fact sheet)"
      },
      {
       "id": "tuc-pths",
@@ -684,7 +746,7 @@
        "usda"
       ],
       "status": "active",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "minCredit": 640,
       "firstTimeOnly": false,
       "notes": "Pima County IDA. 3-year forgivable second (PTHS); 'PTHS Advantage' option is 30-year forgivable. Grant for VA loans. No first-time or price limit; income limits apply; 45% max DTI. Combinable with City/County HOME DPA."
@@ -712,7 +774,7 @@
       "incomeNote": "Below 120% AMI",
       "status": "paused",
       "notes": "PAUSED: Pima IDA page marked 'Currently unavailable'. 30-year forgivable second with a 30-year fixed assisted-rate first mortgage; first-time buyers with 6 months AZ residency; all of Pima County incl. Tucson. Credit requirement not stated.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ]
    },
@@ -1061,7 +1123,7 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-23",
+     "verified": "2026-11-28",
      "notes": "No repayment. Requires a CHFA first mortgage. First-generation buyers and borrowers with a permanent disability may get up to $25,000 regardless of loan size."
     },
     {
@@ -1085,8 +1147,28 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-23",
-     "notes": "Repayment deferred until payoff, sale, refinance, or the home is no longer your primary residence. First mortgage carries a higher rate than with the grant."
+     "verified": "2026-11-28",
+     "notes": "Repayment deferred until payoff, sale, refinance, or the home is no longer your primary residence. First mortgage carries a higher rate than with the grant. First-generation buyers and borrowers with a permanent disability may get up to $25,000 regardless of loan size."
+    },
+    {
+     "id": "co-schools",
+     "name": "CHFA Schools To Home",
+     "agency": "CHFA",
+     "url": "https://www.chfainfo.com/single-family-participating-lenders/chfa-schools-to-home-program",
+     "type": "deferred",
+     "amountText": "Second mortgage up to 25% of the first mortgage",
+     "amount": {
+      "max": null,
+      "pct": 25,
+      "of": "loan"
+     },
+     "loanTypes": [
+      "conv"
+     ],
+     "status": "active",
+     "group": "profession",
+     "notes": "For full-time employees of Colorado preK-12 public schools, districts, charters and BOCES. Second mortgage plus a shared-appreciation payment (5 points below the DPA %) are deferred until payoff, sale, refinance, end of term or move-out. Fannie Mae first mortgage only; no other subordinate financing. Min credit and first-time rule not stated on the page.",
+     "verified": "2026-11-28"
     }
    ],
    "local": {
@@ -1095,15 +1177,14 @@
       "id": "den-metro",
       "name": "metroDPA",
       "agency": "Denver Dept. of Housing Stability",
-      "url": "https://www.denvergov.org",
-      "type": "forgivable",
-      "amountText": "Up to 5% of loan",
+      "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Housing-Stability/Resident-Resources/Affordable-Home-Ownership/metroDPA",
+      "type": "deferred",
+      "amountText": "Percentage of first mortgage set by loan type (city example: 5% on an FHA loan)",
       "amount": {
        "max": null,
-       "pct": 5,
+       "pct": null,
        "of": "loan"
       },
-      "forgiveYears": 3,
       "loanTypes": [
        "fha",
        "va",
@@ -1111,8 +1192,12 @@
        "usda"
       ],
       "status": "active",
-      "reviewed": "2026-11-16",
-      "source": "The Mortgage Reports state guide (Nov 2026)"
+      "verified": "2026-11-28",
+      "rate": 0,
+      "termYears": 30,
+      "minCredit": 640,
+      "incomeNote": "Income up to $195,600",
+      "notes": "0% second mortgage with no payments, due after 30 years or on sale, refinance or move-out (not forgivable). Exact % varies by loan type and isn't listed, so no amount is assumed. Available across Front Range cities/counties, not only Denver; 30-yr fixed first mortgage from a metroDPA lender."
      }
     ],
     "Denver metro (Adams, Arapahoe, Denver, Douglas, Jefferson)": [
@@ -1136,9 +1221,10 @@
        "usda"
       ],
       "incomeNote": "Income limits",
-      "status": "active",
+      "status": "paused",
       "reviewed": "2026-11-16",
-      "source": "The Mortgage Reports state guide (Nov 2026)"
+      "source": "The Mortgage Reports state guide (Nov 2026)",
+      "notes": "Not listed on CRHDC's website as of Nov 2026 (program pages and lending page checked); treat as unavailable until confirmed with CRHDC."
      }
     ],
     "Aurora": [
@@ -1146,11 +1232,11 @@
       "id": "aur-hoap",
       "name": "Home Ownership Assistance Program",
       "agency": "City of Aurora",
-      "url": "https://www.auroragov.org",
+      "url": "https://www.auroragov.org/residents/community_development/down_payment_assistance",
       "type": "deferred",
-      "amountText": "Up to $10,000",
+      "amountText": "Up to $10,000 (program closed; amount not confirmed on city site)",
       "amount": {
-       "max": 10000,
+       "max": null,
        "pct": null,
        "of": "price"
       },
@@ -1160,18 +1246,17 @@
        "conv",
        "usda"
       ],
-      "status": "active",
-      "notes": "0% deferred, not forgivable; you contribute 1%.",
-      "reviewed": "2026-11-16",
-      "source": "The Mortgage Reports state guide (Nov 2026)"
+      "status": "paused",
+      "notes": "City of Aurora says the program is being restructured and is not accepting applications (Nov 2026). Previously 0% deferred, not forgivable, with a 1% buyer contribution.",
+      "verified": "2026-11-28"
      }
     ],
     "Colorado Springs / El Paso County": [
      {
-      "id": "cos-turnkey",
-      "name": "Turnkey Plus",
+      "id": "cos-ppdpa",
+      "name": "Pikes Peak Down Payment Assistance (PPDPA)",
       "agency": "El Paso County",
-      "url": "https://www.elpasoco.com",
+      "url": "https://admin.elpasoco.com/economic-development/housing-programs/ppdpa/",
       "type": "deferred",
       "amountText": "Up to 5% of loan",
       "amount": {
@@ -1179,16 +1264,19 @@
        "pct": 5,
        "of": "loan"
       },
+      "rate": 0,
+      "termYears": 30,
+      "firstTimeOnly": false,
       "loanTypes": [
        "fha",
        "va",
        "conv",
        "usda"
       ],
+      "incomeNote": "Income up to $178,920 (FHA/VA/USDA) or $92,560 (Freddie Mac conventional)",
       "status": "active",
-      "notes": "Half forgiven over 5 years; half deferred until payoff.",
-      "reviewed": "2026-11-16",
-      "source": "The Mortgage Reports state guide (Nov 2026)"
+      "notes": "0% soft second, due on sale or refinance. County describes it as forgivable (50% over the first 5 years, the rest at 30 years); listed as deferred because half stays owed for 30 years. 30-yr fixed first mortgage; credit 640+ (45% DTI) or 680+ (50% DTI). Funds available until further notice.",
+      "verified": "2026-11-28"
      }
     ]
    },
@@ -3182,8 +3270,8 @@
      ],
      "incomeNote": "County income and purchase price limits apply",
      "status": "active",
-     "notes": "Bond-funded replacement for First Place. Non-forgivable second, due when the first mortgage ends or the home is no longer your primary residence; federal recapture tax may apply. First-time rule waived in targeted census tracts and for qualified veterans. 30-year fixed FHA or Fannie/Freddie conventional. Min credit 660 (680 if DTI 45-50%).",
-     "verified": "2026-11-27"
+     "notes": "Bond-funded replacement for First Place. Non-forgivable second, due in full (no proration) when the first mortgage ends, the home is sold/refinanced, or it is no longer your primary residence; federal recapture tax may apply. First-time rule waived in targeted census tracts and for eligible veterans/verifiable military status. 30-year fixed FHA or Fannie/Freddie conventional. Min credit 660 (680 if DTI 45-50%) per IHCDA lender matrix 05/2026; the 10/30/2026 Universal Program Guide defers credit/DTI to the Master Servicer.",
+     "verified": "2026-11-28"
     },
     {
      "id": "in-nh",
@@ -3203,8 +3291,8 @@
       "conv"
      ],
      "status": "active",
-     "verified": "2026-11-27",
-     "notes": "Non-forgivable 0% second; due in full when the first mortgage ends (sale, refinance, payoff) or the home stops being your primary residence. First-time and repeat buyers; income limits only. 30-year fixed FHA or Fannie/Freddie conventional. Min credit 660 (680 if DTI 45-50%) per IHCDA lender matrix 05/2026."
+     "verified": "2026-11-28",
+     "notes": "Non-forgivable 0% second; due in full when the first mortgage ends (sale, refinance, payoff) or the home stops being your primary residence. First-time and repeat buyers; income limits only. 30-year fixed FHA or Fannie/Freddie conventional. Min credit 660 (680 if DTI 45-50%) per IHCDA lender matrix 05/2026. IHCDA programs page lists 2.5% or 3.5%; the 10/30/2026 Universal Program Guide text is internally inconsistent ('three and one half percent (3%)')."
     }
    ],
    "local": {
@@ -3228,7 +3316,7 @@
       "minCredit": 620,
       "incomeNote": "Income limits (HUD Marion County); Marion County only, not Lawrence, Beech Grove, Southport or Speedway",
       "notes": "Only available with an INHP in-house mortgage (no mortgage insurance, 1-3% down). Repayment/forgiveness terms not published, so treated as deferred. Subject to funding.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Evansville": [
@@ -3237,10 +3325,10 @@
       "name": "Homebuyer Program",
       "agency": "City of Evansville",
       "url": "https://www.evansvillegov.org/egov/documents/1533044255_77636.pdf",
-      "type": "forgivable",
-      "amountText": "Up to $40,000",
+      "type": "deferred",
+      "amountText": "Amount based on need (price + closing costs minus the first mortgage), minimum $1,000; city guidelines set no published cap",
       "amount": {
-       "max": 40000,
+       "max": null,
        "pct": null,
        "of": "price"
       },
@@ -3251,9 +3339,9 @@
        "usda"
       ],
       "status": "active",
-      "notes": "HOME-funded 0% loan, forgiven over the affordability period: 5 years under $15,000, 10 years for $15,000-$40,000, 15 years over $40,000. Repayable from net proceeds if sold or vacated early. Amount is based on need; the $40,000 figure is from a third-party guide.",
-      "reviewed": "2026-11-27",
-      "source": "City of Evansville homebuyer program guidelines (2018) + The Mortgage Reports state guide (Nov 2026)",
+      "notes": "HOME-funded 0% loan, usually forgiven over the affordability period: 5 years under $15,000, 10 years for $15,000-$40,000, 15 years over $40,000 (listed as deferred conservatively since the guidelines say 'usually forgivable'). Repayable from net proceeds if sold or vacated early. The $40,000 maximum cited by a third-party guide is not stated by the city, so no max is shown. Guidelines are undated (c. 2018); current funding status not confirmed.",
+      "reviewed": "2026-11-28",
+      "source": "City of Evansville Homebuyer Program Guidelines PDF (undated, c. 2018); current status not confirmed on city site",
       "firstTimeOnly": true,
       "incomeNote": "≤80% AMI; Evansville city limits; price ≤95% of area median"
      }
@@ -3263,7 +3351,7 @@
       "id": "fwin-hh",
       "name": "Hoosier Homes",
       "agency": "Fort Wayne Housing Authority (via Club 720)",
-      "url": "https://fwha.org/hoosier-homes/",
+      "url": "https://club720.org/hoosierhomes-dpa/",
       "type": "forgivable",
       "amountText": "Up to 5% for down payment and closing costs",
       "amount": {
@@ -3279,8 +3367,9 @@
       ],
       "incomeNote": "Up to 140% AMI by county (Allen County $133,569 in 2026); county price limits",
       "status": "active",
-      "notes": "0% second with no payments, 7-year term, paired with a 30-year fixed first mortgage from a participating lender. First-time and repeat buyers (first-timers need 8-hour education). Available in 26 Indiana counties including Allen, Marion and Lake. FWHA lists 640 min credit (administrator site says 620). Whether 5% is of price or loan and which loan types qualify are not stated; shown conservatively.",
-      "verified": "2026-11-27"
+      "notes": "Forgivable 0% second with no payments, 7-year term, paired with a 30-year fixed first mortgage from a participating lender (not with 203(k)/rehab loans). First-time and repeat buyers (first-timers need 8-hour education). Sponsored by Fort Wayne Housing Authority, administered via Club 720, in 25-26 Indiana counties including Allen, Marion and Lake. FWHA lists 640 min credit (Club 720 program page says 620+). Whether 5% is of price or loan and which loan types qualify are not stated; shown conservatively.",
+      "verified": "2026-11-28",
+      "rate": 0
      }
     ]
    },
@@ -3900,7 +3989,7 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "notes": "0% deferred 30-year second for down payment and closing costs, repaid when the first mortgage ends (sale, refinance, payoff). Paired with an MMP 1st Time Advantage first mortgage. First-time rule waived in targeted areas and for eligible veterans. Eligible for Partner Match."
     },
     {
@@ -3923,7 +4012,7 @@
      ],
      "status": "active",
      "notes": "Replaced Flex 5000. 0% second lien, no payments; due when the first mortgage ends. First-time or repeat buyers. Eligible for Partner Match.",
-     "verified": "2026-11-27"
+     "verified": "2026-11-28"
     },
     {
      "id": "md-flex3",
@@ -3945,7 +4034,7 @@
      ],
      "status": "active",
      "notes": "0% deferred second equal to exactly 3% of the first mortgage, due when the first mortgage ends. Repeat buyers allowed but may not own other real property at closing.",
-     "verified": "2026-11-27"
+     "verified": "2026-11-28"
     },
     {
      "id": "md-ffrt",
@@ -3966,9 +4055,9 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "group": "profession",
-     "notes": "Launched Sept 2026. First mortgage rate 0.50% below MMP 1st Time Advantage 5%. At least one borrower must work in Maryland as an EMT, firefighter, police officer or teacher."
+     "notes": "Launched Sept 2026. First mortgage rate 0.50% below MMP 1st Time Advantage 5%. At least one borrower must work in Maryland as an EMT, firefighter, police officer or teacher. Now listed on the MMP 1st Time Advantage page as an interest-free deferred second for first-time buyers."
     },
     {
      "id": "md-hk4e",
@@ -3989,7 +4078,7 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "group": "employer",
      "notes": "Active State of Maryland employees (permanent or contractual). 0% deferred; needs a 1st Time Advantage 6000 or Flex 6000 loan and homebuyer education."
     },
@@ -4014,8 +4103,31 @@
       "usda"
      ],
      "status": "active",
-     "notes": "0% deferred second, due when the first mortgage ends. Min credit 640 per 2022 MMP quick reference; some products require more.",
-     "verified": "2026-11-27"
+     "notes": "0% deferred second, due when the first mortgage ends. Min credit 640 per 2022 MMP quick reference (current MMP page does not state it); some products require more.",
+     "verified": "2026-11-28"
+    },
+    {
+     "id": "md-fta4",
+     "name": "1st Time Advantage 4%",
+     "agency": "Maryland DHCD",
+     "url": "https://mmp.maryland.gov/home-loans/mmp-1st-time-advantage",
+     "type": "deferred",
+     "amountText": "4% of first mortgage",
+     "amount": {
+      "max": null,
+      "pct": 4,
+      "of": "loan"
+     },
+     "firstTimeOnly": true,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "0% deferred second lien, due when the first mortgage ends. Standard MMP income, credit and price limits.",
+     "verified": "2026-11-28"
     },
     {
      "id": "md-fta3",
@@ -4039,7 +4151,7 @@
      ],
      "status": "active",
      "notes": "0% deferred second, due when the first mortgage ends.",
-     "verified": "2026-11-27"
+     "verified": "2026-11-28"
     },
     {
      "id": "md-homestart",
@@ -4063,13 +4175,13 @@
      "incomeNote": "Household income ≤50% of county AMI",
      "status": "active",
      "notes": "Part of the 1st Time Advantage line. 0% deferred 30-year second, due on sale, transfer or payoff. Not combinable with Partner Match.",
-     "verified": "2026-11-27"
+     "verified": "2026-11-28"
     },
     {
      "id": "md-partnermatch",
      "name": "Partner Match",
      "agency": "Maryland DHCD",
-     "url": "https://mmp.maryland.gov/lenders-and-partner-listings/down-payment-assistance-partners",
+     "url": "https://mmp.maryland.gov/lenders-and-partner-listings/partner-match-down-payment-assistance",
      "type": "deferred",
      "amountText": "Matches partner (employer, builder, local government) DPA up to $2,500",
      "amount": {
@@ -4086,7 +4198,54 @@
      "status": "active",
      "group": "employer",
      "notes": "0% deferred state loan, due when the first mortgage is paid off. Only with 1st Time Advantage 6000 or Flex 6000 and assistance from an MMP-approved partner.",
-     "verified": "2026-11-27"
+     "verified": "2026-11-28"
+    },
+    {
+     "id": "md-homeability",
+     "name": "HomeAbility",
+     "agency": "Maryland DHCD",
+     "url": "https://mmp.maryland.gov/home-loans/homeability-loan",
+     "type": "deferred",
+     "amountText": "Up to 25% of price, max $45,000",
+     "amount": {
+      "max": 45000,
+      "pct": 25,
+      "of": "price"
+     },
+     "rate": 0,
+     "loanTypes": [
+      "conv"
+     ],
+     "incomeNote": "Household income ≤80% AMI",
+     "status": "active",
+     "notes": "For buyers with a documented disability, or the guardian/main caregiver of a household member with a disability. 0% deferred second, repaid on sale, refinance or transfer; no forgiveness stated. Paired with a fixed-rate conventional MMP first mortgage (up to 95% financing, 105% combined LTV). Standard MMP credit and price limits.",
+     "verified": "2026-11-28"
+    },
+    {
+     "id": "md-smartbuy",
+     "name": "Maryland SmartBuy 3.0 (student debt payoff)",
+     "agency": "Maryland DHCD",
+     "url": "https://mmp.maryland.gov/home-loans/maryland-smartbuy-loan",
+     "type": "forgivable",
+     "amountText": "Pays off student debt: up to 15% of price, max $25,000 (optional $6,000 or 6% DPA on top)",
+     "amount": {
+      "max": 25000,
+      "pct": 15,
+      "of": "price"
+     },
+     "forgiveYears": 5,
+     "rate": 0,
+     "firstTimeOnly": true,
+     "minCredit": 720,
+     "loanTypes": [
+      "fha",
+      "va",
+      "conv",
+      "usda"
+     ],
+     "status": "active",
+     "notes": "0% loan that pays off at least one borrower's full student loan balance (min $1,000 debt) at closing; fully forgiven after 5 years in the home. Optional add-on: $6,000 deferred DPA, or 6% deferred DPA if income ≤50% AMI. Repeat buyers OK in Targeted Areas; no other real property at closing; approved SmartBuy lender required. Loan types not listed on the page; confirm with lender.",
+     "verified": "2026-11-28"
     }
    ],
    "local": {
@@ -4111,15 +4270,15 @@
        "usda"
       ],
       "status": "active",
-      "notes": "20 winners per Trolley Tour lottery; no income limit, repeat buyers OK. Must attend a Live Baltimore Trolley Tour, complete counseling and contribute $1,000; fixed-rate mortgages only.",
-      "verified": "2026-11-27"
+      "notes": "20 winners per Trolley Tour lottery (Winter, Spring, Fall; next drawing Feb 26, 2027); no income limit, repeat buyers OK. Must attend a Live Baltimore Trolley Tour, complete counseling and contribute $1,000; fixed-rate mortgages only. City listed 59 incentives left on 11/16/2026.",
+      "verified": "2026-11-28"
      },
      {
       "id": "bal-baybrook",
-      "name": "Baybrook Boost",
+      "name": "Baybrook Boost (GBA Homebuyers Assistance Program)",
       "agency": "Greater Baybrook Alliance",
-      "url": "https://livebaltimore.com/resident-resources/financial-incentives/greater-baybrook-alliance-homebuyers-assistance-program/",
-      "type": "deferred",
+      "url": "https://www.greaterbaybrookalliance.org/housing",
+      "type": "forgivable",
       "amountText": "$10,000, plus $5,000 Live Near Your Park bonus on select blocks (up to $15,000)",
       "amount": {
        "max": 15000,
@@ -4131,11 +4290,11 @@
        "conv",
        "usda"
       ],
-      "incomeNote": "Brooklyn & Curtis Bay only",
+      "incomeNote": "Brooklyn & Curtis Bay (Baltimore City) and Brooklyn Park (Anne Arundel) only",
       "status": "active",
-      "reviewed": "2026-11-27",
-      "source": "Live Baltimore program listing (updated May 2026)",
-      "notes": "0% deferred loan; repayment terms are in GBA's terms and conditions. FHA loans currently cannot be combined. First-time buyers not required."
+      "notes": "Forgivable second mortgage; GBA forgives 20% a year over 5 years while the home is your primary residence. No first-time requirement; other properties allowed if lien-free and code-compliant. Needs HUD-certified homebuyer education and pre-approval before applying. Live Baltimore says FHA loans currently cannot be combined; some lenders don't allow it.",
+      "verified": "2026-11-28",
+      "forgiveYears": 5
      },
      {
       "id": "bal-fthip",
@@ -4143,7 +4302,7 @@
       "agency": "Baltimore City DHCD",
       "url": "https://www.baltimorecity.gov/dhcd/homeownership-incentives",
       "type": "deferred",
-      "amountText": "2.5% of price toward down payment, up to 50% of closing costs, possible GAP funding and rate buydown (amount varies)",
+      "amountText": "Up to 50% of required down payment, plus possible GAP funding and a rate buydown of up to 2.5% ($5,000 bonus in some cases)",
       "amount": {
        "max": null,
        "pct": null,
@@ -4158,8 +4317,8 @@
       ],
       "incomeNote": "≤80% AMI",
       "status": "active",
-      "notes": "City says most incentives are forgiven after 5 years in the home, but FTHIP terms are not spelled out, so shown as deferred. First-come, first-served; about $443k left on 11/16/2026.",
-      "verified": "2026-11-27"
+      "notes": "City says most incentives are forgiven after 5 years in the home, but FTHIP terms are not spelled out, so shown as deferred. Needs counseling and $1,000 own funds. First-come, first-served; $443,392 left on 11/16/2026.",
+      "verified": "2026-11-28"
      },
      {
       "id": "bal-bcehp",
@@ -4182,7 +4341,7 @@
       "status": "active",
       "group": "employer",
       "notes": "City and quasi-City agency employees with 6+ months of service. City says most incentives are forgiven after 5 years, but terms not confirmed per program, so shown as deferred. 62 awards left on 11/16/2026.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      },
      {
       "id": "bal-v2v",
@@ -4204,7 +4363,7 @@
       ],
       "status": "active",
       "notes": "For homes that were vacant 1+ year (Vacant Building Notice) and have a new Certificate of Occupancy. Shown as deferred because forgiveness terms are not stated per program. 42 awards left on 11/16/2026.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      },
      {
       "id": "bal-lnyw",
@@ -4226,8 +4385,8 @@
       ],
       "status": "active",
       "group": "employer",
-      "notes": "Grant for employees of participating employers buying near work. max is the city's share only.",
-      "verified": "2026-11-27"
+      "notes": "Grant for employees of participating employers buying near work. max is the city's share only. 72 incentives left on 11/16/2026.",
+      "verified": "2026-11-28"
      }
     ],
     "Montgomery County": [
@@ -4250,8 +4409,8 @@
        "conv"
       ],
       "status": "active",
-      "notes": "Repaid monthly at 5% over 10 years. Requires an HOC first mortgage; at least one borrower must work in Montgomery County.",
-      "verified": "2026-11-27"
+      "notes": "Repaid monthly at 5% over 10 years. Requires an HOC first mortgage; at least one borrower must work in Montgomery County. HOC also pairs RCCAP with the state's House Keys 4 Employees for county government employees.",
+      "verified": "2026-11-28"
      },
      {
       "id": "mont-mpp",
@@ -4272,7 +4431,7 @@
       ],
       "status": "active",
       "notes": "0% deferred second with an HOC first mortgage; prorated repayment only if sold or paid off within 5 years.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      },
      {
       "id": "mont-mhp",
@@ -4294,7 +4453,7 @@
        "usda"
       ],
       "status": "active",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "notes": "0% deferred second with an MMP first mortgage, due on sale, refinance, transfer or at 30 years. County says MHP and MEDPAL funding is currently limited."
      },
      {
@@ -4317,7 +4476,7 @@
       ],
       "status": "active",
       "notes": "0% deferred second with an HOC first mortgage; prorated repayment if sold or paid off within 10 years.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      },
      {
       "id": "mont-medpal",
@@ -4341,7 +4500,7 @@
       "group": "employer",
       "incomeNote": "MMP and county Workforce Housing income limits",
       "notes": "Approved Montgomery County Government employees. 0% second, due on sale, transfer or refinance; forgiven at 30 years. Borrower must put in 1% of price. Funding currently limited.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Howard County": [
@@ -4365,7 +4524,7 @@
       ],
       "status": "active",
       "notes": "Deferred; due on sale, refinance or default. Interest 2 points below the first mortgage rate (2024 changes cap it at 3%). Loan types: HomeStarter, HomeSteader and DreamMaker (first-time buyers) plus Revitalization and Workforce Initiative. Needs $1,000 own funds and a fixed-rate first mortgage. Funds limited, first come first served.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Prince George's County": [
@@ -4387,7 +4546,7 @@
        "conv"
       ],
       "status": "active",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "notes": "0% deferred loan for down payment, closing costs or principal reduction; recapture declines over a 15-year affordability period and the loan is forgiven after 15 years. Fixed-rate FHA or conventional first mortgage. Funds first come, first ready.",
       "forgiveYears": 15,
       "rate": 0,
@@ -4417,7 +4576,7 @@
       "incomeNote": "≤100% AMI ($133,500 for 4 people, June 2026); price ≤ $500,000",
       "status": "active",
       "notes": "0% deferred loan, due on sale, transfer, end of owner occupancy or 30 years. Use with an FHA or Maryland Mortgage Program first mortgage. Requires ACDS counseling and 1% own funds; no credit score minimum.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ]
    },
@@ -4950,7 +5109,7 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "notes": "0% forgivable second equal to 4% of the first mortgage; starts reducing by 1/60 a month after year 5, gone at year 10. First-time buyers (no ownership in 3 years) or qualified veterans; waived in targeted tracts. Must repay if you sell or refinance within 10 years. Min credit 640 (660 manufactured).",
      "minCredit": 640
     },
@@ -4975,7 +5134,7 @@
      ],
      "status": "active",
      "minCredit": 640,
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "notes": "Higher income limits than First Place. 0% forgivable second equal to 4% of the first mortgage over 10 years; up to 50% DTI. MHDC says Next Step serves first-time and repeat buyers, but its 2025-26 program documents list 'first-time homebuyer or qualified veteran' as a requirement for the cash assistance; confirm with a lender."
     }
    ],
@@ -5003,8 +5162,8 @@
       "incomeNote": "≤80% Springfield median income; city limits; price ≤ $214,000",
       "status": "paused",
       "forgiveYears": 10,
-      "notes": "0% loan, no payments, forgiven over 10 years as primary residence. First-time buyers and certain displaced persons. City's Home Buyer Assistance page says the program is temporarily paused.",
-      "verified": "2026-11-27"
+      "notes": "0% loan, no payments, forgiven over 10 years as primary residence. First-time buyers and certain displaced persons. City's Home Buyer Assistance Programs page says the program is temporarily paused (checked 11/28/2026); amount and price limit are from earlier city materials.",
+      "verified": "2026-11-28"
      }
     ],
     "Columbia": [
@@ -5030,9 +5189,9 @@
        "usda"
       ],
       "status": "active",
-      "incomeNote": "≤80% AMI (HUD limits); price ≤ $249,000 existing / $284,000 new",
+      "incomeNote": "≤80% AMI (HUD limits; $93,050 for 4 people from 6/1/2026); price ≤ $249,000 existing / $284,000 new",
       "notes": "0% forgivable loan for down payment, closing costs or principal reduction; prorated repayment if sold or rented within 10 years. Buyer contributes $500. Min average credit 600.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "St. Louis City": [
@@ -5059,7 +5218,7 @@
       "incomeNote": "≤80% AMI",
       "status": "paused",
       "notes": "ARPA-funded 0% forgivable second (5, 10 or 15 years by amount). All funds fully reserved as of 8/31/2026 and reservations ended 9/30/2026; waiting list only. May not return.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "St. Louis County": [
@@ -5083,8 +5242,8 @@
       ],
       "status": "active",
       "notes": "HOME-funded county program for St. Louis County buyers. Terms could not be confirmed, so shown as deferred; check with the county.",
-      "reviewed": "2026-11-27",
-      "source": "St. Louis County program page title in search results (Nov 2026); page unreadable"
+      "reviewed": "2026-11-28",
+      "source": "St. Louis County program page appears in search results (Nov 2026) but the site refuses automated fetches; terms not readable"
      }
     ],
     "Kansas City": [
@@ -5094,10 +5253,10 @@
       "agency": "City of Kansas City, MO",
       "url": "https://clerk.kcmo.gov/LegislationDetail.aspx?GUID=C8B40192-8AD8-48EA-A8EF-B75E90491C40&ID=6897128&Options=&Search=",
       "type": "deferred",
-      "amountText": "Up to 20% of price for down payment (max $30,000) plus up to $5,000 closing costs",
+      "amountText": "Amount not confirmed by the city (2024 news reports: up to 20% of price, max $30,000, plus up to $5,000 closing costs)",
       "amount": {
-       "max": 30000,
-       "pct": 20,
+       "max": null,
+       "pct": null,
        "of": "price"
       },
       "loanTypes": [
@@ -5108,9 +5267,9 @@
       ],
       "status": "active",
       "group": "employer",
-      "notes": "City employees buying inside KCMO limits. City describes it as a partial-forgiveness loan; forgiveness terms not published, so shown as deferred. Pilot funded with $750,000 (2024); current availability not confirmed. KCMO has no general city DPA program.",
-      "reviewed": "2026-11-27",
-      "source": "KSHB report (May 2024) + KCMO Resolution 240924 (Nov 2024)"
+      "notes": "City employees buying inside KCMO limits. KCMO Resolution 240924 (Nov 2024) describes it as a partial-forgiveness loan for down payment and closing costs, with workshops from Nov 2024; no amounts or forgiveness schedule published, so shown as deferred. Current availability not confirmed. KCMO has no general city DPA program.",
+      "reviewed": "2026-11-28",
+      "source": "KCMO Resolution 240924 (Nov 2024, no amounts) + KSHB report (May 2024) for figures"
      }
     ]
    },
@@ -5422,7 +5581,7 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "notes": "0% deferred second, forgiven 20% a year in years 11–15. First-time and move-up buyers. Repay only if you sell, refinance or transfer before year 15. Min credit 640 (660 manufactured homes). Paired with NC Home Advantage Mortgage (FHA, VA, USDA or conventional).",
      "minCredit": 640,
      "firstTimeOnly": false,
@@ -5450,7 +5609,7 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "notes": "0% deferred second, forgiven 20% a year in years 11–15. First-time buyers (no principal residence in 3 yrs), military veterans, or homes in targeted census tracts. Min credit 640 (660 manufactured). Paired with NC Home Advantage Mortgage; offered as an alternative to the 3% option.",
      "minCredit": 640,
      "rate": 0,
@@ -5481,7 +5640,7 @@
      ],
      "incomeNote": "≤80% AMI (HUD HOME limits) with sales-price limits",
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "notes": "0% deferred subordinate loan, term matches first mortgage (up to 30 yrs; 33 with USDA 502 Direct); repaid on sale or default, no forgiveness stated; 5–10 yr affordability period. Must pair with NC Home Advantage Mortgage or USDA 502 Direct. Apply through a participating CPLP member (local nonprofit/government). 6 hrs homebuyer education + 2 hrs one-on-one counseling. Per Jan 2026 guidelines; fund availability varies by member."
     }
    ],
@@ -5513,7 +5672,7 @@
       "minCredit": null,
       "incomeNote": "Up to 110% AMI ($129,150; 1A ≤80% AMI $93,900); max price $365,000; Charlotte city limits",
       "notes": "0% deferred, 30-year term, forgiven at year 31 per City of Charlotte tier table. 1B match waived (1B Exemption) for City of Charlotte, Mecklenburg County and CMS employees. 8 hrs HUD-approved homebuyer education required; lender applies on buyer's behalf; can combine with NCHFA CPLP. DreamKey warns funding is limited. Credit minimum and eligible first-mortgage types not stated — loan types kept from prior data.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Raleigh": [
@@ -5542,7 +5701,7 @@
       "firstTimeOnly": true,
       "minCredit": null,
       "notes": "0% interest deferred loan; no payments until the home is sold or is no longer the primary residence. Not forgivable. Enhanced carries a 10-year deed restriction limiting resale proceeds. Through City-approved lenders; credit minimum and first-mortgage types not stated.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Greensboro": [
@@ -5567,10 +5726,10 @@
        "usda"
       ],
       "status": "active",
-      "reviewed": "2026-11-27",
+      "reviewed": "2026-11-28",
       "source": "City of Greensboro program page (eligibility only); amounts from The Mortgage Reports state guide (Nov 2026)",
       "incomeNote": "≤80% AMI standard; 80–120% AMI under Public Service Heroes / #100Homes",
-      "notes": "City page (re-checked 2026-11-27) confirms the program with Standard (≤80% AMI), Public Service Heroes and #100Homes (80–120% AMI) offerings, first-time rule (or no home owned in 3 yrs), Greensboro city limits, and a bonus in 8 redevelopment/reinvestment areas (Dudley Heights, Eastside Park, Glenwood, Kings Forest, Mill District, Ole Asheboro, Random Woods, Willow Oaks). It does not state amounts or loan terms; amounts are from a secondary source and city news/guideline pages could not be reached. Secondary source describes it as forgivable over 10 years; modeled conservatively as deferred until confirmed."
+      "notes": "City page (re-checked 2026-11-28) confirms the program with Standard (≤80% AMI), Public Service Heroes and #100Homes (80–120% AMI) offerings, first-time rule (or no home owned in 3 yrs), Greensboro city limits, and a bonus in 8 redevelopment/reinvestment areas (Dudley Heights, Eastside Park, Glenwood, Kings Forest, Mill District, Ole Asheboro, Random Woods, Willow Oaks). It does not state amounts or loan terms; amounts are from a secondary source and city news/guideline pages could not be reached. Secondary source describes it as forgivable over 10 years; modeled conservatively as deferred until confirmed."
      }
     ],
     "Durham": [
@@ -5599,7 +5758,7 @@
       "incomeNote": "≤80% AMI ($101,700 for 4, FY2026); price ≤95% of HUD area max; City of Durham only",
       "status": "active",
       "notes": "0% forgivable second, forgiven 1/15 per year of occupancy over 15 years (per Aug 2024 guidelines). No home owned in past 3 years. 30-yr fixed FHA/VA/conventional first mortgage; USDA not supported. $1,000 buyer contribution. First-come, first-served until $3.2M is depleted; approved lender list dated July 2026.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ]
    },
@@ -5884,7 +6043,7 @@
      "agency": "NJHMFA",
      "url": "https://www.nj.gov/dca/hmfa/homebuyers-and-renters/homebuyers/",
      "type": "forgivable",
-     "amountText": "Up to $15,000 (amount depends on the property's county)",
+     "amountText": "Up to $15,000 in 12 northern/central counties, up to $10,000 in 9 southern counties",
      "amount": {
       "max": 15000,
       "pct": null,
@@ -5899,8 +6058,8 @@
       "usda"
      ],
      "status": "active",
-     "notes": "Interest-free second loan, no monthly payments, forgiven after 5 years. Must be paired with an NJHMFA 30-year fixed first mortgage (First-Time Homebuyer/Homeward Bound: FHA/VA/USDA; HFA Advantage: conventional). First-time = no ownership in prior 3 years. Min credit 620 (NJHMFA program highlights, updated 10/19/2026). Income and purchase-price limits apply (higher in Urban Target Areas).",
-     "verified": "2026-11-27",
+     "notes": "Interest-free second loan, no monthly payments, forgiven after 5 years of owner-occupancy (repayable if the first mortgage is refinanced or the home is sold). $15,000 in Bergen, Essex, Hudson, Hunterdon, Mercer, Middlesex, Monmouth, Morris, Ocean, Passaic, Somerset, Union; $10,000 in Atlantic, Burlington, Camden, Cape May, Cumberland, Gloucester, Salem, Sussex, Warren. Must be paired with an NJHMFA 30-year fixed first mortgage (First-Time Homebuyer/Homeward Bound: FHA/VA/USDA; HFA Advantage: conventional). First-time = no ownership in prior 3 years; Urban Target Area buyers and qualified veterans are exempt (but can't own another home). Min credit 620 (NJHMFA Single Family Program Highlights, updated 10/19/2026; FTHB fact sheet 6/17/2026). Income and purchase-price limits apply (higher in Urban Target Areas).",
+     "verified": "2026-11-28",
      "minCredit": 620,
      "rate": 0
     },
@@ -5910,7 +6069,7 @@
      "agency": "NJHMFA",
      "url": "https://www.nj.gov/dca/hmfa/homebuyers-and-renters/homebuyers/",
      "type": "forgivable",
-     "amountText": "Up to $22,000 ($15,000 + $7,000)",
+     "amountText": "$7,000 on top of NJHMFA DPA ($22,000 or $17,000 combined, by county)",
      "amount": {
       "max": 22000,
       "pct": null,
@@ -5925,8 +6084,8 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
-     "notes": "$7,000 on top of the NJHMFA DPA (combined $17,000-$22,000 depending on county). Interest-free, forgiven after 5 years. First-generation = parents/guardians hold no residential ownership interest (or buyer was ever in NJ foster care), plus no ownership in prior 3 years. Requires an NJHMFA 30-year fixed first mortgage; min credit 620.",
+     "verified": "2026-11-28",
+     "notes": "$7,000 on top of the NJHMFA DPA: combined $22,000 in the 12 $15k-DPA counties, $17,000 in the 9 $10k-DPA counties. Interest-free, forgiven after 5 years. First-generation = parents/guardians hold no residential ownership interest (or buyer was in NJ foster care, emancipated, or a McKinney-Vento homeless unaccompanied youth), plus no ownership in prior 3 years. Requires an NJHMFA 30-year fixed first mortgage; min credit 620 (Program Highlights 10/19/2026).",
      "minCredit": 620,
      "rate": 0
     }
@@ -5958,7 +6117,7 @@
       "minCredit": null,
       "incomeNote": "≤80% AMI (HUD HOME limits; $91,750 for 4 per county page, June 2024 figures)",
       "notes": "0% non-amortizing forgivable loan for down payment (up to 5%), closing costs and principal write-down. Term is 5 years for awards under $15,000 and 10 years for $15,000-$25,000; repayable if sold during the term. Excludes Camden City, Tavistock and Pine Valley (Camden City buyers use the city's own program). Not owned a home in past 3 years (single parents/displaced homemakers excepted). Fixed-rate first mortgage of 30 years or less required; no program credit-score minimum. Contact FTHBP@camdencounty.com / (856) 751-2242. Rate/term details from the county's 2024 Policies & Procedures (the current version linked from the program page).",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Gloucester County": [
@@ -5985,7 +6144,7 @@
       "firstTimeOnly": true,
       "incomeNote": "≤80% AMI",
       "notes": "0% deferred payment loan; funds go to closing costs first, then down payment. 5-10 year affordability period with full repayment on sale/refinance; the county describes partial (1/5 per year) forgiveness afterward but the wording is ambiguous, so treated conservatively as deferred. No home ownership in past 3 years. Requires 3% buyer investment and 8 hours of HUD-approved homebuyer education. Pre-apply online or call (856) 384-6930.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Newark / Essex County": [
@@ -6008,8 +6167,8 @@
        "usda"
       ],
       "status": "active",
-      "reviewed": "2026-11-27",
-      "source": "Essex County HAP brochure dated 11/30/2022 (agency doc >1 year old); no newer county page found 2026-11-27",
+      "reviewed": "2026-11-28",
+      "source": "Essex County HAP brochure dated 11/30/2022 (agency doc >1 year old); no newer county page found 2026-11-28",
       "rate": 0,
       "incomeNote": "Low-income households (HUD HOME limits)",
       "notes": "No-interest deferred HOME loan for down payment, closing costs or mortgage write-down; 15-year lien. Only the 19 Essex County Consortium towns (e.g., Belleville, Bloomfield, Montclair, Nutley, Orange, West Orange) - NOT Newark, East Orange or Irvington. Price caps in 2022: $309k (1-unit), $395k (2-unit), $479k (3-unit)."
@@ -6038,7 +6197,7 @@
       ],
       "incomeNote": "Not published - call 973-733-4311",
       "status": "active",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "notes": "0% forgivable loan for first-time buyers purchasing in Newark; 20% forgiven per full year over 5 years."
      },
      {
@@ -6066,7 +6225,7 @@
       "incomeNote": "Not published",
       "status": "active",
       "group": "employer",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "notes": "For City of Newark employees buying in Newark. No-interest forgivable loan described as similar to the Closing Cost Program, but the forgiveness schedule isn't stated, so it's treated conservatively as deferred. First-time requirement not stated."
      }
     ],
@@ -6095,8 +6254,8 @@
       ],
       "incomeNote": "≤80% AMI",
       "status": "paused",
-      "reviewed": "2026-11-27",
-      "source": "City of Jersey City press release, Oct 17 2025 (agency doc >1 year old); City affordable-housing page (2026-11-27) gives no window",
+      "reviewed": "2026-11-28",
+      "source": "City of Jersey City press release, Oct 17 2025 (agency doc >1 year old); no newer city notice found 2026-11-28",
       "notes": "HOME-funded subsidy the city calls a grant, but it is recaptured if the buyer sells, moves or defaults during an unstated affordability period, so it's treated as deferred. PAUSED: awarded by lottery; the current list (1,600+ applicants) is being served and a new application window will open only when it's exhausted. Requires 8 hours of HUD-approved education. Call 201-547-6910."
      }
     ],
@@ -6106,14 +6265,14 @@
       "name": "American Dream Downpayment Program",
       "agency": "Middlesex County Division of Housing, Community Development & Social Services",
       "url": "https://www.middlesexcountynj.gov/government/departments/department-of-community-services/office-of-human-services/division-of-housing-community-development-and-social-services/american-dream-downpayment-program",
-      "type": "forgivable",
+      "type": "deferred",
       "amountText": "$5,000 for down payment and closing costs",
       "amount": {
        "max": 5000,
        "pct": null,
        "of": "price"
       },
-      "forgiveYears": 5,
+      "forgiveYears": null,
       "rate": null,
       "termYears": 5,
       "firstTimeOnly": true,
@@ -6126,8 +6285,8 @@
       ],
       "incomeNote": "County page lists $69,700 for 4; price ≤4× household income, max $304,000 (figures look dated — confirm at 732-745-3025)",
       "status": "active",
-      "verified": "2026-11-27",
-      "notes": "Deferred-repayment mortgage; no principal or interest due if the buyer owns and occupies the home for 5 years. First-time buyers who have lived in Middlesex County ≥1 year. Excludes New Brunswick and Perth Amboy. 1% buyer contribution, mortgage pre-approval within 2 months, in-person homebuyer course and HUD-approved counseling. Rate, credit minimum and first-mortgage types not stated; application window not stated."
+      "verified": "2026-11-28",
+      "notes": "Deferred-repayment mortgage; no principal or interest due while the buyer owns and occupies the home for 5 years. The county page doesn't explicitly say the loan is forgiven afterward, so it's treated conservatively as deferred. First-time buyers who have lived in Middlesex County ≥1 year. Excludes New Brunswick and Perth Amboy. 1% buyer contribution, mortgage pre-approval within 2 months, in-person homebuyer course and HUD-approved counseling. Rate, credit minimum and first-mortgage types not stated; application window not stated."
      }
     ],
     "Bergen County": [
@@ -6156,9 +6315,38 @@
       ],
       "incomeNote": "≤80% of county median income; price ≤95% of Bergen County median sales price",
       "status": "paused",
-      "reviewed": "2026-11-27",
-      "source": "Bergen County program page (status) + 2024 American Dream brochure (agency doc >1 year old)",
-      "notes": "PAUSED: county page says the program is on hold until further notice and has not taken applications since January 2025. When running: 0% second mortgage deferred until sale or title change; the match converts to a grant after 10 years. First-time or no ownership in past 3 years. Contact (201) 336-7206."
+      "notes": "PAUSED: county page says the program is on hold until further notice and has not taken applications since January 2025. When running: 0% second mortgage deferred until sale or title change; the match converts to a grant after 10 years. First-time or no ownership in past 3 years. Contact (201) 336-7206.",
+      "verified": "2026-11-28"
+     }
+    ],
+    "Monmouth County": [
+     {
+      "id": "mmc-fthb",
+      "name": "First-Time Homebuyers Program",
+      "agency": "Monmouth County Office of Community Development",
+      "url": "https://www.visitmonmouth.com/Page.aspx?Id=2994",
+      "type": "forgivable",
+      "amountText": "Up to $10,000 for down payment and/or closing costs",
+      "amount": {
+       "max": 10000,
+       "pct": null,
+       "of": "price"
+      },
+      "forgiveYears": 5,
+      "rate": 0,
+      "termYears": 5,
+      "firstTimeOnly": true,
+      "minCredit": null,
+      "loanTypes": [
+       "fha",
+       "va",
+       "conv",
+       "usda"
+      ],
+      "incomeNote": "HOME limits eff. 5/1/2026: $108,550 for 4 ($76,000 for 1); price ≤ $524,225 (1-unit)",
+      "status": "active",
+      "verified": "2026-11-28",
+      "notes": "HOME-funded deferred second mortgage, forgiven after 5 years; repaid in full (interest-free) if the home is rented, sold or vacated within 5 years. Never owned a home (exceptions: displaced homemakers, single parents, no ownership in prior 3 years). 1-year Monmouth County residency, pre-purchase counseling certificate, no co-signers, housing costs ≤40% of income. All 53 municipalities. Per FY2026 packet (Jan 2026). Contact (732) 431-7460 x5736."
      }
     ]
    },
@@ -6180,6 +6368,9 @@
     ],
     "Bergen County": [
      "34003"
+    ],
+    "Monmouth County": [
+     "34025"
     ]
    }
   },
@@ -8090,7 +8281,7 @@
      "status": "active",
      "notes": "0% Great Choice Plus second, forgiven after 10 years; due in full if you sell or refinance sooner. Homebuyer education required. Requires a THDA Great Choice first mortgage: FHA, USDA-RD or Freddie Mac HFA Advantage conventional; VA only via Homeownership for Heroes. First-time buyers, except repeat buyers in 43 targeted counties / designated areas of 15 more, or qualified military.",
      "forgiveYears": 10,
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "firstTimeOnly": true,
      "rate": 0
     },
@@ -8115,7 +8306,7 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "notes": "30-year amortizing second at the same rate as the first mortgage. Requires a THDA Great Choice first mortgage: FHA, USDA-RD or Freddie Mac HFA Advantage conventional; VA only via Homeownership for Heroes. First-time buyers, except repeat buyers in 43 targeted counties / designated areas of 15 more, or qualified military.",
      "firstTimeOnly": true
     },
@@ -8140,7 +8331,7 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "notes": "0% amortizing second for new or proposed construction, repaid over 15 years (THDA DPA page). Requires a Great Choice first mortgage.",
      "rate": 0,
      "firstTimeOnly": true
@@ -8163,7 +8354,7 @@
       "usda"
      ],
      "status": "active",
-     "verified": "2026-11-27",
+     "verified": "2026-11-28",
      "group": "profession",
      "notes": "Reduced Great Choice first-mortgage rate (FHA, USDA-RD or VA only) plus Great Choice Plus DPA (amount shown = amortizing option; the deferred $6k/$10k option is also available). Eligible: military/veterans, EMTs/paramedics, firefighters, full-time K-12 teachers and principals, law enforcement, public safety dispatchers. First-time requirement waived statewide for qualified military and veterans (others follow Great Choice rules).",
      "minCredit": 640,
@@ -8194,7 +8385,7 @@
       ],
       "incomeNote": "At or below 80% HUD AMI (Nashville-Davidson-Murfreesboro-Franklin MSA)",
       "status": "active",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "notes": "Due-on-sale loan, repaid only when the home is resold. First mortgage must come from a partner bank (First Community Bank, Studio Bank or Wilson Bank). Replaces NeighborhoodLIFT (a 2017 Wells Fargo one-time program, no longer offered). AHR does not state whether applications are currently open."
      }
     ],
@@ -8220,8 +8411,8 @@
       ],
       "incomeNote": "Citywide DPA up to 80% AMI; HIP Citizens up to 200% AMI in 15 designated areas; police/fire/MSCS incentives have no income limit",
       "status": "active",
-      "reviewed": "2026-11-27",
-      "source": "City of Memphis program page (updated 2026-03-19) for sub-programs/income; FY23 City DPA flyer for terms",
+      "reviewed": "2026-11-28",
+      "source": "City of Memphis program page (updated 2026-03-19, re-checked 2026-11-28; no amounts published) for sub-programs/income; FY23 City DPA flyer for terms",
       "notes": "Deferred, no-payment second lien held 5 years and released if terms are met (FY23 flyer; listed as deferred conservatively). Minimum 1% buyer investment. Sub-programs: Citywide DPA, MHA DPA, HIP Citizens, HIP Police, HIP Fire, MSCS teachers. First-time rule applies to Citywide DPA (no ownership in 3 years); HIP variants only require owning no other property. Current dollar amounts could not be confirmed on the city site."
      }
     ],
@@ -8248,7 +8439,7 @@
       "notes": "CNE in-house second mortgage at the same rate as the first mortgage, repaid monthly over at most 15 years, no prepayment penalty. CNE also lists a RockPointBank partner second of up to $50,000 (30-year amortization, Hamilton County, $1,000 minimum buyer contribution).",
       "termYears": 15,
       "incomeNote": "Household income/size limits; southeast Tennessee service counties",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      },
      {
       "id": "cha-dpa",
@@ -8275,8 +8466,8 @@
       ],
       "incomeNote": "At or below 120% AMI (4-person $116,900, FY2026)",
       "status": "active",
-      "verified": "2026-11-27",
-      "notes": "0% deferred subordinate loan, no monthly payments; forgiven in full (not prorated) after 30 years of owner occupancy; repaid on sale or cash-out refinance. City limits, price/appraisal max $400,000, $1,000 minimum buyer contribution, homebuyer education. First-time = no ownership in 3 years. Subject to fund availability. Credit 620 or first-mortgage minimum if higher. (30-year forgiveness and 620 credit from city guidelines page, not re-fetched 11/27; main page confirms amount, 0% deferred, first-time, income, price.)"
+      "verified": "2026-11-28",
+      "notes": "0% deferred subordinate loan, no monthly payments; forgiven in full (not prorated) after 30 years of owner occupancy; repaid on sale or cash-out refinance. City limits, price max $400,000, $1,000 minimum buyer contribution, homebuyer education. First-time = no ownership in 3 years. Subject to fund availability. Credit 620 or first-mortgage minimum if higher. (30-year forgiveness and 620 credit come from the city guidelines page, which could not be fetched on 11/27 or 11/28; main city page confirms amount, $21,000 combined with THDA, 0% deferred, first-time, 120% AMI, price limit.)"
      }
     ],
     "Knoxville": [
@@ -8300,7 +8491,7 @@
       ],
       "incomeNote": "Below 80% AMI (4-person $79,500)",
       "status": "paused",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "notes": "Paused: the city says applications are closed except for homes developed by Home Source East Tennessee, Neighborhood Housing Inc. and East Tennessee Housing Development Corp. Terms not published; listed as deferred conservatively."
      }
     ]
@@ -8329,7 +8520,7 @@
      "id": "tx-mfth",
      "name": "My First Texas Home",
      "agency": "TDHCA",
-     "url": "https://welcomehome.tdhca.texas.gov/uploads/My-First-Texas-Home-Program-Matrix-IHFA.pdf",
+     "url": "https://welcomehome.tdhca.texas.gov/uploads/My-First-Texas-Home-Program-Matrix-TMS.pdf",
      "type": "deferred",
      "amountText": "2%–5% of the first-mortgage loan amount",
      "amount": {
@@ -8348,8 +8539,8 @@
      ],
      "incomeNote": "Income and purchase-price limits by county",
      "status": "active",
-     "notes": "0% second lien, no payments, due on sale/refinance/payoff of first lien; a 3-year forgivable 2nd-lien option also exists. First-time = no ownership in 3 yrs (exceptions: targeted areas, qualified veterans). Homebuyer education required; program matrix dated 2/3/2025.",
-     "verified": "2026-11-27"
+     "notes": "0% second lien, no payments, due on sale/refinance/transfer/payoff of first lien (30-yr deferred); a 3-year (36-month) forgivable 2nd-lien option also exists. First-time = no ownership in 3 yrs (exceptions: qualified targeted census tracts, qualified veterans). HUD-certified homebuyer education required; program matrix published 11/2/2026.",
+     "verified": "2026-11-28"
     },
     {
      "id": "tx-mcth",
@@ -8373,10 +8564,10 @@
       "conv",
       "usda"
      ],
-     "incomeNote": "Income and purchase-price limits by county; separate options ≤80% AMI and >80% AMI",
+     "incomeNote": "Income limits by county (no purchase-price limits per matrix); conventional options ≤80% AMI and >80% AMI",
      "status": "active",
-     "notes": "0% second lien, no payments, due on sale/refinance/payoff of first lien; a 3-year forgivable 2nd-lien option also exists. Conventional = Fannie HFA Preferred / Freddie HFA Advantage; matrix dated 2/3/2025. Homebuyer education required.",
-     "verified": "2026-11-27"
+     "notes": "0% second lien, no payments, due on sale/refinance/transfer/payoff of first lien (30-yr deferred); a 3-year (36-month) forgivable 2nd-lien option also exists. Conventional = Fannie HFA Preferred / Freddie HFA Advantage; matrix published 11/2/2026. HUD-certified homebuyer education required.",
+     "verified": "2026-11-28"
     },
     {
      "id": "tx-hst",
@@ -8402,13 +8593,13 @@
      "incomeNote": "Low/moderate income limits by county (up to ~80% / 150–170% AMI)",
      "status": "active",
      "notes": "Offered as either a non-repayable grant or a second lien forgiven after 3 years; modeled conservatively as forgivable. Min credit 620 government / 640 conventional. Specific government loan types not named on the page. Purchase-price limits by county.",
-     "verified": "2026-11-27"
+     "verified": "2026-11-28"
     },
     {
      "id": "tx-hfth",
      "name": "Homes for Texas Heroes Home Loan Program",
      "agency": "TSAHC",
-     "url": "https://www.tsahc.org/homebuyers-renters/homes-for-texas-heroes-program",
+     "url": "https://www.tsahc.org/program/homes-for-texas-heroes/",
      "type": "forgivable",
      "amountText": "Up to 5% of loan (grant or 3-year forgivable second lien)",
      "amount": {
@@ -8427,8 +8618,8 @@
      ],
      "incomeNote": "Income limits by county (up to ~80% / 150–170% AMI)",
      "status": "active",
-     "notes": "For teachers/K-12 staff, police, firefighters, EMS, corrections officers, nursing/allied health faculty and veterans. Grant or 3-yr forgivable option; modeled conservatively as forgivable. Min credit 620 government / 640 conventional.",
-     "verified": "2026-11-27",
+     "notes": "For full-time K-12 professional educators, peace officers, firefighters, EMS, corrections officers (TDCJ), juvenile corrections officers (TJJD), county jailers, public security officers, nursing/allied health faculty and certain veterans. Grant or 3-yr forgivable option; modeled conservatively as forgivable. Min credit 620 government / 640 conventional.",
+     "verified": "2026-11-28",
      "group": "profession"
     }
    ],
@@ -8456,8 +8647,8 @@
       ],
       "incomeNote": "≤80% AMI (CDBG); up to 120% AMI for TIRZ-funded",
       "status": "paused",
-      "notes": "Closed to new applications: program funds exhausted (Nov 2026); reapply when funding is replenished. 0% forgivable junior lien: ≤$50,000 forgiven over 5 yrs, $50,000.01–$75,000 over 8 yrs (Guidelines v8.0). No minimum credit score; home must be taxed by City of Houston.",
-      "verified": "2026-11-27"
+      "notes": "Closed to new applications: program funds exhausted (rechecked 2026-11-28); reapply when funding is replenished. 0% forgivable junior lien: ≤$50,000 forgiven over 5 yrs, $50,000.01–$75,000 over 8 yrs (Guidelines v8.0). No minimum credit score; home must be taxed by City of Houston.",
+      "verified": "2026-11-28"
      }
     ],
     "Harris County": [
@@ -8484,7 +8675,7 @@
       "incomeNote": "Income-qualified; price ≤$285,000 existing / $296,000 new; unincorporated Harris County only",
       "status": "paused",
       "notes": "At capacity: currently accepting only Hurricane Beryl/Derecho-affected applicants. Silent second mortgage with 5-yr (<$25k) or 10-yr ($25k–$40k) affordability period; forgiveness not stated explicitly, so modeled as deferred. Loan types not listed by the county.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "San Antonio": [
@@ -8511,7 +8702,7 @@
       "incomeNote": "≤80% AMI ($80,500 for 4); price ≤$260,000 existing / $284,000 new",
       "status": "active",
       "notes": "0% no-payment second lien, forgiven over 5 years if ≤$15,000, 10 years if more. First lien must be FHA, VA or Conventional; no credit score required (Procedural Guide Oct 2024). Home within San Antonio city limits.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      },
      {
       "id": "sa-hip120",
@@ -8534,7 +8725,7 @@
       "incomeNote": "≤120% AMI ($120,700 for 4); price ≤$301,700 existing / $332,800 new",
       "status": "active",
       "notes": "0% no-payment second lien: 75% forgiven over 10 years, 25% perpetual (due on sale/refinance with cash out), so modeled as deferred. First-time (no ownership in 3 yrs); first lien FHA, VA or Conventional (Procedural Guide Oct 2024).",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "firstTimeOnly": true
      }
     ],
@@ -8558,10 +8749,10 @@
        "conv",
        "usda"
       ],
-      "incomeNote": "≤80% AMI (standard); price ≤$342,000",
+      "incomeNote": "≤80% AMI standard (DHAP 10 / anti-displacement up to 120% AMI); price ≤$342,000 per earlier program info (current BCL page does not state a price cap)",
       "status": "active",
       "notes": "Administered by BCL of Texas since May 1, 2026. 0% forgivable deferred second lien prorated annually over the affordability term (term length not published). Funding first-come, first-served. Anti-Displacement DHAP (50–120% AMI, 10-yr Dallas residents) up to $50,000; Targeted Occupations DHAP funds fully spent. First-time rule, min credit and loan types not stated on agency pages.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Austin": [
@@ -8589,7 +8780,7 @@
       "incomeNote": "≤80% MFI ($106,800 for 4); price ≤$440,000",
       "status": "active",
       "notes": "Standard DPA (≤$14,999) is a 0% loan forgiven after 5 years; shared-equity DPA ($15k–$40k) keeps a 30-year City equity interest, so modeled as deferred. The current City page confirms the $40,000 max, limits and first-time rule but not the split terms. No program credit minimum; loan types not specified; home in Austin full-purpose city limits.",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Fort Worth": [
@@ -8617,7 +8808,7 @@
       "incomeNote": "≤80% AMI ($88,250 for 4); price ≤$309,000 existing / $329,000 new",
       "status": "active",
       "notes": "≤$14,999 forgiven after 5 years; above that, 10-yr affordability (remainder forgiven 20%/yr in years 6–10). 30-yr fixed first mortgage from a city-approved lender; loan types not named. Subject to funding (guidelines rev. 4/15/2026).",
-      "verified": "2026-11-27"
+      "verified": "2026-11-28"
      }
     ],
     "Corpus Christi": [
@@ -8641,8 +8832,8 @@
       ],
       "incomeNote": "Low-income (HOME, ≤80% AMI); HOME rule caps price at 95% of area median purchase price. Earlier figure of ≤$238,000 not confirmed",
       "status": "paused",
-      "notes": "Paused: no open homebuyer application found on the City's site (rechecked 2026-11-27). The FY2026/PY2025 Annual Action Plan says Planning & Community Development runs a Homebuyer Down Payment and Closing Cost Assistance Program (CDBG program delivery $528,731; HOME Homebuyer and Builder Program $255,105 with Habitat for Humanity, 40–80% AMI) using HOME resale/recapture rules, but gives no per-household amount. The latest amount is from a Jan 2025 HOME notice (Come Dream Come Build, up to $25,000/family). The FY2027/PY2026 plan draft could not be read. Forgiveness not published, so modeled as deferred; confirm with the City (PCDD 361-826-3010).",
-      "reviewed": "2026-11-27",
+      "notes": "Paused: no open homebuyer application found on the City's site (rechecked 2026-11-28). The FY2026/PY2025 Annual Action Plan says Planning & Community Development runs a Homebuyer Down Payment and Closing Cost Assistance Program (CDBG program delivery $528,731; HOME Homebuyer and Builder Program $255,105 with Habitat for Humanity, 40–80% AMI) using HOME resale/recapture rules, but gives no per-household amount. The latest amount is from a Jan 2025 HOME notice (Come Dream Come Build, up to $25,000/family). The FY2027/PY2026 plan draft could not be read; a 7/28/2026 City release on the $7.4M FY2027 plan mentions HOME-funded homebuyer support ($3.5M HOME total) without per-household amounts. Forgiveness not published, so modeled as deferred; confirm with the City (PCDD 361-826-3010).",
+      "reviewed": "2026-11-28",
       "source": "City of Corpus Christi HOME Notice of Intent/RROF, Come Dream Come Build Homebuyer Assistance (Jan 8, 2025); FY2026/PY2025 Annual Action Plan draft",
       "firstTimeOnly": true
      }
@@ -9492,7 +9683,7 @@
      "agency": "WHEDA",
      "url": "https://www.wheda.com/homeownership-and-renters/home-buyers/available-programs",
      "type": "repay",
-     "amountText": "$1,000 up to 6% of price",
+     "amountText": "$1,000 minimum, up to 6% of purchase price",
      "amount": {
       "max": null,
       "pct": 6,
@@ -9504,8 +9695,10 @@
       "conv"
      ],
      "status": "active",
-     "verified": "2026-11-23",
-     "notes": "Repaid monthly alongside the WHEDA Advantage first mortgage. Not limited to first-time buyers."
+     "verified": "2026-11-28",
+     "notes": "10-year fixed second mortgage repaid monthly alongside the WHEDA Advantage first mortgage (same rate). Not limited to first-time buyers. Min credit 620 conventional / 640 FHA (first-mortgage requirement). WHEDA income limits apply.",
+     "rate": "Same as WHEDA first mortgage",
+     "minCredit": 620
     },
     {
      "id": "wi-capital",
@@ -9513,7 +9706,7 @@
      "agency": "WHEDA",
      "url": "https://www.wheda.com/lender-toolkit/",
      "type": "deferred",
-     "amountText": "Up to $7,500",
+     "amountText": "$7,500 (currently unavailable)",
      "amount": {
       "max": 7500,
       "pct": null,
@@ -9521,13 +9714,13 @@
      },
      "loanTypes": [
       "fha",
-      "va",
-      "conv",
-      "usda"
+      "conv"
      ],
-     "status": "active",
-     "verified": "2026-11-23",
-     "notes": "0% deferred, due when the first mortgage is paid off or refinanced. For lower-income buyers in high-housing-need areas. Available again on a limited basis since Jan 15, 2026."
+     "status": "paused",
+     "verified": "2026-11-28",
+     "notes": "0% deferred, no monthly payments; due when the first mortgage is paid off or refinanced. Requires a WHEDA Conventional or FHA first mortgage; can't be combined with Easy Close. Separate (lower) income and purchase-price limits; home must be in a high-housing-need area. WHEDA's site says 'Capital Access DPA is currently unavailable' (Nov 2026).",
+     "rate": 0,
+     "termYears": 30
     }
    ],
    "local": {
@@ -9536,9 +9729,9 @@
       "id": "mke-dpa",
       "name": "Milwaukee Home Down Payment",
       "agency": "City of Milwaukee / Housing Resources",
-      "url": "https://city.milwaukee.gov",
+      "url": "https://city.milwaukee.gov/DCD/NIDC/MILWAUKEE-HOME-DOWN-PAYMENT-ASSISTANCE-PROGRAM",
       "type": "forgivable",
-      "amountText": "$5,000 ($7,000 in CDBG area)",
+      "amountText": "$5,000 ($7,000 in the city's CDBG area)",
       "amount": {
        "max": 5000,
        "pct": null,
@@ -9552,8 +9745,10 @@
        "usda"
       ],
       "status": "active",
-      "reviewed": "2026-11-16",
-      "source": "The Mortgage Reports state guide (Nov 2026)"
+      "verified": "2026-11-28",
+      "firstTimeOnly": true,
+      "incomeNote": "Household income limits (e.g., $86,700 for 4 people)",
+      "notes": "Forgivable grant for homes in the City of Milwaukee. You must live in the home at least 5 years; the city doesn't publish a detailed forgiveness schedule. No home ownership in the last 3 years. First-mortgage rate can't exceed the Freddie Mac 30-yr average by more than 2%."
      }
     ],
     "Madison": [
@@ -9561,11 +9756,11 @@
       "id": "msn-adream",
       "name": "Home-Buy the American Dream",
       "agency": "City of Madison",
-      "url": "https://www.cityofmadison.com",
+      "url": "https://www.cityofmadison.com/dpced/community-development/housing/resources-for-homebuyers-and-property-owners/down-payment",
       "type": "deferred",
-      "amountText": "Up to $20,000",
+      "amountText": "$1,000 up to $35,000",
       "amount": {
-       "max": 20000,
+       "max": 35000,
        "pct": null,
        "of": "price"
       },
@@ -9576,9 +9771,10 @@
        "usda"
       ],
       "status": "active",
-      "notes": "Repaid with a share of appreciation at sale.",
-      "reviewed": "2026-11-16",
-      "source": "The Mortgage Reports state guide (Nov 2026)"
+      "notes": "Deferred until sale, transfer, cash-out refinance, or move-out; repay the greater of the loan amount or the city's proportional share of appreciation. City of Madison homes only; buyer contributes at least 1%. No ownership in last 3 years (some exceptions).",
+      "verified": "2026-11-28",
+      "firstTimeOnly": true,
+      "incomeNote": "Low-to-moderate income limits (e.g., $106,800 for 4 people, 2026)"
      }
     ],
     "Green Bay": [
@@ -9586,15 +9782,15 @@
       "id": "gb-nw",
       "name": "NeighborWorks Green Bay DPA",
       "agency": "NeighborWorks Green Bay",
-      "url": "https://nwgreenbay.org",
-      "type": "repay",
-      "amountText": "$3,000–$8,000",
+      "url": "https://nwgreenbay.org/home-ownership/down-payment-and-closing-cost-assistance/",
+      "type": "deferred",
+      "amountText": "Typically $3,000–$8,000",
       "amount": {
        "max": 8000,
        "pct": null,
        "of": "price"
       },
-      "firstTimeOnly": true,
+      "firstTimeOnly": false,
       "loanTypes": [
        "fha",
        "va",
@@ -9602,8 +9798,10 @@
        "usda"
       ],
       "status": "active",
-      "reviewed": "2026-11-16",
-      "source": "The Mortgage Reports state guide (Nov 2026)"
+      "verified": "2026-11-28",
+      "rate": 0,
+      "incomeNote": "Brown County AMI-based income limits",
+      "notes": "0% loan, no monthly payments; repaid when you no longer live in the home. $8,000 is the typical top of the range, not a published cap. Mostly Brown County; buyer contributes $1,000 and completes NWGB education. Subject to available funds."
      }
     ]
    },
