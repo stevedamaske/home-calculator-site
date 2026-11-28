@@ -6,6 +6,8 @@
     root.setAttribute('data-theme', t);
     var m = document.querySelector('meta[name="theme-color"]');
     if (m) m.setAttribute('content', t === 'light' ? '#f5f4f1' : '#16181b');
+    var ic = document.querySelector('link[rel="icon"][data-light]');
+    if (ic) ic.setAttribute('href', ic.getAttribute(t === 'light' ? 'data-light' : 'data-dark'));
     var b = document.getElementById('themeBtn');
     if (b){
       b.textContent = t === 'light' ? '☾ Dark' : '☀ Light';

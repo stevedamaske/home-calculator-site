@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#16181b">
 <title>Home Purchase Calculator — FHA · VA · Conventional</title>
 <link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.svg" type="image/svg+xml" data-dark="favicon.svg" data-light="favicon-light.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="theme.js"></script>
 <style>
@@ -25,7 +25,14 @@
     --c1:#2f78b5; --c2:#8fb0d6; --c3:#d0913a; --c4:#8e6bb8; --c5:#3f9a68; --c6:#c95f6a; }
   :root[data-theme="light"] select, :root[data-theme="light"] option, :root[data-theme="light"] optgroup{color-scheme:light}
   .ttl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 4px}
-  .ttl h1{margin:0}
+  .ttl h1{margin:0;display:flex;align-items:center;gap:.4em}
+  /* header logo: same drawing as the favicon, colored from the active theme; sized in em so it scales with the title */
+  .logo{width:1.35em;height:1.35em;flex:none}
+  .lg-roof{fill:none;stroke:var(--logo-roof);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+  .lg-body{fill:var(--accent)}
+  .lg-keys{fill:var(--bg)}
+  :root{--logo-roof:#e2a35a}
+  :root[data-theme="light"]{--logo-roof:#d0913a}
   .themebtn{border:1px solid var(--line);background:var(--card);color:var(--muted);font:inherit;font-size:12px;line-height:1.2;padding:4px 10px;border-radius:14px;cursor:pointer}
   .themebtn:hover{border-color:var(--accent);color:var(--ink)}
   .themebtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -204,7 +211,7 @@
 <body>
 <header>
   <div>
-    <div class="ttl"><h1>Home Purchase Calculator</h1><button type="button" class="themebtn" id="themeBtn" aria-label="Switch to light mode">☀ Light</button></div>
+    <div class="ttl"><h1><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="lg-roof" d="M5 30 32 7l27 23"/><rect class="lg-body" x="14" y="27" width="36" height="34" rx="5"/><g class="lg-keys"><rect x="19" y="32" width="26" height="8" rx="1.5"/><rect x="19" y="44" width="6" height="5" rx="1"/><rect x="29" y="44" width="6" height="5" rx="1"/><rect x="39" y="44" width="6" height="5" rx="1"/><rect x="19" y="52" width="6" height="5" rx="1"/><rect x="29" y="52" width="6" height="5" rx="1"/><rect x="39" y="52" width="6" height="5" rx="1"/></g></svg>Home Purchase Calculator</h1><button type="button" class="themebtn" id="themeBtn" aria-label="Switch to light mode">☀ Light</button></div>
     <p>Pick a loan type and enter your numbers. Everything updates as you type.</p>
   </div>
   <div class="typeseg" id="loanType">
