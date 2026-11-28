@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-23",
+ "updatedAt": "2026-11-27",
  "items": {
   "price": {
    "title": "Purchase price",
@@ -199,6 +199,14 @@
    "link": {
     "label": "CFPB: buying a home",
     "url": "https://www.consumerfinance.gov/owning-a-home/"
+   }
+  },
+  "zip": {
+   "title": "ZIP code (optional)",
+   "text": "Fills in county-based figures: the FHA and conforming loan limits, a property-tax estimate and your state's assistance programs. We match your ZIP to its county using the Census Bureau's 2020 ZIP Code Tabulation Areas, which closely approximate USPS ZIP codes. If a ZIP spans more than one county, pick yours from the list. The tax estimate is a county median from the Census American Community Survey (median taxes paid ÷ median home value). County-based figures may not match a specific property; confirm with your lender and county. Anything you type yourself overrides what the ZIP fills in.",
+   "link": {
+    "label": "Census: ZIP Code Tabulation Areas",
+    "url": "https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html"
    }
   }
  }

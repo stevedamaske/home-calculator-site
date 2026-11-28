@@ -258,6 +258,11 @@
       "verified": "2026-11-23"
      }
     ]
+   },
+   "areaCounties": {
+    "Anchorage": [
+     "02020"
+    ]
    }
   },
   "AL": {
@@ -389,6 +394,17 @@
       "source": "Bankrate (older page)"
      }
     ]
+   },
+   "areaCounties": {
+    "Birmingham": [
+     "01073"
+    ],
+    "Huntsville": [
+     "01089"
+    ],
+    "Mobile": [
+     "01097"
+    ]
    }
   },
   "AR": {
@@ -476,6 +492,11 @@
       "notes": "Forgiven in equal monthly installments over 60 months. Home must be in Little Rock city limits and owner-occupied for 5 years; no ownership in past 3 years; city-approved counseling; first mortgage from a lender with an Arkansas office, which requests the assistance; repairs completed before approval.",
       "verified": "2026-11-23"
      }
+    ]
+   },
+   "areaCounties": {
+    "Little Rock": [
+     "05119"
     ]
    }
   },
@@ -693,6 +714,14 @@
       "notes": "PAUSED: Pima IDA page marked 'Currently unavailable'. 30-year forgivable second with a 30-year fixed assisted-rate first mortgage; first-time buyers with 6 months AZ residency; all of Pima County incl. Tucson. Credit requirement not stated.",
       "verified": "2026-11-27"
      }
+    ]
+   },
+   "areaCounties": {
+    "Maricopa County (incl. Phoenix)": [
+     "04013"
+    ],
+    "Tucson / Pima County": [
+     "04019"
     ]
    }
   },
@@ -987,6 +1016,23 @@
       "verified": "2026-11-20"
      }
     ]
+   },
+   "areaCounties": {
+    "City of Los Angeles": [
+     "06037"
+    ],
+    "Los Angeles County": [
+     "06037"
+    ],
+    "City of San Diego": [
+     "06073"
+    ],
+    "San Francisco": [
+     "06075"
+    ],
+    "Santa Clara County / San Jose": [
+     "06085"
+    ]
    }
   },
   "CO": {
@@ -1145,6 +1191,26 @@
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
     ]
+   },
+   "areaCounties": {
+    "Denver": [
+     "08031"
+    ],
+    "Denver metro (Adams, Arapahoe, Denver, Douglas, Jefferson)": [
+     "08001",
+     "08005",
+     "08031",
+     "08035",
+     "08059"
+    ],
+    "Aurora": [
+     "08005",
+     "08001",
+     "08035"
+    ],
+    "Colorado Springs / El Paso County": [
+     "08041"
+    ]
    }
   },
   "CT": {
@@ -1277,6 +1343,17 @@
       "incomeNote": "Income ≤ $176,200 (Home Preferred)",
       "notes": "Fixed cash assistance added to an NH Housing mortgage, for down payment and closing costs. Forgiveness terms: confirm with NH Housing."
      }
+    ]
+   },
+   "areaCounties": {
+    "Bridgeport": [
+     "09120"
+    ],
+    "Stamford": [
+     "09190"
+    ],
+    "New Haven": [
+     "09170"
     ]
    }
   },
@@ -1536,6 +1613,11 @@
       "notes": "Repayable 15-year loan for down payment/settlement costs: no payments for the first 2 years, monthly payments from year 3. Rate, income limits and whether City of Wilmington addresses qualify aren't on the page — contact the county (302-395-5698).",
       "verified": "2026-11-23"
      }
+    ]
+   },
+   "areaCounties": {
+    "Wilmington / New Castle County": [
+     "10003"
     ]
    }
   },
@@ -1857,6 +1939,29 @@
       "notes": "Forgiven after 10 years if owner-occupied. Fixed-rate first mortgage from City-registered lender. City is not accepting new applications.",
       "verified": "2026-11-20"
      }
+    ]
+   },
+   "areaCounties": {
+    "Jacksonville": [
+     "12031"
+    ],
+    "Tampa": [
+     "12057"
+    ],
+    "Hillsborough County": [
+     "12057"
+    ],
+    "Miami-Dade County": [
+     "12086"
+    ],
+    "North Miami": [
+     "12086"
+    ],
+    "Broward County": [
+     "12011"
+    ],
+    "Orlando": [
+     "12095"
     ]
    }
   },
@@ -2255,6 +2360,36 @@
       "verified": "2026-11-20"
      }
     ]
+   },
+   "areaCounties": {
+    "City of Atlanta": [
+     "13121",
+     "13089"
+    ],
+    "Fulton County (outside City of Atlanta)": [
+     "13121"
+    ],
+    "Gwinnett County": [
+     "13135"
+    ],
+    "DeKalb County": [
+     "13089"
+    ],
+    "Savannah": [
+     "13051"
+    ],
+    "Augusta-Richmond County": [
+     "13245"
+    ],
+    "Columbus": [
+     "13215"
+    ],
+    "Cobb County": [
+     "13067"
+    ],
+    "Clayton County": [
+     "13063"
+    ]
    }
   },
   "HI": {
@@ -2434,6 +2569,11 @@
       "verified": "2026-11-27"
      }
     ]
+   },
+   "areaCounties": {
+    "Honolulu (City & County of Honolulu)": [
+     "15003"
+    ]
    }
   },
   "IA": {
@@ -2588,6 +2728,14 @@
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
     ]
+   },
+   "areaCounties": {
+    "Cedar Rapids": [
+     "19113"
+    ],
+    "Davenport": [
+     "19163"
+    ]
    }
   },
   "ID": {
@@ -2677,6 +2825,11 @@
       "reviewed": "2026-11-23",
       "source": "City of Boise HOP Policy (2025 revision); program page confirms program, income range and referral process"
      }
+    ]
+   },
+   "areaCounties": {
+    "Boise": [
+     "16001"
     ]
    }
   },
@@ -2981,6 +3134,27 @@
       "verified": "2026-11-20"
      }
     ]
+   },
+   "areaCounties": {
+    "Aurora": [
+     "17089",
+     "17043"
+    ],
+    "Joliet": [
+     "17197"
+    ],
+    "Chicago": [
+     "17031"
+    ],
+    "Cook County": [
+     "17031"
+    ],
+    "Kane County": [
+     "17089"
+    ],
+    "Rockford": [
+     "17201"
+    ]
    }
   },
   "IN": {
@@ -3108,6 +3282,17 @@
       "notes": "0% second with no payments, 7-year term, paired with a 30-year fixed first mortgage from a participating lender. First-time and repeat buyers (first-timers need 8-hour education). Available in 26 Indiana counties including Allen, Marion and Lake. FWHA lists 640 min credit (administrator site says 620). Whether 5% is of price or loan and which loan types qualify are not stated; shown conservatively.",
       "verified": "2026-11-27"
      }
+    ]
+   },
+   "areaCounties": {
+    "Indianapolis": [
+     "18097"
+    ],
+    "Evansville": [
+     "18163"
+    ],
+    "Fort Wayne": [
+     "18003"
     ]
    }
   },
@@ -3242,6 +3427,17 @@
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
     ]
+   },
+   "areaCounties": {
+    "Wichita": [
+     "20173"
+    ],
+    "Topeka": [
+     "20177"
+    ],
+    "Leavenworth": [
+     "20103"
+    ]
    }
   },
   "KY": {
@@ -3325,6 +3521,14 @@
       "reviewed": "2026-11-16",
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
+    ]
+   },
+   "areaCounties": {
+    "Louisville Metro": [
+     "21111"
+    ],
+    "Lexington": [
+     "21067"
     ]
    }
   },
@@ -3482,6 +3686,14 @@
       "reviewed": "2026-11-16",
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
+    ]
+   },
+   "areaCounties": {
+    "New Orleans": [
+     "22071"
+    ],
+    "Shreveport": [
+     "22017"
     ]
    }
   },
@@ -3646,6 +3858,20 @@
       "verified": "2026-11-23",
       "notes": "Forgivable loan for down payment and closing costs; 20% forgiven per year over 5 years of owner occupancy. Single-family, condo, 2- or 3-family in Cambridge; first-time homebuyer workshop required."
      }
+    ]
+   },
+   "areaCounties": {
+    "Boston": [
+     "25025"
+    ],
+    "Worcester": [
+     "25027"
+    ],
+    "Springfield": [
+     "25013"
+    ],
+    "Cambridge": [
+     "25017"
     ]
    }
   },
@@ -4194,6 +4420,23 @@
       "verified": "2026-11-27"
      }
     ]
+   },
+   "areaCounties": {
+    "Baltimore City": [
+     "24510"
+    ],
+    "Montgomery County": [
+     "24031"
+    ],
+    "Howard County": [
+     "24027"
+    ],
+    "Prince George's County": [
+     "24033"
+    ],
+    "Anne Arundel County": [
+     "24003"
+    ]
    }
   },
   "ME": {
@@ -4358,6 +4601,11 @@
       "verified": "2026-11-27"
      }
     ]
+   },
+   "areaCounties": {
+    "Bangor": [
+     "23019"
+    ]
    }
   },
   "MI": {
@@ -4500,6 +4748,17 @@
       "incomeNote": "≤80% AMI ($58,700 for 1 to $110,700 for 8, HUD June 2026); must not currently own a home",
       "verified": "2026-11-23"
      }
+    ]
+   },
+   "areaCounties": {
+    "Detroit": [
+     "26163"
+    ],
+    "Grand Rapids": [
+     "26081"
+    ],
+    "Warren": [
+     "26099"
     ]
    }
   },
@@ -4651,6 +4910,17 @@
       "reviewed": "2026-11-16",
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
+    ]
+   },
+   "areaCounties": {
+    "Minneapolis": [
+     "27053"
+    ],
+    "St. Paul": [
+     "27123"
+    ],
+    "Rochester": [
+     "27109"
     ]
    }
   },
@@ -4843,6 +5113,25 @@
       "source": "KSHB report (May 2024) + KCMO Resolution 240924 (Nov 2024)"
      }
     ]
+   },
+   "areaCounties": {
+    "Springfield": [
+     "29077"
+    ],
+    "Columbia": [
+     "29019"
+    ],
+    "St. Louis City": [
+     "29510"
+    ],
+    "St. Louis County": [
+     "29189"
+    ],
+    "Kansas City": [
+     "29095",
+     "29047",
+     "29165"
+    ]
    }
   },
   "MS": {
@@ -5003,6 +5292,11 @@
       "verified": "2026-11-27"
      }
     ]
+   },
+   "areaCounties": {
+    "Jackson": [
+     "28049"
+    ]
    }
   },
   "MT": {
@@ -5095,6 +5389,11 @@
       "notes": "0% interest deferred-payment loan; forgiveness not stated. Homebuyer education required. City says funding available as of Sept 10, 2026, first-come first-served.",
       "verified": "2026-11-23"
      }
+    ]
+   },
+   "areaCounties": {
+    "Billings": [
+     "30111"
     ]
    }
   },
@@ -5303,6 +5602,20 @@
       "verified": "2026-11-27"
      }
     ]
+   },
+   "areaCounties": {
+    "Charlotte": [
+     "37119"
+    ],
+    "Raleigh": [
+     "37183"
+    ],
+    "Greensboro": [
+     "37081"
+    ],
+    "Durham": [
+     "37063"
+    ]
    }
   },
   "ND": {
@@ -5491,6 +5804,14 @@
       "notes": "Down payment, closing cost and limited rehab assistance for existing homes inside Lincoln city limits; extra incentives in priority neighborhoods. No ownership in past 3 years (exceptions possible); NeighborWorks Lincoln homebuyer training required. Repayment terms not published; type set conservatively to deferred.",
       "verified": "2026-11-23"
      }
+    ]
+   },
+   "areaCounties": {
+    "Omaha": [
+     "31055"
+    ],
+    "Lincoln": [
+     "31109"
     ]
    }
   },
@@ -5840,6 +6161,26 @@
       "notes": "PAUSED: county page says the program is on hold until further notice and has not taken applications since January 2025. When running: 0% second mortgage deferred until sale or title change; the match converts to a grant after 10 years. First-time or no ownership in past 3 years. Contact (201) 336-7206."
      }
     ]
+   },
+   "areaCounties": {
+    "Camden County": [
+     "34007"
+    ],
+    "Gloucester County": [
+     "34015"
+    ],
+    "Newark / Essex County": [
+     "34013"
+    ],
+    "Jersey City": [
+     "34017"
+    ],
+    "Middlesex County": [
+     "34023"
+    ],
+    "Bergen County": [
+     "34003"
+    ]
    }
   },
   "NM": {
@@ -5969,6 +6310,11 @@
       "reviewed": "2026-11-16",
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
+    ]
+   },
+   "areaCounties": {
+    "Rio Rancho": [
+     "35043"
     ]
    }
   },
@@ -6260,6 +6606,14 @@
       "verified": "2026-11-27"
      }
     ]
+   },
+   "areaCounties": {
+    "Las Vegas / Clark County": [
+     "32003"
+    ],
+    "Reno / Washoe County": [
+     "32031"
+    ]
    }
   },
   "NY": {
@@ -6534,6 +6888,30 @@
       "verified": "2026-11-20"
      }
     ]
+   },
+   "areaCounties": {
+    "New York City": [
+     "36061",
+     "36047",
+     "36081",
+     "36005",
+     "36085"
+    ],
+    "Buffalo": [
+     "36029"
+    ],
+    "Rochester": [
+     "36055"
+    ],
+    "Westchester County": [
+     "36119"
+    ],
+    "Syracuse": [
+     "36067"
+    ],
+    "Ithaca / Tompkins region": [
+     "36109"
+    ]
    }
   },
   "OH": {
@@ -6696,6 +7074,17 @@
       "verified": "2026-11-23"
      }
     ]
+   },
+   "areaCounties": {
+    "Columbus": [
+     "39049"
+    ],
+    "Cleveland / Cuyahoga County": [
+     "39035"
+    ],
+    "Cincinnati": [
+     "39061"
+    ]
    }
   },
   "OK": {
@@ -6802,6 +7191,14 @@
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
     ]
+   },
+   "areaCounties": {
+    "Oklahoma City": [
+     "40109"
+    ],
+    "Tulsa": [
+     "40143"
+    ]
    }
   },
   "OR": {
@@ -6907,6 +7304,15 @@
       "reviewed": "2026-11-16",
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
+    ]
+   },
+   "areaCounties": {
+    "Portland": [
+     "41051"
+    ],
+    "Salem": [
+     "41047",
+     "41053"
     ]
    }
   },
@@ -7172,6 +7578,21 @@
       "verified": "2026-11-20"
      }
     ]
+   },
+   "areaCounties": {
+    "Philadelphia": [
+     "42101"
+    ],
+    "Pittsburgh": [
+     "42003"
+    ],
+    "Allegheny County (outside Pittsburgh)": [
+     "42003"
+    ],
+    "Bethlehem": [
+     "42095",
+     "42077"
+    ]
    }
   },
   "RI": {
@@ -7335,6 +7756,11 @@
       "notes": "Approved May 2026 in the city's 2026-27 HUD plan: forgivable purchase loans for first-time buyers. Administrator, per-buyer amount and forgiveness period not yet published — contact Housing & Human Services (401-680-8400). Providence residents may also qualify for RIHousing's FirstGenHomeRI.",
       "verified": "2026-11-23"
      }
+    ]
+   },
+   "areaCounties": {
+    "Providence": [
+     "44007"
     ]
    }
   },
@@ -7519,6 +7945,20 @@
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
     ]
+   },
+   "areaCounties": {
+    "Columbia / Richland County": [
+     "45079"
+    ],
+    "Greenville County": [
+     "45045"
+    ],
+    "Spartanburg": [
+     "45083"
+    ],
+    "Charleston": [
+     "45019"
+    ]
    }
   },
   "SD": {
@@ -7614,6 +8054,12 @@
       "group": "profession",
       "verified": "2026-11-27"
      }
+    ]
+   },
+   "areaCounties": {
+    "Sioux Falls": [
+     "46099",
+     "46083"
     ]
    }
   },
@@ -7857,6 +8303,20 @@
       "verified": "2026-11-27",
       "notes": "Paused: the city says applications are closed except for homes developed by Home Source East Tennessee, Neighborhood Housing Inc. and East Tennessee Housing Development Corp. Terms not published; listed as deferred conservatively."
      }
+    ]
+   },
+   "areaCounties": {
+    "Nashville": [
+     "47037"
+    ],
+    "Memphis": [
+     "47157"
+    ],
+    "Chattanooga": [
+     "47065"
+    ],
+    "Knoxville": [
+     "47093"
     ]
    }
   },
@@ -8187,6 +8647,34 @@
       "firstTimeOnly": true
      }
     ]
+   },
+   "areaCounties": {
+    "Houston": [
+     "48201",
+     "48157",
+     "48339"
+    ],
+    "Harris County": [
+     "48201"
+    ],
+    "San Antonio": [
+     "48029"
+    ],
+    "Dallas": [
+     "48113",
+     "48085",
+     "48121"
+    ],
+    "Austin": [
+     "48453",
+     "48491"
+    ],
+    "Fort Worth": [
+     "48439"
+    ],
+    "Corpus Christi": [
+     "48355"
+    ]
    }
   },
   "UT": {
@@ -8344,6 +8832,17 @@
       "reviewed": "2026-11-16",
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
+    ]
+   },
+   "areaCounties": {
+    "West Valley City": [
+     "49035"
+    ],
+    "West Jordan": [
+     "49035"
+    ],
+    "Salt Lake City / County": [
+     "49035"
     ]
    }
   },
@@ -8605,6 +9104,23 @@
       "notes": "0% deferred second mortgage with no payments, repaid on sale/refinance plus a share of net appreciation (capped at 25%). Conventional first mortgage from a Virginia Housing lender required. PAUSED: the county says MIPAP is NOT accepting applications at this time."
      }
     ]
+   },
+   "areaCounties": {
+    "Norfolk": [
+     "51710"
+    ],
+    "Virginia Beach": [
+     "51810"
+    ],
+    "Richmond": [
+     "51760"
+    ],
+    "Fairfax County / Arlington": [
+     "51059",
+     "51013",
+     "51600",
+     "51610"
+    ]
    }
   },
   "VT": {
@@ -8705,6 +9221,11 @@
       "notes": "Shared-equity grant: no repayment, but home stays permanently affordable and appreciation is shared at resale — treated as deferred (conservative). Price ≤$280,000; Chittenden County and nearby towns; income/asset eligibility certified by CHT; limited first-come funds.",
       "verified": "2026-11-27"
      }
+    ]
+   },
+   "areaCounties": {
+    "Burlington": [
+     "50007"
     ]
    }
   },
@@ -8947,6 +9468,17 @@
       "verified": "2026-11-23"
      }
     ]
+   },
+   "areaCounties": {
+    "Seattle": [
+     "53033"
+    ],
+    "Tacoma": [
+     "53053"
+    ],
+    "East King County (ARCH)": [
+     "53033"
+    ]
    }
   },
   "WI": {
@@ -9074,6 +9606,17 @@
       "source": "The Mortgage Reports state guide (Nov 2026)"
      }
     ]
+   },
+   "areaCounties": {
+    "Milwaukee": [
+     "55079"
+    ],
+    "Madison": [
+     "55025"
+    ],
+    "Green Bay": [
+     "55009"
+    ]
    }
   },
   "WV": {
@@ -9137,6 +9680,11 @@
       "reviewed": "2026-11-23",
       "source": "City of Charleston Home Blend brochure (2022) and Draft FY2026 Annual Action Plan (Apr 2026), charlestonwv.gov"
      }
+    ]
+   },
+   "areaCounties": {
+    "Charleston": [
+     "54039"
     ]
    }
   },
@@ -9225,6 +9773,11 @@
       "rate": 0,
       "termYears": 30
      }
+    ]
+   },
+   "areaCounties": {
+    "Cheyenne": [
+     "56021"
     ]
    }
   }

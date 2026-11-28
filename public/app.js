@@ -107,7 +107,7 @@
     $('confLimitHint').innerHTML = confCustom && num($('confLimit')) !== cl
       ? `Your county's limit · ${yr} baseline ${fmt0(cl)} <a id="confReset" style="cursor:pointer">use baseline</a>`
       : `${yr} baseline for ${uTxt} in most counties; high-cost areas go up to ${fmt0(confCeil(u))} (Alaska and Hawaii are higher too).`;
-    const cr = $('confReset'); if (cr) cr.onclick = () => { confCustom = false; applyMarket(); syncVis(); calc(); };
+    const cr = $('confReset'); if (cr) cr.onclick = () => { confCustom = false; zipBlock.confLimit = true; delete zipFill.confLimit; applyMarket(); syncVis(); calc(); };
     $('fhaLimitHint').textContent = `${yr} (${uTxt}): ${fmt0(fl.floor)} in most counties, up to ${fmt0(fl.ceil)} in high-cost areas. Leave blank unless your loan is near that; your lender can confirm your county's limit.`;
   }
   const fmtDate = d => { try { return new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); } catch(e){ return d; } };
@@ -387,10 +387,10 @@
   $('resetItems').addEventListener('click', () => { ITEMS = freshItems(); calc(); });
 
   // ---------- help popovers (tap the ⓘ next to a label) ----------
-  const HELP_FALLBACK = {"updatedAt":"2026-11-20","items":{"price":{"title":"Purchase price","text":"The price you and the seller agree on. Down payment percentages, many closing costs and the property-tax estimate are based on it."},"appraisal":{"title":"Appraised value","text":"The lender's independent estimate of what the home is worth. Loans are based on the lower of price and appraised value, so if the appraisal comes in low you cover the gap in cash or renegotiate.","link":{"label":"CFPB home loan toolkit","url":"https://files.consumerfinance.gov/f/documents/cfpb_your-home-loan-toolkit_print_2026-08.pdf"}},"rate":{"title":"Interest rate","text":"Pre-filled with today's market average for each loan type. Your actual rate depends on your credit, down payment, points and lender — type the rate from your Loan Estimate to override it.","link":{"label":"Mortgage News Daily rates","url":"https://www.mortgagenewsdaily.com/mortgage-rates"}},"term":{"title":"Loan term","text":"How long you'll take to repay. A 15-year loan has a higher monthly payment but usually a lower rate and far less total interest than a 30-year loan."},"credit":{"title":"Credit score","text":"Sets the FHA minimum down payment (3.5% at 580+, 10% at 500–579), conventional eligibility (generally 620+) and estimated PMI pricing. Lenders may set higher minimums."},"fhaLimit":{"title":"County FHA loan limit","text":"The largest base loan FHA will insure in your county. Look it up and enter it to get a warning if your loan is over.","link":{"label":"HUD loan limit lookup","url":"https://entp.hud.gov/idapp/html/hicostlook.cfm"}},"confLimit":{"title":"Conforming loan limit","text":"Conventional loans above this are \"jumbo\" loans, which usually need more down and stronger credit. The {{confYear}} baseline is {{confLimit}}; high-cost counties are higher.","link":{"label":"FHFA loan limits","url":"https://www.fhfa.gov/CLL"}},"financeUf":{"title":"Roll the upfront fee into the loan","text":"FHA's upfront MIP ({{ufmip}} of the base loan) and the VA funding fee can be added to the loan instead of paid in cash. You'll bring less to closing but pay a bit more each month and in interest.","link":{"label":"CFPB: mortgage insurance","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-mortgage-insurance-and-how-does-it-work-en-1953/"}},"vaUse":{"title":"VA loan use","text":"With under 5% down, the funding fee is {{vaFirst}} the first time you use a VA loan and {{vaSub}} after that. Putting 5% or 10% down lowers it for both.","link":{"label":"VA funding fee chart","url":"https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/"}},"vaExempt":{"title":"Funding fee exemption","text":"Veterans receiving VA compensation for a service-connected disability, Purple Heart recipients on active duty and eligible surviving spouses don't pay the funding fee. Your Certificate of Eligibility shows it.","link":{"label":"VA funding fee","url":"https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/"}},"income":{"title":"Gross income","text":"Income before taxes and deductions, for everyone on the loan. Enter it per year or per month with the /yr and /mo switch; DTI always uses the monthly figure.","link":{"label":"CFPB: debt-to-income","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/"}},"debts":{"title":"Other monthly debts","text":"Minimum monthly payments on debts on your credit report — car and student loans, credit cards, personal loans, child support. Not utilities, phone or groceries.","link":{"label":"CFPB: debt-to-income","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/"}},"points":{"title":"Discount points","text":"A fee paid at closing for a lower interest rate. One point is 1% of the loan. Points pay off only if you keep the loan past the break-even point the calculator shows.","link":{"label":"CFPB: points and rates","url":"https://www.consumerfinance.gov/archive/blog/7-factors-determine-your-mortgage-interest-rate/"}},"ptsPer":{"title":"Rate cut per point","text":"How much each point lowers your rate. About 0.25% is common, but it varies by lender and day — use the figure from your Loan Estimate.","link":{"label":"CFPB: Loan Estimate explained","url":"https://www.consumerfinance.gov/owning-a-home/loan-estimate/"}},"tbType":{"title":"Temporary buydown","text":"Lowers your rate for the first 1–3 years, then it steps up to the full rate. Usually paid upfront by the seller or builder. Lenders still qualify you at the full rate."},"downAmt":{"title":"Down payment","text":"Cash you put toward the price. Minimums: FHA 3.5% (580+ credit), VA 0%, conventional 3–5%. With 20% down, conventional loans have no PMI. Assistance can cover some or all of it."},"dpaState":{"title":"Down payment assistance","text":"State and local programs that help with the down payment or closing costs. Pick where you're buying to see them, and check each program's income, price and first-time-buyer rules."},"dpaType":{"title":"Assistance types","text":"Grant: never repaid. Forgivable: a loan that's forgiven if you stay a set number of years. Deferred: a 0% loan with no payments, repaid when you sell or refinance. Repayable: a second loan with a monthly payment."},"closing":{"title":"Closing costs","text":"Fees to get the loan and transfer the home: lender, appraisal, title, recording, prepaid interest, insurance and escrow. Buyers often pay 2–5% of the price. Your Loan Estimate lists them.","link":{"label":"CFPB: Loan Estimate explained","url":"https://www.consumerfinance.gov/owning-a-home/loan-estimate/"}},"credits":{"title":"Seller / lender credits","text":"Money the seller or lender puts toward your closing costs. Credits can't exceed your costs or be taken as cash, and seller help is capped: {{capText}}"},"payoff":{"title":"Seller's mortgage payoff","text":"What the seller still owes on their mortgage. Used only to estimate the seller's net proceeds."},"tax":{"title":"Property tax","text":"Set by your county and city. Use the current bill or the rate from the county tax office; taxes are often reassessed after a sale."},"ins":{"title":"Homeowners insurance","text":"Lenders require it. Get a quote for this home — premiums vary a lot by location, age and coverage."},"hoa":{"title":"HOA dues","text":"Monthly homeowners association fees, if the property has one. Lenders count them in your housing payment."},"mip":{"title":"FHA annual MIP","text":"FHA's monthly mortgage insurance. For this loan: {{fhaMip}} a year, {{fhaMipDur}}.","link":{"label":"CFPB: mortgage insurance","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-mortgage-insurance-and-how-does-it-work-en-1953/"}},"pmi":{"title":"PMI","text":"Private mortgage insurance on conventional loans with under 20% down. Priced by credit score and down payment; it ends automatically at 78% loan-to-value, and you can usually ask to remove it at 80%.","link":{"label":"CFPB: mortgage insurance","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-mortgage-insurance-and-how-does-it-work-en-1953/"}},"ltv":{"title":"Loan-to-value (LTV)","text":"Your loan divided by the home's value. A lower LTV means less risk for the lender and often better pricing and less mortgage insurance.","link":{"label":"CFPB: mortgage key terms","url":"https://www.consumerfinance.gov/language/cfpb-in-english/mortgages-key-terms/"}},"dti":{"title":"Debt-to-income (DTI)","text":"Front-end: housing payment ÷ gross monthly income. Back-end: housing plus other debts ÷ gross monthly income. Lenders use it to judge what you can afford.","link":{"label":"CFPB: debt-to-income","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/"}},"cash":{"title":"Cash to close","text":"What you bring to closing: down payment plus closing costs, minus credits and assistance. Earnest money you already paid counts toward it.","link":{"label":"CFPB home loan toolkit","url":"https://files.consumerfinance.gov/f/documents/cfpb_your-home-loan-toolkit_print_2026-08.pdf"}},"compare":{"title":"Compare loan types","text":"Runs the same home through FHA, VA and conventional rules side by side. Green marks the lowest in each row. VA loans require military service eligibility."},"party":{"title":"Buyer & seller costs","text":"Who pays which closing costs. Customs vary by state and everything is negotiable; buyer costs the seller pays count toward the seller-concession cap."}}};
+  const HELP_FALLBACK = {"updatedAt":"2026-11-20","items":{"price":{"title":"Purchase price","text":"The price you and the seller agree on. Down payment percentages, many closing costs and the property-tax estimate are based on it."},"appraisal":{"title":"Appraised value","text":"The lender's independent estimate of what the home is worth. Loans are based on the lower of price and appraised value, so if the appraisal comes in low you cover the gap in cash or renegotiate.","link":{"label":"CFPB home loan toolkit","url":"https://files.consumerfinance.gov/f/documents/cfpb_your-home-loan-toolkit_print_2026-08.pdf"}},"rate":{"title":"Interest rate","text":"Pre-filled with today's market average for each loan type. Your actual rate depends on your credit, down payment, points and lender — type the rate from your Loan Estimate to override it.","link":{"label":"Mortgage News Daily rates","url":"https://www.mortgagenewsdaily.com/mortgage-rates"}},"term":{"title":"Loan term","text":"How long you'll take to repay. A 15-year loan has a higher monthly payment but usually a lower rate and far less total interest than a 30-year loan."},"credit":{"title":"Credit score","text":"Sets the FHA minimum down payment (3.5% at 580+, 10% at 500–579), conventional eligibility (generally 620+) and estimated PMI pricing. Lenders may set higher minimums."},"fhaLimit":{"title":"County FHA loan limit","text":"The largest base loan FHA will insure in your county. Look it up and enter it to get a warning if your loan is over.","link":{"label":"HUD loan limit lookup","url":"https://entp.hud.gov/idapp/html/hicostlook.cfm"}},"confLimit":{"title":"Conforming loan limit","text":"Conventional loans above this are \"jumbo\" loans, which usually need more down and stronger credit. The {{confYear}} baseline is {{confLimit}}; high-cost counties are higher.","link":{"label":"FHFA loan limits","url":"https://www.fhfa.gov/CLL"}},"financeUf":{"title":"Roll the upfront fee into the loan","text":"FHA's upfront MIP ({{ufmip}} of the base loan) and the VA funding fee can be added to the loan instead of paid in cash. You'll bring less to closing but pay a bit more each month and in interest.","link":{"label":"CFPB: mortgage insurance","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-mortgage-insurance-and-how-does-it-work-en-1953/"}},"vaUse":{"title":"VA loan use","text":"With under 5% down, the funding fee is {{vaFirst}} the first time you use a VA loan and {{vaSub}} after that. Putting 5% or 10% down lowers it for both.","link":{"label":"VA funding fee chart","url":"https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/"}},"vaExempt":{"title":"Funding fee exemption","text":"Veterans receiving VA compensation for a service-connected disability, Purple Heart recipients on active duty and eligible surviving spouses don't pay the funding fee. Your Certificate of Eligibility shows it.","link":{"label":"VA funding fee","url":"https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/"}},"income":{"title":"Gross income","text":"Income before taxes and deductions, for everyone on the loan. Enter it per year or per month with the /yr and /mo switch; DTI always uses the monthly figure.","link":{"label":"CFPB: debt-to-income","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/"}},"debts":{"title":"Other monthly debts","text":"Minimum monthly payments on debts on your credit report — car and student loans, credit cards, personal loans, child support. Not utilities, phone or groceries.","link":{"label":"CFPB: debt-to-income","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/"}},"points":{"title":"Discount points","text":"A fee paid at closing for a lower interest rate. One point is 1% of the loan. Points pay off only if you keep the loan past the break-even point the calculator shows.","link":{"label":"CFPB: points and rates","url":"https://www.consumerfinance.gov/archive/blog/7-factors-determine-your-mortgage-interest-rate/"}},"ptsPer":{"title":"Rate cut per point","text":"How much each point lowers your rate. About 0.25% is common, but it varies by lender and day — use the figure from your Loan Estimate.","link":{"label":"CFPB: Loan Estimate explained","url":"https://www.consumerfinance.gov/owning-a-home/loan-estimate/"}},"tbType":{"title":"Temporary buydown","text":"Lowers your rate for the first 1–3 years, then it steps up to the full rate. Usually paid upfront by the seller or builder. Lenders still qualify you at the full rate."},"downAmt":{"title":"Down payment","text":"Cash you put toward the price. Minimums: FHA 3.5% (580+ credit), VA 0%, conventional 3–5%. With 20% down, conventional loans have no PMI. Assistance can cover some or all of it."},"dpaState":{"title":"Down payment assistance","text":"State and local programs that help with the down payment or closing costs. Pick where you're buying to see them, and check each program's income, price and first-time-buyer rules."},"dpaType":{"title":"Assistance types","text":"Grant: never repaid. Forgivable: a loan that's forgiven if you stay a set number of years. Deferred: a 0% loan with no payments, repaid when you sell or refinance. Repayable: a second loan with a monthly payment."},"closing":{"title":"Closing costs","text":"Fees to get the loan and transfer the home: lender, appraisal, title, recording, prepaid interest, insurance and escrow. Buyers often pay 2–5% of the price. Your Loan Estimate lists them.","link":{"label":"CFPB: Loan Estimate explained","url":"https://www.consumerfinance.gov/owning-a-home/loan-estimate/"}},"credits":{"title":"Seller / lender credits","text":"Money the seller or lender puts toward your closing costs. Credits can't exceed your costs or be taken as cash, and seller help is capped: {{capText}}"},"payoff":{"title":"Seller's mortgage payoff","text":"What the seller still owes on their mortgage. Used only to estimate the seller's net proceeds."},"tax":{"title":"Property tax","text":"Set by your county and city. Use the current bill or the rate from the county tax office; taxes are often reassessed after a sale."},"ins":{"title":"Homeowners insurance","text":"Lenders require it. Get a quote for this home — premiums vary a lot by location, age and coverage."},"zip":{"title": "ZIP code (optional)", "text": "Fills in county-based figures: the FHA and conforming loan limits, a property-tax estimate and your state's assistance programs. We match your ZIP to its county using the Census Bureau's 2020 ZIP Code Tabulation Areas, which closely approximate USPS ZIP codes. If a ZIP spans more than one county, pick yours from the list. The tax estimate is a county median from the Census American Community Survey (median taxes paid ÷ median home value). County-based figures may not match a specific property; confirm with your lender and county. Anything you type yourself overrides what the ZIP fills in.", "link": {"label": "Census: ZIP Code Tabulation Areas", "url": "https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html"}},"hoa":{"title":"HOA dues","text":"Monthly homeowners association fees, if the property has one. Lenders count them in your housing payment."},"mip":{"title":"FHA annual MIP","text":"FHA's monthly mortgage insurance. For this loan: {{fhaMip}} a year, {{fhaMipDur}}.","link":{"label":"CFPB: mortgage insurance","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-mortgage-insurance-and-how-does-it-work-en-1953/"}},"pmi":{"title":"PMI","text":"Private mortgage insurance on conventional loans with under 20% down. Priced by credit score and down payment; it ends automatically at 78% loan-to-value, and you can usually ask to remove it at 80%.","link":{"label":"CFPB: mortgage insurance","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-mortgage-insurance-and-how-does-it-work-en-1953/"}},"ltv":{"title":"Loan-to-value (LTV)","text":"Your loan divided by the home's value. A lower LTV means less risk for the lender and often better pricing and less mortgage insurance.","link":{"label":"CFPB: mortgage key terms","url":"https://www.consumerfinance.gov/language/cfpb-in-english/mortgages-key-terms/"}},"dti":{"title":"Debt-to-income (DTI)","text":"Front-end: housing payment ÷ gross monthly income. Back-end: housing plus other debts ÷ gross monthly income. Lenders use it to judge what you can afford.","link":{"label":"CFPB: debt-to-income","url":"https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/"}},"cash":{"title":"Cash to close","text":"What you bring to closing: down payment plus closing costs, minus credits and assistance. Earnest money you already paid counts toward it.","link":{"label":"CFPB home loan toolkit","url":"https://files.consumerfinance.gov/f/documents/cfpb_your-home-loan-toolkit_print_2026-08.pdf"}},"compare":{"title":"Compare loan types","text":"Runs the same home through FHA, VA and conventional rules side by side. Green marks the lowest in each row. VA loans require military service eligibility."},"party":{"title":"Buyer & seller costs","text":"Who pays which closing costs. Customs vary by state and everything is negotiable; buyer costs the seller pays count toward the seller-concession cap."}}};
   let HELP = HELP_FALLBACK, LAST = null, helpOpen = null;
   const HELP_BY_INPUT = { price:'price', appraisal:'appraisal', rateFha:'rate', rateVa:'rate', rateConv:'rate', term:'term', credit:'credit',
-    units:'units', fhaLimit:'fhaLimit', confLimit:'confLimit', financeUf:'financeUf', vaUse:'vaUse', vaExempt:'vaExempt', income:'income', debts:'debts',
+    units:'units', zip:'zip', zipCounty:'zip', fhaLimit:'fhaLimit', confLimit:'confLimit', financeUf:'financeUf', vaUse:'vaUse', vaExempt:'vaExempt', income:'income', debts:'debts',
     points:'points', ptsPer:'ptsPer', tbType:'tbType', downAmt:'downAmt', dpaState:'dpaState', dpaType:'dpaType', credits:'credits',
     payoff:'payoff', taxPct:'tax', taxAmt:'tax', ins:'ins', hoa:'hoa', mipMode:'mip', pmiMode:'pmi' };
   const HELP_BY_HEADING = { 'Closing costs':'closing', 'Compare loan types':'compare', 'Cash to close':'cash', 'Buyer & seller costs':'party', 'Debt-to-income':'dti' };
@@ -782,11 +782,104 @@
   let lastSummary = '';
 
   // ---------- render ----------
+  // ---------- optional ZIP code: fills county-based fields from geo.json ----------
+  // geo.json matches Census ZIP areas (ZCTAs) to counties by land area and holds each county's loan limits and a
+  // property-tax estimate. Only fields still at their default (or at the value the ZIP filled in) are changed, so
+  // anything the user typed wins. Clearing the ZIP puts ZIP-filled fields back to their defaults.
+  let GEO = null, geoState = 'idle', zipFill = {}, zipBlock = {}, zipSel = '', zipLast = '';
+  function loadGeo(){
+    if (geoState !== 'idle') return;
+    geoState = 'loading';
+    fetch('geo.json', { cache:'no-cache' })
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(j => { if (!j || !j.zips || !j.counties) throw new Error('bad'); GEO = j; geoState = 'ready'; calc(); })
+      .catch(() => { geoState = 'failed'; calc(); });
+  }
+  const zipVal = () => String($('zip').value || '').replace(/\D/g, '').slice(0, 5);
+  function zipCounties(z){
+    const v = GEO && GEO.zips[z]; if (!v) return [];
+    return (typeof v === 'string' ? [[v, 100]] : v).filter(x => GEO.counties[x[0]]);
+  }
+  // a field is free for the ZIP to fill while it still shows its default
+  const ZIP_FREE = {
+    fhaLimit: cur => cur === '',
+    confLimit: () => !confCustom,
+    taxPct: cur => cur === String(DEFAULTS.taxPct),
+    dpaState: cur => cur === '',
+    dpaArea: cur => cur === '',
+  };
+  function zipSet(id, val){
+    const el = $(id), cur = el.value;
+    if (zipBlock[id]) return false;
+    if (!(ZIP_FREE[id](cur) || cur === zipFill[id])){ zipBlock[id] = true; delete zipFill[id]; return false; }
+    zipFill[id] = val;
+    if (cur === val) return false;
+    el.value = val; return true;
+  }
+  function zipRevert(only){
+    Object.keys(zipFill).forEach(id => {
+      if (only && !only.includes(id)) return;
+      const el = $(id), v = zipFill[id]; delete zipFill[id];
+      if (el.value !== v) return;
+      if (id === 'confLimit'){ confCustom = false; applyMarket(); }
+      else if (id === 'dpaState'){ el.value = ''; populateAreas(); }
+      else el.value = id === 'taxPct' ? DEFAULTS.taxPct : '';
+    });
+  }
+  function applyZip(){
+    const z = zipVal(), hint = $('zipHint'), wrap = $('zipCountyWrap');
+    if (z !== zipLast){ zipLast = z; zipBlock = { confLimit: zipBlock.confLimit && !!z }; }
+    if (!z){ zipRevert(); zipSel = ''; wrap.classList.add('hide'); hint.textContent = ''; return; }
+    if (z.length < 5){ hint.textContent = 'Enter all 5 digits.'; return; }
+    if (geoState === 'idle') loadGeo();
+    if (geoState === 'loading'){ hint.textContent = 'Looking up your county…'; return; }
+    if (geoState === 'failed'){ hint.textContent = 'ZIP lookup isn’t available right now; enter county details by hand.'; return; }
+    const cs = zipCounties(z);
+    if (!cs.length){
+      zipRevert(); wrap.classList.add('hide');
+      hint.textContent = 'We don’t have that ZIP. It may be a P.O. box or business-only ZIP; enter county details by hand.';
+      return;
+    }
+    const sel = $('zipCounty'), key = z + ':' + cs.map(c => c[0]).join(',');
+    if (sel.dataset.key !== key){
+      sel.innerHTML = cs.map(([f]) => `<option value="${f}">${esc(GEO.counties[f].n)}, ${GEO.counties[f].s}</option>`).join('');
+      sel.dataset.key = key;
+      sel.value = cs.some(c => c[0] === zipSel) ? zipSel : cs[0][0];
+    }
+    wrap.classList.toggle('hide', cs.length < 2);
+    const f = sel.value, c = GEO.counties[f]; zipSel = f;
+    const yr = CFG.program.conv.conformingLimitYear, u = unitsN(), got = [];
+    if (GEO.confYear === yr){
+      if (zipSet('confLimit', (c.c || GEO.confBase)[u-1].toLocaleString('en-US'))){ confCustom = true; applyMarket(); }
+      if (zipFill.confLimit) got.push('conforming limit');
+    } else zipRevert(['confLimit']);
+    if (GEO.fhaYear === yr){
+      zipSet('fhaLimit', (c.f || GEO.fhaFloor)[u-1].toLocaleString('en-US'));
+      if (zipFill.fhaLimit) got.push('FHA limit');
+    } else zipRevert(['fhaLimit']);
+    if (c.t != null && segState.taxMode === 'pct'){ zipSet('taxPct', String(c.t)); if (zipFill.taxPct) got.push('property-tax estimate'); }
+    else zipRevert(['taxPct']);
+    let areas = [];
+    if (DPA.states[c.s]){
+      if (zipSet('dpaState', c.s)) populateAreas();
+      if ($('dpaState').value === c.s){
+        const ac = DPA.states[c.s].areaCounties || {};
+        areas = Object.keys(ac).filter(a => (ac[a] || []).includes(f));
+        if (areas.length === 1){ if (zipSet('dpaArea', areas[0])) $('dpaArea').value = areas[0]; }
+        else zipRevert(['dpaArea']);
+        if (zipFill.dpaState) got.push('assistance programs');
+      }
+    }
+    hint.textContent = `${c.n}, ${c.s}` + (got.length ? ` · filled in: ${got.join(', ')}` : '')
+      + (cs.length > 1 ? '. This ZIP spans more than one county; pick yours.' : '')
+      + (areas.length > 1 ? `. Local programs here: ${areas.join(' or ')}; pick one under Down payment assistance.` : '');
+  }
   // toggle buttons announce which option is on (screen readers can't see the color)
   function syncPressed(){
     document.querySelectorAll('.seg button, .perseg button, .typeseg button').forEach(b => b.setAttribute('aria-pressed', b.classList.contains('on') ? 'true' : 'false'));
   }
   function calc(){
+    applyZip();
     syncDown();
     applyProgram();
     renderRateInfo();
@@ -992,14 +1085,14 @@
     Object.entries(DEFAULTS).forEach(([id,v]) => { const el=$(id); if(!el) return; if (el.type==='checkbox') el.checked=v; else el.value=v; });
     setSeg('ccMode','itemize'); setSeg('taxMode','pct'); setSeg('cmpMode','mine'); setIncomePer('yr', false); setInsPer('yr', false); downDriver='pct'; ITEMS = freshItems(); setType('fha', false);
     rateCustom = { fha:false, va:false, conv:false }; confCustom = false; applyMarket();
-    dpaSel = null; populateAreas();
+    dpaSel = null; zipFill = {}; zipBlock = {}; zipSel = ''; populateAreas();
     calc(); toast('Reset');
   });
   function toast(t){ const el=$('toast'); el.textContent=t; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),1400); }
 
   function save(){
     try {
-      const s = { ver: CODE_VER, at: Date.now(), seg:segState, downDriver, loanType, rateCustom, confCustom, dpaSel: dpaSel && dpaSel.id, items: ITEMS, v:{} };
+      const s = { ver: CODE_VER, at: Date.now(), zip: { fill: zipFill, block: zipBlock, sel: zipSel }, seg:segState, downDriver, loanType, rateCustom, confCustom, dpaSel: dpaSel && dpaSel.id, items: ITEMS, v:{} };
       inputs.forEach(el => s.v[el.id] = el.type==='checkbox' ? el.checked : el.value);
       localStorage.setItem(STORE, JSON.stringify(s));
     } catch(e){}
@@ -1015,6 +1108,7 @@
       }
       Object.entries(s.v||{}).forEach(([id,v]) => { const el=$(id); if(!el) return; if (el.type==='checkbox') el.checked=v; else el.value=v; });
       if (Array.isArray(s.items) && s.items.length) ITEMS = s.items;
+      if (s.zip){ zipFill = s.zip.fill || {}; zipBlock = s.zip.block || {}; zipSel = s.zip.sel || ''; zipLast = String((s.v||{}).zip || '').replace(/\D/g,'').slice(0,5); }
       if (s.seg){ setSeg('ccMode', s.seg.ccMode||'itemize'); setSeg('taxMode', s.seg.taxMode||'pct'); setSeg('cmpMode', s.seg.cmpMode||'mine'); setIncomePer(s.seg.incomePer||'yr', false); setInsPer(s.seg.insPer||'yr', false); }
       if (s.downDriver) downDriver = s.downDriver;
       if (s.loanType && TYPES[s.loanType]) loanType = s.loanType;

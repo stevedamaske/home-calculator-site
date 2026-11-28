@@ -231,6 +231,10 @@
         <label><span>Purchase price</span><div class="field"><i>$</i><input id="price" data-money value="0"></div></label>
         <label><span>Appraised value <em style="font-style:normal;opacity:.7">(optional)</em></span><div class="field"><i>$</i><input id="appraisal" data-money placeholder="same as price"></div></label>
       </div>
+      <div class="row">
+        <label><span>ZIP code <em style="font-style:normal;opacity:.7">(optional)</em></span><div class="field"><input id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10" placeholder="fills in county details"></div><div class="hint" id="zipHint" aria-live="polite"></div></label>
+        <label id="zipCountyWrap" class="hide"><span>County</span><div class="field"><select id="zipCounty"></select></div></label>
+      </div>
       <div class="row3">
         <label><span>FHA rate</span><div class="field" id="rf-fha"><input id="rateFha" value="7.08" inputmode="decimal"><i class="suf">%</i></div><div class="rh" id="rh-fha"></div></label>
         <label><span>VA rate</span><div class="field" id="rf-va"><input id="rateVa" value="7.1" inputmode="decimal"><i class="suf">%</i></div><div class="rh" id="rh-va"></div></label>
