@@ -1,0 +1,23 @@
+name: Browser check
+# Runs the calculator in Chromium (Chrome/Edge/Opera), Firefox and WebKit (Safari/iPhone)
+# whenever the page or its data changes, and on demand from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths: ["public/**", "scripts/browser-check/**", ".github/workflows/browser-check.yml"]
+  workflow_dispatch:
+concurrency:
+  group: browser-check
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --no-save playwright@1.49.1
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: node scripts/browser-check/check.mjs
