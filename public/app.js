@@ -937,7 +937,7 @@
     document.querySelectorAll('.seg button, .perseg button, .typeseg button').forEach(b => b.setAttribute('aria-pressed', b.classList.contains('on') ? 'true' : 'false'));
   }
   function calc(){
-    applyZip();
+    try { applyZip(); } catch (err) { console.error('ZIP lookup failed', err); }   // never let the ZIP block the calculator
     syncDown();
     applyProgram();
     renderRateInfo();

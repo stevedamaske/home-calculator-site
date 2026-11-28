@@ -15,3 +15,10 @@
 
 /*.json
   Cache-Control: no-cache
+
+# Scripts and icons: always check for a newer copy so browsers never pair new HTML with an old app.js
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.svg
+  Cache-Control: public, max-age=0, must-revalidate
