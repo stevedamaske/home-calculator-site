@@ -1,0 +1,41 @@
+name: ZIP and county data
+# Builds public/geo.json (ZIP -> county, county loan limits, county property-tax estimate)
+# from Census, FHFA and HUD files. Runs early January (new loan limits) and mid-December
+# (new Census survey data), or by hand from the Actions tab.
+on:
+  workflow_dispatch:
+    inputs:
+      probe:
+        description: "Only print what the sources look like (no commit)"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "17 14 3 1 *"
+    - cron: "17 14 18 12 *"
+permissions:
+  contents: write
+concurrency: geo-data
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install openpyxl==3.1.5
+      - name: Probe sources
+        if: ${{ inputs.probe }}
+        run: bash scripts/geo/probe.sh
+      - name: Build geo.json
+        if: ${{ !inputs.probe }}
+        run: python3 scripts/geo/build_geo.py
+      - name: Commit if changed
+        if: ${{ !inputs.probe }}
+        run: |
+          if git diff --quiet -- public/geo.json; then echo "geo.json unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/geo.json
+          git commit -m "ZIP and county data refresh $(date -u +%F)"
+          git push
