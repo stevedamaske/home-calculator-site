@@ -103,13 +103,23 @@ st_fips = {v['st']: k[:2] for k, v in conf.items()}
 def hud(year):
     txt = try_get(f'https://apps.hud.gov/pub/chums/cy{year}-forward-limits.txt')
     if not txt: return None
-    out = {}
+    out, dates, dups = {}, {}, 0
     pat = re.compile(r'203B ([SH])(\d{7})(\d{7})(\d{7})(\d{7})(\d{7})([A-Z]{2})(\d{3})')
+    datepat = re.compile(r'((?:19|20)\d{6})\d{7}\d{4}\s*$')     # effective date, median, median year
     for line in txt.splitlines():
         m = pat.search(line)
         if not m or m.group(7) not in st_fips: continue
-        out[st_fips[m.group(7)] + m.group(8)] = [int(m.group(i)) for i in (3, 4, 5, 6)]
-    print(f'  HUD {year}: {len(out):,} counties')
+        key = st_fips[m.group(7)] + m.group(8)
+        d = datepat.search(line); d = d.group(1) if d else '0'
+        lim = [int(m.group(i)) for i in (3, 4, 5, 6)]
+        if key in out:
+            dups += 1
+            if out[key] != lim: print(f'    {key} has more than one record: {out[key]} ({dates[key]}) vs {lim} ({d})')
+            if d < dates[key]: continue           # keep the most recent effective date
+        out[key], dates[key] = lim, d
+    print(f'  HUD {year}: {len(out):,} counties ({dups} duplicate records)')
+    for k in ('36061', '36047', '34017', '06037'):
+        print('   ', k, out.get(k))
     return out or None
 
 print('HUD FHA forward limits')
