@@ -274,6 +274,14 @@
     </div>
 
     <div class="card">
+      <h2>Your income <em style="font-style:normal;text-transform:none;letter-spacing:0;opacity:.7">(optional — for DTI)</em></h2>
+      <div class="row">
+        <label><span id="incomeLbl">Gross annual income</span><div class="field"><i>$</i><input id="income" data-money placeholder="before taxes"><span class="perseg" id="incomePer" role="group" aria-label="Income period"><button type="button" data-v="yr" class="on" aria-label="per year">/yr</button><button type="button" data-v="mo" aria-label="per month">/mo</button></span></div></label>
+        <label><span>Other monthly debts</span><div class="field"><i>$</i><input id="debts" data-money placeholder="car, cards, student loans"></div></label>
+      </div>
+    </div>
+
+    <div class="card">
       <h2>Monthly costs</h2>
       <div class="seg" id="taxMode"><button data-v="pct" class="on">Tax rate %</button><button data-v="amt">Tax $ / year</button></div>
       <div class="row3">
@@ -291,13 +299,6 @@
         <label id="pmiManualWrap" class="hide"><span>Annual PMI from quote</span><div class="field"><input id="pmiManual" value="0.50" inputmode="decimal"><i class="suf">%</i></div></label>
       </div>
       <div class="hint t-va" style="margin:-4px 0 12px">VA loans have no monthly mortgage insurance.</div>
-    </div>
-    <div class="card">
-      <h2>Your income <em style="font-style:normal;text-transform:none;letter-spacing:0;opacity:.7">(optional — for DTI)</em></h2>
-      <div class="row">
-        <label><span id="incomeLbl">Gross annual income</span><div class="field"><i>$</i><input id="income" data-money placeholder="before taxes"><span class="perseg" id="incomePer" role="group" aria-label="Income period"><button type="button" data-v="yr" class="on" aria-label="per year">/yr</button><button type="button" data-v="mo" aria-label="per month">/mo</button></span></div></label>
-        <label><span>Other monthly debts</span><div class="field"><i>$</i><input id="debts" data-money placeholder="car, cards, student loans"></div></label>
-      </div>
     </div>
 
     <div class="card t-va">
