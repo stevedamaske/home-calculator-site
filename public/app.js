@@ -289,7 +289,7 @@
     return { price, loan: Math.max(0, price - Math.min(num($('downAmt')), price)),
       rate: Math.max(0, num($(RATE_ID[loanType])) - Math.max(0, num($('points')))*Math.max(0, num($('ptsPer'))))/100,
       taxYr: segState.taxMode==='pct' ? price*num($('taxPct'))/100 : num($('taxAmt')),
-      insYr: num($('ins')) };
+      insYr: insAnnual() };
   }
   // closing costs on the buyer's side, and buyer costs the seller covers (= concessions)
   function ccInfo(){
@@ -492,7 +492,7 @@
       credits: num($('credits')) + CCI.concession,
       manualCredits: num($('credits')), concession: CCI.concession,
       taxYr: segState.taxMode==='pct' ? price*num($('taxPct'))/100 : num($('taxAmt')),
-      insYr: num($('ins')), hoa: num($('hoa')),
+      insYr: insAnnual(), hoa: num($('hoa')),
       mipOverride: $('mipMode').value==='manual' ? num($('mipManual'))/100 : null,
       pmiOverride: $('pmiMode').value==='manual' ? num($('pmiManual'))/100 : null,
       income: segState.incomePer==='yr' ? num($('income'))/12 : num($('income')), debts: num($('debts')),
@@ -672,7 +672,7 @@
   }
 
   // ---------- UI state ----------
-  const segState = { ccMode:'itemize', taxMode:'pct', cmpMode:'mine', incomePer:'yr' };
+  const segState = { ccMode:'itemize', taxMode:'pct', cmpMode:'mine', incomePer:'yr', insPer:'yr' };
   function wireSeg(id){
     $(id).querySelectorAll('button').forEach(b => b.addEventListener('click', () => { setSeg(id, b.dataset.v); syncVis(); calc(); }));
   }
@@ -691,6 +691,16 @@
     $('incomeLbl').firstChild.textContent = v==='yr' ? 'Gross annual income' : 'Gross monthly income';
   }
   $('incomePer').querySelectorAll('button').forEach(b => b.addEventListener('click', e => { e.preventDefault(); setIncomePer(b.dataset.v, true); calc(); }));
+  // Homeowners insurance can be entered per year or per month; flipping converts the number already typed.
+  function insAnnual(){ return segState.insPer==='mo' ? num($('ins'))*12 : num($('ins')); }
+  function setInsPer(v, convert){
+    if (convert && v !== segState.insPer){
+      const el = $('ins'), n = num(el);
+      if (n > 0){ el.value = String(Math.round(v==='yr' ? n*12 : n/12)); moneyFormat(el); }
+    }
+    setSeg('insPer', v);
+  }
+  $('insPer').querySelectorAll('button').forEach(b => b.addEventListener('click', e => { e.preventDefault(); setInsPer(b.dataset.v, true); calc(); }));
 
   function setType(t, fromUser){
     if (fromUser && t!==loanType){
@@ -941,7 +951,7 @@
   });
   $('resetBtn').addEventListener('click', () => {
     Object.entries(DEFAULTS).forEach(([id,v]) => { const el=$(id); if(!el) return; if (el.type==='checkbox') el.checked=v; else el.value=v; });
-    setSeg('ccMode','itemize'); setSeg('taxMode','pct'); setSeg('cmpMode','mine'); setIncomePer('yr', false); downDriver='pct'; ITEMS = freshItems(); setType('fha', false);
+    setSeg('ccMode','itemize'); setSeg('taxMode','pct'); setSeg('cmpMode','mine'); setIncomePer('yr', false); setInsPer('yr', false); downDriver='pct'; ITEMS = freshItems(); setType('fha', false);
     rateCustom = { fha:false, va:false, conv:false }; confCustom = false; applyMarket();
     dpaSel = null; populateAreas();
     calc(); toast('Reset');
@@ -966,7 +976,7 @@
       }
       Object.entries(s.v||{}).forEach(([id,v]) => { const el=$(id); if(!el) return; if (el.type==='checkbox') el.checked=v; else el.value=v; });
       if (Array.isArray(s.items) && s.items.length) ITEMS = s.items;
-      if (s.seg){ setSeg('ccMode', s.seg.ccMode||'itemize'); setSeg('taxMode', s.seg.taxMode||'pct'); setSeg('cmpMode', s.seg.cmpMode||'mine'); setIncomePer(s.seg.incomePer||'yr', false); }
+      if (s.seg){ setSeg('ccMode', s.seg.ccMode||'itemize'); setSeg('taxMode', s.seg.taxMode||'pct'); setSeg('cmpMode', s.seg.cmpMode||'mine'); setIncomePer(s.seg.incomePer||'yr', false); setInsPer(s.seg.insPer||'yr', false); }
       if (s.downDriver) downDriver = s.downDriver;
       if (s.loanType && TYPES[s.loanType]) loanType = s.loanType;
       if (s.rateCustom) rateCustom = Object.assign(rateCustom, s.rateCustom);
