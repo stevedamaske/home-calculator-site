@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-27",
+ "updatedAt": "2026-11-28",
  "items": {
   "price": {
    "title": "Purchase price",
@@ -208,6 +208,10 @@
     "label": "Census: ZIP Code Tabulation Areas",
     "url": "https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html"
    }
+  },
+  "dpaAmt": {
+   "title": "Assistance amount",
+   "text": "{{dpaCalc}}"
   }
  }
 }
