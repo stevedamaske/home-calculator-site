@@ -786,7 +786,18 @@
   // geo.json matches Census ZIP areas (ZCTAs) to counties by land area and holds each county's loan limits and a
   // property-tax estimate. Only fields still at their default (or at the value the ZIP filled in) are changed, so
   // anything the user typed wins. Clearing the ZIP puts ZIP-filled fields back to their defaults.
-  let GEO = null, geoState = 'idle', zipFill = {}, zipBlock = {}, zipSel = '', zipLast = '';
+  let GEO = null, geoState = 'idle', zipFill = {}, zipBlock = {}, zipSel = '', zipLast = '', zipWarnOpen = false;
+  // orange (!) under the ZIP field: explains when the county data disagrees with itself or is ambiguous
+  function renderZipWarn(warns){
+    const box = $('zipWarn'), k = warns.join('|');
+    if (box.dataset.k === k) return;
+    box.dataset.k = k;
+    if (!warns.length){ box.innerHTML = ''; return; }
+    box.innerHTML = `<button type="button" class="warnbtn" aria-expanded="${zipWarnOpen}" aria-controls="zipWarnList"><span class="warni" aria-hidden="true">!</span>${warns.length > 1 ? warns.length + ' possible mismatches' : 'Possible mismatch'} — why?</button>`
+      + `<div id="zipWarnList" class="alert warn${zipWarnOpen ? '' : ' hide'}">${warns.map(w => `<p>${esc(w)}</p>`).join('')}</div>`;
+    const b = box.querySelector('button');
+    b.onclick = () => { zipWarnOpen = !zipWarnOpen; b.setAttribute('aria-expanded', String(zipWarnOpen)); $('zipWarnList').classList.toggle('hide', !zipWarnOpen); };
+  }
   function loadGeo(){
     if (geoState !== 'idle') return;
     geoState = 'loading';
@@ -829,6 +840,7 @@
   function applyZip(){
     const z = zipVal(), hint = $('zipHint'), wrap = $('zipCountyWrap');
     if (z !== zipLast){ zipLast = z; zipBlock = { confLimit: zipBlock.confLimit && !!z }; }
+    if (!z || z.length < 5 || geoState !== 'ready') renderZipWarn([]);
     if (!z){ zipRevert(); zipSel = ''; wrap.classList.add('hide'); hint.textContent = ''; return; }
     if (z.length < 5){ hint.textContent = 'Enter all 5 digits.'; return; }
     if (geoState === 'idle') loadGeo();
@@ -836,7 +848,7 @@
     if (geoState === 'failed'){ hint.textContent = 'ZIP lookup isn’t available right now; enter county details by hand.'; return; }
     const cs = zipCounties(z);
     if (!cs.length){
-      zipRevert(); wrap.classList.add('hide');
+      zipRevert(); wrap.classList.add('hide'); renderZipWarn([]);
       hint.textContent = 'We don’t have that ZIP. It may be a P.O. box or business-only ZIP; enter county details by hand.';
       return;
     }
@@ -870,6 +882,20 @@
         if (zipFill.dpaState) got.push('assistance programs');
       }
     }
+    const warns = [], limOk = GEO.confYear === yr && GEO.fhaYear === yr;
+    const lims = x => [(x.c || GEO.confBase)[u-1], GEO.fhaFloor ? (x.f || GEO.fhaFloor)[u-1] : null, x.t];
+    if (cs.length > 1){
+      const first = JSON.stringify(lims(GEO.counties[cs[0][0]]));
+      const differ = cs.some(([k]) => JSON.stringify(lims(GEO.counties[k])) !== first);
+      if (c.s === 'CT') warns.push('Connecticut replaced its 8 counties with 9 planning regions in 2022, but Census ZIP areas still follow the old counties, so this ZIP could be in more than one region. Pick the region your town is in' + (differ ? '; the loan limits or tax estimate differ between them.' : '.'));
+      else if (differ) warns.push(`This ZIP crosses county lines (${cs.map(([k, p]) => `${p}% ${GEO.counties[k].n}`).join(', ')}, by land area), and those counties have different loan limits or tax rates. We picked the largest; choose yours if it’s different.`);
+    }
+    if (limOk){
+      const cv = (c.c || GEO.confBase)[u-1], fv = (c.f || GEO.fhaFloor)[u-1];
+      if (fv > cv) warns.push(`HUD’s FHA limit here (${fmt0(fv)}) is higher than FHFA’s conforming limit (${fmt0(cv)}). The two agencies set their limits separately, each from its own estimate of local home prices, so they don’t always match in high-cost areas. Each loan type uses its own agency’s limit, so both figures are correct.`);
+      else if (['AK','HI','GU','VI'].includes(c.s) && cv > fv) warns.push(`Conforming limits in Alaska, Hawaii, Guam and the U.S. Virgin Islands are set higher by law (${fmt0(cv)} here), so they’re above this county’s FHA limit (${fmt0(fv)}). Each loan type uses its own agency’s limit.`);
+    }
+    renderZipWarn(warns);
     hint.textContent = `${c.n}, ${c.s}` + (got.length ? ` · filled in: ${got.join(', ')}` : '')
       + (cs.length > 1 ? '. This ZIP spans more than one county; pick yours.' : '')
       + (areas.length > 1 ? `. Local programs here: ${areas.join(' or ')}; pick one under Down payment assistance.` : '');
