@@ -3,20 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#16181b">
 <title>Home Purchase Calculator — FHA · VA · Conventional</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="theme.js"></script>
 <style>
-  /* dark theme only */
+  /* dark theme by default; light theme via the header switch (data-theme="light") */
   :root{ color-scheme:dark;
     --bg:#16181b; --card:#1f2226; --ink:#e9e7e3; --muted:#9a9ea5; --line:#33373d;
     --accent:#6fa8d6; --accent-soft:#1e2c38; --on-accent:#0f1720; --warn:#e2a35a; --warn-soft:#33281b;
     --bad:#e98580; --bad-soft:#3a2222; --good:#7cc79a; --good-soft:#1d3226;
     --c1:#5b9bd0; --c2:#9db9dc; --c3:#d9a45c; --c4:#a98bcb; --c5:#79b996; --c6:#d98189; }
   *{box-sizing:border-box}
+  :root[data-theme="light"]{ color-scheme:light;
+    --bg:#f5f4f1; --card:#ffffff; --ink:#1d1f22; --muted:#5d6269; --line:#d9d6d0;
+    --accent:#2c6aa0; --accent-soft:#e2edf7; --on-accent:#ffffff; --warn:#8f540f; --warn-soft:#fbeedc;
+    --bad:#b3261e; --bad-soft:#fbe6e4; --good:#22744a; --good-soft:#e0f2e7;
+    --c1:#2f78b5; --c2:#8fb0d6; --c3:#d0913a; --c4:#8e6bb8; --c5:#3f9a68; --c6:#c95f6a; }
+  :root[data-theme="light"] select, :root[data-theme="light"] option, :root[data-theme="light"] optgroup{color-scheme:light}
+  :root[data-theme="light"] .typeseg button.on small{color:rgba(255,255,255,.82)}
+  .ttl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 4px}
+  .ttl h1{margin:0}
+  .themebtn{border:1px solid var(--line);background:var(--card);color:var(--muted);font:inherit;font-size:12px;line-height:1.2;padding:4px 10px;border-radius:14px;cursor:pointer}
+  .themebtn:hover{border-color:var(--accent);color:var(--ink)}
+  .themebtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--ink);
     font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
@@ -191,7 +204,7 @@
 <body>
 <header>
   <div>
-    <h1>Home Purchase Calculator</h1>
+    <div class="ttl"><h1>Home Purchase Calculator</h1><button type="button" class="themebtn" id="themeBtn" aria-label="Switch to light mode">☀ Light</button></div>
     <p>Pick a loan type and enter your numbers. Everything updates as you type.</p>
   </div>
   <div class="typeseg" id="loanType">
