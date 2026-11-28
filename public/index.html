@@ -274,6 +274,25 @@
     </div>
 
     <div class="card">
+      <h2>Monthly costs</h2>
+      <div class="seg" id="taxMode"><button data-v="pct" class="on">Tax rate %</button><button data-v="amt">Tax $ / year</button></div>
+      <div class="row3">
+        <label id="taxPctWrap"><span>Property tax rate</span><div class="field"><input id="taxPct" value="1.1" inputmode="decimal"><i class="suf">%/yr</i></div></label>
+        <label id="taxAmtWrap" class="hide"><span>Property tax</span><div class="field"><i>$</i><input id="taxAmt" data-money value="3,850"><i class="suf">/yr</i></div></label>
+        <label><span>Homeowners ins.</span><div class="field"><i>$</i><input id="ins" data-money value="1,800"><span class="perseg" id="insPer" role="group" aria-label="Insurance period"><button type="button" data-v="yr" class="on" aria-label="per year">/yr</button><button type="button" data-v="mo" aria-label="per month">/mo</button></span></div></label>
+        <label><span>HOA</span><div class="field"><i>$</i><input id="hoa" data-money value="0"><i class="suf">/mo</i></div></label>
+      </div>
+      <div class="row t-fha">
+        <label><span>Annual MIP rate</span><div class="field"><select id="mipMode"><option value="auto" selected>Auto (HUD table)</option><option value="manual">Override…</option></select></div></label>
+        <label id="mipManualWrap" class="hide"><span>Custom annual MIP</span><div class="field"><input id="mipManual" value="0.55" inputmode="decimal"><i class="suf">%</i></div></label>
+      </div>
+      <div class="row t-conv">
+        <label><span>PMI rate</span><div class="field"><select id="pmiMode"><option value="auto" selected>Auto (typical estimate)</option><option value="manual">Use my quote…</option></select></div></label>
+        <label id="pmiManualWrap" class="hide"><span>Annual PMI from quote</span><div class="field"><input id="pmiManual" value="0.50" inputmode="decimal"><i class="suf">%</i></div></label>
+      </div>
+      <div class="hint t-va" style="margin:-4px 0 12px">VA loans have no monthly mortgage insurance.</div>
+    </div>
+    <div class="card">
       <h2>Your income <em style="font-style:normal;text-transform:none;letter-spacing:0;opacity:.7">(optional — for DTI)</em></h2>
       <div class="row">
         <label><span id="incomeLbl">Gross annual income</span><div class="field"><i>$</i><input id="income" data-money placeholder="before taxes"><span class="perseg" id="incomePer" role="group" aria-label="Income period"><button type="button" data-v="yr" class="on" aria-label="per year">/yr</button><button type="button" data-v="mo" aria-label="per month">/mo</button></span></div></label>
@@ -358,25 +377,6 @@
       <div class="hint" style="margin:-4px 0 12px" id="ccHint"></div>
     </div>
 
-    <div class="card">
-      <h2>Monthly costs</h2>
-      <div class="seg" id="taxMode"><button data-v="pct" class="on">Tax rate %</button><button data-v="amt">Tax $ / year</button></div>
-      <div class="row3">
-        <label id="taxPctWrap"><span>Property tax rate</span><div class="field"><input id="taxPct" value="1.1" inputmode="decimal"><i class="suf">%/yr</i></div></label>
-        <label id="taxAmtWrap" class="hide"><span>Property tax</span><div class="field"><i>$</i><input id="taxAmt" data-money value="3,850"><i class="suf">/yr</i></div></label>
-        <label><span>Homeowners ins.</span><div class="field"><i>$</i><input id="ins" data-money value="1,800"><span class="perseg" id="insPer" role="group" aria-label="Insurance period"><button type="button" data-v="yr" class="on" aria-label="per year">/yr</button><button type="button" data-v="mo" aria-label="per month">/mo</button></span></div></label>
-        <label><span>HOA</span><div class="field"><i>$</i><input id="hoa" data-money value="0"><i class="suf">/mo</i></div></label>
-      </div>
-      <div class="row t-fha">
-        <label><span>Annual MIP rate</span><div class="field"><select id="mipMode"><option value="auto" selected>Auto (HUD table)</option><option value="manual">Override…</option></select></div></label>
-        <label id="mipManualWrap" class="hide"><span>Custom annual MIP</span><div class="field"><input id="mipManual" value="0.55" inputmode="decimal"><i class="suf">%</i></div></label>
-      </div>
-      <div class="row t-conv">
-        <label><span>PMI rate</span><div class="field"><select id="pmiMode"><option value="auto" selected>Auto (typical estimate)</option><option value="manual">Use my quote…</option></select></div></label>
-        <label id="pmiManualWrap" class="hide"><span>Annual PMI from quote</span><div class="field"><input id="pmiManual" value="0.50" inputmode="decimal"><i class="suf">%</i></div></label>
-      </div>
-      <div class="hint t-va" style="margin:-4px 0 12px">VA loans have no monthly mortgage insurance.</div>
-    </div>
   </div>
 
   <!-- RESULTS -->
