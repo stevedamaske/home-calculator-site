@@ -24,7 +24,6 @@
     --bad:#b3261e; --bad-soft:#fbe6e4; --good:#22744a; --good-soft:#e0f2e7;
     --c1:#2f78b5; --c2:#8fb0d6; --c3:#d0913a; --c4:#8e6bb8; --c5:#3f9a68; --c6:#c95f6a; }
   :root[data-theme="light"] select, :root[data-theme="light"] option, :root[data-theme="light"] optgroup{color-scheme:light}
-  :root[data-theme="light"] .typeseg button.on small{color:rgba(255,255,255,.82)}
   .ttl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 4px}
   .ttl h1{margin:0}
   .themebtn{border:1px solid var(--line);background:var(--card);color:var(--muted);font:inherit;font-size:12px;line-height:1.2;padding:4px 10px;border-radius:14px;cursor:pointer}
@@ -73,7 +72,8 @@
   .typeseg button b{display:block;font-size:15px}
   .typeseg button small{color:var(--muted);font-size:12px}
   .typeseg button.on{background:var(--accent);color:var(--on-accent)}
-  .typeseg button.on small{color:rgba(15,23,32,.75)}
+  .typeseg button.on small{color:var(--on-accent)}
+  em[style*="opacity"]{opacity:1!important} /* keep hint text at full contrast (WCAG AA) */
   .results{position:sticky;top:16px}
   .hero{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px}
   .big{font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1}
@@ -135,7 +135,7 @@
   .avail{font-size:13.5px;margin:0 0 10px}
   .prog{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:var(--bg)}
   .prog.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
-  .prog.dim{opacity:.6}
+  .prog.dim{border-style:dashed;background:transparent}
   .prog .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
   .prog .nm{font-weight:600;font-size:14px}
   .prog .ag{font-size:12px;color:var(--muted)}
@@ -168,8 +168,8 @@
   .items .val select{width:39px;padding:4px 1px}
   .items select.payer{width:70px}
   .items td:first-child{min-width:170px}
-  @media (max-width:560px){.items td:first-child{min-width:80px}.items td,.items th{padding:4px 1px}.items .val{width:82px;gap:2px}.items .val input{width:46px;padding:4px 3px}.items .val select{width:34px}.items td.amt{width:60px}.items select.payer{width:60px;padding:4px 2px}.items .x{padding:0 1px}}
-  .items .x{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:15px;padding:0 4px}
+  @media (max-width:560px){.items td:first-child{min-width:80px}.items td,.items th{padding:4px 1px}.items .val{width:80px;gap:2px}.items .val input{width:44px;padding:4px 3px}.items .val select{width:34px}.items td.amt{width:60px}.items select.payer{width:56px;padding:4px 2px}.items .x{padding:0 1px}}
+  .items .x{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:15px;padding:0 4px;min-width:24px;min-height:24px}
   .items tr.grp td{font-weight:600;font-size:12px;color:var(--muted);padding-top:10px;border-bottom:0}
   .items .auto{font-size:11.5px;color:var(--muted)}
   .tag{font-size:10.5px;padding:1px 6px;border-radius:10px;background:var(--warn-soft);color:var(--warn);margin-left:6px;white-space:nowrap}
@@ -413,7 +413,7 @@
       <table id="lifeTable"></table>
       <details>
         <summary>Year-by-year schedule</summary>
-        <div class="amort"><table id="amort"></table></div>
+        <div class="amort" tabindex="0" role="region" aria-label="Year-by-year schedule"><table id="amort"></table></div>
       </details>
       <div class="btns">
         <button class="btn primary" id="copyBtn">Copy summary</button>
@@ -429,7 +429,7 @@
 </footer>
 
 <div class="pop hide" id="helpPop" role="dialog" aria-modal="false" aria-labelledby="helpTitle"><button class="px" type="button" aria-label="Close">×</button><b id="helpTitle"></b><div id="helpText"></div><a id="helpLink" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"></a></div>
-<div class="toast" id="toast">Copied</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
 
 <script src="app.js"></script>
 </body>

@@ -313,9 +313,9 @@
     const info = ccInfo(); if (!info.rows) return;
     const row = r => { const it = r.it;
       const val = it.mode==='calc' ? '<span class="auto">auto</span>'
-        : `<div class="val"><input data-k="value" data-id="${it.id}" value="${esc(it.value)}" inputmode="decimal"><select data-k="mode" data-id="${it.id}"><option value="amt" ${it.mode==='amt'?'selected':''}>$</option><option value="pct" ${it.mode==='pct'?'selected':''}>%</option></select></div>`;
+        : `<div class="val"><input data-k="value" data-id="${it.id}" value="${esc(it.value)}" inputmode="decimal" aria-label="${esc(it.name)} amount"><select data-k="mode" data-id="${it.id}" aria-label="${esc(it.name)}: dollars or percent"><option value="amt" ${it.mode==='amt'?'selected':''}>$</option><option value="pct" ${it.mode==='pct'?'selected':''}>%</option></select></div>`;
       const conc = it.cust==='buyer' && it.payer==='seller' ? '<span class="tag">seller-paid</span>' : '';
-      return `<tr><td><textarea class="nm" rows="1" data-k="name" data-id="${it.id}" title="${esc(it.name)}">${esc(it.name)}</textarea>${it.mode==='pct'?`<div class="auto">of ${it.basis==='loan'?'loan':'price'}</div>`:''}</td><td>${val}</td><td class="amt">${fmt0(r.a)}${conc}</td><td><select class="payer" data-k="payer" data-id="${it.id}"><option value="buyer" ${it.payer==='buyer'?'selected':''}>Buyer</option><option value="seller" ${it.payer==='seller'?'selected':''}>Seller</option></select></td><td><button class="x" title="Remove" data-del="${it.id}">×</button></td></tr>`; };
+      return `<tr><td><textarea class="nm" rows="1" data-k="name" data-id="${it.id}" title="${esc(it.name)}">${esc(it.name)}</textarea>${it.mode==='pct'?`<div class="auto">of ${it.basis==='loan'?'loan':'price'}</div>`:''}</td><td>${val}</td><td class="amt">${fmt0(r.a)}${conc}</td><td><select class="payer" data-k="payer" data-id="${it.id}" aria-label="${esc(it.name)}: paid by"><option value="buyer" ${it.payer==='buyer'?'selected':''}>Buyer</option><option value="seller" ${it.payer==='seller'?'selected':''}>Seller</option></select></td><td><button class="x" title="Remove" data-del="${it.id}">×</button></td></tr>`; };
     const b = info.rows.filter(r => r.it.cust==='buyer'), sl = info.rows.filter(r => r.it.cust==='seller');
     $('itemsTbl').innerHTML = `<tr><th>Item</th><th>Amount</th><th style="text-align:right">$</th><th>Paid by</th><th></th></tr>`
       + `<tr class="grp"><td colspan="5">Buyer's side (lender, title, prepaids)</td></tr>` + b.map(row).join('')
@@ -753,11 +753,16 @@
   let lastSummary = '';
 
   // ---------- render ----------
+  // toggle buttons announce which option is on (screen readers can't see the color)
+  function syncPressed(){
+    document.querySelectorAll('.seg button, .perseg button, .typeseg button').forEach(b => b.setAttribute('aria-pressed', b.classList.contains('on') ? 'true' : 'false'));
+  }
   function calc(){
     syncDown();
     applyProgram();
     renderRateInfo();
     renderDpa();
+    syncPressed();
     const S = readInputs();
     $('results').classList.toggle('noprice', !(S.price > 0));
     const R = compute(loanType, S);
