@@ -17,7 +17,7 @@ deploy.sh           optional manual deploy from a computer
 Cloudflare Workers Builds is connected to this repo. Every push to `main` deploys automatically to itoowouldlikeahouse.com — nothing to run locally.
 
 ## Data refresh
-A scheduled Claude task runs every Friday at 9:30 AM ET. It updates `public/rates.json`, `public/dpa.json` and `public/help.json` (link checks and rule changes in the ⓘ explanations), commits them to `main` as "Data refresh YYYY-MM-DD", and Cloudflare redeploys. It never changes `index.html`, `app.js` or any other file.
+A scheduled Claude task runs every Friday at 5:15 PM ET. It updates `public/rates.json`, `public/dpa.json` and `public/help.json` (link checks and rule changes in the ⓘ explanations), commits them to `main` as "Data refresh YYYY-MM-DD", and Cloudflare redeploys. It never changes `index.html`, `app.js` or any other file.
 
 ## Caching
 - `index.html` and `app.js`: Cloudflare's default `Cache-Control: public, max-age=0, must-revalidate` — browsers check for a new version on every load, so a deploy shows up on the next visit.
